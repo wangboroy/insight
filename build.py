@@ -51,7 +51,7 @@ def parse_md(path: Path):
 
     return {
         "date":  stem, "year": y, "month": m, "day": d,
-        "title": meta.get("title", stem),
+        "title": meta.get("title", f"{y}年{m}月{d}日 AI 摘要"),
         "tags":  [t.strip() for t in meta.get("tags","").split(",") if t.strip()],
         "html":  html, "excerpt": ex,
     }
@@ -130,6 +130,12 @@ header{border-bottom:1px solid var(--b);padding:2rem 0 1.5rem;margin-bottom:3rem
   padding:1.2rem;overflow-x:auto;margin-bottom:1rem}
 .abody pre code{background:none;padding:0;color:var(--t2)}
 .abody hr{border:none;border-top:1px solid var(--b);margin:2rem 0}
+.abody table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.86rem}
+.abody th{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--t3);border-bottom:1px solid var(--b);
+  padding:.6rem .8rem;text-align:left}
+.abody td{color:var(--t2);border-bottom:1px solid var(--b);padding:.6rem .8rem;vertical-align:top}
+.abody tr:hover td{background:rgba(255,255,255,.02)}
 
 .mh{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;
   text-transform:uppercase;color:var(--t3);margin-bottom:2rem}
