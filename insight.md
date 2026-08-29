@@ -109,3 +109,65 @@
 - https://arxiv.org/abs/2608.27328
 - https://www.youtube.com/watch?v=P1zBiAQU1IA
 - https://www.youtube.com/watch?v=djVUCj5i4sw
+
+# 2026-08-29 AI 热点简报
+
+> 覆盖窗口：2026-08-28 08:08 至 2026-08-29 08:08（Europe/Zurich）。本窗口恰逢周末前夜，高质量新增明显少于平日，因此采用短版。已检索公开 X 内容、公司与研究机构官网、arXiv、国际会议官网、The Information 公开摘要、YouTube 及可靠科技媒体；X 上的讨论主要围绕下列已知发布，YouTube 未发现信息增量足够且可独立核验的新视频。模型性能数字均为发布方自报，尚未独立复现。
+
+## 今日重点
+
+### 1. Z.ai 开放 GLM-5.3 权重，Agent 与网络安全能力同步上升
+
+**事实摘要：** Z.ai 在 Hugging Face 发布 GLM-5.3 权重与模型卡；页面显示模型规模约 753B 参数，并支持 Transformers、vLLM、SGLang 等本地部署框架。Z.ai 称 GLM-5.3 与 5.2 使用相同基础模型，能力提升来自扩大后训练，并自报在 Terminal Bench 3.0、Agents' Last Exam、CyberGym 等编码、工具调用和安全基准上显著提升；模型采用专用 `glm-5.3` 许可，而非 Apache/MIT 等常见宽松开源许可。[Hugging Face 模型卡](https://huggingface.co/zai-org/GLM-5.3)｜[技术报告](https://arxiv.org/abs/2602.15763)
+
+**影响判断：** 这次真正的新增是旗舰模型权重落地，而非 8 月 14 日的 API 首发。它扩充了可自托管的强 Agent 模型选择，但“编码能力增强”与“漏洞利用能力增强”来自同一后训练路径，也把部署方的访问控制、审计和模型许可审查推到更高优先级。
+
+### 2. Meta 据报测试用机器人维护数据中心
+
+**事实摘要：** WIRED 援引多名现任和前任员工称，Meta 正在数据中心测试可插拔线缆、重置服务器并承担其他现场维护任务的机器人，使用的供应商包括 Watney Robotics、Kinova 和 ABB。报道未获 Meta 官方公开确认，项目范围、可靠性和商业部署时间均不明确。[WIRED](https://www.wired.com/story/inside-metas-experiments-with-data-center-robots/)
+
+**影响判断：** 如果测试扩大，AI 基础设施会形成一个值得跟踪的闭环：数据中心训练和运行模型，机器人再维护数据中心本身。但在缺少官方技术细节和现场指标前，应把它视为早期工程试验，而非已经替代人工的成熟方案。
+
+### 3. EMNLP 2026 因不可核验引用处分 1,166 名作者
+
+**事实摘要：** EMNLP 2026 程序主席更新论文完整性声明，称含不可核验引用的相关投稿已被拒稿，1,166 名作者不得将这些被拒论文提交至 EMNLP 2026；会议还将建议 EMNLP 2027 对其中 35 名涉及多篇被拒论文的作者实施额外限制，并已把相关稿件转交 ACL 出版伦理委员会。[EMNLP 官方声明](https://2026.emnlp.org/statement-on-the-paper-integrity-policy/)
+
+**影响判断：** 这是顶会开始把生成式 AI 带来的虚构引用和批量低质量投稿问题转化为明确处分机制的信号。后续关键不是处罚规模本身，而是证据复核、申诉透明度以及检测工具误报能否得到可审计治理。
+
+## 分主题动态
+
+### 计算
+
+- **美国政府据报研究限制中国远程使用先进 AI 芯片。** **事实（受限来源公开摘要）：** The Information 称，美国商务部内部一个小组近期在研究相关规则，但公开页面没有提供正式条文、适用对象或生效时间。**判断：** 若落地，出口管制可能从芯片实体流向延伸到跨境云端算力访问；目前只有公开标题与摘要，属于待核实政策信号。[The Information](https://www.theinformation.com/articles/trump-administration-working-ai-rule-curb-chinas-remote-access-chips)
+
+### Agent
+
+- **GLM-5.3 把长程 Agent 与网络安全评测放在同一模型卡中。** **事实：** Z.ai 公布了多项 Agent、自动化、编码和漏洞利用基准，并给出具体评测环境、超时和防作弊设置。**判断：** 相比只报单一排行榜分数，这种披露更便于审查；但结果仍由模型发布方自行测量，跨模型推理速度折算和评测框架选择可能显著影响排名。[Hugging Face 模型卡](https://huggingface.co/zai-org/GLM-5.3)
+
+### 具身智能
+
+- **数据中心成为机器人部署的新型半结构化场景。** **事实：** WIRED 报道的任务包括线缆插拔与服务器复位，既比工厂流水线更不规则，又比家庭环境更受控。**判断：** 这类场景可能比通用家务机器人更早形成可量化 ROI，但必须解决误插拔、静电、远程接管和不停机维护责任。[WIRED](https://www.wired.com/story/inside-metas-experiments-with-data-center-robots/)
+
+## 顶会与论文
+
+- **EMNLP 2026 更新论文完整性政策执行结果。** 官方声明显示，会议已对不可核验引用采取拒稿、作者限制和伦理转介措施；受影响作者可在 2026 年 11 月 7 日前就额外处分提出申诉。该事件值得 NLP 社区持续关注，因为它直接涉及生成式 AI 辅助写作、引用核验和自动检测证据的治理边界。[EMNLP 2026](https://2026.emnlp.org/statement-on-the-paper-integrity-policy/)
+
+## 视频与访谈
+
+过去 24 小时内未发现兼具新信息、可靠来源和足够技术深度的 YouTube 视频或访谈，因此本期不收录。
+
+## 值得继续跟踪
+
+- **GLM-5.3 的第三方复现与许可边界。** 重点观察独立编码/Agent 基准、实际显存与吞吐成本，以及专用许可证对商业部署和衍生模型的限制。[Hugging Face](https://huggingface.co/zai-org/GLM-5.3)
+
+- **Meta 数据中心机器人项目是否公开。** 当前核心信息来自匿名信源；需等待 Meta、供应商或数据中心运营方披露试点规模、事故率和人机协作流程。[WIRED](https://www.wired.com/story/inside-metas-experiments-with-data-center-robots/)
+
+- **美国远程算力访问规则。** 尚无公开草案，适用到云服务、转售算力还是模型训练服务仍不清楚，暂不把报道写成既成政策。[The Information](https://www.theinformation.com/articles/trump-administration-working-ai-rule-curb-chinas-remote-access-chips)
+
+## 来源
+
+- https://huggingface.co/zai-org/GLM-5.3
+- https://arxiv.org/abs/2602.15763
+- https://www.wired.com/story/inside-metas-experiments-with-data-center-robots/
+- https://2026.emnlp.org/statement-on-the-paper-integrity-policy/
+- https://www.theinformation.com/articles/trump-administration-working-ai-rule-curb-chinas-remote-access-chips
