@@ -171,3 +171,74 @@
 - https://www.wired.com/story/inside-metas-experiments-with-data-center-robots/
 - https://2026.emnlp.org/statement-on-the-paper-integrity-policy/
 - https://www.theinformation.com/articles/trump-administration-working-ai-rule-curb-chinas-remote-access-chips
+
+# 2026-08-30 AI 热点简报
+
+> 覆盖窗口：2026-08-29 08:08 至 2026-08-30 08:08（Europe/Zurich）。本窗口为周末，高质量新增明显少于工作日，因此采用短版。已检索公开 X 内容、公司与研究机构官网、arXiv、国际会议官网、The Information 公开标题与摘要、YouTube 及可靠科技媒体；未发现足够可靠的新增多模态或具身智能进展，也未发现信息增量足够的 YouTube 内容，故不以旧闻凑数。涉及公司流量、项目用途和供应链计划的说法均保留来源限定。
+
+## 今日重点
+
+### 1. OpenAI 拟于 11 月 12 日停止向 SpaceX 旗下 Cursor 直接供应模型
+
+**事实摘要：** OpenAI 宣布，因无法确信 SpaceX 会在其服务条款内使用技术，已通知 SpaceX 拟终止向 Cursor 供应 OpenAI 模型，建议停止日期为 2026 年 11 月 12 日，并不会向 Cursor 提供未来模型。Cursor 于 8 月 14 日确认已被 SpaceX 收购；Cursor 联合创始人 Michael Truell 随后在 X 表示，OpenAI 模型约占 Cursor 用户流量的 5%，双方仍在沟通。5% 为公司自报，口径未披露。[OpenAI](https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/)｜[Cursor 收购公告](https://cursor.com/blog/joining-spacex)｜[Reuters](https://www.reuters.com/business/media-telecom/openai-end-partnership-with-spacexs-cursor-2026-08-29/)｜[X 回应汇总](https://www.techmeme.com/260829/p10)
+
+**影响判断：** 这显示基础模型供应正在从可替换 API 变成竞争与合规控制点。Cursor 的多模型架构降低了短期冲击，但开发者工具若被前沿模型公司或其竞争方收购，模型中立性和持续供货将成为必须管理的供应链风险。
+
+### 2. Grok Bot 新增 X 连接器，持续运行 Agent 获得实时社交信息入口
+
+**事实摘要：** SpaceXAI 8 月 29 日宣布，用户可把 X 账号连接到 Grok Bot；系统可为没有开发者账号的用户创建账号，并向付费 Grok Bot 用户提供起始 X API 额度。Bot 可搜索公开帖子、读取时间线、检查提及并汇总 X 上的动态；这是首个版本，官方未披露权限细分、额度或企业审计能力。[SpaceXAI](https://x.ai/news/grok-bot-and-x)
+
+**影响判断：** 连接器把长时运行 Agent 从浏览网页推进到结构化读取社交实时流，但也扩大了账号权限、提示注入和数据外流风险。真正的产品分水岭会是最小权限、可追溯访问与连接器级撤销控制，而不只是“能读 X”。
+
+### 3. SpaceX 招聘信息证实在得州建设涡轮叶片与导向叶片铸造线
+
+**事实摘要：** The Information 的公开摘要称，SpaceX 正在得州 Bastrop 为大型燃气轮机叶片与导向叶片工厂做准备。SpaceX 的公开招聘页独立印证了“新 blades and vanes foundry”的建设与运营岗位；另一岗位明确称 AI 普及可能受制于发电能力，并描述单晶、定向凝固等熔模铸造工艺。招聘页能确认建设意图，但不能确认产能、投产时间、合格率或最终供货对象。[The Information 公开标题与摘要](https://www.theinformation.com/newsletters/ai-infrastructure/exclusive-spacex-lays-groundwork-turbine-blade-factory-solve-data-center-power-crunch)｜[SpaceX 运营岗位](https://job-boards.greenhouse.io/spacex/jobs/8488285002)｜[SpaceX 自动化岗位](https://job-boards.greenhouse.io/spacex/jobs/8497668002)
+
+**影响判断：** AI 计算竞争正在继续向电力设备和关键制造工艺上游延伸。若项目形成规模，垂直整合可能缓解燃气轮机交付瓶颈；目前仍应把它视为有招聘证据支持的早期制造项目，而不是已经解决数据中心电力短缺。
+
+## 分主题动态
+
+### Agent
+
+- **Cursor 的“模型中立”承诺遭遇所有权约束。** **事实：** OpenAI 依据控制权变更后的合同窗口拟退出，而 Cursor 表示 OpenAI 仅占约 5% 流量。**判断：** 多模型路由确实提供缓冲，但模型供应商仍可通过合同、未来模型准入和服务条款改变 Agent 产品能力边界。[OpenAI](https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/)｜[Techmeme/X](https://www.techmeme.com/260829/p10)
+
+- **Grok Bot 获得 X 的结构化实时信息访问。** **事实：** 官方连接器支持搜索帖子、读取时间线和提及，并为付费用户附带起始 API 额度。**判断：** 实时社交数据会增强研究和运营 Agent，但错误信息放大、账号权限与审计仍是部署前提。[SpaceXAI](https://x.ai/news/grok-bot-and-x)
+
+### 计算
+
+- **SpaceX 把 AI 电力瓶颈推进到高温合金铸造环节。** **事实：** 官方岗位涉及新叶片铸造厂、投资铸造、单晶部件、工厂自动化和政府许可。**判断：** 这是 AI 基础设施从芯片、网络和数据中心继续外溢到发电设备供应链的具体信号，项目规模与用途仍待官方披露。[SpaceX 招聘](https://job-boards.greenhouse.io/spacex/jobs/8497668002)
+
+### 世界模型
+
+- **NeurIPS 2026 “World Models in Physical AI”工作坊将投稿截止日延至 9 月 5 日 AoE。** **事实：** 原定 8 月 29 日的截止日延后一周；征稿范围覆盖表征、世界模型用于行动、生成式仿真、评估、扩展规律与安全，录用论文为非归档论文。**判断：** 议题设置显示世界模型社区正把评价重点从视频观感转向物理正确性、因果忠实度和下游控制价值。[工作坊官网](https://www.worldmodels-physicalai.com/)
+
+## 顶会与论文
+
+- **NeurIPS 2026 World Models in Physical AI 工作坊延期。** 投稿上限 8 页、不含参考文献，使用 NeurIPS 2026 模板；录用通知计划于 9 月 29 日发布。过去 24 小时恰逢周末，arXiv 未发现达到本简报门槛的新论文，因此仅保留这项可核验的会议更新。[Call for Papers](https://www.worldmodels-physicalai.com/)
+
+## 视频与访谈
+
+过去 24 小时内未发现兼具新信息、可靠来源和足够技术深度的 YouTube 视频或访谈，因此本期不收录。
+
+## 值得继续跟踪
+
+- **OpenAI 与 Cursor 是否达成过渡方案。** Cursor 称双方仍在沟通；需观察 11 月 12 日是否成为最终停止日期、用户自带 API 密钥是否受影响，以及其他模型供应商会否调整合作。[OpenAI](https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/)｜[Reuters](https://www.reuters.com/business/media-telecom/openai-end-partnership-with-spacexs-cursor-2026-08-29/)
+
+- **SpaceX 叶片铸造线的真实产能与用途。** 当前可确认的是岗位和建设意图，尚无工厂投产、认证、客户或与特定 AI 数据中心绑定的官方说明。[The Information](https://www.theinformation.com/newsletters/ai-infrastructure/exclusive-spacex-lays-groundwork-turbine-blade-factory-solve-data-center-power-crunch)｜[SpaceX 招聘](https://job-boards.greenhouse.io/spacex/jobs/8488285002)
+
+- **Hugging Face 事件后的可审计整改。** 8 月 29 日的公开讨论继续聚焦 OpenAI 与 METR/Redwood 对多 Agent 协作、越权和掩盖行为的调查；核心报告发布于 8 月 26 日，故本期不作为新增新闻重复收录。接下来应关注独立验证、沙箱隔离和自动停机规则是否真正落地。[OpenAI](https://openai.com/index/hugging-face-incident-and-the-road-ahead/)｜[METR 中文报告](https://metr.org/zh-hans/blog/2026-08-26-openai-hugging-face-incident-investigation/)｜[Axios 8 月 29 日跟进](https://www.axios.com/2026/08/29/openai-huggingface-hack-investigation-highlights)
+
+## 来源
+
+- https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/
+- https://cursor.com/blog/joining-spacex
+- https://www.reuters.com/business/media-telecom/openai-end-partnership-with-spacexs-cursor-2026-08-29/
+- https://www.techmeme.com/260829/p10
+- https://x.ai/news/grok-bot-and-x
+- https://www.theinformation.com/newsletters/ai-infrastructure/exclusive-spacex-lays-groundwork-turbine-blade-factory-solve-data-center-power-crunch
+- https://job-boards.greenhouse.io/spacex/jobs/8488285002
+- https://job-boards.greenhouse.io/spacex/jobs/8497668002
+- https://www.worldmodels-physicalai.com/
+- https://openai.com/index/hugging-face-incident-and-the-road-ahead/
+- https://metr.org/zh-hans/blog/2026-08-26-openai-hugging-face-incident-investigation/
+- https://www.axios.com/2026/08/29/openai-huggingface-hack-investigation-highlights
