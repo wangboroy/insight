@@ -242,3 +242,68 @@
 - https://openai.com/index/hugging-face-incident-and-the-road-ahead/
 - https://metr.org/zh-hans/blog/2026-08-26-openai-hugging-face-incident-investigation/
 - https://www.axios.com/2026/08/29/openai-huggingface-hack-investigation-highlights
+
+# 2026-08-31 AI 热点简报
+
+> 覆盖窗口：2026-08-30 08:08 至 2026-08-31 08:08（Europe/Zurich）。本窗口为周日，高质量新增很少，因此采用短版。已检索公开 X 内容、公司与研究机构官网、arXiv、国际会议官网、The Information 公开标题与摘要、YouTube 及可靠科技媒体；公开 X 讨论未提供超出下列来源的可独立核验事实，arXiv 周末没有达到本简报门槛的新论文，YouTube 也未发现信息增量足够的新内容。涉及采购规模、账号攻击范围和机器人交付的数据均保留信源限定。
+
+## 今日重点
+
+### 1. 据报 OpenAI 大量采购 Mac，用于强化学习和电脑操作 Agent
+
+**事实摘要（受限来源公开摘要与匿名信源）：** The Information 报道称，OpenAI 已购买数万台 Mac mini 与 Mac Studio，用于强化学习和训练电脑操作 Agent，并仍在寻求更多设备；Anthropic 据称也通过 AWS 租用 Mac mini。报道同时指出，Mac mini/Studio 的持续散热和统一内存架构使其适合本地 Agent 与部分训练工作负载，但 OpenAI、Anthropic、Apple 和 AWS 尚未公开确认采购数量或具体配置。[The Information](https://www.theinformation.com/articles/apple-stumbled-ai-hardware-success-mac)｜[India Today 转述](https://www.indiatoday.in/technology/news/story/openai-comes-for-macs-after-chips-and-memory-buying-thousands-of-mac-minis-to-train-ai-agents-2983329-2026-08-31)｜[Apple 本地 Agent 技术演讲](https://developer.apple.com/videos/play/wwdc2026/232/)
+
+**影响判断：** 这说明电脑操作 Agent 的训练瓶颈不只在数据中心 GPU，也包括大量可复现的真实桌面环境、系统内存和本地 I/O。若规模得到确认，Apple Silicon 将成为 Agent 训练与本地推理的重要异构计算平台；但“数万台”目前仍是匿名信源说法，不应视为公司披露。
+
+### 2. Anthropic 警告部分 Claude 会话被通用窃密木马盗用
+
+**事实摘要：** BleepingComputer 根据 Anthropic 发给受影响用户的邮件及用户公开截图报道，Vidar、LummaC2、StealC、RedLine、Acreed 和少量 macOS 上的 Atomic Stealer 等通用窃密木马会复制已登录的 Claude 浏览器会话，攻击者随后消耗账号额度。Anthropic 正对已识别用户强制登出、移除保存的支付方式并退还确认的未授权费用；公司在邮件中强调，恶意软件并非由 Claude 安装，也不是 Claude 本身的漏洞。[BleepingComputer](https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-warns-infostealer-malware-is-hijacking-claude-sessions-to-drain-usage/)
+
+**影响判断：** 对高价值 AI 账号而言，浏览器会话令牌正成为与密码同等重要的攻击面；仅修改密码或启用 2FA 未必能撤销已被复制的活动会话。报道尚未给出受影响用户数、攻击持续时间或 Anthropic 的公开安全公告，事件规模仍待核实。
+
+### 3. Faraday Future 称已在中东交付首批 6 台机器人
+
+**事实摘要（公司自报）：** Faraday Future 8 月 30 日通过 Business Wire 表示，其 8 月 28 日启动中东机器人业务后，已完成当地首笔订单的销售与交付，共 2 台人形机器人和 4 台四足机器人。公司还称 RoboShare & Co. 经销计划已开放北美招募，并计划 9 月 19 日发布 Master Mini 等产品；公告未披露客户、合同金额、具体型号、实际任务或运行指标。[公司新闻稿/Business Wire](https://www.businesswire.com/news/home/20260830564142/en/)
+
+**影响判断：** “实际交付”比舞台演示更接近商业验证，但 6 台仍属很小样本，且关键数据完全来自公司自报。判断其具身智能业务是否形成产品市场匹配，需要后续客户确认、复购、任务成功率与售后数据。
+
+## 分主题动态
+
+### Agent
+
+- **电脑操作 Agent 正在形成专用硬件集群。** **事实：** The Information 称 OpenAI 将大量 Mac 用于强化学习和电脑操作训练，Anthropic 则通过 AWS 租用 Mac。**判断：** Agent 基础设施开始从通用 GPU 集群分化出“真实操作系统环境池”；硬件数量与投入仍待各方确认。[The Information](https://www.theinformation.com/articles/apple-stumbled-ai-hardware-success-mac)
+
+- **会话令牌成为 AI 账号的关键安全边界。** **事实：** Anthropic 发给受影响用户的邮件称，攻击者从通用窃密木马收集的数据中筛选 Claude 会话并盗用额度。**判断：** 企业部署需要把全局登出、设备会话清单、短期令牌和异常用量告警纳入默认控制，而不能只依赖密码与 2FA。[BleepingComputer](https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-warns-infostealer-malware-is-hijacking-claude-sessions-to-drain-usage/)
+
+### 计算
+
+- **Apple Silicon 获得新的 AI 基础设施角色。** **事实：** Apple 已公开展示以 MLX 在 Mac 上运行本地 Agent、结构化工具调用和多机推理；The Information 的新增报道进一步把这一趋势延伸到前沿实验室的强化学习环境。**判断：** 统一内存和完整桌面系统是其差异化优势，但这不等于 Mac 会替代大规模 GPU 预训练集群。[Apple WWDC26](https://developer.apple.com/videos/play/wwdc2026/232/)｜[多机 MLX 演讲](https://developer.apple.com/videos/play/wwdc2026/233/)
+
+### 具身智能
+
+- **Faraday Future 报告中东首单交付。** **事实：** 公司称交付 2 台人形与 4 台四足机器人，并将于 9 月继续发布新产品。**判断：** 这是小规模商业信号，不足以证明技术成熟或规模化能力；应等待客户侧证据与任务指标。[Business Wire](https://www.businesswire.com/news/home/20260830564142/en/)
+
+## 顶会与论文
+
+过去 24 小时恰逢周末，arXiv 与主要国际顶会官网未发现达到本简报收录门槛的新论文、奖项、议程或重要公告，因此本期不以较早论文或常规截止日期凑数。
+
+## 视频与访谈
+
+过去 24 小时内未发现兼具新信息、可靠来源和足够技术深度的 YouTube 视频或访谈，因此本期不收录。
+
+## 值得继续跟踪
+
+- **OpenAI 与 Anthropic 的 Mac 使用规模。** 需等待公司、Apple 或 AWS 确认硬件数量、配置、实际工作负载和对供应链的影响；当前核心数字来自 The Information 匿名信源。[The Information](https://www.theinformation.com/articles/apple-stumbled-ai-hardware-success-mac)
+
+- **Claude 会话盗用事件的范围与技术整改。** 重点关注 Anthropic 是否发布正式安全公告、是否提供全局会话撤销和设备清单，以及攻击者是否接触了聊天内容或仅消耗额度；当前公开证据不足以判断影响范围。[BleepingComputer](https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-warns-infostealer-malware-is-hijacking-claude-sessions-to-drain-usage/)
+
+- **Faraday Future 机器人的客户侧验证。** 后续需核实中东客户、合同金额、机器人来源、具体任务、复购和现场可靠性；在此之前，仅将 6 台交付视为公司披露的早期商业信号。[Business Wire](https://www.businesswire.com/news/home/20260830564142/en/)
+
+## 来源
+
+- https://www.theinformation.com/articles/apple-stumbled-ai-hardware-success-mac
+- https://www.indiatoday.in/technology/news/story/openai-comes-for-macs-after-chips-and-memory-buying-thousands-of-mac-minis-to-train-ai-agents-2983329-2026-08-31
+- https://developer.apple.com/videos/play/wwdc2026/232/
+- https://developer.apple.com/videos/play/wwdc2026/233/
+- https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-warns-infostealer-malware-is-hijacking-claude-sessions-to-drain-usage/
+- https://www.businesswire.com/news/home/20260830564142/en/
