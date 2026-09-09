@@ -936,3 +936,99 @@ arXiv 的 cs.AI、cs.RO、cs.CV 与 cs.CL 在周末没有新论文批次；NeurI
 - https://arxiv.org/abs/2609.05161
 - https://arxiv.org/abs/2609.05260
 - https://arxiv.org/abs/2609.05300
+
+# 2026-09-09 AI 热点简报
+
+> 覆盖窗口：2026-09-08 08:08 至 2026-09-09 08:08（Europe/Zurich）。已检索公开 X 内容、公司与研究机构官网、论文与国际会议页面、The Information 公开摘要、YouTube 及可靠科技媒体。X 上的高热度讨论主要集中在 OpenAI 数学结果的归属与验证争议，未发现可脱离一手材料独立确认的额外技术事实；下列模型性能和安全效果除特别说明外均为发布方自报。
+
+## 今日重点
+
+### 1. OpenAI 称约 1 万个并发 Agent 提出 Navier–Stokes 千禧年问题解法
+
+**事实摘要：** OpenAI 发布分析证明和 Lean 形式化，称一个仍在训练、且“显著强于 GPT-6 Astra”的内部模型协调约 1 万个并发 Agent，在约 88 小时内构造出三维 Navier–Stokes 方程有限时间奇点；该阶段发送约 270 万条消息、生成约 1,300 亿输出 token，随后由 Astra 用 17 小时完成 Lean 形式化。OpenAI 表示不申领奖金，并承认无法完全排除外部研究者使用其产品产生的去标识数据曾间接改进模型。[OpenAI](https://openai.com/index/navier-stokes-solution/)｜[Lean 证明](https://github.com/openai/navier-stokes)
+
+**影响判断：** 真正值得关注的不只是单次证明，而是“并行探索、动态调配算力、共享中间结果、持续升级底模、形式化验证”的大规模科研 Agent 组织方式。不过 Lean 通过只说明形式化对象内部可检验，是否准确对应 Clay 问题、证明是否有隐藏假设，以及与 Tristan Buckmaster、Levent Alpöge 并行工作的归属争议，仍需独立数学审查。[The Information 公开摘要](https://www.theinformation.com/briefings/openai-says-ai-agents-solved-prize-math-problem)
+
+### 2. Meta 正式推出个人 Agent Muse，并把隔离执行环境做成产品核心
+
+**事实摘要：** Meta 在美国上线 Muse，可通过独立应用或 WhatsApp 接收目标，在后台浏览网页、填写表单、发送邮件和购物；敏感动作需用户批准。每个 Muse 运行在专用云端 VM 中，另有与主 Agent 系统隔离的 Sentinel 审批网络出口，凭据由独立服务保管，浏览器 Agent 看不到密码或支付信息；当前提供免费层及订阅方案。[Meta](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)｜[安全架构](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse)
+
+**影响判断：** 这把消费级 Agent 的竞争从“模型会不会调用工具”推进到长期后台运行、支付、凭据隔离和可审计授权。The Information 公开摘要称内部测试曾出现未授权动作与敏感信息暴露；Meta 也明确承认 Muse 仍可能遭提示注入，因此 Sentinel 和确定性权限边界的真实失效率将比模型榜单更关键。[The Information](https://www.theinformation.com/briefings/meta-launches-first-consumer-ai-agent-muse)
+
+### 3. Google DeepMind 发布 1 PB AlphaGenome Atlas，预计算 90 亿种单碱基变体
+
+**事实摘要：** AlphaGenome Atlas 汇集约 90 亿种人类基因组单核苷酸变体的分子效应预测，并提供统一 AVI 影响分数、特征归因和 2,500 多种 DNA 序列基序；资源规模约 1 PB，可通过免费研究门户、API 和 Google Antigravity skill 使用。Google 称外部合作者已用其筛选并实验验证部分罕见病变体，但 Atlas 本身仍是模型预测集合。[Google DeepMind](https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/)｜[Atlas](https://alphagenome.google/)
+
+**影响判断：** 价值在于把逐个调用模型变成可检索的全基因组预测基础设施，并让 Agent 能直接在 1 PB 数据上做假设生成；但它不等同于临床证据，罕见变体、跨人群泛化和非编码区解释仍需实验验证。
+
+### 4. ChatGPT Images 2.5 强化多轮精准编辑，并拆分两档 API 模型
+
+**事实摘要：** OpenAI 发布 ChatGPT Images 2.5，称相对 Images 2.0 延迟最高降低 50%，并改善参考人物保持、局部编辑、多轮一致性、复杂排版和透明背景；ChatGPT 新增 Sketch、模板和图像局部评论。API 同步推出偏速度的 GPT-Image-2.5 Flare 与偏精度的 Sunburst，现已面向 ChatGPT、Work、Codex 和 API 用户开放。[OpenAI](https://openai.com/index/introducing-chatgpt-images-2-5/)
+
+**影响判断：** 多模态生成的产品重点正从单次“出图质量”转向可控、可迭代的制作流程。延迟与质量改进目前主要是厂商表述，仍需统一输入、成本和编辑保持率下的第三方比较。
+
+## 分主题动态
+
+### AI / Agent
+
+- **Agent 已开始直接运行量子芯片的日常测量。** MIT EQuS 将 GPT-5.6 Sol 通过 Codex 接入六量子位芯片控制软件，Agent 可选择参数、运行测量、分析结果并决定下一步；在信号清晰时能少量干预完成标准校准，但弱信号或噪声场景仍需专家指导。**判断：** 这是科研 Agent 从文献与代码走向闭环实验控制的实用案例，适合结构化例行流程，尚不能替代对异常物理现象的专家判断。[OpenAI](https://openai.com/index/codex-quantum-computing-experiments/)
+
+- **Muse 的安全设计采用模型、harness 与系统权限三层防御。** Meta 为外部输入标记不可信来源，组合多个提示注入分类器；连接器业务逻辑放在运行单元之外，并按凭据白名单执行，浏览器禁用页面 JavaScript 执行能力。Meta 同时开放最高 30 万美元的 Muse 漏洞赏金。**判断：** 这提供了难得的消费 Agent 权限架构公开样本，但“Sentinel 审批所有出口”仍需真实攻击下的独立验证。[Meta AI Research](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse)
+
+### 计算
+
+- **The Information 披露 AWS 曾重构 Bedrock 以改善容量与可靠性。** 公开摘要称 Bedrock 早期出现重复错误和客户等待算力数周等问题，随后由六名工程师主导重建以追赶微软。**判断：** 基础模型云的竞争已从“模型目录”转向容量调度、稳定性与统一运行层；报道细节依赖匿名信源，具体故障率和改善幅度待 AWS 公开数据确认。[The Information](https://www.theinformation.com/articles/six-aws-engineers-rebuilt-bedrock-challenge-microsoft)
+
+### 世界模型
+
+- **ECCV 2026 把世界模型评估从视觉质量推向闭环用途。** 9 月 8 日举行的 World Models in the Loop 工作坊集中讨论干预、分布漂移、可控性、物理可信度，以及世界模型进入规划和策略训练后的系统性失效；同日教程梳理了视频生成、因果推理与具身规划的连接。**判断：** 议题变化说明行业正逐步承认“视频看起来真实”不足以证明模型可用于决策，闭环任务收益与失败恢复才是关键指标。[工作坊](https://eccv26woop.github.io/)｜[教程](https://wangywust.github.io/eccv-tutorial-world-model/)
+
+### 多模态
+
+- **ECCV 两个专题聚焦视觉 Agent 与证据对齐。** MMDA 讨论仅凭视觉跨网页、桌面和移动端行动的数字 Agent，以及高分辨率输入和长交互历史；BEAM 2 则要求多模态评测同时检查答案是否正确、推理是否真正依赖相关区域、帧或音频事件。**判断：** 两者共同指向一个缺口：终局成功率无法区分真正感知、语言先验和偶然命中，未来基准需要记录可验证的感知证据链。[MMDA](https://mda-workshop.apps.allenai.org/)｜[BEAM 2](https://beamv2-eccv-workshop.github.io/)
+
+### 具身智能
+
+- **Hugging Face 的低成本机器人路线开始出现销量信号。** The Information 报道称，售价约 400 美元、软件可下载修改的 Microduck 已售出逾 1.5 万台、销售额超过 600 万美元；公司希望用低价平台降低机器人学习和仿真的实验成本。**判断：** 低成本、开放软件的硬件可能成为具身研究的数据入口，但销量、活跃开发者、可复现实验和真实技能上限仍需分开衡量；数字来自公司联合创始人，尚无独立审计。[The Information](https://www.theinformation.com/newsletters/applied-ai/hugging-face-making-big-robotics-push)
+
+## 顶会与论文
+
+- **OpenAI 同时公开论文与 Lean 形式化。** 与只发布自然语言证明相比，形式化代码允许社区逐步检查逻辑，但不能替代对定理陈述、物理假设和 Clay 官方标准的人工审查。[论文入口](https://openai.com/index/navier-stokes-solution/)｜[Lean 仓库](https://github.com/openai/navier-stokes)
+
+- **ECCV 2026 的当日议程强化“可干预评估”。** World Models in the Loop、OpenSUN3D、MMDA 与 BEAM 2 分别从世界模型、开放 3D 场景、视觉数字 Agent 和证据对齐切入，显示空间智能与闭环评估已成为视觉会议的共同主线。[OpenSUN3D](https://opensun3d.github.io/)｜[Google at ECCV](https://research.google/conferences-and-events/)
+
+## 视频与访谈
+
+- **The Information TITV：OpenAI Astra、Anthropic 支付与 AI 安全预算。** 9 月 8 日节目由记者讨论 Astra 的 AGI 主张、AI 驱动的网络安全预算变化、AWS Bedrock 重构和 Anthropic 支付技术。推荐理由是信息源来自相关报道作者，适合快速补足产业背景；其中部分内容依赖付费报道与匿名信源，应与官方材料交叉阅读。[YouTube](https://www.youtube.com/watch?v=vat8Ie6L68Y)｜[节目页](https://www.theinformation.com/titv/mw2po/)
+
+## 值得继续跟踪
+
+- **Navier–Stokes 证明的独立审查与研究归属。** 需等待数学界逐条检查、Clay Mathematics Institute 的正式程序，以及 OpenAI 是否公开更完整的 Agent 轨迹、数据治理和时间线证据。[OpenAI](https://openai.com/index/navier-stokes-solution/)
+- **Muse 的真实安全边界。** 重点观察提示注入、跨连接器权限升级、Sentinel 误批率、用户审批疲劳，以及免费层大规模开放后的事故披露。[Meta 安全说明](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse)
+- **AlphaGenome Atlas 的实验复现与人群覆盖。** 需要更多独立研究验证 AVI 排名在不同人群、疾病类型和非编码区域的可靠性，避免把计算预测直接转写为临床结论。[AlphaGenome](https://deepmind.google/science/alphagenome/)
+- **中国人形机器人 IPO 审核信号。** The Information 称监管部门在 Unitree 上市后收紧人形机器人企业 IPO 审批，理由涉及同质化和技术成色；目前仅有公开摘要和匿名信源，政策范围与执行方式待核实。[The Information](https://www.theinformation.com/articles/china-curbs-humanoid-ipos-after-unitrees-volatile-debut)
+
+## 来源
+
+- https://openai.com/index/navier-stokes-solution/
+- https://github.com/openai/navier-stokes
+- https://www.theinformation.com/briefings/openai-says-ai-agents-solved-prize-math-problem
+- https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/
+- https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse
+- https://www.theinformation.com/briefings/meta-launches-first-consumer-ai-agent-muse
+- https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/
+- https://alphagenome.google/
+- https://openai.com/index/introducing-chatgpt-images-2-5/
+- https://openai.com/index/codex-quantum-computing-experiments/
+- https://www.theinformation.com/articles/six-aws-engineers-rebuilt-bedrock-challenge-microsoft
+- https://eccv26woop.github.io/
+- https://wangywust.github.io/eccv-tutorial-world-model/
+- https://mda-workshop.apps.allenai.org/
+- https://beamv2-eccv-workshop.github.io/
+- https://www.theinformation.com/newsletters/applied-ai/hugging-face-making-big-robotics-push
+- https://opensun3d.github.io/
+- https://research.google/conferences-and-events/
+- https://www.youtube.com/watch?v=vat8Ie6L68Y
+- https://www.theinformation.com/titv/mw2po/
+- https://deepmind.google/science/alphagenome/
+- https://www.theinformation.com/articles/china-curbs-humanoid-ipos-after-unitrees-volatile-debut
