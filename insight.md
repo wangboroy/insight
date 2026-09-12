@@ -1240,3 +1240,78 @@ arXiv 的 cs.AI、cs.RO、cs.CV 与 cs.CL 在周末没有新论文批次；NeurI
 - https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai/
 - https://eccv.ecva.net/
 - https://research.google/conferences-and-events/google-at-eccv-2026/
+
+# 2026-09-12 AI 热点简报
+
+> 覆盖窗口：2026-09-11 08:08 至 2026-09-12 08:08（Europe/Zurich）。本窗口临近周末，高质量新增较少，因此采用短版。已检索公开 X 内容、公司与研究机构官网、arXiv、ECCV 2026 官方页面、The Information 公开摘要与 TITV、YouTube 及可靠科技媒体。X 上未发现能独立核验、且超出下列一手材料的新增技术事实；arXiv 在窗口内没有新一批公开发布，ECCV 奖项截至窗口结束仍未公布。下列规模、效率与业务效果数字除特别说明外均为发布方自报。
+
+## 今日重点
+
+### 1. OpenAI 披露 Habitat：每秒 7,000 万次请求、500 PB 数据，并由 Codex 辅助迁移到 Rust
+
+**事实摘要：** OpenAI 首次系统介绍支撑 ChatGPT、API 与 Codex 的在线存储平台 Habitat，称其覆盖近 40 个区域、服务每周超过 10 亿用户并管理逾 500 PB 数据。Habitat 从 Python 客户端库演化为统一服务，在中心层处理路由、授权、加密、隔离、限流和审计；2026 年第二季度，两名工程师借助 Codex 与 GPT-5.5 将服务重写为 Rust，现承载 95% 的生产请求，OpenAI 自报 CPU 效率提高 6 倍、内存效率提高 15 倍。[OpenAI](https://openai.com/index/scaling-storage-one-billion-users-part-one/)
+
+**影响判断：** 这组数据说明前沿 AI 产品的瓶颈已不仅是 GPU，而是高并发状态、权限与数据驻留。更值得注意的是 Agent 同时成为迁移工具和需要被存储控制面限制的访问主体；但所有规模与效率数字来自 OpenAI，文章未给出第三方审计、绝对成本或故障率。
+
+### 2. Salesforce 将 Agentforce 推向“跨数周运行”，并发布七类预置业务 Agent
+
+**事实摘要：** Salesforce 发布面向客服、IT/HR、购物、销售、供应链等场景的七类预置 Agent，其中多数已正式可用；销售 Agent Hunter 处于试点，计划 11 月正式上线。新的长程运行时用跨会话记忆、持久执行和动态 steering 让 Agent 按目标工作数天或数周，并以人工批准边界约束自主行动；多 Agent 编排已正式可用，AI Skills 和 Agent Optimizer 分别计划于 10 月正式上线。[Salesforce](https://www.salesforce.com/in/news/stories/agentforce-job-ready-ai-agents/)
+
+**影响判断：** 企业 Agent 的竞争正在从单轮问答和单次流程转向长期状态、恢复、权限与可审计执行。Salesforce 列出的 7 billion Agentic Work Units 和客户自动化比例没有统一任务难度、失败率或人工接管口径，适合作为采用信号，而不能直接当作可靠性证明。
+
+### 3. 美国能源部公开 Genesis Mission 项目组合，科研 Agent 已进入加速器与核能设计工作流
+
+**事实摘要：** 美国能源部 9 月 11 日更新 Genesis Mission 国家科学与技术挑战页面：Berkeley Lab 的 Osprey Agent 平台已安装在八座设施，并由七家国家实验室共同开发；SLAC 称 Agent 工作流与数字孪生已使部分束流预测提速超过一百万倍。Idaho National Laboratory 牵头的 Prometheus 则让 Agent 协调核反应堆工程、许可、制造和施工，并提出设计与许可提速 10 倍、制造提速 3 倍的目标。[美国能源部](https://www.energy.gov/undersecretaryforscience/genesis-mission/genesis-mission-national-science-and-technology-challenges)
+
+**影响判断：** 这是科研 Agent 从代码和文献处理进入高价值物理设施与监管流程的政策级信号。页面混合了已部署事实、内部测量和未来目标，尤其是“百万倍提速”针对预测环节而非整个实验周期，不能外推为全流程生产率。
+
+### 4. Tempus 启动疾病导向的多模态全基因组数据计划，首期目标 10 万例
+
+**事实摘要：** Tempus 宣布建设 10 万份疾病特异全基因组序列，并与纵向临床记录、影像、病理和结局数据关联；长期目标为 100 万份。初始数据已向 Early Adopter Program 开放，计划 2027 年中普遍可用；研究者可在 Tempus Lens 内分析并训练或验证模型，避免在系统间移动原始数据。[Tempus 公告](https://investors.tempus.com/node/10676/pdf)
+
+**影响判断：** 对医疗多模态模型，真正稀缺的是与治疗过程和结局对齐的数据，而非单独扩大基因序列数量。该项目仍处建设期，样本代表性、去标识风险、数据访问条件和独立验证将决定其科研价值，不能把目标规模写成已经完成的数据集。
+
+## 分主题动态
+
+### AI / Agent
+
+- **长程 Agent 的产品化重点转向“可恢复执行”。** Salesforce 把记忆、持久运行、动态调整、确定性规则和人工批准放在同一运行时中，并允许专门 Agent 跨系统协作。**判断：** 接下来更有意义的指标应是跨天任务完成率、恢复时间、越权率和人工接管成本，而不是累计调用量。[Salesforce](https://www.salesforce.com/in/news/stories/agentforce-job-ready-ai-agents/)
+
+- **科研 Agent 正与真实设备控制和高风险工程流程结合。** DOE 列出的 Osprey、Prometheus 与 SLAC 工作流覆盖加速器控制、故障预测、数字孪生和核能项目协调。**判断：** 这些场景对模型能力之外的权限、实时性、可回滚操作和监管责任提出更严格要求。[DOE](https://www.energy.gov/undersecretaryforscience/genesis-mission/genesis-mission-national-science-and-technology-challenges)
+
+### 计算
+
+- **OpenAI 把在线数据平台集中为安全与可靠性的控制点。** Habitat 用受限 NoSQL API避免无界查询，并集中执行访问控制、审计、数据驻留和多租户隔离；工程团队还通过 FIFO 连接复用打破流量向慢实例集中的亚稳态故障反馈。**判断：** 面向 Agent 的基础设施需要同时控制查询成本和行动权限，存储层正在成为新的安全边界。[OpenAI](https://openai.com/index/scaling-storage-one-billion-users-part-one/)
+
+### 多模态
+
+- **Tempus 试图把基因组、临床时间线、影像与病理变成模型就绪环境。** 初始数据并非公开下载，而是通过受控项目与分析平台提供。**判断：** 这有利于减少数据搬运，但平台内访问并不自动解决偏差、隐私重识别和外部可复现性问题。[Tempus](https://investors.tempus.com/node/10676/pdf)
+
+## 顶会与论文
+
+- **ECCV 2026 主会继续进行，但奖项尚未公开。** 官方站显示主会于 9 月 10 至 12 日在马尔默举行，窗口结束时 Awards 页面仍标注“coming soon”；因此本期不根据社交媒体或参会者帖子推断获奖结果。[ECCV 2026](https://eccv.ecva.net/)
+
+- **严格落窗内没有新的 arXiv 发布批次。** arXiv 的 9 月 11 日 cs.AI 列表已在上一期覆盖，且其中多篇重点论文已收录；本期不把同一批次重复写入。[arXiv cs.AI recent](https://arxiv.org/list/cs.AI/recent)
+
+## 视频与访谈
+
+- **The Information TITV：Oracle 云、Baseten–Blaxel 与 Blackstone 的 TPU 融资。** 9 月 11 日节目邀请 Baseten 联合创始人讨论收购 Blaxel 后的 Agent 沙箱与推理平台整合，并由记者梳理 Blackstone–Google TPU 合资项目的融资结构。推荐给关注“模型服务 + 有状态执行环境”和 AI 基础设施资本结构的读者；节目中的财务细节部分来自受限报道，应与公司公告分开看待。[节目页](https://www.theinformation.com/titv/gxijn)｜[YouTube](https://www.youtube.com/watch?v=pAMXJmUmwrc)
+
+## 值得继续跟踪
+
+- **Habitat Rust 迁移的完整成本与可靠性数据。** OpenAI 尚未披露绝对 CPU/内存用量、p99 延迟、迁移故障或单请求成本，并预告后续文章解释多租户可靠性与存储层。[OpenAI](https://openai.com/index/scaling-storage-one-billion-users-part-one/)
+- **Salesforce 长程 Agent 的真实失效率。** Hunter 尚处试点，应关注跨周目标漂移、审批疲劳、重复执行、撤销机制和统一口径的端到端任务成功率。[Salesforce](https://www.salesforce.com/in/news/stories/agentforce-job-ready-ai-agents/)
+- **DOE 项目指标的边界与独立评估。** Osprey 的设施覆盖、SLAC 的预测加速和 Prometheus 的未来目标需要区分已部署范围、子任务性能与全流程收益。[DOE](https://www.energy.gov/undersecretaryforscience/genesis-mission/genesis-mission-national-science-and-technology-challenges)
+- **Tempus 数据集的代表性与隐私治理。** 需等待疾病分布、人口结构、纵向随访完整度、访问协议和外部验证规则公开。[Tempus](https://investors.tempus.com/node/10676/pdf)
+- **ECCV 2026 正式奖项。** 会议将在窗口后结束，下一期只在官方页面公布结果后收录，避免依据现场传闻提前判断。[ECCV](https://eccv.ecva.net/)
+
+## 来源
+
+- https://openai.com/index/scaling-storage-one-billion-users-part-one/
+- https://www.salesforce.com/in/news/stories/agentforce-job-ready-ai-agents/
+- https://www.energy.gov/undersecretaryforscience/genesis-mission/genesis-mission-national-science-and-technology-challenges
+- https://investors.tempus.com/node/10676/pdf
+- https://eccv.ecva.net/
+- https://arxiv.org/list/cs.AI/recent
+- https://www.theinformation.com/titv/gxijn
+- https://www.youtube.com/watch?v=pAMXJmUmwrc
