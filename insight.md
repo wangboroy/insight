@@ -1315,3 +1315,57 @@ arXiv 的 cs.AI、cs.RO、cs.CV 与 cs.CL 在周末没有新论文批次；NeurI
 - https://arxiv.org/list/cs.AI/recent
 - https://www.theinformation.com/titv/gxijn
 - https://www.youtube.com/watch?v=pAMXJmUmwrc
+
+# 2026-09-13 AI 热点简报
+
+> 覆盖窗口：2026-09-12 08:08 至 2026-09-13 08:08（Europe/Zurich）。本窗口为周末，高质量新增很少，因此采用短版。已检索公开 X 内容、公司与研究机构官网、arXiv、ECCV 2026 官方页面、The Information 公开摘要、YouTube 与可靠科技媒体。除下述围绕“放慢前沿 AI”的提案及响应外，未发现同时满足时间窗口、可核验性与实质增量要求的新发布；不以旧闻或二次解读凑数。文中的 6 至 12 个月风险时间表是 Dario Amodei 的预测，不是已经验证的事实。
+
+## 今日重点
+
+### 1. Dario Amodei 提议“放慢前沿 AI”，Anthropic 承诺引入常驻外部评估者
+
+**事实摘要：** Anthropic CEO Dario Amodei 发布《We Must Pace the Frontier》，提出三层方案：前沿实验室给予独立评估团队持续、类似员工的内部访问；民主国家的公司在共同安全标准下协调能力推进节奏；民主国家政府再尝试与威权国家就共同风险协调，优先从禁止 AI 协助开发生物武器等事项着手。他称 Anthropic 将单方面落实第一层安排，包括为评估者提供办公桌、门禁与公司电脑；其关于 6 至 12 个月内 Agent 集群可能形成大规模持久僵尸网络的说法属于风险预测。[Dario Amodei 原文](https://darioamodei.com/post/we-must-pace-the-frontier)｜[AP 交叉报道](https://apnews.com/article/anthropic-ai-dario-amodei-d59552edcb27892d8ee4d98a48397706)
+
+**影响判断：** 真正可检验的新增不是“放慢”口号，而是把外部评估从发布前测试推进到持续驻场监督。其价值取决于评估者的独立性、可访问范围、发现披露权和冲突处理机制；跨公司协调还面临反垄断、国际互信及开放模型治理等难题，目前并无可执行的统一标准或时间表。
+
+### 2. Sam Altman 表示 OpenAI 也将开放持续外部评估；Musk 公开支持提案
+
+**事实摘要：** Sam Altman 在 X 上表示认同“pace the frontier”，并称 OpenAI 将同样向外部评估者提供访问、稍后披露更多细节；Elon Musk 则简短表示支持。The Information 的公开简报与 AP 均确认这组回应；Altman 同日还称 OpenAI 不会在 2026 年上市，并把安全、对齐及行业与政府协作列为当前优先事项。[Altman 的 X 帖子](https://x.com/sama/status/2098811563415150910)｜[The Information 公开简报](https://www.theinformation.com/briefings/amodei-calls-ai-companies-coordinate-safety)｜[AP](https://apnews.com/article/anthropic-ai-dario-amodei-d59552edcb27892d8ee4d98a48397706)
+
+**影响判断：** 两家前沿实验室的公开承诺让“嵌入式独立评估”有机会成为行业基线，但 OpenAI 尚未公布评估机构、权限、保密边界、公开报告权或启动日期。Musk 的表态没有配套执行承诺，因此不能与 Anthropic、OpenAI 的具体承诺等量齐观。
+
+## 分主题动态
+
+### AI / Agent
+
+- **前沿能力治理开始从一次性评测转向持续监督。** **事实：** Amodei 的方案要求评估者获得持续、类似员工的访问，而不是只在模型发布前接触有限检查点；Anthropic 已作单方面承诺，OpenAI 表示将跟进。**判断：** 这可能提高事故发现与复核能力，但也会引出谁选择评估者、谁支付费用、评估结果能否无审查发布以及商业机密如何处理等治理问题。[Dario Amodei](https://darioamodei.com/post/we-must-pace-the-frontier)｜[AP](https://apnews.com/article/anthropic-ai-dario-amodei-d59552edcb27892d8ee4d98a48397706)
+
+- **X 上的高热度讨论主要围绕可执行性与竞争动机。** **事实：** Altman公开承诺跟进，Musk公开支持；同时部分投资者与开发者质疑提案可能集中市场权力。**判断：** 支持和质疑都属于观点，不能替代对访问权限、评估结果与研发节奏的后续证据；本期不把未附新事实的帖子单独列为新闻。[Axios](https://www.axios.com/2026/09/12/anthropic-ai-amodei-pacing)
+
+## 顶会与论文
+
+- **ECCV 2026 主会结束，官方奖项仍待发布。** 官方站显示主会于 9 月 10 至 12 日在马尔默举行；截至本窗口结束，Awards 入口仍标注“coming soon”，因此不根据现场帖子推断获奖结果。[ECCV 2026](https://eccv.ecva.net/)
+
+- **arXiv 周末无新发布批次。** 9 月 11 日公开的 cs.AI 等列表已在前一期覆盖，本窗口内没有新的工作日批次；为避免重复，本期不再次收录旧论文。[arXiv cs.AI recent](https://arxiv.org/list/cs.AI/recent)
+
+## 视频与访谈
+
+过去 24 小时内检索到的 YouTube 内容主要是对 Amodei 提案或本周既有发布的二次评论，未发现兼具一手信息、技术深度和独立增量的新视频，因此本期不收录。
+
+## 值得继续跟踪
+
+- **嵌入式评估者的制度细节。** 重点等待 Anthropic 与 OpenAI 公布评估团队身份、访问范围、模型与训练过程权限、事故上报渠道、公开发表权以及正式启动时间。[Dario Amodei](https://darioamodei.com/post/we-must-pace-the-frontier)｜[Altman X 帖子](https://x.com/sama/status/2098811563415150910)
+
+- **“放慢前沿能力”的可操作定义。** 当前提案没有给出统一算力阈值、能力门槛、暂停条件、审计方式或恢复标准；跨公司协调还需要处理反垄断豁免与国际验证问题。[The Information](https://www.theinformation.com/briefings/amodei-calls-ai-companies-coordinate-safety)
+
+- **ECCV 2026 正式奖项。** 只在会议官方页面更新后收录论文与奖项，避免依据社交媒体现场信息提前下结论。[ECCV](https://eccv.ecva.net/)
+
+## 来源
+
+- https://darioamodei.com/post/we-must-pace-the-frontier
+- https://x.com/sama/status/2098811563415150910
+- https://apnews.com/article/anthropic-ai-dario-amodei-d59552edcb27892d8ee4d98a48397706
+- https://www.theinformation.com/briefings/amodei-calls-ai-companies-coordinate-safety
+- https://www.axios.com/2026/09/12/anthropic-ai-amodei-pacing
+- https://eccv.ecva.net/
+- https://arxiv.org/list/cs.AI/recent
