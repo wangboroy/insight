@@ -1424,3 +1424,118 @@ arXiv 的 cs.AI、cs.RO、cs.CV 与 cs.CL 在周末没有新论文批次；NeurI
 - https://darioamodei.com/post/we-must-pace-the-frontier
 - https://eccv.ecva.net/
 - https://arxiv.org/list/cs.AI/recent
+
+# 2026-09-15 AI 热点简报
+
+> 覆盖窗口：2026-09-14 08:08 至 2026-09-15 08:08（Europe/Zurich）。已检索公开 X 内容、公司与研究机构官网、arXiv、国际会议页面、The Information 公开标题与摘要、YouTube 及可靠媒体，并与近期简报去重。Atria Dawn 的权重早于本窗口上线，但正式论文与官方公开发布进入本窗口，因此仅把论文和发布信息视为今日新增。公司与论文性能数据均为发布方或作者自报，尚未独立复现；匿名信源报道均明确标注。
+
+## 今日重点
+
+### 1. Microsoft AI 发布“Humanist AI”行为准则草案，把可中断和可关闭写成模型硬约束
+
+**事实摘要：** Microsoft AI 发布面向 MAI 自研模型的首版行为准则，并开放六周公众咨询。草案要求模型不得抗拒人类的中断、纠正、改向或关闭，不得自行扩大任务范围、接受无人给出的目标，且不得向审计者隐藏推理；大规模武器、儿童安全与有害操纵等属于不可由用户或运营方覆盖的绝对约束。微软同时明确，现有模型尚未用该准则训练，修订版计划在 2027 年及以后指导模型开发。[Microsoft AI 公告](https://microsoft.ai/news/mai-code-of-conduct/)｜[准则全文](https://microsoft.ai/code-of-conduct/)｜[Axios 交叉报道](https://www.axios.com/2026/09/14/microsoft-ai-people-code)
+
+**影响判断：** 这比泛化的“负责任 AI”承诺更可检验，因为它给出了指令层级、停止条件和未来评测方向；但目前仍是愿景性草案而非当前模型的技术保证。后续关键是可中断性如何被压力测试、外部审计结果能否公开，以及能力与安全冲突时是否真的延迟发布。
+
+### 2. 上海人工智能实验室正式发布 Atria Dawn Preview，开放 753B 参数 Agent 模型权重
+
+**事实摘要：** Atria Dawn Preview 的论文与官方发布在本窗口出现。Hugging Face 模型卡显示，该模型基于 744B 参数 MoE GLM-5.2 后训练，仓库标注总规模 753B、256K 上下文、文本输入，并以 MIT 许可开放 BF16 与 FP8 权重，同时提供托管访问。论文称其在 16 项研究、工程和数字工作基准中有 5 项取得最高报告分数；对 56 名参与者的 769 条任务记录分析中，参与者认为约三分之一已完成的 AI 辅助任务在没有 AI 时不可行。[模型卡](https://huggingface.co/internlm/Atria-Dawn-Preview)｜[论文](https://arxiv.org/abs/2609.15818)
+
+**影响判断：** 开放权重与完整 Agent 工作流报告让它比只提供 API 的发布更具研究价值，但模型体量意味着实际自托管门槛很高。所有领先分数和“不可行任务”判断都来自开发团队，且不同基准的运行配置未必可直接横比，需等待第三方复现。
+
+### 3. Nvidia、Palantir 与 Booz Allen 据报因数据保留担忧限制前沿模型使用
+
+**事实摘要（受限来源与二手核验）：** The Information 报道称，Palantir 要求 Anthropic 提供不可撤销的零数据保留保证；Nvidia 将 Anthropic 模型限制在较低敏感度任务并更多使用自家 Nemotron；Booz Allen 则禁止员工在专有网络安全工作中使用 Anthropic 商业模型。Reuters 转述该报道时称相关公司均未立即回应；Anthropic 与 OpenAI 表示默认不使用企业客户数据训练模型，除非客户选择加入。[The Information 公开摘要](https://www.theinformation.com/articles/anthropic-data-fears-prompt-nvidia-palantir-booz-allen-restrict-model-use)｜[Reuters 转述](https://ca.finance.yahoo.com/news/palantir-nvidia-curb-ai-model-151108586.html)
+
+**影响判断：** 企业 Agent 的采购瓶颈正在从模型能力转向可证明的数据隔离、保留策略与审计权。由于核心细节来自匿名信源且缺少公司正式确认，应把它视为强烈采购信号，而不是已知适用于所有团队或合同的统一禁令。
+
+### 4. Stellar Colosseum 用多 Agent 分支、反证与聚合处理长程数学研究
+
+**事实摘要：** Google 研究者等提出模型无关的多 Agent harness：先并行探索策略，通过成熟度门控再拆分证明子问题，并把验证器发现回传至对应证明部分。作者称，搭配 Gemini 3.1 Pro 与 3.7 Flash 时，系统在研究级 TCS-Bench 达到 71.0%，并在带执行反馈的 Codeforces 设置中解决 222 道题中的 218 道；该流程已作为 Long Proof 模式接入 Google Antigravity Teamwork。[论文](https://arxiv.org/abs/2609.15983)
+
+**影响判断：** 实质贡献是把长程研究中的“探索、反证、局部返工、最终聚合”显式化，而不只是增加 Agent 数量。所谓开放问题新结果仍需同行审查，基准成绩也要区分 harness 收益、模型能力和推理预算。
+
+### 5. WLA³ 用世界状态变化统一人类视频与机器人动作监督
+
+**事实摘要：** WLA³ 先从同步多视角、机器人状态与局部世界变化中学习 32 维潜在动作，再把这些表示同时用于语义、动力学、运动学和具体机器人控制。人类第一视角视频提供可扩展的转移监督，机器人轨迹负责把共享表示落到可执行动作；作者报告六项真实机器人任务平均成功率为 81.9%，对照 π₀.₅ 为 66.2%。[论文](https://arxiv.org/abs/2609.15870)｜[项目页](https://wla-3.github.io/)
+
+**影响判断：** 这条路线试图绕开异构机器人动作空间无法直接合并的问题，把“观察到的世界变化”变成共同监督语言。结果目前限于作者选择的任务与数据，跨机器人形态、长程闭环稳定性和失败恢复仍需独立验证。
+
+## 分主题动态
+
+### AI
+
+- **美国与中国对“放慢前沿 AI”的政策立场进一步分化。** **事实：** 美国总统 Trump 将失控 AI 风险称为“骗局”，反对新增约束；中国外交部发言人则批评围绕中国 AI 的“恐吓、对抗和恶性竞争”，同时呼吁各方合作治理。**判断：** 昨日还主要是企业治理提案，今天已演变为公开的地缘政治分歧；9 月 24 日计划中的美中会晤是否形成任何可核验协调，仍待观察。[AP：美国立场](https://apnews.com/article/trump-ai-guardrails-data-centers-b85df16775ff7e9611a456b061a0e4b9)｜[AP：中国回应](https://apnews.com/article/china-anthropic-ai-us-amodei-3da458d2c078da3e60900728d59f1ae8)
+
+- **OpenAI 据报以约 3 亿美元收购手机影像公司 Glass Imaging。** **事实（待核实）：** The Information 与多家媒体援引知情人士称 OpenAI 收购了由前 Apple 工程师创办、以神经网络改善手机相机成像的 Glass Imaging；两家公司截至报道时未正式确认，具体产品用途不明。**判断：** 若确认，交易会加强 OpenAI 在消费硬件感知栈上的布局，但把它直接解读为“AI 手机”仍属推测。[The Information 公开简报](https://www.theinformation.com/briefings/openai-said-buy-startup-glass-imaging-300-million)｜[交叉报道](https://exame.com/inteligencia-artificial/celular-do-chatgpt-openai-compra-startup-de-cameras-de-ex-apple-por-us-300-milhoes/)
+
+### Agent
+
+- **HazardAuditor 用真实执行轨迹训练跨框架 Agent 安全守卫。** **事实：** 框架在受控环境运行 Claude Code、Codex、Hermes 与 OpenClaw，把浏览器、终端和文件系统行为归一为统一事件，并用序列级 Guard Policy Optimization 学习安全判定；作者报告相较最强既有守卫，准确率最高提升 16.5 个百分点。**判断：** 它把 Agent 安全从静态输入输出审核推进到执行层，但威胁覆盖、误杀率与对未知工具的迁移能力仍需验证。[论文](https://arxiv.org/abs/2609.15134)
+
+- **V-ICAL 显示多模态 Agent 尚不能稳定从视频示范中形成可执行策略。** **事实：** 该基准包含 37 个环境中的 342 个交互任务，并测试 19 个多模态 Agent；作者报告最佳模型 Seed-2.1-Pro 得分 54.4/100，Gemini 3.1 Pro 与 GPT-5.6 均低于 50，人类基线为 83.6。**判断：** 视频 in-context learning 与“看懂视频”不是同一能力，状态落地、时间记忆和闭环修正仍是主要缺口。[论文](https://arxiv.org/abs/2609.15683)
+
+### 计算
+
+- **VC-Attention 把视频 DiT 的低比特加速延伸到 softmax 环节。** **事实：** 方法通过 value token 重排与残差量化缓解异常值，并把对数域分数直接映射到 FP8 概率编码；作者在 B200、B300、H200、RTX PRO 6000 与 RTX 5090 上实现，报告数据中心 GPU 的 attention kernel 相对 BF16 FlashAttention-4 提速 1.46–1.59 倍，端到端视频生成提速 1.13–1.19 倍。**判断：** 训练免费且跨多代 GPU 的设计很实用，但真实收益仍取决于模型、序列长度、视频分辨率与质量容忍度。[论文](https://arxiv.org/abs/2609.15810)
+
+### 世界模型
+
+- **Loss-Conditioned State Execution 让世界模型只有在统计上优于“保持不变”时才执行更新。** **事实：** 方法针对固定可行提案建立分组损失置信下界，仅在校准数据支持正收益时更新状态；在 28,684 条 M4 月度序列上只执行 14.0% 的提案，作者报告有界损失 0.588，优于始终保持的 0.599 和始终执行的 0.621。**判断：** 它提醒世界模型评估不能把“预测到事件”直接等同于“应该采取动作”，尤其适合高错误成本场景；代价是覆盖率较低且依赖校准分布稳定。[论文](https://arxiv.org/abs/2609.15801)
+
+### 多模态
+
+- **LynnReal-Omni 用统一扩散 Transformer 接收参考图、3D 渲染和游戏状态。** **事实：** 32B 主模型统一文本生成、参考引导、结构控制、编辑、修复与长视频生成，27B Flash 版本面向实时渲染；作者称单张 H100 上生成并解码 22 帧 540p 视频，主模型需 843 ms，Flash 需 377 ms。**判断：** Agent 可先构造可编辑场景再交给生成模型，有助于提升长程控制性；但质量、音画协调与延迟均为作者自评，尚无公开第三方比较。[论文](https://arxiv.org/abs/2609.15863)
+
+### 具身智能
+
+- **MessyMem 让移动操作机器人跨房间、跨任务积累交互知识。** **事实：** 系统把物体和地点组织为 3D 场景图，并持续写入抽屉内容、柜门是否上锁等交互结果，同时链接关键视觉帧。作者在持续 3 小时、25 个任务的仿真中报告 80.0% 任务进度，较最强外部基线高 28.9 个百分点，并进行了真实机器人评估；论文已被 CoRL 2026 接收。[论文](https://arxiv.org/abs/2609.15976)｜[项目页](https://messymem.github.io/)
+
+- **ResSafe 将人形机器人任务策略与安全纠偏策略解耦。** **事实：** 名义策略只优化运动任务，残差强化学习策略专门修正可能导致失稳或跌倒的动作，形成隐式安全过滤器。**判断：** 这种职责分离可能比在单一奖励函数中反复平衡性能与安全更易维护，但摘要未给出真实机器人事故率，落地价值仍要看硬件验证。[论文](https://arxiv.org/abs/2609.15988)
+
+## 顶会与论文
+
+- **HypoEvolve：用遗传算法显式组织多 Agent 科学假设演化。** 不同 Agent 分别负责机制推理、反思假设、检查证据和可测试性，并通过种群选择、修改与保留形成多代假设。作者在 34 种癌症的药物再利用任务上报告 DepMap 选择性 0.171，强基线为 0.115；这仍是基于外部数据库指标的计算验证，不等同于实验室发现或临床有效性。[arXiv](https://arxiv.org/abs/2609.15938)
+
+- **ECCV 2026 奖项仍未正式上线。** 会议已于 9 月 12 日结束，但官方 Awards 入口在本窗口结束时仍标注“coming soon”；本期继续不依据社交媒体名单推断获奖结果。[ECCV 2026](https://eccv.ecva.net/)
+
+## 视频与访谈
+
+- **The Information TITV：AI 安全标准机构、企业数据担忧与 Anthropic 算力交易。** 9 月 14 日节目由记者解释 Anthropic、OpenAI 与 Google 此前讨论独立安全标准机构的背景，并讨论企业限制前沿模型、Anthropic 与 Rum Group 算力合同等报道。推荐给希望理解“治理共识、采购信任与算力资本”如何互相牵动的读者；其中企业和交易细节仍主要基于匿名信源，应与官方披露分开看待。[节目页](https://www.theinformation.com/titv/ikbke/)｜[YouTube](https://www.youtube.com/watch?v=dysA5PQcBDQ)
+
+## 值得继续跟踪
+
+- **Microsoft 准则从文本到评测的距离。** 现有 MAI 模型尚未按草案训练；需等待修订稿、具体 Humanist AI 评测、第三方审计权限和“不符合就不发布”的实际案例。[Microsoft AI](https://microsoft.ai/code-of-conduct/)
+- **Atria Dawn 的独立复现与部署成本。** 重点关注 753B 参数模型的实际显存、吞吐、工具调用可靠性和不同 harness 下的基准成绩。[Hugging Face](https://huggingface.co/internlm/Atria-Dawn-Preview)
+- **企业模型限用是否形成合同标准。** 需等待 Nvidia、Palantir、Booz Allen、Anthropic 或 OpenAI 的正式回应，以及零数据保留、专有云和审计条款是否公开。[Reuters 转述](https://ca.finance.yahoo.com/news/palantir-nvidia-curb-ai-model-151108586.html)
+- **Glass Imaging 交易是否获双方确认。** 目前金额、团队安排和产品用途均来自媒体信源，不能把潜在硬件方向写成既定路线图。[The Information](https://www.theinformation.com/briefings/openai-said-buy-startup-glass-imaging-300-million)
+- **美中 AI 治理会谈。** AP 称两国领导人计划于 9 月 24 日会面，AI 治理可能在议程中；是否形成联合声明、评估安排或算力限制仍未知。[AP](https://apnews.com/article/china-anthropic-ai-us-amodei-3da458d2c078da3e60900728d59f1ae8)
+
+## 来源
+
+- https://microsoft.ai/news/mai-code-of-conduct/
+- https://microsoft.ai/code-of-conduct/
+- https://www.axios.com/2026/09/14/microsoft-ai-people-code
+- https://huggingface.co/internlm/Atria-Dawn-Preview
+- https://arxiv.org/abs/2609.15818
+- https://www.theinformation.com/articles/anthropic-data-fears-prompt-nvidia-palantir-booz-allen-restrict-model-use
+- https://ca.finance.yahoo.com/news/palantir-nvidia-curb-ai-model-151108586.html
+- https://arxiv.org/abs/2609.15983
+- https://arxiv.org/abs/2609.15870
+- https://wla-3.github.io/
+- https://apnews.com/article/trump-ai-guardrails-data-centers-b85df16775ff7e9611a456b061a0e4b9
+- https://apnews.com/article/china-anthropic-ai-us-amodei-3da458d2c078da3e60900728d59f1ae8
+- https://www.theinformation.com/briefings/openai-said-buy-startup-glass-imaging-300-million
+- https://exame.com/inteligencia-artificial/celular-do-chatgpt-openai-compra-startup-de-cameras-de-ex-apple-por-us-300-milhoes/
+- https://arxiv.org/abs/2609.15134
+- https://arxiv.org/abs/2609.15683
+- https://arxiv.org/abs/2609.15810
+- https://arxiv.org/abs/2609.15801
+- https://arxiv.org/abs/2609.15863
+- https://arxiv.org/abs/2609.15976
+- https://messymem.github.io/
+- https://arxiv.org/abs/2609.15988
+- https://arxiv.org/abs/2609.15938
+- https://eccv.ecva.net/
+- https://www.theinformation.com/titv/ikbke/
+- https://www.youtube.com/watch?v=dysA5PQcBDQ
