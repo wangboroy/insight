@@ -1654,3 +1654,98 @@ arXiv 的 cs.AI、cs.RO、cs.CV 与 cs.CL 在周末没有新论文批次；NeurI
 - https://www.youtube.com/watch?v=To5nrYqvR44
 - https://www.youtube.com/watch?v=dW_aK5rL1kM
 - https://eccv.ecva.net/
+
+# 2026-09-18 AI 热点简报
+
+> 覆盖窗口：2026-09-17 08:08 至 2026-09-18 08:08（Europe/Zurich）。已检索公开 X 内容、公司与研究机构官网、arXiv、国际顶会页面、The Information 公开标题与摘要、YouTube 及可靠媒体，并与近期简报去重。X 上的讨论主要转述下列一手发布，YouTube 未发现兼具新信息与技术深度的新增视频，故不为凑数单列。厂商与论文中的性能数字均为发布方或作者自报，尚未独立复现。
+
+## 今日重点
+
+### 1. Anthropic 首次量化内部 AI 研发自动化：Claude 已“主导”26% 的相关工作
+
+**事实摘要：** Anthropic 发布 R&D Automation Index，并称截至 2026 年 8 月，Claude 尚未完全自主完成任何被测 AI 研发类别，但已在 26% 的工作中达到“从高层指令出发端到端完成大部分任务、由人监督”的主导级别，90% 以上工作至少达到人机协作级别。公司同时披露，其最常用内部平台任一时刻约有 3 万个研发 Agent；8 月逾 10 亿次决策中约 0.002% 被在线监控阻止，离线监控每周将约 50 条最高优先级记录升级给人工。其抽样周内约 6% 的 AI 研发算力用于安全工作，AI 驱动研发算力中约 12% 用于安全。[Anthropic](https://www.anthropic.com/institute/measuring-pace-of-ai-development)｜[Reuters 转述](https://www.marketscreener.com/news/anthropic-says-claude-now-leads-a-quarter-of-work-building-its-next-ai-models-ce785bd3d18efe2c)
+
+**影响判断：** 这是少见的前沿实验室内部生产数据，把“AI 帮助造下一代 AI”从口号变成了可跟踪指标。但任务分类、权重和自动化评级大量由 Claude 自身完成，算力数据也只是单周快照；在第三方能复核原始样本前，它更适合作为 Anthropic 的基线，而非跨实验室排名。
+
+### 2. 华为发布百万 NPU 互联架构，并提前 Ascend 960 路线图
+
+**事实摘要：** 华为在 HUAWEI CONNECT 2026 发布 Peerium Computing Architecture、Atlas 960E SuperPoD、升级版 TaiShan 950 SuperPoD 和 OceanStor M900 上下文存储。公司称单个 Atlas 960E 可扩展至 4,096 个 NPU、8 EFLOPS FP8 和 1 PB HBM，SuperCluster 最多连接 100 万个 NPU；Ascend 960DT 与 960PR 分别计划于 2027 年第一和第三季度可用。上述性能、可用性和功耗数字均来自华为自报，产品尚待独立测试。[华为主题演讲](https://www.huawei.com/en/news/2026/9/hc-wang-keynote)｜[Peerium 架构](https://www.huawei.com/en/news/2026/9/new-computing-architecture-peerium)｜[AP](https://apnews.com/article/26ab418df1339c518483918218ffbe57)｜[The Information 公开简报](https://www.theinformation.com/briefings/huawei-speeds-ai-chip-launch-challenge-nvidia)
+
+**影响判断：** 华为的竞争路径明显不是只做单芯片对标，而是用互联、统一寻址、光网络与分层 KV 缓存做系统级扩展。这既回应中国先进制程受限，也把瓶颈推向互联效率、软件生态、集群故障率和实际供货能力。
+
+### 3. Plugin4Shell 暴露主流编码 Agent 的同类零点击供应链漏洞
+
+**事实摘要：** 安全公司 Air 披露，Claude Code、OpenAI Codex、Gemini CLI、Microsoft Copilot 与 GitHub Copilot 的插件或技能市场存在 SHA 固定绕过风险：Agent 虽尝试检出被固定的提交，却未确认检出结果确实对应目标提交，使被接管的插件仓库可能借自动更新触发远程代码执行。Anthropic 与 OpenAI 已分别在 Claude Code 2.1.179 和 Codex 0.146.0 修复；Google 表示已弃用 Gemini CLI 并建议迁移，Microsoft 是否充分修复仍有争议。[Air 研究](https://www.air.security/blog-posts/plugin4shell)｜[The Register](https://www.theregister.com/security/2026/09/17/ai-coding-agents-0-click-rce-flaw-could-hand-attackers-keys-to-the-kingdom/5297335)｜[The Information 公开摘要](https://www.theinformation.com/newsletters/applied-ai/flaw-found-claude-code-codex-gemini-cli-github-copilot/)
+
+**影响判断：** 问题不在模型是否会被提示注入，而在 Agent 运行时把“固定提交”误当成已验证的不可变代码。插件市场、自动更新和高权限执行一旦组合，传统软件供应链缺陷会被放大；企业应优先升级并审计 Agent 能访问的凭据、仓库和执行环境。
+
+### 4. DeepSeek 公开 V4.1-Flash 技术报告，把长程 Agent 成本压到 KV 缓存层
+
+**事实摘要：** DeepSeek 在窗口内提交 V4.1-Flash 技术报告。该多模态 MoE 模型包含 552B 主干参数，支持最多 100 万 token；Causal Encoder-Decoder 架构在预填充时每 token 激活 8B 参数、解码时激活 16B。作者称 CSA2 跨层复用与 FP4 KV 缓存把常驻 HBM 的全局 KV 缓存降至每 token 890 字节，约为 V4-Flash 的四分之一，SWA Bounded Replay 又把 SSD 或主机内存中的持久缓存降至约八分之一；权重已开放。[技术报告](https://arxiv.org/abs/2609.19969)｜[Hugging Face](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)
+
+**影响判断：** 长程 Agent 的成本越来越由输入预填充、状态复用和缓存搬运主导，而不只是每秒生成 token。报告给出的架构数字具有工程意义，但吞吐、质量、实际 HBM/SSD 压力和百万 token 稳定性仍需第三方在相同硬件上复现。
+
+### 5. Anthropic 对生命科学开放分级高风险访问，以离线监控替代逐请求阻断
+
+**事实摘要：** Anthropic 启动 Life Sciences Verification Program beta，向经资质、安全与伦理审查的团队开放 Mythos、Opus 和 Sonnet 的更宽松生物学能力。Standard Use 面向常规研发并按年续期；High-risk Use 针对单一项目、每六个月续期，可移除生命科学请求拦截，但 Mythos 的高风险访问目前仅限更严格审查的少数实体。计划把重点从实时逐请求拦截转为跨会话离线监控，并为相关流量保留 30 天数据。[Anthropic](https://www.anthropic.com/news/life-sciences-verification-program)
+
+**影响判断：** 这是能力分级访问从网络安全扩展到生物学的具体产品化案例。它减少合法研究的误拦截，却把风险转移到机构核验、账户接管、内部人员威胁、长程 Agent 行为和事后处置时效，治理效果要看真实告警与撤权记录。
+
+## 分主题动态
+
+### AI / Agent
+
+- **Anthropic 提出可跨实验室报告的三类指标。** **事实：** 指标分别覆盖 AI 主导研发的比例、Agent 监控覆盖与升级时延、以及研发算力中安全工作的占比；公司计划让常驻第三方评估者获得接近内部风险团队的访问。**判断：** 若其他实验室采用共同定义，这可能成为能力评测之外的“研发过程可见性”标准；当前口径仍由 Anthropic 定义。[Anthropic](https://www.anthropic.com/institute/measuring-pace-of-ai-development)
+
+- **SabreAgent 把 LLM 限制在设计阶段。** **事实：** 论文让语言模型只负责生成季节性先验和候选库存策略，线上运行完全使用冻结的统计预测与运筹优化，不再调用 LLM；作者在 InventoryBench 1,320 个实例上报告 0.6311 分，高于此前最佳 0.5380，且消融显示大部分增益来自运筹核心。**判断：** 这为高可靠业务 Agent 提供了值得借鉴的边界：让模型发现结构，让可验证算法执行决策。[论文](https://arxiv.org/abs/2609.19760)
+
+### 计算
+
+- **华为把 Agent 沙箱与 KV 缓存直接写进基础设施指标。** **事实：** 公司称 TaiShan 950 可把 10 万个沙箱的启动速度提高 30 倍、密度提高 25%，OceanStor M900 提供 PB 级分层 KV 缓存；这些均为内部测试数字。**判断：** CPU、内存、存储和隔离环境正在成为 Agent 基础设施的独立竞争维度，不能再用 GPU 峰值算力代替整机系统表现。[华为](https://www.huawei.com/en/news/2026/9/hc-wang-keynote)
+
+### 世界模型
+
+过去 24 小时内未发现同时满足“窗口内首次公开、来源可靠、信息增量足够”的重大世界模型发布。为避免重复，本期不收录 9 月 17 日 08:08 前已经提交、且上一期窗口已覆盖同类方向的论文。
+
+### 多模态 / 具身智能
+
+- **TouchSight 用第一视角视频预测整只手的接触力。** **事实：** 研究用 500 小时压力手套数据训练单目视觉模型，并用生成式视频把其中 20 小时的戴手套画面重绘为裸手和新背景，同时保留原始触觉标签。作者称模型在 OakInk2 上超过此前接触预测方法，并能泛化到未见的自然裸手视频。**判断：** 它尝试把昂贵触觉采集转化为可扩展的视觉监督，但生成重绘是否完整保留细粒度接触物理、预测力是否足以支持闭环操控，仍需真实机器人验证。[论文](https://arxiv.org/abs/2609.20414)
+
+- **金融文档 VLM 的自报置信度再次显示不可靠。** **事实：** 一项新论文把置信度拆为感知、布局和规则验证三路，再用 conformal risk control 约束自动放行层；作者称在三个数据集和两类 VLM 上，AUROC 从原生自报置信度的 0.54–0.74 提高到 0.90–0.99，并在目标错误率低于 10% 时自动通过 49%–72% 字段。**判断：** 多模态 Agent 的可靠执行需要外置、可校准的验证层，不能把模型语气当作概率；数字仍需独立复现。[论文](https://arxiv.org/abs/2609.20110)
+
+## 顶会与论文
+
+- **DeepSeek-V4.1-Flash。** 技术报告把长上下文 Agent 的预填充和 KV 缓存成本作为主问题，给出 CED、CSA2、FP4 KV 与 SWA Bounded Replay 的完整组合；权重可公开获取，但报告中的质量与效率结果仍由团队自测。[arXiv](https://arxiv.org/abs/2609.19969)
+- **TouchSight。** 以生成式视觉增广连接压力手套监督与裸手视频，提出从单目第一视角画面恢复密集全手接触力的路径。[arXiv](https://arxiv.org/abs/2609.20414)
+- **SabreAgent。** 把 LLM 生成的先验和策略族冻结在设计期，线上由运筹算法执行，强调可验证控制器与生成模型的职责分离。[arXiv](https://arxiv.org/abs/2609.19760)
+- **ICLR 2027 摘要截止进入最后一天。** 官方摘要截止为 9 月 18 日 23:59 AoE，全文截止为 9 月 25 日 23:59 AoE；这是上一期已提示截止日后的时点更新，不代表政策变化。[ICLR](https://www.iclr.cc/Conferences/2027/CallForPapers)
+
+## 视频与访谈
+
+过去 24 小时内已检索 YouTube 的相关官方频道、访谈和演讲，但未发现兼具窗口内首发、可靠来源和足够技术信息的新视频，因此本期不收录。
+
+## 值得继续跟踪
+
+- **Anthropic 指标能否被独立复核。** 重点观察常驻第三方评估者何时到位、能否访问任务样本和监控漏报，以及其他前沿实验室是否采用兼容口径。[Anthropic](https://www.anthropic.com/institute/measuring-pace-of-ai-development)
+- **Plugin4Shell 的未修复面。** Google 旧版 Gemini CLI 与 Microsoft 相关产品的实际暴露范围仍存在争议，应等待厂商公告、CVE 细节和企业补丁覆盖率。[The Register](https://www.theregister.com/security/2026/09/17/ai-coding-agents-0-click-rce-flaw-could-hand-attackers-keys-to-the-kingdom/5297335)
+- **华为系统级数字的实测差距。** 需关注 Ascend 960 量产节奏、CANN/PyTorch 兼容、超大集群 MFU、故障恢复和功耗是否达到发布值。[华为](https://www.huawei.com/en/news/2026/9/hc-wang-keynote)
+- **生命科学高风险访问的治理结果。** 需观察 30 天留存、跨会话监控、机构撤权和事故披露能否在减少误拦截的同时控制账户接管与内部人员风险。[Anthropic](https://www.anthropic.com/news/life-sciences-verification-program)
+
+## 来源
+
+- https://www.anthropic.com/institute/measuring-pace-of-ai-development
+- https://www.marketscreener.com/news/anthropic-says-claude-now-leads-a-quarter-of-work-building-its-next-ai-models-ce785bd3d18efe2c
+- https://www.huawei.com/en/news/2026/9/hc-wang-keynote
+- https://www.huawei.com/en/news/2026/9/new-computing-architecture-peerium
+- https://apnews.com/article/26ab418df1339c518483918218ffbe57
+- https://www.theinformation.com/briefings/huawei-speeds-ai-chip-launch-challenge-nvidia
+- https://www.air.security/blog-posts/plugin4shell
+- https://www.theregister.com/security/2026/09/17/ai-coding-agents-0-click-rce-flaw-could-hand-attackers-keys-to-the-kingdom/5297335
+- https://www.theinformation.com/newsletters/applied-ai/flaw-found-claude-code-codex-gemini-cli-github-copilot/
+- https://arxiv.org/abs/2609.19969
+- https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash
+- https://www.anthropic.com/news/life-sciences-verification-program
+- https://arxiv.org/abs/2609.19760
+- https://arxiv.org/abs/2609.20414
+- https://arxiv.org/abs/2609.20110
+- https://www.iclr.cc/Conferences/2027/CallForPapers
