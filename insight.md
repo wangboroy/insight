@@ -1827,3 +1827,56 @@ arXiv 的 cs.AI、cs.RO、cs.CV 与 cs.CL 在周末没有新论文批次；NeurI
 - https://research.google/blog/millemiglia-a-realistic-instance-generator-for-middle-mile-logistics/
 - https://github.com/google/millemiglia
 - https://www.youtube.com/watch?v=aUD_HMgsyTo
+
+# 2026-09-20 AI 热点简报
+
+> 覆盖窗口：2026-09-19 08:08 至 2026-09-20 08:08（Europe/Zurich）。本窗口恰逢周末，公开可核验的高质量新增极少，因此采用短版。已检索公开 X 内容、公司与研究机构官网、arXiv、国际顶会官网、The Information 公开摘要及 YouTube；除下述发布外，未发现兼具明确窗口内时间、实质信息增量和可靠来源的内容。所有机器人规格、销量与能力描述均为厂商自报，尚未经过独立实测。
+
+## 今日重点
+
+### 1. Faraday Future 发布 5 款机器人、9 种配置及四套行业方案
+
+**事实摘要：** Faraday Future 在窗口内举行 919 发布会，推出 All-New Futurist、Master Mini、Aegis Hyper、Aegis Mega 和 Aegis Classic Ultra-W 共 5 款、9 种配置，并宣布面向 K-12 教育、科研、安防和巡检的四套方案。旗舰 Futurist Ultra 配置 NVIDIA Jetson Thor，厂商标称 700 TOPS；Master Mini 起价 9,990 美元，Futurist Standard 起价 89,900 美元。公司称产品已开始销售和交付，但发布材料没有提供第三方任务成功率、连续运行故障率或自主能力实测。[Business Wire（公司新闻稿）](https://www.businesswire.com/news/home/20260919657129/en/)｜[Futurist 产品页](https://robotics.ff.com/us/ff-futurist/)｜[EAI Brain 技术页](https://robotics.ff.com/us/eai-brain/)
+
+**影响判断：** 值得关注的不是一次性推出多少机型，而是 FF 试图用统一 Agent、技能、数据和运维层覆盖人形、四足与移动操作等不同形态，并把商业入口从单机销售扩展到行业方案和租赁。其产品页同时承认底层硬件、操作系统、运动控制和初始模型来自合作伙伴；因此当前更像系统集成与渠道化路径，真正竞争力要看现场任务可靠性、售后运维和持续交付，而不是 TOPS 或自由度数字。
+
+## 分主题动态
+
+### Agent
+
+- **“一脑多体”强调跨机器人任务编排。** **事实：** FF 将本地化知识、角色权限、任务编排、远程协助、OTA、审计和技能管理归入 EAI Brain，并称通过适配层连接不同合作伙伴的 SDK 与设备接口；跨机器人软件能力在官网被标为“开发中”。**判断：** 这与数字 Agent 平台向权限、运维和可观测性扩展的趋势一致，但尚无证据证明技能能在不同本体间低成本迁移。[EAI Brain](https://robotics.ff.com/us/eai-brain/)
+
+### 计算
+
+- **具身设备继续采用分层边缘算力。** **事实：** 新产品从 Master Mini 的 48/117/200 TOPS 三档，到 Futurist Ultra 的 Jetson Thor 700 TOPS，体现按教学、竞赛和专业任务分层配置边缘计算。**判断：** 算力规格并不等同于闭环控制能力；模型延迟、传感器同步、功耗和热管理仍需实际基准。[Business Wire](https://www.businesswire.com/news/home/20260919657129/en/)
+
+### 多模态与世界模型
+
+- **厂商把 VLA、世界模型和任务规划列入旗舰能力栈。** **事实：** FF 称 Futurist 将 VLA、世界模型与任务规划结合，用于从单指令执行走向完整任务；公开材料未披露模型结构、训练数据、评测集或成功率。**判断：** 在缺少技术报告和可复现实验前，这只能视为产品路线声明，不能据此判断其世界模型或多模态能力领先。[Business Wire](https://www.businesswire.com/news/home/20260919657129/en/)
+
+### 具身智能
+
+- **产品组合覆盖教育、科研、安防和工业巡检。** **事实：** 人形产品强调教学、竞赛和研究，四足产品强调热成像、气体检测、三维扫描、巡检与高风险环境；公司还公布从 9,990 美元到 137,900 美元以上的价格梯度。**判断：** 多形态覆盖有利于匹配具体场景，但也增加供应链、认证、维护和软件适配复杂度。公司披露其多数机器人依赖合作伙伴和中国 OEM，交付及合规风险需要持续观察。[Business Wire](https://www.businesswire.com/news/home/20260919657129/en/)
+
+## 顶会与论文
+
+过去 24 小时内，arXiv 在相关类别没有新的周末发布批次；检索到的近期 Agent、世界模型、多模态与机器人论文均早于本窗口，且无顶会官网在窗口内发布高影响公告，因此本期不重复收录。
+
+## 视频与访谈
+
+- **Faraday Future 919 EAI Robotics 发布会。** 官方录像集中展示 5 款机器人、9 种配置和四套行业方案，适合核对产品外观、定位与厂商演示。推荐时需保留一个边界：发布会演示不能替代第三方连续运行、任务成功率与安全测试。[YouTube](https://www.youtube.com/watch?v=0KZGgyrsUcU)
+
+## 值得继续跟踪
+
+- **自主能力是否有可复现评测。** 重点等待 VLA、世界模型、跨本体技能迁移、连续运行故障率和人类接管频率等数据；当前公开内容主要是产品规格和路线描述。[EAI Brain](https://robotics.ff.com/us/eai-brain/)
+
+- **“已开始销售和交付”的实际规模。** 公司称所有新品可销售与交付，但未在本次发布中给出分机型订单、已交付数量和客户运行指标；其新闻稿还明确提示流动性、OEM 依赖、认证和供应链风险。[Business Wire](https://www.businesswire.com/news/home/20260919657129/en/)
+
+- **窗口内缺少的来源信号。** X 上未发现能超出厂商材料且可独立核验的新增事实；The Information 公开页面在窗口内无新 AI 摘要；YouTube 除上述官方发布会外没有信息增量足够的访谈。若这些来源后续补发实质材料，应作为后续进展而非回填旧闻。
+
+## 来源
+
+- https://www.businesswire.com/news/home/20260919657129/en/
+- https://robotics.ff.com/us/ff-futurist/
+- https://robotics.ff.com/us/eai-brain/
+- https://www.youtube.com/watch?v=0KZGgyrsUcU
