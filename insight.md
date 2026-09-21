@@ -1880,3 +1880,73 @@ arXiv 的 cs.AI、cs.RO、cs.CV 与 cs.CL 在周末没有新论文批次；NeurI
 - https://robotics.ff.com/us/ff-futurist/
 - https://robotics.ff.com/us/eai-brain/
 - https://www.youtube.com/watch?v=0KZGgyrsUcU
+
+# 2026-09-21 AI 热点简报
+
+> 覆盖窗口：2026-09-20 08:08 至 2026-09-21 08:08（Europe/Zurich）。本窗口横跨周日至周一早间，公开可核验的高质量新增较少，因此采用短版。已检索公开 X 内容、公司与研究机构官网、arXiv、国际顶会官网、The Information 公开页面及 YouTube。arXiv 周末无新批次，顶会和 YouTube 未发现同时满足窗口、来源可靠与实质增量的内容；The Information 在窗口内也没有新的核心 AI 公开摘要。Step 5 Preview 的官方 X 发布时间为 9 月 20 日 05:15（苏黎世时间），早于本窗口约 3 小时，故不重复收录。
+
+## 今日重点
+
+### 1. Qwen 开源 7B 级统一图像生成与编辑模型 Qwen-Image-2.1
+
+**事实摘要：** Qwen 在窗口内通过[官方 X](https://x.com/Alibaba_Qwen/status/2101659302792679789)发布 Qwen-Image-2.1，并开放模型权重与代码。其视觉生成组件为 7B 参数、32 层 single-stream DiT，使用 Qwen3-VL 8B 作为文本与条件图像编码器，并通过 64 通道 RGBA VAE 原生生成和编辑透明图像。模型统一支持文生图、单图及最多 10 张参考图编辑、圈选/涂画/掩码局部编辑和原生 2K 输出；仓库采用 Qwen Research License，而不是 Apache/MIT 等宽松许可证。[官方博客](https://qwen.ai/blog?id=qwen-image-2.1)｜[GitHub](https://github.com/QwenLM/Qwen-Image-2.1)｜[Hugging Face](https://huggingface.co/Qwen/Qwen-Image-2.1)
+
+**影响判断：** 原生 alpha 通道和统一生成/编辑模型让抠图、图层合成、商品素材与角色资产流水线少一个外置分割步骤；7B 视觉主干也比此前大型图像模型更利于本地部署。不过官方没有同时给出可独立复现的完整质量、速度与显存对照，本期不把“最强开源”宣传语视为已验证结论。
+
+### 2. Qwen-Image-2.1 首日接入主流推理与创作工具链
+
+**事实摘要：** Diffusers、ComfyUI、vLLM-Omni、SGLang 和 LightX2V 在发布当天提供适配；vLLM 与 SGLang 路径覆盖 prefix KV cache、CUDA Graph、FP8、并行和卸载。Qwen 还称 FlagOS 已提供八类芯片平台的预构建镜像与权重，并补充 AMD Radeon 路径。[官方仓库](https://github.com/QwenLM/Qwen-Image-2.1)
+
+**影响判断：** 这次发布的工程价值不只在权重，而在模型、桌面工作流和生产服务端同时可用。跨步缓存把条件图像与文本前缀只编码一次，有望降低多参考图编辑中的重复计算；真实吞吐、显存与跨芯片精度仍需第三方测量。
+
+### 3. 阿里云上线 Qwen-Audio 3.1 Realtime Plus
+
+**事实摘要：** 阿里云模型生命周期页记录，9 月 20 日在国际和北京区域新增 Qwen-Audio 3.1 Realtime Plus。它沿用 3.0 Plus 的接入协议，提供双工语音对话、262,144 token 上下文、八个新增系统音色，并列出函数调用、联网搜索和声音克隆能力。[官方发布记录](https://www.alibabacloud.com/help/en/model-studio/newly-released-models)
+
+**影响判断：** 兼容旧协议可降低现有语音 Agent 的迁移成本，长上下文则为持续会话、工具结果和业务状态保留更大余量。但另一份官方 S2S 文档仍写着 Qwen-Audio Realtime 不支持联网搜索，说明产品目录与接入文档尚未完全同步；上线前应以目标地域的实际 API 能力和回归测试为准。[S2S 文档](https://www.alibabacloud.com/help/zh/model-studio/s2s-model)
+
+## 分主题动态
+
+### AI / 多模态
+
+- **Qwen-Image-2.1 把透明图层纳入模型原生表示。** **事实：** 架构使用支持 RGBA 的 VAE，而非生成 RGB 后再调用分割器；同时用 block-causal attention 让文本和条件图像前缀可跨去噪步骤复用。**判断：** 这是面向真实设计工作流的结构性改进，但透明边缘质量、细节保持和多轮编辑漂移仍需独立评测。[GitHub](https://github.com/QwenLM/Qwen-Image-2.1)
+
+- **语音 Agent 的上下文正在纳入工具与检索状态。** **事实：** Qwen-Audio 3.1 的官方目录同时列出双工语音、函数调用、搜索与 262K 上下文。**判断：** 实时语音模型正从“会说话”向持续执行型 Agent 靠拢，关键指标会从单轮自然度扩展到打断恢复、工具选择、延迟和长会话状态一致性。[阿里云](https://www.alibabacloud.com/help/en/model-studio/newly-released-models)
+
+### Agent / 具身智能
+
+- **OpenAI 的机器人团队呈现软硬件全栈招聘结构。** **事实：** 官方招聘页当前列出 25 个 Robotics 岗位，覆盖执行器与电机、固件、实时推理、分布式数据系统、数据采集运营、安全、制造、传感器和供应链。第三方当天统计曾为 27 个，职位随时上下线，因此这里以官方当前页面为准。**判断：** 这更像在搭建自有机器人研发与数据闭环，而不只是把通用模型接到第三方本体；招聘快照不能替代产品时间表或实际能力证明。[OpenAI Careers](https://openai.com/careers/search/?c=c16efb3c-493d-401c-a76f-a493cfccbeb8)
+
+### 计算
+
+- **小型视觉主干与跨步缓存共同压低生成式视觉部署门槛。** Qwen-Image-2.1 的视觉生成组件为 7B 参数，条件前缀可在去噪步骤间复用；首日已有 FP8、多 GPU 并行、CPU offload 和多芯片适配路径。实际单位图像成本和消费级显卡体验仍待统一基准。[GitHub](https://github.com/QwenLM/Qwen-Image-2.1)
+
+### 世界模型
+
+过去 24 小时内未发现具有明确窗口内发布时间、可信一手材料和实质技术增量的新世界模型发布；不以旧论文或周末汇总补位。
+
+## 顶会与论文
+
+arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、ICCV、ECCV、ACL 与 EMNLP 官网也未出现需要当天收录的高影响论文、奖项或议程公告。ICLR 2027 全文截止仍为 9 月 25 日 23:59 AoE，这是既有日程而非本窗口新变化。
+
+## 视频与访谈
+
+已检索 YouTube 官方频道、访谈和演讲；窗口内未发现兼具首发时间、可靠来源和足够技术信息的新内容，因此本期不收录。
+
+## 值得继续跟踪
+
+- **Qwen-Image-2.1 的独立评测。** 重点关注 2K 生成速度、峰值显存、文字渲染、人物/商品一致性、透明边缘质量和连续多轮编辑漂移；官方当前材料以功能展示为主。[官方博客](https://qwen.ai/blog?id=qwen-image-2.1)
+
+- **Qwen-Audio 3.1 的文档冲突。** 产品生命周期页宣称支持联网搜索，另一份官方 S2S 指南仍称 Qwen-Audio Realtime 不支持；需等待区域 API 文档、SDK 示例或更正公告。[发布记录](https://www.alibabacloud.com/help/en/model-studio/newly-released-models)｜[S2S 指南](https://www.alibabacloud.com/help/zh/model-studio/s2s-model)
+
+- **OpenAI 机器人项目的交付边界。** 继续观察这些岗位是否转化为公开硬件原型、数据采集设施、安全认证计划和第三方本体合作；当前只能确认招聘结构，不能推出产品发布日期。[OpenAI Careers](https://openai.com/careers/search/?c=c16efb3c-493d-401c-a76f-a493cfccbeb8)
+
+## 来源
+
+- https://x.com/Alibaba_Qwen/status/2101659302792679789
+- https://qwen.ai/blog?id=qwen-image-2.1
+- https://github.com/QwenLM/Qwen-Image-2.1
+- https://huggingface.co/Qwen/Qwen-Image-2.1
+- https://www.alibabacloud.com/help/en/model-studio/newly-released-models
+- https://www.alibabacloud.com/help/zh/model-studio/s2s-model
+- https://openai.com/careers/search/?c=c16efb3c-493d-401c-a76f-a493cfccbeb8
