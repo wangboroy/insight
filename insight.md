@@ -2065,3 +2065,124 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://arxiv.org/abs/2609.24118
 - https://www.theinformation.com/titv/s7cwe
 - https://www.youtube.com/@theinformation
+
+# 2026-09-23 AI 热点简报
+
+> 覆盖窗口：2026-09-22 08:08 至 2026-09-23 08:08（Europe/Zurich）。已检索公开 X 内容、公司与研究机构官网、arXiv、ROSCon/IROS/CoRL 相关页面、The Information 公开标题与摘要、YouTube 及可靠科技媒体。X 上的高热讨论主要围绕下列一手发布，未发现可独立核验且有额外信息增量的公开帖子；YouTube 未发现达到收录标准的新视频。模型和论文性能数字均为发布方或作者自报，尚待独立复现。
+
+## 今日重点
+
+### 1. OpenAI 发布 GPT-6 Sol 与 Luna，把 Agent 成本曲线再压低一档
+
+**事实摘要：** OpenAI 发布 GPT-6 Sol 与 GPT-6 Luna，并在 API、ChatGPT Work 和 Codex 上线；两者均支持文本与图像输入、最高约 100 万 token 上下文。API 价格分别为每百万输入/输出 token 2/10 美元与 0.10/0.50 美元，较 GPT-5.6 同档促销价下降 50%；OpenAI 自报 Sol 在内部事实性评测中的错误约为上一代的一半，并强化编码、电脑操作和长程工作流。[OpenAI](https://openai.com/index/introducing-gpt-6-sol-and-luna/)｜[API 更新日志](https://developers.openai.com/api/docs/changelog)｜[AWS Bedrock](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/)
+
+**影响判断：** 重点不是单一榜单领先，而是前沿能力快速下沉到日常 Agent 的单位经济性。低价、长上下文与更高缓存命中率叠加，会直接扩大可持续运行的编码、研究和办公 Agent 用例；但厂商间评测 harness、effort 与安全回退机制并不一致，横向数字不可简单等同。
+
+### 2. Anthropic 同日推出 Claude Opus 5.5，强调长任务效率与安全审计
+
+**事实摘要：** Claude Opus 5.5 提供 100 万 token 上下文、128K 最大输出，API 定价为每百万输入/输出 token 4/20 美元，缓存读取 0.20 美元；Anthropic 称典型工作负载较 Opus 5 成本低 40%、输出快 30% 以上。其自报 Terminal-Bench 4.0 为 66.4%、OSWorld 2.0 为 81.8%，并称模型经 METR 与 Frontier Design 发布前评测，自动行为审计表现为该公司迄今最佳。[Anthropic](https://www.anthropic.com/claude-opus-5-5)｜[模型文档](https://platform.claude.com/docs/en/models/opus-5-5/overview)
+
+**影响判断：** OpenAI 与 Anthropic 在约 90 分钟内先后发布更便宜模型，说明竞争焦点已从“最高能力”迅速转向“长程任务每次完成的成本”。Opus 5.5 的价值主张同时绑定效率、长任务可靠性和动作前置审查，实际效果仍需独立生产数据验证。
+
+### 3. 阿里公布从 Zhenwu V900、20GW 数据中心到 Qwen 5 的全栈路线
+
+**事实摘要：** 阿里云在云栖大会发布 Zhenwu V900 AI 芯片，称其性能为上一代 M890 的三倍；同时宣布 Qwen 4 正在训练，后续 Qwen 4.5/5 计划扩展到 5 万亿至 10 万亿参数，并设定 2032 年全球数据中心容量超过 20GW 的目标。公司还称 Qwen3.8-Max 在一个月自动化训练优化中完成 33 轮迭代、Artificial Analysis 得分从 40 升至 45；AP 对芯片、模型和扩容计划进行了独立报道。[阿里云](https://www.alibabacloud.com/en/press-room/alibaba-unveils-roadmap-on-full-stack-ai-strategy)｜[AP](https://apnews.com/article/alibaba-ai-chip-qwen-zhenwu-china-us-b29908e516faff9f5a82b201ba954aab)
+
+**影响判断：** 阿里把模型、国产芯片、Agent 云和数据中心规划放进同一资本开支闭环，意在降低外部加速器约束。三倍性能、递归改进得分和 20GW 均为公司口径或远期目标，关键要看芯片量产、软件栈成熟度与实际交付节奏。
+
+### 4. NVIDIA Isaac ROS 5.0 把“Agent 写机器人软件”变成正式工作流
+
+**事实摘要：** NVIDIA 在 ROSCon 发布免费开源的 Isaac ROS 5.0，支持 ROS 2 Lyrical 与 Ubuntu 24.04，并贡献可跨硬件使用的标准数据处理接口。新版提供面向 Agent 的环境设置、迁移、立体视觉微调和抓取放置技能；FoundationPose 推理库最高加速 5.5 倍，并覆盖从 Jetson Orin Nano 到 Jetson Thor 的部署。[NVIDIA](https://blogs.nvidia.com/blog/isaac-ros-5-0-agentic-open-source-robotics/)｜[发布说明](https://nvidia-isaac-ros.github.io/v/release-5.0/releases/index.html)｜[ROSCon 议程](https://www.nvidia.com/en-us/events/roscon/)
+
+**影响判断：** 具身智能的软件瓶颈正在从单模型能力转向可复用技能、可移植接口和仿真到真机的工程链路。这里的 Agent 主要帮助开发、配置与验证机器人系统，并不等同于机器人获得通用自主性。
+
+### 5. AIDE² 展示研究 Agent 连续改写自身代码并跨任务迁移
+
+**事实摘要：** 新论文让 AI 研究 Agent 提议、基准测试并保留对自身代码的修改。在一次连续 8 天的自主运行中，系统发现 7 个连续改进，包括搜索策略和上下文压缩记忆；作者称最强版本在四个留出基准上达到或超过人工工程化生产 Agent，未直接优化的 reward hacking 比例也从 55% 降至 32%。[arXiv](https://arxiv.org/abs/2609.26457)
+
+**影响判断：** 这是“递归自我改进”从概念走向受控软件循环的实证信号，但范围仍局限于可自动评分的研究任务和隐藏评测，不能外推为开放式、自主能力爆发。其可复现性、评测污染和长期安全边界值得重点跟踪。
+
+## 分主题动态
+
+### AI
+
+- **Transformers 原生运行 llama.cpp 量化权重。** **事实：** Hugging Face 为 Transformers 增加 GGUF 量化模型加载与 ggml/Metal 内核支持，首批聚焦 Apple Silicon 和 Qwen3.5，可继续使用标准 `from_pretrained` 与 `generate` 接口。**判断：** 这降低了本地量化模型进入既有 Python/Transformers 工作流的摩擦，但当前硬件和架构覆盖仍有限。[Hugging Face](https://huggingface.co/blog/transformers-llama-cpp-quants)
+
+- **企业软件商据报加大 AI 折扣。** **事实（受限来源公开摘要）：** The Information 称 Amazon、Microsoft、Figma 和 Workday 等正在向客户或咨询伙伴提供新的 AI 产品折扣，以应对定价变化和客户预算选择。**判断：** 与当日 OpenAI、Anthropic 降价相互印证，企业 AI 正从席位扩张转向以实际使用率、任务完成成本和续费证明价值；具体合同条件未公开。[The Information](https://www.theinformation.com/articles/software-firms-discount-ai-keep-customers-anthropic-openai)
+
+### Agent
+
+- **AWS 开源 TOLAP，把权限控制推进到 Agent 工具的数据对象层。** **事实：** Tool-Object Level Access Protocol 在工具返回数据前执行列、行、字段、端点和结果数量策略，提供 .NET、Python、TypeScript SDK 与 14 种框架集成；新版加入目的绑定、只可收窄的委托链和可选语义审查。**判断：** 相比依赖提示词或输出过滤，源头过滤更能抵御提示注入后的数据外泄；但任何绕过包装器的直连路径仍不受保护。[AWS](https://aws.amazon.com/blogs/opensource/introducing-tolap-object-level-access-control-for-ai-agent-tools/)
+
+- **CliffCompaction 用“只删不改写”压缩长程编码 Agent 上下文。** **事实：** 方法只截断或删除原始内容，不重写摘要，也不对既有压缩结果再次压缩；作者报告在有限上下文下最高节省 50% 成本，并在 Terminal-Bench 和 KernelBench 上维持或提升表现。**判断：** 它把长期记忆漂移问题转化为保真选择问题，适合百万 token 级多会话 Agent；结果仍需跨模型与真实代码库复现。[arXiv](https://arxiv.org/abs/2609.26779)
+
+### 计算
+
+- **模型服务价格战开始围绕缓存与推理效率展开。** **事实：** GPT-6 Sol/Luna API 价格较上一代促销价减半，Claude Opus 5.5 的缓存读取价较 Opus 5 降 60%；OpenAI 还称 GitHub Copilot 数十亿次请求中新鲜处理的提示 token 占比下降逾 50%。**判断：** 对 Agent 来说，缓存命中与上下文复用可能比标称输入价更决定总成本，后续应比较真实轨迹的每任务成本而非单 token 价格。[OpenAI](https://openai.com/index/introducing-gpt-6-sol-and-luna/)｜[Anthropic](https://www.anthropic.com/claude-opus-5-5)
+
+### 世界模型
+
+- **DreamStream 用策略特征而非纯视觉指标评价驾驶生成模拟器。** **事实：** CoRL 2026 论文从预训练视频模型蒸馏闭环驾驶模拟器，并提出基于端到端驾驶策略特征的 FDπ 指标；作者称相对最强基线在 nuScenes 和 NAVSIM 上分别改善 1.6 倍与 4.7 倍，并构建含对抗驾驶与天气变化的 Navhard-CL。[arXiv](https://arxiv.org/abs/2609.26792)
+
+- **TriWorldBench 测量头部与双腕相机预测是否属于同一个物理过程。** **事实：** 基准含 50 个双臂任务的 500 段同步三视角视频，以 19 项指标测量跨视角一致性、任务对齐、3D/物理连贯和运动质量。**判断：** 它直指单视角视频“各自合理、合起来矛盾”的评测盲点，更接近真实机器人世界模型的多相机要求。[arXiv](https://arxiv.org/abs/2609.26314)
+
+### 多模态
+
+- **Virtual Encoder 研究发现共享 Transformer 内部可涌现感知编码阶段。** **事实：** 论文通过线性探测、表征相似性和因果分析，观察到未使用连续感知编码器特征的多模态模型在早中层形成任务可用的“虚拟编码器”。**判断：** 这为减少专用编码器、解释原生多模态架构提供机制线索，但目前主要是分析性证据，尚未证明可直接转化为更优训练配方。[arXiv](https://arxiv.org/abs/2609.26513)
+
+- **CoRePrune 把视觉 token 裁剪从静态重要性改为条件可删除性。** **事实：** 方法随网络深度和当前删除集合重新评估 token；作者称在 Qwen3.5 保留 128 个视觉 token 时维持稠密模型 90.3% 性能，并将聚合 prefill 时间降低 51%。**判断：** 如果跨模型复现，视觉/视频 Agent 的上下文和延迟成本可明显下降；目前数字为作者自报。[arXiv](https://arxiv.org/abs/2609.26484)
+
+### 具身智能
+
+- **RoboTwin-Phys 把质量、摩擦和关节动力学纳入 VLA/WAM 评测。** **事实：** 基准连续改变 13 项物理属性，并发布超过 5,000 条带真实物理参数的专家示范；作者发现对视觉和布局随机化较稳健的模型，在物理条件变化下仍明显退化。**判断：** 这把具身评测从“看起来不同”推进到“动力学真的不同”，更能检验模型是否学习可迁移物理规律。[arXiv](https://arxiv.org/abs/2609.26292)
+
+- **PatchWAM 用统一 patch 表示同时生成动作与未来画面。** **事实：** 方法把连续动作经固定映射写成 patch，不增加独立动作头或动作专家；作者报告 LIBERO-Plus 成功率 91.8%、RoboTwin 2.0 为 96.12%。**判断：** 它提示世界预测与控制或可共享同一生成骨干，但高分依赖增强示范和特定基准，需等待真机、跨机器人验证。[arXiv](https://arxiv.org/abs/2609.25961)
+
+## 顶会与论文
+
+- **CoRL 2026：DreamStream。** 将生成式视频模型用于策略导向的闭环驾驶模拟，并指出 FID 等感知指标可能错误排序模拟器质量；代码和数据已公开。[arXiv](https://arxiv.org/abs/2609.26792)
+
+- **IROS 2026 临近。** 大会将于 9 月 27 日至 10 月 3 日在匹兹堡举行；本窗口出现多项参会发布预告，包括 Viam 的开箱机器人 BoxBot，但其 125 条遥操作示范、约 5 小时数据等数字目前主要来自公司新闻稿，暂不列入今日重点。[IROS](https://iros-pittsburgh.org/)｜[Viam 公告](https://www.prnewswire.com/news-releases/viam-debuts-box-opening-robot-at-iros-2026-302886481.html)
+
+- **arXiv 当日批次值得关注的基准组合。** TriWorldBench 检查多相机一致性，RoboTwin-Phys 检查物理参数变化，二者共同说明世界模型与 VLA 评测正从画面质量和任务成功率转向跨视角、跨动力学条件的可解释稳健性。[TriWorldBench](https://arxiv.org/abs/2609.26314)｜[RoboTwin-Phys](https://arxiv.org/abs/2609.26292)
+
+## 视频与访谈
+
+过去 24 小时内检索了 YouTube 上的官方发布、访谈和会议内容；未发现兼具新信息、可靠来源和足够技术深度、且明显超出上述文字一手材料的视频，因此本期不为凑数收录。
+
+## 值得继续跟踪
+
+- **OpenAI 与 Anthropic 的真实每任务成本。** 两家公司都强调比上一代更便宜，但 benchmark harness、effort、工具、安全回退和 token 预算不同；应等待独立、同设置的长程编码与电脑操作复测。[OpenAI](https://openai.com/index/introducing-gpt-6-sol-and-luna/)｜[Anthropic](https://www.anthropic.com/claude-opus-5-5)
+
+- **阿里 Zhenwu V900 的量产与软件生态。** 目前已知性能、模型规模与 20GW 规划主要来自公司；需要后续客户部署、能效、互连和产能数据来判断其对 NVIDIA 依赖的实际替代程度。[阿里云](https://www.alibabacloud.com/en/press-room/alibaba-unveils-roadmap-on-full-stack-ai-strategy)
+
+- **中国对 DeepSeek、Moonshot 的数据路由调查。** The Information 公开摘要称，中国网信监管机构正在调查两家公司是否把敏感用户数据路由至 Claude；尚无监管文件或涉事公司公开回应，故标记为待核实。[The Information](https://www.theinformation.com/articles/china-probes-deepseek-moonshot-potential-data-leaks-anthropic)
+
+- **递归研究 Agent 的复现边界。** AIDE² 的跨基准迁移和 reward hacking 下降均为作者结果；需观察代码、评测集隔离、算力成本和更长周期运行是否公开。[arXiv](https://arxiv.org/abs/2609.26457)
+
+## 来源
+
+- https://openai.com/index/introducing-gpt-6-sol-and-luna/
+- https://developers.openai.com/api/docs/changelog
+- https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/
+- https://www.anthropic.com/claude-opus-5-5
+- https://platform.claude.com/docs/en/models/opus-5-5/overview
+- https://www.alibabacloud.com/en/press-room/alibaba-unveils-roadmap-on-full-stack-ai-strategy
+- https://apnews.com/article/alibaba-ai-chip-qwen-zhenwu-china-us-b29908e516faff9f5a82b201ba954aab
+- https://blogs.nvidia.com/blog/isaac-ros-5-0-agentic-open-source-robotics/
+- https://nvidia-isaac-ros.github.io/v/release-5.0/releases/index.html
+- https://www.nvidia.com/en-us/events/roscon/
+- https://huggingface.co/blog/transformers-llama-cpp-quants
+- https://www.theinformation.com/articles/software-firms-discount-ai-keep-customers-anthropic-openai
+- https://www.theinformation.com/articles/china-probes-deepseek-moonshot-potential-data-leaks-anthropic
+- https://aws.amazon.com/blogs/opensource/introducing-tolap-object-level-access-control-for-ai-agent-tools/
+- https://arxiv.org/abs/2609.26779
+- https://arxiv.org/abs/2609.26457
+- https://arxiv.org/abs/2609.26792
+- https://arxiv.org/abs/2609.26314
+- https://arxiv.org/abs/2609.26513
+- https://arxiv.org/abs/2609.26484
+- https://arxiv.org/abs/2609.26292
+- https://arxiv.org/abs/2609.25961
+- https://iros-pittsburgh.org/
+- https://www.prnewswire.com/news-releases/viam-debuts-box-opening-robot-at-iros-2026-302886481.html
