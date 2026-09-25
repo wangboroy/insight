@@ -2298,3 +2298,105 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://arxiv.org/abs/2609.28414
 - https://arxiv.org/abs/2609.28416
 - https://neurips.cc/Conferences/2026/CallForPapers
+
+# 2026-09-25 AI 热点简报
+
+> 覆盖窗口：2026-09-24 08:08 至 2026-09-25 08:08（Europe/Zurich）。本期以公开一手来源和 9 月 24 日新提交论文为主；已检索公开 X 内容、国际顶会/论文页面、The Information 公开摘要、YouTube、公司与研究机构官网。X 与 The Information 在本窗口内未发现可独立核验、且相对一手来源有实质增量的新内容，因此不单列。论文与厂商性能数字均为作者或发布方自报，尚未独立复现。
+
+## 今日重点
+
+### 1. Anthropic 用 201 人的真实偏好测试 Agent 代理交易
+
+**事实摘要：** Anthropic 的 Project Swap 让 201 名员工先用约五分钟向 Claude 描述阅读偏好，再由各自 Agent 在开放“交易大厅”交换图书。Agent 对 10 本书的排序与本人在 61% 的两两比较中一致；在重复模拟中，全 Opus 市场的配置效率为 0.88，高于全 Haiku 的 0.75，而“无情”或“利他”提示带来的差异明显小于模型能力差异。[Anthropic](https://www.anthropic.com/research/project-swap)
+
+**影响判断：** 这项实验把 Agent 代理从单人任务推进到多方市场机制，但也说明最大风险不是谈判技巧，而是 Agent 是否真正理解委托人的偏好。身份注册、责任归属、撤销机制、信息披露和反垃圾规则会成为 Agent 市场的基础设施问题。
+
+### 2. Meta 宣布把 Muse Agent 带到 AI 眼镜
+
+**事实摘要：** Meta 在 Connect 2026 汇总中称，Muse 将在未来数月进入 AI 眼镜，可基于用户正在观看的商品、海报或清单执行任务；同时新增支付、电商、旅行、工作类连接器，并为 Muse 提供独立邮箱。Meta 还展示了带实时语音模型的口袋设备 Muse Charm，但未公布其详细规格与上市日期。[Meta](https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/)
+
+**影响判断：** 可穿戴摄像头、持续语音和后台执行把多模态感知与个人 Agent 合并成同一入口。产品价值很直观，但视觉数据最小化、旁观者隐私、支付确认和误操作恢复将决定它能否从演示走向日常使用。
+
+### 3. Google 预览面向大规模 Agent 查询的 AlloyDB 架构
+
+**事实摘要：** Google Cloud 宣布 AlloyDB 的“PostgreSQL for agents”预览版，可在数秒内建立与生产负载隔离的沙箱数据库实例，并在任务结束后缩容至零。Google 自报该架构支持数千个只读实例、亚毫秒 I/O、聚合扫描带宽超过 1 Tb/s，以及每秒逾 300 万次查询；实例可读取接近实时的生产数据，但不会与主事务集群共享计算资源。[Google Cloud](https://cloud.google.com/blog/products/databases/announcing-postgresql-for-agents-in-alloydb)
+
+**影响判断：** Agent 基础设施瓶颈正从模型推理扩展到数据层的突发并发与隔离。真正需要验证的是预览版在真实混合负载下的成本、数据新鲜度、权限边界和故障隔离，而不是峰值指标本身。
+
+### 4. Qwen-Planner-Agent 把数据、训练与运行时 harness 组成闭环
+
+**事实摘要：** 新论文提出 Qwen-Planner-Agent，用统一的“动作—反馈—验证”契约连接任务构造、轨迹采集、在线 Agent 强化学习和部署；运行时再由记忆、技能、工具及子 Agent 协调执行，并把失败轨迹反馈给模型与 harness。作者称其在 MobilePA-Bench 上优于所有参评模型和系统，同时在非移动端 Agent 基准上也获得提升。[arXiv](https://arxiv.org/abs/2609.29892)
+
+**影响判断：** 值得关注的不是单一榜单分数，而是“模型与 harness 共同演化”的工程路线。若训练环境、验证器或任务生成器有系统偏差，闭环也可能把偏差持续放大，因此外部复现和失败集审计很重要。
+
+### 5. RWM 尝试在表征空间中直接生成可执行计划
+
+**事实摘要：** Representation World Model（RWM）不再依赖递归 rollout、动作搜索或单独策略网络，而是在当前状态与目标状态的表征之间直接构造潜在路径，再通过逆动力学恢复动作。作者在连续控制和机器人操作基准上报告了有效结果，但当前证据仍主要来自受控实验。[arXiv](https://arxiv.org/abs/2609.29171)
+
+**影响判断：** 如果这条路线能扩展到长程、接触丰富的真实任务，它可能明显降低世界模型规划的推理成本；目前最需要观察的是潜在路径在分布外状态、遮挡和执行误差下是否仍对应可行物理轨迹。
+
+## 分主题动态
+
+### AI
+
+- **Meta 提出用 RL 控制“输出分布”，而不只最大化单条答案奖励。** **事实：** MaD-RL 将语言、解题策略或生成属性等离散维度的目标比例写成分布匹配问题，并指出 GRPO 一类方法可能把概率集中到少数模式。**判断：** 对合成数据和多样化策略探索，这比简单熵奖励更可控；公平性应用则必须审计属性定义与目标分布由谁决定。[Meta AI](https://ai.meta.com/results/?content_types%5B0%5D=publication&page=1)
+
+### Agent
+
+- **Project Swap 显示模型能力比“无情/利他”提示更能左右交易结果。** **事实：** 从 Haiku 升级到 Opus 对偏好排名的改善约为 0.12，而提示策略的差异约为 0.02；强模型与弱模型同场时，强模型通常获得更好结果。**判断：** 这预示未来多 Agent 市场可能出现“模型能力即谈判资本”的结构性不平等，需要平台规则和可审计身份来缓冲。[Anthropic](https://www.anthropic.com/research/project-swap)
+
+- **Qwen-Planner-Agent 强调失败轨迹的保留与回流。** **事实：** 系统在部署中记录执行证据，并用结构化动作反馈同时调整模型与 harness。**判断：** 这比只做离线模型微调更贴近真实 Agent 工程，但也要求训练、运行时日志和评测版本保持可追溯。[arXiv](https://arxiv.org/abs/2609.29892)
+
+### 计算
+
+- **TRACK 用大小模型按扩散时间步动态分工，加速视频生成。** **事实：** 方法先离线测量大小模型在各去噪步的分歧，再把质量敏感步骤路由给大模型，其余步骤交给小模型；作者在 Wan 2.1、Cosmos 3、TurboDiffusion 和 FastVideo 上报告 1.95 至 2.73 倍加速，无需重新训练或在线双模型比较。**判断：** 它把“混合模型路由”从请求级细化到扩散轨迹级，但质量等价性仍需更广泛的人评和不同提示分布验证。[arXiv](https://arxiv.org/abs/2609.30096)
+
+### 世界模型
+
+- **RWM 把规划本身嵌入表征几何。** **事实：** 模型以逆动力学监督约束潜在路径，使路径同时保存任务状态、状态转移和可恢复动作。**判断：** 这是对“世界模型必须先预测未来、再搜索计划”范式的直接挑战，能否处理多解路径与不可逆接触是后续关键。[arXiv](https://arxiv.org/abs/2609.29171)
+
+### 多模态
+
+- **SVGLM 让 VLM 用可渲染 SVG 参与推理。** **事实：** 论文把 SVG 同时视为图像描述和文本指令，让模型在推理过程中生成、观察并修改图形；作者同时构建 SVG 编辑数据集，并在数学推理任务上验证“边画边想”。**判断：** 相比像素或不可解释潜变量，SVG 更易检查、编辑和执行，尤其适合几何、图表、界面与文档 Agent；开放域视觉仍受 SVG 表达能力限制。[arXiv](https://arxiv.org/abs/2609.30130)
+
+- **Muse on AI glasses 把视觉输入直接接到执行层。** **事实：** Meta 称 Muse 可基于眼前物体调用购物、支付、旅行和工作连接器。**判断：** 多模态模型的竞争焦点正在从“看懂画面”转向“基于画面采取可授权、可撤销的动作”。[Meta](https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/)
+
+### 具身智能
+
+- **RWM 在机器人操作中验证潜在路径规划。** **事实：** 作者报告该方法可从当前与目标表征直接恢复动作序列。**判断：** 目前尚不足以证明可替代真实机器人上的闭环规划；下一步应重点看在线重规划、接触反馈与安全约束。[arXiv](https://arxiv.org/abs/2609.29171)
+
+## 顶会与论文
+
+- **Qwen-Planner-Agent：移动端 Planner Agent 的 AI-for-AI 闭环。** 人工把关的数据飞轮、混合环境在线 RL、记忆/技能/工具编排和失败回流被统一到同一套执行契约中。结果为作者自报，需关注 MobilePA-Bench 的任务覆盖与跨设备复现。[arXiv](https://arxiv.org/abs/2609.29892)
+
+- **Representation World Model：在表征空间直接规划。** 以潜在路径加逆动力学取代显式 rollout 与动作搜索，提供一条潜在更轻量的世界模型控制路线。[arXiv](https://arxiv.org/abs/2609.29171)
+
+- **SVGLM：把 SVG 变成多模态推理中间语言。** 模型可以在推理链中绘图、重新观察和修改，强调可解释、可执行的视觉中间状态。[arXiv](https://arxiv.org/abs/2609.30130)
+
+- **TRACK：训练无关的视频扩散轨迹路由。** 通过离线校准决定哪些去噪步必须调用大模型，其余步骤调用兼容小模型，目标是在保留质量的同时降低平均计算量。[arXiv](https://arxiv.org/abs/2609.30096)
+
+- **MaD-RL：面向生成分布校准的强化学习。** 将目标从单条输出奖励扩展到跨多次生成的属性比例，为合成数据多样性和策略探索提供更直接的控制对象。[Meta AI](https://ai.meta.com/results/?content_types%5B0%5D=publication&page=1)
+
+## 视频与访谈
+
+- **Harness Engineering Explained: Inside the Stack Behind Antigravity, Claude Code & Cursor。** Google Cloud 的 Ryan Lopopolo 讨论如何把上下文、工具、测试和可验证交付物做成 Agent harness，并强调将规则前移到仓库文档、lint、测试和评测中。推荐给正在搭建长程编码 Agent 的团队，因为内容更偏生产工程，而非模型演示。[YouTube](https://www.youtube.com/watch?v=F8EZJAm9iO8)
+
+## 值得继续跟踪
+
+- **Agent 市场的身份与责任规则。** Project Swap 建议为 Agent 建立可查询的系统身份、运营方和安全标准信息，但匿名性、责任承担及争议处理仍没有成熟方案。[Anthropic](https://www.anthropic.com/research/project-swap)
+
+- **Muse 可穿戴执行的安全边界。** Meta 尚未公开眼前视觉数据的留存方式、敏感动作确认流程、连接器权限粒度与 Charm 的完整规格，均需后续技术文档验证。[Meta](https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/)
+
+- **AlloyDB 预览版的真实成本与隔离效果。** 亚毫秒 I/O、每秒 300 万次查询等均为 Google 自报，应等待公开定价、客户负载数据和故障场景验证。[Google Cloud](https://cloud.google.com/blog/products/databases/announcing-postgresql-for-agents-in-alloydb)
+
+## 来源
+
+- https://www.anthropic.com/research/project-swap
+- https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/
+- https://cloud.google.com/blog/products/databases/announcing-postgresql-for-agents-in-alloydb
+- https://ai.meta.com/results/?content_types%5B0%5D=publication&page=1
+- https://arxiv.org/abs/2609.29892
+- https://arxiv.org/abs/2609.29171
+- https://arxiv.org/abs/2609.30130
+- https://arxiv.org/abs/2609.30096
+- https://www.youtube.com/watch?v=F8EZJAm9iO8
