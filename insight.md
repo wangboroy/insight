@@ -2400,3 +2400,74 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://arxiv.org/abs/2609.30130
 - https://arxiv.org/abs/2609.30096
 - https://www.youtube.com/watch?v=F8EZJAm9iO8
+
+# 2026-09-26 AI 热点简报
+
+> 覆盖窗口：2026-09-25 08:08 至 2026-09-26 08:08（Europe/Zurich）。本窗口恰逢周末前夜，高质量新增较少，因此采用短版。已检索公开 X 内容、公司与研究机构官网、arXiv、国际顶会官网、The Information 公开摘要、YouTube 及可靠科技媒体；X 上的公开讨论主要围绕 Microsoft Copilot 发布，未提供超出一手公告、可独立核验的新增事实。The Information、顶会官网与 YouTube 未发现符合时间窗口且信息增量足够的内容，故不以旧闻补位。厂商性能与使用数据均为发布方自报，尚未独立复现。
+
+## 今日重点
+
+### 1. Microsoft 将 Copilot 重构为 Home、Code 与持续运行的 Autopilot
+
+**事实摘要：** Microsoft 发布新版 Copilot：Home 合并 Chat、Cowork 与 Office 文档协作；Code 使用 GitHub Copilot 的底层技术，通过自然语言创建应用、仪表板、自动化和工作流；Autopilot 则是云端常驻 Agent，拥有独立身份、记忆、计算机和工作区，可监控频道、跟进线程并跨天继续任务。Home 与 Code 将在未来数周进入 Frontier 计划，Autopilot 计划于本月底扩大私人预览；Copilot Managed Runtime 已进入预览。[Microsoft 官方博客](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/)｜[VentureBeat 交叉报道](https://venturebeat.com/ai)
+
+**影响判断：** Microsoft 正把 Copilot 从对话入口升级为企业工作的统一执行层，并将“生成软件”“委派整项工作”和“常驻后台 Agent”并入同一产品。真正的考验将是租户权限、审计、成本控制和跨天任务纠错，而不是发布演示中的功能覆盖。
+
+### 2. AWS 披露 MoE 强化学习栈的 40% rollout 吞吐提升
+
+**事实摘要：** AWS 给出在 EKS 上组合 EFA 与 DeepEP 的 MoE 强化学习架构，将 rollout、奖励模型推理、策略训练和检查点分层部署。AWS 称，在相同 48 台 P5en 实例、同一超稀疏 MoE 模型的内部对比中，新栈把聚合 rollout 吞吐提高 40%，并缩短策略迭代时间；比较同时包含 CUDA、PyTorch、NCCL、SGLang 等软件版本变化。[AWS](https://aws.amazon.com/blogs/machine-learning/scaling-moe-reinforcement-learning-on-amazon-eks-with-efa-and-deepep-with-40-more-throughput/)
+
+**影响判断：** 大规模 RL 的瓶颈正在从单纯算力转向专家并行通信、训练与推理速率匹配以及异构资源调度。40% 是有价值的工程信号，但并非只隔离 EFA 或 DeepEP 单变量的对照，仍需第三方在其他模型和云环境复现。
+
+### 3. AWS 给出可复现的多模态 GRPO 训练流水线
+
+**事实摘要：** AWS 发布 SkyRL 在 SageMaker HyperPod 上后训练 Qwen3-VL-8B 的端到端方案：用 3 台双 GPU 的 ml.g7e.12xlarge 节点、FSDP、6 个共置 vLLM rollout 引擎和共享 FSx for Lustre，同步 LoRA 权重并监控训练。AWS 报告称，在固定 64 个视觉迷宫的评测集上，GRPO 将解题率从 43.75% 提升至超过 95%。[AWS](https://aws.amazon.com/blogs/machine-learning/accelerate-multimodal-rl-training-with-skyrl-on-amazon-sagemaker-hyperpod/)
+
+**影响判断：** 这条信息的价值不在新模型，而在把多模态 Agent 的 RL 后训练、容错、可观测性与上线串成了可操作模板。评测规模很小且结果来自厂商教程，不能据此推断开放视觉任务的泛化能力。
+
+### 4. NarrateAI 将 Agent 质量保证放进实时生成链路
+
+**事实摘要：** AWS 公开内部 NarrateAI 的生产质量架构，组合自适应流水线编排、跨账户多模型故障转移、流式评估、复合评估和数据准确性校验。AWS 称该系统服务 4,000 多名内部管理者，并在实时回答中达到约 99% 数值准确率；相关数字由 AWS 自行测量，未披露完整外部基准。[AWS](https://aws.amazon.com/blogs/machine-learning/narrateai-production-ready-llm-quality-assurance-on-amazon-bedrock/)
+
+**影响判断：** 企业 Agent 的竞争点正在从“选哪个模型”转向能否在响应延迟、数值正确性、模型故障和验证成本之间建立持续控制环。该案例值得借鉴架构，但不能把内部指标直接外推到其他数据域。
+
+## 分主题动态
+
+### AI / Agent
+
+- **Copilot 把应用生成、任务委派与常驻 Agent 合并到统一入口。** **事实：** Code 运行在沙箱环境，可在企业租户内托管；Autopilot 则进入 Teams、Outlook、聊天、频道和文档，并继承权限、审计与治理。[Microsoft](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/) **判断：** “Agent 是应用功能”正在转为“Agent 是组织内有身份的执行主体”，身份生命周期、最小权限和行为追责会成为部署门槛。
+
+- **NarrateAI 采用流式回答与后台验证并行。** **事实：** AWS 将实时流式评估、数值核验和多模型故障转移放在同一生产链路，并分别衡量内容质量与数据准确性。[AWS](https://aws.amazon.com/blogs/machine-learning/narrateai-production-ready-llm-quality-assurance-on-amazon-bedrock/) **判断：** 对高风险企业问答，事后抽检正逐步让位于生成过程中的持续验证，但验证器本身的误判与成本仍需公开测量。
+
+### 计算
+
+- **MoE 强化学习越来越受制于通信与资源失衡。** **事实：** AWS 的架构把 GPU rollout、策略训练、CPU 环境、经验缓冲与持久存储分开扩缩，并以 DeepEP 优化专家并行的稀疏 all-to-all 通信。[AWS](https://aws.amazon.com/blogs/machine-learning/scaling-moe-reinforcement-learning-on-amazon-eks-with-efa-and-deepep-with-40-more-throughput/) **判断：** 下一阶段训练效率提升会更多来自通信栈、调度器与训练/推理协同，而不只是扩大 GPU 数量。
+
+### 多模态
+
+- **视觉语言模型的 GRPO 工程链路进一步标准化。** **事实：** SkyRL 教程把视觉迷宫 rollout、组内相对奖励、FSDP 更新、LoRA 同步、Grafana 监控和部署串联起来。[AWS](https://aws.amazon.com/blogs/machine-learning/accelerate-multimodal-rl-training-with-skyrl-on-amazon-sagemaker-hyperpod/) **判断：** 多模态后训练正在从研究脚本走向可恢复、可观测的集群作业；下一步需要更复杂、跨分布且可验证的环境，而非继续优化单一小型迷宫集。
+
+## 顶会与论文
+
+- 本窗口未发现国际顶会官网发布新的奖项、议程或政策公告；arXiv 当日聚合中可见的相关论文原始提交时间落在本窗口之前，已按时间规则排除，避免将旧论文包装成当日新增。
+
+## 视频与访谈
+
+- 本窗口未发现发布时间和信息增量均可确认的高质量 YouTube 新视频。Microsoft 的 Agent 风险治理演示虽值得参考，但其原始发布页日期早于本窗口，因此未收录。
+
+## 值得继续跟踪
+
+- **Autopilot 的真实权限与成本边界。** 当前仍为私人预览阶段，需观察其默认权限、敏感操作确认、暂停与回滚机制，以及 Agent 365/FinOps 如何呈现跨天任务成本。[Microsoft](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/)
+
+- **美中 AI 安全协议提案。** Axios 报道，美国众议员 Ro Khanna 致函国务卿，提出对递归自我改进和超级智能实施全球暂停、为先进模型建立“关闭开关”、发布前审计及国际核查机制。该内容目前是议员提案，并非政府政策或双边协议，应视为待发展的治理信号。[Axios](https://www.axios.com/2026/09/25/ro-khanna-alternative-us-china-ai-playbook)
+
+- **AWS 的 40% RL 吞吐数据。** 需等待在不同 MoE 稀疏度、网络拓扑、软件版本和非 AWS 环境中的复现，才能判断增益中通信优化与整体栈升级各占多少。[AWS](https://aws.amazon.com/blogs/machine-learning/scaling-moe-reinforcement-learning-on-amazon-eks-with-efa-and-deepep-with-40-more-throughput/)
+
+## 来源
+
+- https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/
+- https://venturebeat.com/ai
+- https://aws.amazon.com/blogs/machine-learning/scaling-moe-reinforcement-learning-on-amazon-eks-with-efa-and-deepep-with-40-more-throughput/
+- https://aws.amazon.com/blogs/machine-learning/accelerate-multimodal-rl-training-with-skyrl-on-amazon-sagemaker-hyperpod/
+- https://aws.amazon.com/blogs/machine-learning/narrateai-production-ready-llm-quality-assurance-on-amazon-bedrock/
+- https://www.axios.com/2026/09/25/ro-khanna-alternative-us-china-ai-playbook
