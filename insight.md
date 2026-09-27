@@ -2471,3 +2471,51 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://aws.amazon.com/blogs/machine-learning/accelerate-multimodal-rl-training-with-skyrl-on-amazon-sagemaker-hyperpod/
 - https://aws.amazon.com/blogs/machine-learning/narrateai-production-ready-llm-quality-assurance-on-amazon-bedrock/
 - https://www.axios.com/2026/09/25/ro-khanna-alternative-us-china-ai-playbook
+
+# 2026-09-27 AI 热点简报
+
+> 检索窗口：2026-09-26 06:08 UTC 至 2026-09-27 06:08 UTC。过去 24 小时恰逢周末，公开可核验的高质量新增明显偏少；本期不以旧闻补量。X 公开内容、The Information 公开摘要、YouTube、主要实验室/公司官网与 arXiv 均已检索，除 IROS 2026 开幕及其当日议程外，未发现同时满足时间、可信度与信息增量门槛的条目。
+
+## 今日重点
+
+- **IROS 2026 于匹兹堡正式开幕，具身智能进入全年最密集的顶会观察窗口之一。** **事实：** IEEE Robotics and Automation Society 确认，第 39 届 IEEE/RSJ International Conference on Intelligent Robots and Systems 于 9 月 27 日至 10 月 1 日举行；官方会议账号此前公布的项目规模为 1,900 多篇论文、19 场主题演讲、86 场研讨会与教程、9 项竞赛及 170 多家参展机构。[IEEE RAS](https://www.ieee-ras.org/event/2026-ieee-rsj-international-conference-on-intelligent-robots-and-systems-iros-61738/) · [IROS 官方账号](https://www.linkedin.com/posts/iros2026pittsburgh_iros-2026-program-schedules-activity-7499183379108589568-7fQT) **判断：** 接下来数日最值得关注的不是单一演示，而是机器人基础模型能否在实时性、接触安全、跨具身迁移与失败恢复上给出可复现证据。
+
+- **“模块化还是端到端扩展”成为通用机器人系统的明确争论轴。** **事实：** IROS 首日“Compositional and Modular Learning in the Era of Scaling in Robotics”研讨会把 VLA 微调接口、双臂视频扩散数据生成、技能组合、跨具身策略迁移、少样本操作和代码 Agent 自动构建数字孪生列为核心议题；日程还安排了“通用机器人系统中什么应当模块化”的专题讨论。[研讨会与录用论文列表](https://compositional-robotics.github.io/) **判断：** 这是对“只要继续扩大统一模型即可覆盖所有机器人组合”的直接检验；高价值信号将来自跨硬件复现、消融实验和失败案例，而非演示视频本身。
+
+- **运动型人形机器人把评测推向高速、对抗与接触丰富场景。** **事实：** IROS 首日相关研讨会安排人类数据加物理约束的技能学习、事件相机驱动的机器人乒乓球、全身羽毛球策略以及机器人身体设计等报告。公开页面称乒乓球系统 Ace 使用事件视觉与无模型强化学习，并在正式规则下与高水平选手对局；这些仍是报告摘要中的作者陈述，尚不能替代完整论文与独立复现。[运动型人形机器人研讨会](https://iros-2026-athletic-humanoid.github.io/workshop/) **判断：** 若会议公开真实对局日志、延迟、失误分布与安全停机数据，这类场景会比静态抓取成功率更能揭示具身系统的实际边界。
+
+## 分主题动态
+
+### Agent / 具身智能
+
+- **Agent 架构正向物理世界扩展，但边界条件比数字 Agent 更苛刻。** **事实：** CoRL 2026 的 Agentic Robotics 研讨会把 Agent 与底层策略的边界、真实世界自我改进、分层反馈、仿真数据增益、零样本技能组合和失败恢复列为六组开放问题，并在 9 月 27 日截止投稿。[CoRL Agentic Robotics](https://agentic-robotics-workshop.github.io/) **判断：** “Agentic robotics”正从标签变成可讨论的系统结构问题；真正的分水岭将是权限、实时控制与不可逆动作失败是否被纳入统一评测。
+
+### 计算 / 世界模型 / 多模态
+
+- 本窗口未发现具有明确发布时间、直接一手来源且带来实质增量的新发布。IROS 当日议程涉及视觉、触觉、视频扩散、数字孪生和仿真，但在报告或论文证据公开前不把议程预告当作技术突破。
+
+## 顶会与论文
+
+- **IROS 2026 进入会议周。** 9 月 27 日为工作坊与教程日，主会随后展开；本期仅记录已经核验的开幕与公开议程，不提前宣称奖项或报告结果。[IEEE RAS](https://www.ieee-ras.org/event/2026-ieee-rsj-international-conference-on-intelligent-robots-and-systems-iros-61738/)
+
+- **arXiv 无新的周末常规批次。** 检索到的相关论文原始提交日期均早于本窗口，因此未重复收录。
+
+## 视频与访谈
+
+- 本窗口未发现发布时间与信息增量均可确认的高质量 YouTube 新视频。部分 IROS 研讨会页面提供 Zoom 入口，但会议尚未产生可核验的公开视频或完整报告材料，因此不将直播入口列为“推荐观看”。
+
+## 值得继续跟踪
+
+- **IROS 首日材料。** 跟踪研讨会幻灯片、演示录像、最佳论文/演示奖与真实机器人失败案例；后续简报只在出现可引用的新证据时更新，而不重复会议预告。
+
+- **CoRL Agentic Robotics 投稿结果。** 该工作坊将在 11 月 12 日举行，当前值得观察其是否形成统一的 Agent-策略接口、失败恢复或真实机器人自我改进基准。[官方页面](https://agentic-robotics-workshop.github.io/)
+
+- **周末低信息量信号。** X 上的公开讨论与官方账号更新主要为会议宣传或低信息量观点；The Information 未检索到窗口内可合法访问且可交叉验证的新公开摘要。若后续出现补发的一手材料，将按“新增变化”而非旧闻重发处理。
+
+## 来源
+
+- https://www.ieee-ras.org/event/2026-ieee-rsj-international-conference-on-intelligent-robots-and-systems-iros-61738/
+- https://www.linkedin.com/posts/iros2026pittsburgh_iros-2026-program-schedules-activity-7499183379108589568-7fQT
+- https://compositional-robotics.github.io/
+- https://iros-2026-athletic-humanoid.github.io/workshop/
+- https://agentic-robotics-workshop.github.io/
