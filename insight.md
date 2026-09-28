@@ -2519,3 +2519,69 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://compositional-robotics.github.io/
 - https://iros-2026-athletic-humanoid.github.io/workshop/
 - https://agentic-robotics-workshop.github.io/
+
+# 2026-09-28 AI 热点简报
+
+> 覆盖窗口：2026-09-27 08:08 至 2026-09-28 08:08（Europe/Zurich）。本窗口处于周末，公开可核验的新发布明显偏少，因此采用短版，不以旧闻补量。已检索公开 X 内容、公司与研究机构官网、国际会议页面、arXiv、The Information 公开摘要及 YouTube；X 与 YouTube 未发现同时满足时间、可信度和信息增量门槛的新内容。arXiv 周末没有常规新批次。IROS 工作坊条目反映公开议程和论文列表，不等同于会议结论或独立复现。
+
+## 今日重点
+
+### 1. 中国据报考虑放行阿里、字节采购 NVIDIA RTX PRO 5500
+
+**事实摘要：** The Information 援引知情人士称，中国工信部近期要求阿里巴巴、字节跳动等企业上报 RTX PRO 5500 的采购数量和用途，并向部分企业表示拟批准采购；字节跳动据报考虑采购约 100 万块。NVIDIA 官方页面确认 RTX PRO 5500 是配备 84 GB GDDR7 的 Blackwell 工作站 GPU，面向 Agent AI、物理仿真等负载，但公开页面仍标注“即将推出”。目前没有中国监管文件，批准时间、数量、美国出口许可及最终订单均未确认。[The Information](https://www.theinformation.com/articles/china-weighs-allowing-purchases-new-nvidia-chips-bytedance-alibaba)｜[NVIDIA 产品页](https://www.nvidia.com/en-in/products/workstations/professional-desktop-gpus/rtx-pro-5500/)｜[TNW 交叉报道](https://thenextweb.com/news/china-alibaba-bytedance-nvidia-rtx-pro-5500)
+
+**影响判断：** 若获两国监管放行，工作站 GPU 可能成为中国企业扩充推理算力的新通道，并延缓其软件栈完全迁离 CUDA。百万级采购和季度 50 万块供货目标都来自匿名信源，应作为待核实的供应链信号，而不是已成交订单。
+
+### 2. IROS 把机器人基础模型的“不确定性”推到系统级评估中心
+
+**事实摘要：** 9 月 27 日举行的 IROS“现代机器人范式中的不确定性”工作坊收录 33 篇论文，其中 5 篇口头报告覆盖预训练感知的任务相关状态估计、VLM 目标搜索的空间语义不确定性、多指操作的联合世界建模与潜变量估计、学习策略失败预测及置信度感知操作。公开议程还把不确定性从感知延伸到场景图、世界模型、策略部署、分布外检测、失败恢复和统计保证。[工作坊官网](https://rethinking-uncertainty.github.io/)
+
+**影响判断：** 机器人基础模型的评测正在从平均成功率转向“何时不知道、何时会失败、能否提前停下或恢复”。这对 VLA 和世界模型走出实验室比继续抬高单一基准分数更关键；不过工作坊为非归档 venue，论文结果仍需正式发表和复现。
+
+### 3. IROS 世界模型议程从视频预测转向空间结构、持续地图与物理落地
+
+**事实摘要：** 同日举行的 WORLDS 工作坊公布的论文主题包括：用少量第一视角视频进行零样本操作、以物理约束筛选世界模型合成数据、双臂视频扩散数据生成、对象中心稀疏残差世界模型、车车协同 VLA，以及持续开放词汇语义地图。另一个长期感知工作坊将目标概括为“物理世界的撤销”，聚焦动态人类共享环境中的长期变化、持续记忆与可恢复性。[WORLDS](https://worlds-iros2026.github.io/)｜[长期感知工作坊](https://mit-spark.github.io/Longterm-Perception-WS/)
+
+**影响判断：** 世界模型研究正在把“生成看起来合理的未来”拆解为更可检验的能力：空间关系、受动作影响的局部变化、长期地图更新、跨主体协作与失败后的状态恢复。当前证据主要是录用题目和议程，尚不能据此判断哪种方法已取得性能突破。
+
+## 分主题动态
+
+### 计算
+
+- **RTX PRO 5500 可能被当作服务器推理卡使用。** **事实：** NVIDIA 将其定位为可集中部署的工作站 GPU，提供 84 GB ECC GDDR7 和 1,398 GB/s 内存带宽；The Information 称潜在中国买家计划以每台服务器 8 卡配置运行模型。**判断：** 这说明出口约束正在推动“工作站卡服务器化”，但互联能力、集群效率、实际价格和合规状态可能显著限制规模效益。[NVIDIA](https://www.nvidia.com/en-in/products/workstations/professional-desktop-gpus/rtx-pro-5500/)｜[The Information](https://www.theinformation.com/articles/china-weighs-allowing-purchases-new-nvidia-chips-bytedance-alibaba)
+
+### 世界模型 / 多模态 / 具身智能
+
+- **不确定性开始贯穿感知、世界模型与策略执行。** **事实：** IROS 工作坊公开的 33 篇论文与报告覆盖 VLM 搜索、VLA 数据、世界模型、策略失败预测、重建和部署校准。**判断：** 未来高价值基准需要同时报告任务成功、校准误差、分布外检测、错误代价和恢复率，避免模型在不知道时仍高置信执行。[工作坊官网](https://rethinking-uncertainty.github.io/)
+
+- **双臂操作再次暴露“规模还是结构”的分歧。** **事实：** IROS 双臂机器人学习工作坊把问题明确拆成两派：依靠更多遥操作、仿真和人类视频让能力涌现，或为双臂耦合、角色分配、时间同步和共享物理约束设计新结构。**判断：** 真正可判定的证据应来自同数据预算下的结构消融、跨机器人迁移和接触丰富任务，而不是单段演示。[工作坊官网](https://bimanual-robot-learning.github.io/)
+
+## 顶会与论文
+
+- **IROS 2026 完成工作坊日，主会将于 9 月 28 日开始。** 截至本期窗口结束，主会报告尚未开始；公开日程显示首日重点包括 3D-aware VLA、敏捷人形与足式运动、长短期 LiDAR 记忆、可证明安全的 3D Gaussian Splat 压缩，以及语言驱动的异构多机器人规划。此处仅记录议程，不提前宣称结果。[IROS 议程整理](https://robotics.gatech.edu/gt-iros-2026)｜[IEEE RAS](https://www.ieee-ras.org/ieee-ras-events-at-iros/)
+
+- **周末无 arXiv 常规新批次。** 本窗口检索到的相关预印本原始提交日期均早于时间窗，未重复收录。
+
+## 视频与访谈
+
+- 本窗口未发现发布时间、直接来源与信息增量均可确认的高质量 YouTube 新视频。IROS 工作坊部分提供直播入口，但尚无可核验的完整录像或报告材料，因此不作为推荐观看内容。
+
+## 值得继续跟踪
+
+- **RTX PRO 5500 的监管与订单落地。** 需等待中国工信部或企业公开确认、美国出口许可说明以及 NVIDIA 的正式出货数据；在此之前，“100 万块订单”和“季度 50 万块供货”均标记为待核实。[The Information](https://www.theinformation.com/articles/china-weighs-allowing-purchases-new-nvidia-chips-bytedance-alibaba)
+
+- **IROS 主会实证材料。** 重点关注 3D-aware VLA、世界模型不确定性、双臂协同、失败恢复和多机器人语言规划是否公开代码、真实机器人日志、延迟、失败分布与跨硬件复现。
+
+- **工作坊奖项与公开材料。** 9 月 27 日多个工作坊安排最佳论文奖或闭幕总结，但截至检索截止点未发现可核验的获奖名单；后续仅在官方页面更新后收录。
+
+## 来源
+
+- https://www.theinformation.com/articles/china-weighs-allowing-purchases-new-nvidia-chips-bytedance-alibaba
+- https://www.nvidia.com/en-in/products/workstations/professional-desktop-gpus/rtx-pro-5500/
+- https://thenextweb.com/news/china-alibaba-bytedance-nvidia-rtx-pro-5500
+- https://rethinking-uncertainty.github.io/
+- https://worlds-iros2026.github.io/
+- https://mit-spark.github.io/Longterm-Perception-WS/
+- https://bimanual-robot-learning.github.io/
+- https://robotics.gatech.edu/gt-iros-2026
+- https://www.ieee-ras.org/ieee-ras-events-at-iros/
