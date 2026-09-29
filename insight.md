@@ -2585,3 +2585,107 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://bimanual-robot-learning.github.io/
 - https://robotics.gatech.edu/gt-iros-2026
 - https://www.ieee-ras.org/ieee-ras-events-at-iros/
+
+# 2026-09-29 AI 热点简报
+
+> 覆盖窗口：2026-09-28 08:08 至 2026-09-29 08:08（Europe/Zurich）。已检索公司与研究机构官网、公开 X 内容、IROS 2026、论文平台、The Information 公开标题与摘要、YouTube 及可靠媒体。X 讨论与 YouTube 新内容主要围绕下列正式发布，未发现信息增量足够、且可独立核验的额外一手材料。所有模型和性能数字除特别说明外均为发布方自报，尚未独立复现。
+
+## 今日重点
+
+### 1. AMD 以约 82 亿美元收购 World Labs，把世界模型研究并入芯片路线图
+
+**事实摘要：** AMD 宣布以全股票交易收购李飞飞领导的 World Labs，交易估值约 82 亿美元，预计在 2026 年底前完成，但仍需监管批准和满足惯常交割条件。交易完成后，World Labs 团队将继续从事模型研究，李飞飞将出任 AMD 执行副总裁兼首席科学家，向 Lisa Su 汇报；AMD 明确表示将借此让未来硬件、软件和系统更贴近推理、机器人、仿真与 Physical AI 的负载变化。[AMD 公告](https://www.globenewswire.com/news-release/2026/09/28/3370256/0/en/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute.html)｜[The Information 公开简报](https://www.theinformation.com/briefings/amd-buy-fei-fei-lis-world-labs-8-2-billion)
+
+**影响判断：** 这不是普通的人才收购，而是 GPU 厂商把世界模型团队直接纳入计算平台设计。若交易完成，AMD 与 NVIDIA 的竞争将进一步从芯片参数扩展到“模型研究反向定义硬件”的全栈闭环；短期仍需关注整合、监管审批和 World Labs 研究开放度。
+
+### 2. Anthropic 发布 Claude Sonnet 5.5，主打接近旗舰能力的成本效率
+
+**事实摘要：** Claude Sonnet 5.5 已在 Anthropic、AWS、Google Cloud 和 Microsoft Azure 上线。Anthropic 称其较 Sonnet 5 快逾 30%，多数任务成本最高降低 30%；厂商自报 Terminal-Bench 4.0 为 70.6%、OSWorld 2.1 为 80.1%（partial），并称中低 effort 设置在多项任务上显著降低单任务成本。[Anthropic](https://www.anthropic.com/claude-sonnet-5-5)
+
+**影响判断：** 关键变化不是单纯榜单提升，而是把强编码、电脑操作和长程知识工作压到更可日常部署的价格带。不过部分分数跨版本跃升很大，且不同模型的 harness、effort 和任务子集不完全一致，不能直接视为同条件横评。
+
+### 3. NVIDIA 发布 Open Agent Safety Platform，把 Agent 控制边界下沉到运行时与 DPU
+
+**事实摘要：** 平台由开源 OpenShell 安全运行时与 Sentry 参考设计组成：OpenShell 在 Agent 进程之外限制文件、网络、凭据和工具访问；Sentry 在 BlueField-4 DPU 的隔离域中进行带外监控，NVIDIA 称可在毫秒级隔离越界 Agent。OpenShell 已广泛可用，也可扩展到 Arm 与 Intel 平台；NVIDIA 列出逾 100 家合作机构，并称 Figure、Gecko Robotics、Skild AI 等机器人团队正在使用相关技术。[NVIDIA 公告](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Open-Agent-Safety-Platform-to-Secure-Agents-From-Testing-to-Deployment/default.aspx)｜[技术说明](https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/)｜[AP 交叉报道](https://apnews.com/article/3c4d7c1cfde82851c0577d1fa29b8621)
+
+**影响判断：** Agent 安全正在从提示词与应用层护栏转向模型外、可审计且难被 Agent 自行绕过的系统边界。真正成效取决于策略是否正确、权限变更流程是否严谨，以及它能否承受未知漏洞与复杂工具链攻击，不能仅凭“毫秒级隔离”宣称判断安全问题已解决。
+
+### 4. H Company 开放 Holo4 权重，尝试用同一模型统一 GUI、代码、MCP 与 API
+
+**事实摘要：** Holo4 发布 27B 稠密版与 35B-A3B MoE 版，权重提供 BF16、FP8、NVFP4 和 4-bit GGUF，并公开部分评测轨迹。模型可在桌面、网页、Android、代码沙箱和业务 API 间切换；发布方报告 Holo4-27B 在 OSWorld 2.0 得分 61.7%，低于 Opus 5.5 的 81.8%，但强调参数量和单任务成本更低。[Hugging Face 发布页](https://huggingface.co/blog/Hcompany/holo4)
+
+**影响判断：** 统一跨界面行动比为每种接口单独训练 Agent 更接近真实办公流程，开放轨迹也有助于审查结果。不过发布方承认不同模型的版本、harness 和任务子集并不完全一致，成本与准确率比较仍需第三方复测。
+
+## 分主题动态
+
+### AI
+
+- **ElevenLabs 发布 Eleven v4 与低延迟 v4 Turbo。** **事实：** v4 支持 90 多种语言、长文本中的说话人保持和多说话人对话；v4 Turbo 面向实时 Agent，官方文档给出约 100 毫秒中位推理延迟，并提供语音标签控制。**判断：** 语音 Agent 的竞争正在从“能说”转向低延迟、角色一致性和表演控制，但盲测偏好与延迟均由厂商测量，需在真实网络和多语言场景验证。[ElevenLabs](https://elevenlabs.io/fr/blog/eleven-v4)｜[模型文档](https://elevenlabs.io/docs/overview/models)
+
+### Agent
+
+- **SpaceXAI 推出共享的 Team Bots。** **事实：** Team Bots 在 Teams 与 Enterprise 方案进入公开测试，可组合共享文件、技能、插件、凭据和团队记忆，同时为不同用户保留独立对话与个人记忆；官方案例覆盖 Slack 晨报、工程协调、数据查询和触发云端编码 Agent。**判断：** 企业 Agent 的核心对象正从个人会话转向“团队拥有、持续积累上下文的数字同事”，随之而来的关键问题是共享记忆污染、权限继承和人员离岗后的数据治理。[SpaceXAI](https://x.ai/news/team-bots)
+
+- **AWS 给出生产级自治事故处理与审计样板。** **事实：** Property Finder 称其 AWS DevOps Agent 流水线从告警到根因、Jira、电话通知和修复 PR 约 14 分钟，Agent 不自动合并，最终由工程师审核；AWS 同日给出用 Agent journal、EventBridge、CloudTrail、S3 与 IAM 构建长期审计链的参考架构。**判断：** 这比纯演示更接近可落地 AgentOps：自主调查与代码修复可以加速，但写权限、证据归档、幂等和人工批准仍是系统可靠性的主体。[案例](https://aws.amazon.com/blogs/devops/how-property-finder-automated-incident-management-with-aws-devops-agent/)｜[审计架构](https://aws.amazon.com/blogs/devops/audit-trails-for-autonomous-agents-with-aws-devops-agent/)
+
+### 计算
+
+- **世界模型开始直接影响芯片公司组织结构。** **事实：** AMD 公告明确把 World Labs 的模型专长与未来 AI 硬件、软件和系统路线图关联起来；World Labs 近期的 Atlas 则统一文本、图像、视频、相机位姿与 3D。**判断：** 对计算平台而言，世界模型带来的多模态上下文、3D 表征、视频生成和交互式仿真负载，可能改变内存层次、数据移动和软硬协同优化的优先级。[AMD 公告](https://www.globenewswire.com/news-release/2026/09/28/3370256/0/en/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute.html)｜[Atlas 背景](https://www.worldlabs.ai/blog/atlas)
+
+### 世界模型
+
+- **World Labs 从独立研究公司转为 AMD 内部前沿研究力量。** **事实：** AMD 表示收购后团队仍将推进模型研究，但没有公布 Atlas、World API、机器人仿真资产的产品整合时间表或开放策略。**判断：** 世界模型由内容生成、3D 重建走向机器人训练与硬件协同的方向得到资本层面的强确认；“继续研究”是否意味着持续对外开放，仍需等待交割后的组织与产品路线。[AMD](https://www.globenewswire.com/news-release/2026/09/28/3370256/0/en/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute.html)
+
+### 多模态
+
+- **Holo4 与 Eleven v4 分别压缩“看屏幕并行动”和“听说交互”的专用栈。** **事实：** Holo4 用单一模型覆盖视觉 GUI、代码与工具调用，Eleven v4 Turbo 则与 ElevenAgents 联合优化实时语音链路。**判断：** 多模态能力正在从统一理解扩展到统一执行，但跨模态错误会沿工具链放大，评测应从单轮质量升级为完整任务成功率、延迟与恢复能力。[Holo4](https://huggingface.co/blog/Hcompany/holo4)｜[Eleven v4](https://elevenlabs.io/fr/blog/eleven-v4)
+
+### 具身智能
+
+- **IROS 2026 主会首日把 VLA、机器人规划与安全导航放在同一技术图景中。** **事实：** 9 月 28 日议程包括以正交视图提高 3D 鲁棒性的 OG-VLA、面向人形移动操作的 AGILE 工作流、异构多机器人语言规划 Scale-Plan，以及把 3D Gaussian Splat 压缩成凸多面体覆盖的 PolyMerge。**判断：** 共同趋势是把基础模型能力接回几何、符号规划、可回归工程流程和形式化安全；本窗口的新进展是这些工作在 IROS 主会集中报告，并非论文首次公开。[IROS 日程](https://robotics.gatech.edu/gt-iros-2026)
+
+## 顶会与论文
+
+- **OG-VLA：用规范化正交视图缓解相机与机器人位姿变化。** 模型把多视角 RGB-D 投影为点云，再从固定正交视角生成动作相关图像；作者报告在 ARNOLD 与 Colosseum 的未见环境上相对提升超过 40%，仍属作者自报。[论文](https://arxiv.org/abs/2506.01196)
+
+- **AGILE：把人形强化学习从脚本拼接变成四阶段工程流程。** 其“准备、训练、评估、部署”链路在 Unitree G1 与 Booster T1 上覆盖五类技能，重点是提前发现 URDF、观测缓冲和动作缩放等静默错误。[论文](https://arxiv.org/abs/2603.20147)
+
+- **Scale-Plan：LLM 先筛选任务相关动作与对象，再交给结构化规划。** 该方法用 action graph 和浅层语言推理缩小 PDDL 搜索空间，面向异构多机器人长程任务；结果目前主要来自 AI2-THOR 基准。[论文](https://arxiv.org/abs/2603.08814)
+
+- **PolyMerge：让 3DGS 场景进入资源受限无人机的可证明安全导航。** 方法将高密度 3D Gaussian Splat 转为保证覆盖障碍物的凸多面体集合，并结合控制障碍函数在 Crazyflie 上做板载避障。[论文](https://arxiv.org/abs/2606.16232)
+
+## 视频与访谈
+
+- **The Information TITV：Jensen Huang's Rogue AI Shield, Zuckerberg's Cloud Play, Tesla Optimus Scale-Up Snags。** 本期将 NVIDIA Agent 安全栈、Meta 企业 AI 布局、Optimus 量产瓶颈和 Zapier CEO 对失控 Agent 的看法放在同一场讨论中；推荐用于理解“模型外控制”为什么正成为产业共识。节目也在 The Information 的 YouTube 频道播出。[TITV](https://www.theinformation.com/titv)
+
+## 值得继续跟踪
+
+- **AMD–World Labs 交割与开放路线。** 交易仍需监管批准；重点观察 Atlas、机器人仿真与 World API 是否继续对外开放，以及 AMD 是否为世界模型推出专门的软件栈或硬件优化。[AMD](https://www.globenewswire.com/news-release/2026/09/28/3370256/0/en/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute.html)
+
+- **NVIDIA Agent 安全栈的独立攻防结果。** 官方和 AP 均称该平台理论上可阻止近期部分越界事件，但尚无公开第三方红队报告能证明其覆盖未知漏洞、策略配置错误和多 Agent 协同攻击。[AP](https://apnews.com/article/3c4d7c1cfde82851c0577d1fa29b8621)
+
+- **团队记忆的治理边界。** Team Bots 同时保留共享技能与个人记忆，需继续核实删除、更正、来源追踪、跨人员传播和管理员可见性如何实现。[SpaceXAI](https://x.ai/news/team-bots)
+
+- **Claude Sonnet 5.5 的大幅基准跃升。** Terminal-Bench 与 Chartography 相比 Sonnet 5 的提升异常显著，值得等待第三方在同一 harness、effort 与预算下复测。[Anthropic](https://www.anthropic.com/claude-sonnet-5-5)
+
+## 来源
+
+- https://www.globenewswire.com/news-release/2026/09/28/3370256/0/en/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute.html
+- https://www.theinformation.com/briefings/amd-buy-fei-fei-lis-world-labs-8-2-billion
+- https://www.anthropic.com/claude-sonnet-5-5
+- https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Open-Agent-Safety-Platform-to-Secure-Agents-From-Testing-to-Deployment/default.aspx
+- https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/
+- https://apnews.com/article/3c4d7c1cfde82851c0577d1fa29b8621
+- https://huggingface.co/blog/Hcompany/holo4
+- https://elevenlabs.io/fr/blog/eleven-v4
+- https://elevenlabs.io/docs/overview/models
+- https://x.ai/news/team-bots
+- https://aws.amazon.com/blogs/devops/how-property-finder-automated-incident-management-with-aws-devops-agent/
+- https://aws.amazon.com/blogs/devops/audit-trails-for-autonomous-agents-with-aws-devops-agent/
+- https://www.worldlabs.ai/blog/atlas
+- https://robotics.gatech.edu/gt-iros-2026
+- https://arxiv.org/abs/2506.01196
+- https://arxiv.org/abs/2603.20147
+- https://arxiv.org/abs/2603.08814
+- https://arxiv.org/abs/2606.16232
+- https://www.theinformation.com/titv
