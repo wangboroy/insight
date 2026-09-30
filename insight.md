@@ -2689,3 +2689,106 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://arxiv.org/abs/2603.08814
 - https://arxiv.org/abs/2606.16232
 - https://www.theinformation.com/titv
+
+# 2026-09-30 AI 热点简报
+
+> 覆盖窗口：2026-09-29 08:08 至 2026-09-30 08:08（Europe/Zurich）。已检索公开 X 内容、公司与研究机构官网、IROS 2026、arXiv、The Information 公开标题与摘要、YouTube 及可靠媒体。X 上的高热度讨论主要围绕 OpenAI DevDay 和白宫 AI 协议，未发现超出正式公告且可独立核验的新增事实；YouTube 亦未检索到信息增量足够的官方新视频，因此不为凑数单列。论文与厂商性能数字均为作者或发布方自报，尚待独立复现。
+
+## 今日重点
+
+### 1. OpenAI 推出常驻 Agent “dots”，个人 Agent 竞争转向持续执行
+
+**事实摘要：** OpenAI 在 DevDay 发布 dots：用户可为 Agent 设定目标、连接应用并规定自主权限，dots 由 GPT-6 Astra 驱动，拥有独立云端计算机，可在对话之间持续推进任务并把结果带回审核。首批面向符合条件的 Pro、Business Premium 用户逐步开放，Enterprise 为默认关闭的测试；Pro 首发不含欧洲经济区、瑞士和英国。[OpenAI 发布说明](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)｜[AP 现场报道](https://apnews.com/article/sam-altman-openai-conference-dots-agent-77b6b8888145869206996d7509d24256)
+
+**影响判断：** OpenAI 与 Meta Muse 正把交互范式从“发起一次请求”改成“委托一个持续目标”。竞争焦点将落在跨应用权限、主动打扰边界、长期记忆污染、可追责日志和真实任务完成率，而不只是单轮模型能力。
+
+### 2. GPT-6.1 Sol 以五分之一 Astra 标准价格下放强 Agent 能力，但安全等级同步升高
+
+**事实摘要：** GPT-6.1 Sol API 定价为每百万输入/输出 token 2/10 美元，支持 105 万 token 上下文、电脑操作、MCP、托管 shell 与工具搜索；OpenAI 将其定位为以更低成本接近 Astra 的编码、电脑操作和专业工作模型。系统卡把它按网络安全“Critical”、生物化学“High”处理，并披露内部 ExploitBench 任意代码执行成功率 21.5%，低于 Astra 的 31.5%、高于 GPT-6 Sol 的 5.5%。[模型文档](https://developers.openai.com/api/docs/models/gpt-6.1-sol)｜[系统卡附录](https://deploymentsafety.openai.com/gpt-6-1-sol/respecting-auto-review)
+
+**影响判断：** 强 Agent 能力被迅速压到更低价格带，会扩大生产部署，也扩大高风险能力的可获得性。关键不是厂商所称“接近 Astra”，而是同一 safeguards stack 能否在更大调用量和更多外部工具环境中维持有效监测。
+
+### 3. 六家前沿 AI 公司签署自愿审计协议，治理暂以“自我约束”推进
+
+**事实摘要：** AP 报道，Anthropic、Google、Meta、OpenAI、NVIDIA 与 SpaceXAI 的负责人同美国总统 Trump 签署自愿协议，承诺建立更强内部控制、引入独立外部审计，并由董事会层面的委员会评估内外审计报告。协议为“道德约束”，同时写明未来可把相关步骤写入法律法规，尚无明确执行期限、统一技术门槛或处罚机制。[AP](https://apnews.com/article/trump-ai-anthropic-musk-595796511f110fc006cca0d01329733e)
+
+**影响判断：** 外部审计与董事会问责进入共同文本是进展，但自愿协议不能替代可执行责任。后续应重点看审计者独立性、事件披露范围、模型暂停门槛以及不合规的实际后果。
+
+### 4. Meta 把 Muse 推向小企业，Agent 开始触及账务、广告与客户数据
+
+**事实摘要：** Muse for Small Business 新增 Asana、Canva、QuickBooks、Shopify、Slack、Stripe、Zoom 等连接器，也可读取 Instagram 专业账号分析、Facebook Pages 与 Meta 广告账号。Meta 表示发布、发送和支出仍需用户批准，并把销售分析、异常费用检查、活动草拟和主动邮件提醒列为典型场景。[Meta](https://about.fb.com/news/2026/09/introducing-muse-small-business/)
+
+**影响判断：** 这比通用个人助理更接近可量化 ROI，但权限半径也更大：财务、广告支出、客户记录和品牌发布一旦串联，单个错误或提示注入可能跨系统扩散，审批默认值与审计记录会决定实际风险。
+
+## 分主题动态
+
+### AI / Agent
+
+- **DevDay 把 Agent 工作区与云端执行整合起来。** **事实：** ChatGPT Space 将 Pages、文件与团队共享内容组织在同一项目空间；Codex Cloud 可复用仓库、工具和依赖环境，从桌面、网页或移动端发起隔离任务，并在本机休眠后继续运行。**判断：** 模型、上下文空间和执行环境正合并成持续工作系统；企业采用的真正门槛将是环境权限、密钥边界、数据驻留和任务可回放性。[OpenAI 发布说明](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)｜[Codex Cloud](https://help.openai.com/en/articles/20001545-using-codex-cloud)
+
+- **Amazon Ads Agent 扩展到从规划到优化的闭环。** **事实：** 封闭测试中的广告主可用自然语言完成受众规模与触达预测、预算建议、Sponsored Products 出价与预算优化、绩效分析及可视化。**判断：** 这是 Agent 从建议层进入资金分配工作流的典型案例，效果验证应同时报告增量收益、错误支出、人工回退率和控制组，而不能只看操作时间。[Amazon Ads](https://advertising.amazon.com/resources/whats-new/conversational-experience-amazon-ads-agent)
+
+- **MCP 错误信息可能让更强 Agent 失败得更严重。** **事实：** 一项对 150 个常用 MCP 服务器的审计发现，3,001 条错误信息中有 949 条给出后续动作，但约一半依赖服务器无法观察的调用方环境；实验中，把开发者命令改成明确的服务器工具后，过期凭据恢复率升至 84%，把模糊重试改成指定调用后限流恢复率升至 88%。**判断：** Agent 工具可靠性不只是模型问题，错误协议本身应成为机器可执行接口的一部分；相关数字仍需跨模型和真实生产链路复测。[论文](https://arxiv.org/abs/2609.35381)
+
+- **代码 Agent 的通过率掩盖了重复实现。** **事实：** RepoReuse 在 3,000 个多轮开发步骤上测量代码复用，作者报告 Agent 随轮次推进越来越少探索现有仓库，到第 5 轮有 50.8% 任务链留下重复逻辑，而功能通过率变化不大。**判断：** 长程编码评测需要加入复用率、结构重复和维护成本，否则 Agent 可能在“测试通过”的同时持续制造技术债。[论文](https://arxiv.org/abs/2609.35357)
+
+### 计算
+
+- **KV-streams 试图消除 Agent 强化学习的反复 prefill。** **事实：** 方法在上下文压缩后继续流式传递 KV cache，而不是每次清空重算；作者在三种压缩策略上报告 2.6 至 5 倍训练墙钟加速，并观察到 KV cache 可形成保留已从文本上下文消失信息的递归状态。**判断：** 如果在更大模型与更复杂工具轨迹上成立，它会降低长程 Agent 后训练成本，但也需要研究隐藏状态漂移、调试可见性和跨会话清理。[论文](https://arxiv.org/abs/2609.35750)
+
+- **The Information 披露的算力融资信号仍需谨慎。** **事实（受限来源公开摘要）：** The Information 称 Nscale 约 1,030 亿美元合同承诺大多依赖尚未建成、甚至尚未完成融资的数据中心；另称 Anthropic 在保密申报中披露与 SpaceX 最多 845 亿美元的算力协议。**判断：** AI 算力合同规模正在显著领先实际资产与融资落地，账面 backlog 不应等同可用算力或确定收入；两项数字均需等待申报文件或交易方进一步公开。[Nscale 摘要](https://www.theinformation.com/articles/nscales-unbuilt-data-centers-undercut-35-billion-ipo-pitch)｜[Anthropic 摘要](https://www.theinformation.com/briefings/anthropic-discloses-84-5-billion-spacex-compute-agreements)
+
+### 世界模型 / 多模态
+
+- **WorldPlay2 同时扩展交互控制类型与长程记忆。** **事实：** 模型把逐帧动作与场景外观、角色身份、语义事件等结构化控制分解建模，并结合压缩记忆与稳定蒸馏，以追求实时交互和长时间一致性。**判断：** 互动世界模型的评价正在从短视频质量转向“可控、低延迟、长程一致”三者同时成立；目前结论仍主要来自作者实验。[论文](https://arxiv.org/abs/2609.35560)
+
+- **AD-E2E-JEPA 把世界模型直接用于零样本驾驶规划。** **事实：** 论文以真实未来观测作为目标，隔离评测世界模型本身，并用投影器将规划 patch 数减 16 倍、维度减 4 倍；作者报告 8 帧、256 条候选轨迹 rollout 为 0.8 秒，推理提速约 100 倍。**判断：** 这提供了比视频逼真度更任务化的世界模型测量，但 NAVSIMv2 与目标条件设置仍不能替代闭环真实道路安全验证。[论文](https://arxiv.org/abs/2609.34085)
+
+- **DynaTokens 用少量场景轨迹在测试时补入动态。** **事实：** 方法冻结相机可控视频模型，只训练少量场景专用 token，以区分全局相机运动与局部物体动态，并在新相机路径下生成场景变化。**判断：** 这是让静态 3D/视频表征快速适配动态环境的轻量路线，但每场景适配成本和跨场景迁移能力仍需检验。[论文](https://arxiv.org/abs/2609.35704)
+
+### 具身智能
+
+- **递归 harness 蒸馏把机器人干预经验变成可复用 playbook。** **事实：** 强 Agent 先把操作经验整理成轻量 Agent 可用的 playbook，再根据后者执行反馈反复修订；作者报告真实操作成功率从 37.3% 提升至 64.0%，无需更新 VLA 参数。**判断：** 这显示具身系统可把失败诊断沉淀在模型外 harness 中，但 playbook 的错误积累、跨机器人适配和安全失效模式仍需更大规模验证。[论文](https://arxiv.org/abs/2609.33378)
+
+## 顶会与论文
+
+- **IROS 2026 主会第二日强调多机器人协作、可信导航与并行强化学习。** 9 月 29 日议程包括：ACLM 将协作搬运的全局控制分解为并行四足机器人子问题；Ask, Reason, Assist 用自然语言与时序逻辑让异构机器人在无中央调度时互相求助；NavTrust 评测具身导航可信度；MO-Playground 面向数千并行环境扩展多目标机器人 RL。当天价值在于这些系统于主会集中报告，而非论文首次公开。[IROS 日程](https://robotics.gatech.edu/gt-iros-2026)
+
+- **ROFT：只训练 Agent 对自身经验的解释，也能改善后续行动。** 方法不使用外部教师或基于奖励的策略更新，仅对 Agent 生成的复盘解释做下一 token 训练；作者在 Qwen3.5-4B 上报告 20 次更新后 SWE-bench Verified/Pro 为 49.2%/26.8%，在其设置中略高于 40 次更新的 GRPO。该结果提示“解释到行动”的迁移值得研究，但仍需不同模型、任务和防数据泄漏复现。[论文](https://arxiv.org/abs/2609.35741)
+
+## 视频与访谈
+
+- **The Information TITV：Anthropic 折扣、Claude Sonnet 5.5、模型安全与旅行 Agent。** 节目访谈 Vals AI 联合创始人讨论基准与安全，并由 Lola CEO 说明旅行预订 Agent 的产品实践；适合补充理解企业采购和垂直 Agent 的商业侧，核心交易数字仍属于媒体信源。[TITV](https://www.theinformation.com/titv/vlhpv/)
+
+## 值得继续跟踪
+
+- **dots 的权限与地域扩张。** 首发范围有限，且欧洲经济区、瑞士和英国的 Pro 用户暂不可用；需观察连接器权限粒度、跨应用审计、主动通知频率与事故披露。[OpenAI](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
+
+- **自愿 AI 协议如何落地。** 目前没有统一审计标准、期限或处罚；重点看独立审计者名单、董事会委员会权力以及是否公开实质性发现。[AP](https://apnews.com/article/trump-ai-anthropic-musk-595796511f110fc006cca0d01329733e)
+
+- **GPT-6.1 Sol 的安全监测是否经得住规模化部署。** OpenAI 披露其网络攻击能力显著高于 GPT-6 Sol，同时系统卡显示部分监测规避与凭据收集指标仍需关注；等待第三方红队与真实滥用数据。[系统卡](https://deploymentsafety.openai.com/gpt-6-1-sol/respecting-auto-review)
+
+- **算力合同与物理交付之间的缺口。** Nscale 与 Anthropic/SpaceX 的公开摘要都指向超大长期承诺，但融资、建设、供电、终止条款和实际 GPU 可用量仍可能改变经济结果，暂不把合同上限视为确定收入或容量。[The Information](https://www.theinformation.com/)
+
+## 来源
+
+- https://help.openai.com/en/articles/6825453-chatgpt-release-notes
+- https://apnews.com/article/sam-altman-openai-conference-dots-agent-77b6b8888145869206996d7509d24256
+- https://developers.openai.com/api/docs/models/gpt-6.1-sol
+- https://deploymentsafety.openai.com/gpt-6-1-sol/respecting-auto-review
+- https://apnews.com/article/trump-ai-anthropic-musk-595796511f110fc006cca0d01329733e
+- https://about.fb.com/news/2026/09/introducing-muse-small-business/
+- https://help.openai.com/en/articles/20001545-using-codex-cloud
+- https://advertising.amazon.com/resources/whats-new/conversational-experience-amazon-ads-agent
+- https://arxiv.org/abs/2609.35381
+- https://arxiv.org/abs/2609.35357
+- https://arxiv.org/abs/2609.35750
+- https://www.theinformation.com/articles/nscales-unbuilt-data-centers-undercut-35-billion-ipo-pitch
+- https://www.theinformation.com/briefings/anthropic-discloses-84-5-billion-spacex-compute-agreements
+- https://arxiv.org/abs/2609.35560
+- https://arxiv.org/abs/2609.34085
+- https://arxiv.org/abs/2609.35704
+- https://arxiv.org/abs/2609.33378
+- https://robotics.gatech.edu/gt-iros-2026
+- https://arxiv.org/abs/2609.35741
+- https://www.theinformation.com/titv/vlhpv/
