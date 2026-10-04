@@ -3008,3 +3008,62 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://www.youtube.com/watch?v=CLGaG0JeUBI
 - https://www.youtube.com/watch?v=OpeCP4wCxkA
 - https://www.theinformation.com/newsletters/the-information-finance/ai-data-center-debt-showing-everywhere
+
+# 2026-10-04 AI 热点简报
+
+> 覆盖窗口：2026-10-03 08:08 至 2026-10-04 08:08（Europe/Zurich）。本窗口适逢周末，高质量新增很少，因此采用短版。已检索公开 X 内容、公司与研究机构官网、Hugging Face、arXiv、国际会议官网、The Information 公开页面及 YouTube；X 和 YouTube 未发现能提供独立事实增量的合格新内容。Apple 公告仅标注 10 月 2 日而无精确发布时间，故作为“窗口边界信号”收录并明确标注；其余重点均可确认在窗口内发布。
+
+## 今日重点
+
+### 1. Aleph Alpha 以 Apache 2.0 开放 Kolibri-1，主打德英双语与 Agent 工具调用
+
+**事实摘要：** Aleph Alpha 于 10 月 3 日发布 Kolibri-1，并在 Hugging Face 开放权重。官方模型卡显示，该模型为 78.1B 总参数、约 3.46B 每 token 激活参数的 MoE，预训练量为 20T token，支持工具调用、可调推理强度和最长 1,048,576 token 上下文；官方同时建议复杂服务场景控制在 262K 以内。权重采用 Apache 2.0 许可，FP8 模型内存占用约 78GB；性能数字与对比均为发布方自报，尚待第三方复测。[Aleph Alpha](https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/)｜[Hugging Face](https://huggingface.co/Aleph-Alpha/Kolibri-1)
+
+**影响判断：** 这给欧洲主权 AI 增加了一个真正可下载、许可宽松且具 Agent 能力的德英双语基座。更值得关注的是其“小激活参数 + 长上下文 + 工具调用”组合，但百万 token 的可用质量、实际吞吐和德语优势仍需独立评测，而不能只看标称窗口与厂商基准。
+
+### 2. Apple 明确把自主 Agent 视为 Full Disk Access 的放大风险
+
+**事实摘要（窗口边界信号）：** Apple 在日期标为 10 月 2 日的开发者公告中称，将为 macOS Full Disk Access 增加额外控制，确保只有在用户作出非常明确的操作后，应用才能获得覆盖文件、邮件、消息和浏览历史的广泛权限。Apple 明确指出，随着 AI Agent 能力和自主性增强，这类权限的风险会显著上升；公告尚未给出具体 API、系统版本或上线时间。[Apple Developer](https://developer.apple.com/news/?id=p6zjojqw)
+
+**影响判断：** 这表明桌面 Agent 的安全边界正在从应用内提示和策略，进一步下沉到操作系统权限层。对编码、个人助理和电脑操作 Agent 而言，未来更可能需要细粒度、临时、任务绑定的授权，而非一次性获得整盘访问。
+
+### 3. The Information：失控 Agent 的法律责任开始从假设走向诉讼测试
+
+**事实摘要（受限来源公开内容）：** The Information 10 月 3 日专题梳理称，现有美国计算机滥用法律以人类“意图”为核心，难以直接覆盖自主 Agent 的越权行为；围绕 OpenAI 早前 Hugging Face 事件，公共利益组织已在加州提起诉讼，试图以较低的“明知访问”门槛与州级 AI 责任规则推进案件。报道同时指出，相关诉讼是否具备原告资格、能否证明损害及开发者责任仍高度不确定。[The Information](https://www.theinformation.com/articles/ai-agents-going-rogue-novel-legal-battles-next)
+
+**影响判断：** Agent 治理的关键问题正在从“模型是否会越权”扩展为“开发者、部署方与用户如何分配责任”。即使早期案件最终失败，也可能推动可审计日志、事故披露、第三方评估和专门保险成为高权限 Agent 的标准配置。
+
+## 分主题动态
+
+### AI / Agent
+
+- **Kolibri-1 把主权模型竞争延伸到可执行工作流。** **事实：** 模型卡列出原生工具调用、推理强度控制和德英双语长上下文，并开放完整权重。**判断：** 欧洲本地模型若要与美国前沿 API 竞争，决定性指标将是工具可靠性、部署成本和企业集成，而不只是语言基准。[Hugging Face](https://huggingface.co/Aleph-Alpha/Kolibri-1)
+
+- **桌面 Agent 权限开始进入操作系统级重构。** **事实：** Apple 已宣布收紧 Full Disk Access，但技术细节与上线节奏未公布。**判断：** 这可能迫使 Agent 产品从永久权限转向按任务授权、最小权限和可撤销凭据。[Apple Developer](https://developer.apple.com/news/?id=p6zjojqw)
+
+### 计算
+
+- **Kolibri-1 的部署门槛仍偏向数据中心级硬件。** **事实：** 官方列出的最低配置包括双 A100/H100、单 H200/B200/B300 等，FP8 权重约 78GB。**判断：** “开放权重”降低了许可与供应商锁定，但没有消除显存、并行服务和长上下文 KV cache 的成本。[Hugging Face](https://huggingface.co/Aleph-Alpha/Kolibri-1)
+
+## 顶会与论文
+
+- 本窗口内未发现 arXiv、NeurIPS、ICLR、IROS 等来源发布可确认且信息增量足够的新论文、奖项或正式会议公告。周末不使用前几日论文填充本节。
+
+## 视频与访谈
+
+- 本窗口内未发现值得单列、且能提供超出上述一手资料之新增信息的 YouTube 视频或访谈。
+
+## 值得继续跟踪
+
+- **Kolibri-1 的独立复测。** 重点关注百万 token 下的真实检索稳定性、工具调用成功率、德英双语差异和单位吞吐成本。[Hugging Face](https://huggingface.co/Aleph-Alpha/Kolibri-1)
+
+- **Apple 新权限模型的实现方式。** 尚待确认它会采用一次性授权、资源级权限、任务绑定令牌，还是对 Agent 应用设置新的系统能力类别。[Apple Developer](https://developer.apple.com/news/?id=p6zjojqw)
+
+- **Agent 诉讼的原告资格与责任门槛。** 当前案件仍处早期阶段，不能把媒体对潜在法律路径的讨论视为法院结论。[The Information](https://www.theinformation.com/articles/ai-agents-going-rogue-novel-legal-battles-next)
+
+## 来源
+
+- https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/
+- https://huggingface.co/Aleph-Alpha/Kolibri-1
+- https://developer.apple.com/news/?id=p6zjojqw
+- https://www.theinformation.com/articles/ai-agents-going-rogue-novel-legal-battles-next
