@@ -3246,3 +3246,118 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://conf.papercept.net/conferences/conferences/SMC26/program/SMC26_ContentListWeb_2.html
 - https://www.theinformation.com/articles/aligning-ai-human-goals-might-impossible-says-ai-prof-stuart-russell
 - https://www.theinformation.com/newsletters/ai-agenda/wrong-ai-safety-testing-fix/
+
+# 2026-10-08 AI 热点简报
+
+> 覆盖窗口：2026-10-07 08:08 至 2026-10-08 08:08（Europe/Zurich）。已检索公开 X 内容、公司与研究机构官网、arXiv、国际会议页面、The Information 公开标题与摘要、YouTube 及可靠科技媒体。X 上可核验的信息增量主要是 Grok Bot 的多模型路由声明；其余讨论多为对官方发布和论文的转述，未单独收录。论文与厂商性能数字均为作者或发布方自报，尚未独立复现。
+
+## 今日重点
+
+### 1. GPT-6 扩展至 ChatGPT 全线用户，回答开始原生生成交互式界面
+
+**事实摘要：** OpenAI 宣布将 GPT-6 逐步扩展至 ChatGPT Plus、Pro、Business、Enterprise、Free 和 Go 用户，并推出 Intelligent UI：模型可在回答中组合原生图形、按钮、表单、图表和可交互工具。其实现使用可流式输出的组件库和编译器，支持模型边推理边分段作答；此次更新不改变 Work 与 Codex 所用模型。[OpenAI](https://openai.com/index/gpt-6-for-everyone/)｜[安全更新](https://deploymentsafety.openai.com/gpt-6-october)
+
+**影响判断：** 这把生成式 AI 的竞争从“输出文字或代码”推进到实时生成可操作软件界面。值得注意的是，官方安全卡同时披露 GPT-6 Sol/Luna 在若干成人及未成年人敏感类别上相对 GPT-5.6 出现统计显著回归，部分风险依赖系统级分类器补救，因而不能只用产品体验判断安全进步。
+
+### 2. Microsoft 与 NVIDIA 把本地 Agent、隔离运行时和大模型推理带入 Windows
+
+**事实摘要：** Microsoft 发布 Windows“混合智能”路线：模型可在本地和云端之间路由，Microsoft Execution Containers（MXC）正式可用，用于让 Agent 在操作系统控制下持续、隔离运行。RTX Spark 笔记本最高配备 128GB 统一内存；NVIDIA 还预览了 Windows 版 DGX Station，宣称提供 748GB 一致性内存和最高 20 PFLOPS FP4，可承载万亿参数级模型。[Microsoft](https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/)｜[NVIDIA](https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/)
+
+**影响判断：** 本地 Agent 的核心不只是更便宜的 token，而是敏感数据不离开设备、后台持续执行与企业治理能否形成统一栈。硬件吞吐、Mac 对比和可运行模型规模均为厂商自报，仍需第三方实测功耗、稳定性和实际并发能力。
+
+### 3. RoboJEPA 首次为多具身机器人潜在世界模型给出缩放律
+
+**事实摘要：** RoboJEPA 在覆盖 12 种机器人形态的大规模数据上训练 JEPA 潜在世界模型。作者报告“想象误差”随计算量呈二阶幂律，并与下游机器人规划表现强相关；8B 参数版本可仅以目标图像零样本规划真实机器人长程任务，模型检查点、训练与部署代码已开放。[arXiv](https://arxiv.org/abs/2610.10515)
+
+**影响判断：** 若缩放关系能在外部数据、不同硬件和更开放任务上复现，机器人世界模型可能获得类似语言模型的预算规划依据。不过目前的规律仍来自单一研究体系，真实任务失败成本也不能被一个潜在误差指标完全替代。
+
+### 4. SciExam 用隐藏真实世界指标评测科研 Agent，避免“已知答案式”科学基准
+
+**事实摘要：** SciExam for ENSO 要求 Agent 在 6 小时内从真实观测构建厄尔尼诺-南方涛动随机模型；Agent 自行写诊断程序后被冻结，隐藏评测再检查统计复现、未观测变量恢复和留出年份预测。作者称 12 个系统中有 6 个超过一篇已发表模型，较强模型的简化结构还分别对应 ENSO 冷暖不对称的两种竞争解释。[arXiv](https://arxiv.org/abs/2610.10513)
+
+**影响判断：** 这比让 LLM 评审“研究报告写得像不像”更接近真实科研验证。结论仍只来自一个低阶气候建模任务，不能外推为通用科学发现能力，但其隐藏评测设计值得复用。
+
+### 5. Long-WAM 显示机器人长视频历史只有在因果预训练下才真正有用
+
+**事实摘要：** Long-WAM 先从无动作标签的机器人和第一视角视频学习因果预测，再适配为世界-动作模型。作者报告在 RoboCasa GR-1 上把上下文从 0 增至 19.2 秒，成功率由 63.3% 升至 78.7%；双向预训练初始化没有获得净收益。流式编码、异步执行和硬件加速使其在 RTX 5090、DGX Spark 与 Jetson AGX Thor 上运行。[arXiv](https://arxiv.org/abs/2610.10528)
+
+**影响判断：** 研究把“可看到长历史”和“会利用长历史”区分开来，并把记忆、世界预测和实时控制放入同一系统约束。95% 动态叠杯等真机结果仍由作者自报，需关注跨实验室复现和失败分布。
+
+## 分主题动态
+
+### AI
+
+- **GPT-6 安全披露呈现能力与风险并行。** **事实：** OpenAI 将 Sol 与 Luna 的生化及网络安全能力定为 High、低于 Critical；两者在提示注入评测中得分很高，但相对 GPT-5.6 在部分自伤、色情、血腥、情感依赖和年龄限制内容上出现回归。**判断：** 透明披露回归是积极信号，但依赖额外分类器意味着模型本体与产品整体安全必须分开评估。[OpenAI 安全更新](https://deploymentsafety.openai.com/gpt-6-october)
+
+### Agent
+
+- **Grok Bot 将转向多模型后端路由。** **事实（公开 X 声明的媒体转述）：** Elon Musk 表示 SpaceXAI 将按任务选择“最合适”的后端，包括 Claude Opus 5.5、Midjourney、Suno 和其他 API。官方尚未公布路由标准、上线范围、费用和数据如何在供应商间流转。**判断：** 通用 Agent 的竞争正在从自研单一模型转向编排、路由与交付结果，但企业使用前必须明确数据驻留和审计边界。[The Information](https://www.theinformation.com/briefings/musk-says-spacex-will-sometimes-use-rival-models-power-grok-bot)
+
+- **AgentTime 揭示“完成任务”不等于“会管理时间”。** **事实：** 222 个编码、电脑操作、Agent 工作和自动研究任务显示，不同系统遵循指定工作时长的偏差差异明显；在可分类的 158 条 Astra 轨迹中，有 14 条在提前完成后显式睡眠。**判断：** 长时 Agent 需要把有效进展、资源预算和墙钟时间同时纳入评测，而不能只看最终成功率。[arXiv](https://arxiv.org/abs/2610.09944)
+
+- **CoTrace 强调训练轨迹必须与运行时 harness 匹配。** **事实：** 研究按轨迹来源、运行时兼容性和课程刷新组织终端 Agent 数据；作者报告，小规模 harness 匹配语料比混合多个 sibling harness 的更大语料更有效。**判断：** Agent 能力越来越是“模型 + 工具绑定 + 错误恢复”的联合产物，脱离运行时谈模型排名会失真。[arXiv](https://arxiv.org/abs/2610.10426)
+
+### 计算
+
+- **NVIDIA 的投资重点据报将向机器人、自动驾驶和端侧模型延伸。** **事实（受限来源）：** The Information 称 NVIDIA 正评估机器人、自动驾驶和本地 AI 相关投资或收购，并据匿名信源报道其讨论向 Figure 追加约 10 亿美元。**判断：** 这与 RTX Spark/DGX Station 的端侧路线形成产业闭环，但具体交易、估值和时间均未获相关公司确认，应视为待核实的资本配置信号。[The Information](https://www.theinformation.com/articles/nvidias-100-billion-dealmaking-juggernaut-will-go-next)
+
+### 世界模型
+
+- **RoboJEPA 与 Long-WAM 分别把研究焦点推进到“算力缩放”和“上下文缩放”。** **事实：** 前者以潜在预测误差估计模型规模收益，后者证明因果历史预训练决定长上下文是否转化为控制增益。**判断：** 世界模型正从追求好看的未来帧，转向可量化预测、长程记忆和实时动作闭环。[RoboJEPA](https://arxiv.org/abs/2610.10515)｜[Long-WAM](https://arxiv.org/abs/2610.10528)
+
+### 多模态
+
+- **RobotWorld 测量通用多模态 Agent 能否真正“使用机器人”。** **事实：** 基准含 84 项仿真任务，覆盖操作、移动操作、行走、驾驶和飞行。研究发现 Agent 能自行组合分割、相机标定、空间估计和动力学计算，却经常丢失任务相关状态、无法及时纠错或把未完成任务判断为完成。**判断：** 从数字工具迁移到物理控制的主要缺口不再只是感知，而是状态持续性、闭环恢复与停止判断。[arXiv](https://arxiv.org/abs/2610.10409)
+
+- **Ledger 从第一视角视频构建可持久查询的 3D 物体记忆。** **事实：** 系统保存物体位置、移动历史和上下文描述，无需回看原始视频即可回答空间问题；作者报告 HD-EPIC 准确率由 29.7% 提升至 42.6%，但多场景拼接仍暴露构建与检索失败。**判断：** 可压缩、可查询的空间记忆是穿戴式助手和家庭机器人的关键中间层，跨房间与长时间漂移仍是瓶颈。[arXiv](https://arxiv.org/abs/2610.10538)
+
+### 具身智能
+
+- **EmbodiedRSI 用假设驱动实验选择减少机器人持续学习的数据浪费。** **事实：** 系统维护代码与技能假设图，用信息价值选择下一次物理实验，再把结果写入分层记忆并共同演化代码与技能；作者报告在 RoboCasa365、LIBERO-Pro 和真机迁移上显著超过基线。**判断：** 这把自我改进从盲目试错推进到“能区分假设的实验”，但安全探索、灾难性遗忘和真实硬件磨损仍需系统评测。[arXiv](https://arxiv.org/abs/2610.10498)
+
+- **前 Tesla Optimus AI 负责人据报创办非人形工业机器人公司。** **事实（受限来源）：** The Information 援引知情人士称，Ashish Kumar 联合创办 Intelligent Machines，面向制造和航空航天的高技能任务，正筹集可能约 1 亿美元的种子轮；公司当前偏软件，也讨论自研硬件。**判断：** 团队选择非人形、精密工业任务，反映行业对“通用人形先行”路线的分歧；公司、融资和技术路线尚无公开一手确认，需标记待核实。[The Information](https://www.theinformation.com/newsletters/ai-agenda/former-tesla-optimus-lead-launching-industrial-robot-startup/)
+
+## 顶会与论文
+
+- **RoboJEPA：Scaling Robotic Latent World Models。** 12 种机器人形态、8B 参数 JEPA 预测器和开放检查点，为多具身真实机器人数据上的缩放研究提供可复现实验起点。[arXiv](https://arxiv.org/abs/2610.10515)
+
+- **Long-WAM：Scaling the Context of World-Action Models。** 以因果视频预训练、流式观测编码和异步执行连接长上下文与实时控制，所有成功率和延迟数字仍需独立验证。[arXiv](https://arxiv.org/abs/2610.10528)
+
+- **SciExam for ENSO。** 用隐藏物理指标而非已知答案或 LLM 裁判评估科研 Agent，提供更严格的开放式科学建模范式。[arXiv](https://arxiv.org/abs/2610.10513)
+
+- **RobotWorld。** 通过可执行成功检查与完整轨迹分析，比较不同前沿 Agent 在多种机器人形态上的迁移能力和失败模式。[arXiv](https://arxiv.org/abs/2610.10409)
+
+- **Never Look Back / Ledger。** 把第一视角长视频压缩为持久 3D 物体账本，重点评估物体离开视野后的空间记忆与跨场景退化。[arXiv](https://arxiv.org/abs/2610.10538)
+
+## 视频与访谈
+
+- **Microsoft：Something new is coming from Windows | October 7。** 官方发布会完整展示 Surface、RTX Spark、MXC 与 Windows 混合智能路线。推荐给希望核对本地 Agent 实际演示、硬件定位及 Microsoft/NVIDIA 联合叙事的读者；现场演示不能替代独立性能测试。[YouTube](https://www.youtube.com/watch?v=ilmBGeGldrI)
+
+## 值得继续跟踪
+
+- **GPT-6 的灰度覆盖与真实安全表现。** 关注 Intelligent UI 在复杂任务中的可控性、生成组件的权限边界，以及系统级分类器能否弥补模型本体回归。[OpenAI](https://openai.com/index/gpt-6-for-everyone/)｜[安全卡](https://deploymentsafety.openai.com/gpt-6-october)
+
+- **Grok Bot 的跨供应商数据治理。** 需等待模型路由表、用户告知机制、企业日志、数据保留与供应商退出策略。[The Information](https://www.theinformation.com/briefings/musk-says-spacex-will-sometimes-use-rival-models-power-grok-bot)
+
+- **Intelligent Machines 的公司与融资确认。** 当前核心信息来自匿名信源；应等待公司注册材料、创始团队公告、融资披露或原型演示。[The Information](https://www.theinformation.com/newsletters/ai-agenda/former-tesla-optimus-lead-launching-industrial-robot-startup/)
+
+- **机器人世界模型的外部复现。** RoboJEPA 与 Long-WAM 都给出强缩放或真机结果，关键是不同实验室、传感器、动作空间和未见环境下是否仍成立。[RoboJEPA](https://arxiv.org/abs/2610.10515)｜[Long-WAM](https://arxiv.org/abs/2610.10528)
+
+## 来源
+
+- https://openai.com/index/gpt-6-for-everyone/
+- https://deploymentsafety.openai.com/gpt-6-october
+- https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/
+- https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/
+- https://arxiv.org/abs/2610.10515
+- https://arxiv.org/abs/2610.10528
+- https://arxiv.org/abs/2610.10513
+- https://arxiv.org/abs/2610.09944
+- https://arxiv.org/abs/2610.10426
+- https://arxiv.org/abs/2610.10409
+- https://arxiv.org/abs/2610.10538
+- https://arxiv.org/abs/2610.10498
+- https://www.theinformation.com/briefings/musk-says-spacex-will-sometimes-use-rival-models-power-grok-bot
+- https://www.theinformation.com/articles/nvidias-100-billion-dealmaking-juggernaut-will-go-next
+- https://www.theinformation.com/newsletters/ai-agenda/former-tesla-optimus-lead-launching-industrial-robot-startup/
+- https://www.youtube.com/watch?v=ilmBGeGldrI
