@@ -3615,3 +3615,125 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://www.semiconwest.org/programs/agenda-at-a-glance
 - https://arxiv.org/abs/2610.19825
 - https://arxiv.org/abs/2610.20442
+
+# 2026-10-16 AI 热点简报
+
+> 覆盖窗口：2026-10-15 08:08 至 2026-10-16 08:08（Europe/Zurich）。已检索公开 X 内容、公司与研究机构官网、arXiv、国际会议官网、The Information 公开摘要、YouTube 及可靠科技媒体。X 上有信息增量的公开讨论主要来自 OpenAI 的产品发布帖，未发现需要单独收录且可独立核验的重大爆料；YouTube 仅保留一条与一手发布配套的演示。论文性能、模型吞吐和硬件能效数字均为作者、厂商或基准发布方自报，尚未独立复现。
+
+## 今日重点
+
+### 1. Perplexity 开源生产级 Agent 沙箱 SPACE
+
+**事实摘要：** Perplexity 以 Apache 2.0 许可证开源 SPACE（Sandboxed Platform for Agentic Code Execution），用 Firecracker microVM 隔离 Agent 生成的代码和文件，把网络访问与平台凭据放在沙箱外管理，并支持暂停、恢复、快照和分支。Perplexity 称该系统自 7 月起承载其全部 Computer 会话，每日创建数百万个沙箱；在 108 次 VM 逃逸测试中未出现主机逃逸，但曾发现网络限制绕过路径，修复后复测未成功。[Perplexity](https://www.perplexity.ai/hub/blog/open-sourcing-space)｜[GitHub](https://github.com/perplexityai/SPACE)
+
+**影响判断：** 这是把 Agent 安全从“模型是否听话”下沉到运行时强制边界的重要开源基础设施。真实价值不只在微虚拟机隔离，而在凭据不进入工作区、可恢复执行和细粒度出网策略；安全结论仍主要来自 Perplexity 自测，需等待外部审计与跨云部署验证。
+
+### 2. OpenAI 推出 GPT-Live-1.1，同时公开合成安全评测退步
+
+**事实摘要：** OpenAI 开始在 ChatGPT Voice、Codex 和 Dots 中部署 GPT-Live-1.1 与较小的 Quip 版本，新增 13 种声音并改善法语、德语、印地语、日语、韩语和墨西哥西班牙语等口音；API 尚未开放。系统卡称生产语音提示评测与前代大致持平，但 GPT-Live-1.1 在合成对抗提示的性内容、心理健康、情感依赖和血腥内容四类上出现统计显著退步；OpenAI 同时强调这些合成集合不代表真实流量发生率。[发布说明](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)｜[系统卡](https://deploymentsafety.openai.com/gpt-live-1-1/obeying-restrictions)｜[X 发布帖](https://x.com/ChatGPT/status/2110823738531037651)
+
+**影响判断：** 实时全双工语音正成为通用 Agent 的主要交互层，但低延迟与自然打断并不自动带来更稳健的安全行为。此次披露的价值在于明确指出回归项；上线后应重点观察真实多轮对话中的情感依赖、危机干预和错误委派，而不只看口音自然度。
+
+### 3. Anthropic 让 METR 获得接近内部风险团队的访问权限
+
+**事实摘要：** Anthropic 已向 6 名 METR 员工提供公司硬件、办公空间及大致等同内部风险评估团队的系统访问；除客户数据、律师保密信息和部分架构信息等预定义类别外，员工可向其共享内部材料。METR 可发布风险、事故与实践分析，Anthropic 不能否决发布，但可要求对窄范围敏感信息打码；SecureBio 目前处于权限更低、发布需批准的第一层，Anthropic 还在与 Accenture/Faculty 和 Hugging Face 推进合作。[Anthropic](https://www.anthropic.com/news/an-update-on-independent-evaluators)｜[Reuters 公开报道](https://www.marketscreener.com/news/anthropic-grants-outside-evaluator-metr-employee-level-access-in-ai-safety-push-ce785dd3de80f424)｜[The Information 公开摘要](https://www.theinformation.com/briefings/anthropic-says-ai-evaluators-can-now-work-company)
+
+**影响判断：** 这比一次性的发布前红队更接近持续监督，但仍是公司自愿设计和授权的机制。关键检验是 METR 能否及时披露负面结论、打码权是否被克制使用，以及其他实验室是否采用可比较的访问与发布标准。
+
+### 4. NVIDIA 发布 Nemotron 3.5 Super VL 与可在 24GB 显存运行的 Bolt
+
+**事实摘要：** Nemotron 3.5 Super VL 是 120B 总参数、12B 激活参数的混合 Mamba-Transformer MoE，统一处理文本、图像、文档、视频和工具调用，最长上下文为 100 万 token；NVIDIA 发布 BF16、NVFP4 权重和训练配方。Bolt 74B-A9B 由 Super 压缩而来，通过激进 2-bit 量化适配 24GB 显存，官方目标是在 RTX/DGX Spark 上达到至少 80 token/s，并同时发布未量化检查点和推测解码草稿模型。[NVIDIA 技术博客](https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/)｜[Bolt 研究页](https://research.nvidia.com/labs/nemotron/Nemotron-3.5-Bolt-24GB/)｜[训练配方](https://docs.nvidia.com/nemotron/latest/nemotron/super35/README.html)
+
+**影响判断：** 开放多模态 Agent 模型正在同时向超长上下文和本地部署分化。Bolt 的意义不是单纯缩小参数，而是把多模态、工具使用和较高解码速度压进单卡环境；厂商基准、2-bit 精度恢复和实际显存占用仍需第三方在同一硬件与提示设置下复测。
+
+### 5. 新基准显示 Agent 的“交付能力”远落后于解题能力
+
+**事实摘要：** FDE-Gym 收集 20 个客户场景、18 个行业的 95 个端到端交付任务，让 Agent 在可修改的生产式系统中与脚本化利益相关者沟通，并用客户自身成功指标衡量业务提升。在必须主动发现隐含约束的现实设置中，13 个模型配置里的最佳者平均得分仅 0.56，95 项任务中只有 14 项达到“得分至少 0.8 且无事故”；即使拿齐所有关键信息，23 项中的 13 项仍未达到 0.8。[论文](https://arxiv.org/abs/2610.22350)｜[项目页](https://fde-gym.com/)
+
+**影响判断：** 该结果把 Agent 评测从清晰工单推进到需求澄清、系统修改和结果验收，更贴近企业部署的最后一公里。它提示组织不要把编码榜单直接换算为业务自动化率；需求发现、试运行成本与事故约束必须进入同一评分体系。
+
+## 分主题动态
+
+### AI
+
+- **OpenAI 向美国高校实验室提供 GPT-Rosalind 赞助访问。** **事实：** Rosalind Academic Plan 为符合条件的美国大学实验室提供最多 30 个、最长 12 个月的免费 Business Standard 席位；GPT-Rosalind 需通过 trusted-access 审批，覆盖药物与蛋白设计、基因组学和湿实验协助，暂不包含 API。研究数据默认不用于训练。**判断：** 专用科学模型开始从企业合作走向学术基础设施，但地域、审批和无 API 限制会影响可复现性与大规模实验自动化。[OpenAI](https://openai.com/index/introducing-the-rosalind-academic-plan/)
+
+### Agent
+
+- **Gemini 4 Argon 多 Agent 团队自主通关 Minecraft。** **事实：** 4 个 Agent 仅通过 Mineflayer、游戏内聊天和共享记忆协作，在随机 Easy 世界中自行规划、编写和调试 2,783 个程序，用 27 小时 14 分钟击败末影龙，过程中死亡 605 次；研究者可暂停或终止，但称未介入。**判断：** 结果展示了千步以上的计划保持、代码生成和故障恢复，但单次成功、Easy 难度和极高试错次数意味着它更像长程能力证明，而非高可靠自主系统。[arXiv](https://arxiv.org/abs/2610.22319)
+
+- **LEASH 用小模型不确定性决定何时升级到强模型。** **事实：** 方法比较弱模型当前隐藏状态与历史成功/失败轨迹，在任务开始和每一步判断是否升级，并用影子观察器监督黑盒强模型。作者报告在 OSWorld 上，Qwen3.5-35B-A3B 加 LEASH 达到 73.66% 成功率，接近始终使用 Claude Opus 5 的 72.90%，单任务推理成本降低 19.2%。**判断：** 这把成本路由从固定规则推进到运行时状态估计，但隐藏状态分布漂移、失败轨迹覆盖度和跨网站泛化仍需验证。[arXiv](https://arxiv.org/abs/2610.22280)
+
+### 计算
+
+- **Vera Rubin NVL72 首批 AgentPerf 结果上线。** **事实：** Artificial Analysis 报告，在相同每用户输出速度附近，Vera Rubin NVL72 对 DeepSeek V4 Pro、DeepSeek V4.1 Flash、GLM-5.2 和 Kimi K3 的每兆瓦吞吐最高分别领先 GB300 NVL72 约 5.7、5.4、3.0 和 2.8 倍；但峰值吞吐优势只有 1.14 至 1.45 倍。其功耗口径只计 GPU 与 HBM，不含 CPU、网络和冷却，且一组 Rubin 配置的输出上限更短。**判断：** Rubin 的强项更像高并发下维持较高单用户速度，而非所有负载无条件获得数倍能效；完整机架功耗与统一输出长度测试仍是必要补充。[Artificial Analysis](https://artificialanalysis.ai/articles/vera-rubin-nvl72-agentperf)
+
+- **Mueon 融资 6,500 万美元验证模块化 AI 数据中心。** **事实：** Mueon 的 Cubelet 把计算、内存、供电和网络更紧密地组合为可混搭模块，并用低压供电与双面冷却提高密度；公司尚无营收，资金将用于系统验证和生产准备。The Information 公开摘要称公司宣称在相同功耗下可放入最多 10 倍算力，该数字尚无独立工程数据支持。**判断：** 数据中心设计正从固定机架走向可组合系统，但在热密度、维护性和良率约束下能否兑现仍属早期假设。[公司公告](https://www.prnewswire.com/news-releases/mueon-raises-65m-in-series-a-funding-to-scale-its-cubelets-exponential-computing-platform-302909367.html)｜[The Information](https://www.theinformation.com/briefings/exclusive-mueon-raises-65-million-rework-data-centers-put-together)
+
+### 世界模型
+
+- **T2-Z 用少量交互在测试时推断隐藏环境变量。** **事实：** 该方法冻结机器人世界模型，仅优化紧凑环境潜变量，以吸收摩擦、质量和人为规则等不可直接观察因素；作者在 7 个仿真环境和 4 个真实机器人任务上报告物体预测误差由 15.20 降至 7.00，动作成功率由 33.73% 升至 72.96%，部分设置只需一条交互轨迹。**判断：** 世界模型开始从固定动力学预测转向现场校准，但测试时试探动作的安全成本与潜变量可解释性是落地前提。[arXiv](https://arxiv.org/abs/2610.22364)
+
+- **P3-WAM 统一感知、未来预测与动作规划。** **事实：** 模型把结构化 3D 手部动作接入视频扩散 Transformer，用同一套权重完成手部与相机轨迹重建、给定动作的视频未来生成，以及由图像、语言和可选视觉目标联合生成动作与预期结果。作者称统一训练在四个数据集上超过专用基线。**判断：** 将动作和视觉后果放进双向统一表示，有助于减少“策略会动但不会预测后果”的割裂；当前证据仍以离线数据和模型评审为主。[arXiv](https://arxiv.org/abs/2610.22363)
+
+### 多模态
+
+- **Gen4P 把视频生成器改造成单次前向的 4D 感知器。** **事实：** 方法不做迭代去噪，而是一次编码干净视频潜变量，再按需查询 3D 点轨迹、视频深度和相机位姿；冻结的视频深度 LoRA 提供几何先验且不增加训练参数。作者报告达到最佳或有竞争力的结果。**判断：** 视频生成预训练正在变成通用时空表征底座，而不只服务像素合成；速度、遮挡鲁棒性和跨相机泛化仍需统一测试。[arXiv](https://arxiv.org/abs/2610.22371)
+
+### 具身智能
+
+- **Spark-0 用 1,000 小时人类触觉数据预训练灵巧操作模型。** **事实：** Spark-0 是视觉-触觉-语言-动作模型；训练时用触觉手套生成的图像空间接触图和冻结 3D 教师监督视觉 token，部署时可选择纯视觉或继续输入触觉。作者称保留触觉监督后，纯视觉 Ego Humanoid 成功率从 52.5% 升至 71.7%，真实 SparkArena 中同时使用触觉时从 44.0% 升至 52.0%。**判断：** 触觉不仅是推理输入，也可能成为可规模化的视觉运动预训练监督；关键问题是 HumanTouch 数据、硬件标定和跨机械手迁移能否开放复现。[arXiv](https://arxiv.org/abs/2610.22342)
+
+## 顶会与论文
+
+- **NeurIPS 2026 公布 Journal Track。** 会议将于 12 月在悉尼、亚特兰大和巴黎展示 88 篇已通过期刊审稿的论文，其中 TMLR 64 篇、JMLR 16 篇、Annals of Statistics 8 篇。该机制把滚动期刊审稿与顶会现场交流连接起来，缓解“一年一次会议截稿”对研究传播节奏的绑定。[NeurIPS](https://blog.neurips.cc/2026/10/15/announcing-the-neurips-2026-journal-track/)
+
+- **Grid-Bench：检验 LLM 能否跟踪离散世界的连续变化。** 基准用可执行规则在二维、三维和四维网格上依次移动物体、变换区域或修改环境；六个模型的完整状态准确率随历史增长快速下降，且单步表现相近的模型在长序列上明显分化。它提供了比自然语言解释更严格的世界状态逐格验证。[arXiv](https://arxiv.org/abs/2610.22312)
+
+- **LIBERO-PeRM 入选 NeurIPS 2026。** 新基准关注个性化机器人操作，要求策略适应不同用户偏好，而不只是执行统一任务定义；论文在 10 月 15 日首次提交，具体结论仍需结合完整实验审阅。[arXiv](https://arxiv.org/abs/2610.22372)
+
+## 视频与访谈
+
+- **OpenAI：GPT-Live-1.1 新声音演示。** 官方短视频展示新语音与多语言口音效果，适合快速感受全双工语音交互的产品变化；技术与安全判断仍应以系统卡为准，而不是以精选演示替代真实使用评测。[YouTube](https://www.youtube.com/watch?v=GyO8Ao7yKJc)｜[配套说明](https://community.openai.com/t/gpt-live-1-1-is-rolling-out-with-new-voices-and-better-accents/1406704)
+
+## 值得继续跟踪
+
+- **GPT-Live-1.1 的安全回归与 API 上线。** OpenAI 已承认四类合成安全评测显著退步，但未给出修复时间；API 定价、工具权限和开发者侧监控也尚未公布。[系统卡](https://deploymentsafety.openai.com/gpt-live-1-1/obeying-restrictions)
+
+- **SPACE 的独立安全审计。** 重点观察外部团队能否复现网络绕过测试、验证凭据代理与快照恢复边界，以及 Apache 2.0 代码在非 Perplexity 基础设施上的安全默认值。[GitHub](https://github.com/perplexityai/SPACE)
+
+- **Anthropic 外部评估的实际独立性。** 需要等待 METR 首份嵌入式评估报告，核对发布时间、打码范围、资金关系和是否覆盖事故而不只覆盖预定模型评测。[Anthropic](https://www.anthropic.com/news/an-update-on-independent-evaluators)
+
+- **Cursor 数据是否被用于 SpaceXAI 训练。** The Information 称 Cursor 内部曾调查员工使用 Grok Bot 时，机密数据是否流向 SpaceXAI 的训练系统；公开摘要不足以确认发生了数据外泄或训练使用，双方也未给出可核验技术说明，暂列待核实。[The Information](https://www.theinformation.com/articles/cursor-staff-investigated-whether-confidential-data-reached-spacex-ai-training)
+
+## 来源
+
+- https://www.perplexity.ai/hub/blog/open-sourcing-space
+- https://github.com/perplexityai/SPACE
+- https://help.openai.com/en/articles/6825453-chatgpt-release-notes
+- https://deploymentsafety.openai.com/gpt-live-1-1/obeying-restrictions
+- https://x.com/ChatGPT/status/2110823738531037651
+- https://www.youtube.com/watch?v=GyO8Ao7yKJc
+- https://community.openai.com/t/gpt-live-1-1-is-rolling-out-with-new-voices-and-better-accents/1406704
+- https://www.anthropic.com/news/an-update-on-independent-evaluators
+- https://www.marketscreener.com/news/anthropic-grants-outside-evaluator-metr-employee-level-access-in-ai-safety-push-ce785dd3de80f424
+- https://www.theinformation.com/briefings/anthropic-says-ai-evaluators-can-now-work-company
+- https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/
+- https://research.nvidia.com/labs/nemotron/Nemotron-3.5-Bolt-24GB/
+- https://docs.nvidia.com/nemotron/latest/nemotron/super35/README.html
+- https://artificialanalysis.ai/articles/vera-rubin-nvl72-agentperf
+- https://openai.com/index/introducing-the-rosalind-academic-plan/
+- https://www.prnewswire.com/news-releases/mueon-raises-65m-in-series-a-funding-to-scale-its-cubelets-exponential-computing-platform-302909367.html
+- https://www.theinformation.com/briefings/exclusive-mueon-raises-65-million-rework-data-centers-put-together
+- https://www.theinformation.com/articles/cursor-staff-investigated-whether-confidential-data-reached-spacex-ai-training
+- https://blog.neurips.cc/2026/10/15/announcing-the-neurips-2026-journal-track/
+- https://arxiv.org/abs/2610.22350
+- https://fde-gym.com/
+- https://arxiv.org/abs/2610.22319
+- https://arxiv.org/abs/2610.22280
+- https://arxiv.org/abs/2610.22364
+- https://arxiv.org/abs/2610.22363
+- https://arxiv.org/abs/2610.22371
+- https://arxiv.org/abs/2610.22342
+- https://arxiv.org/abs/2610.22312
+- https://arxiv.org/abs/2610.22372
