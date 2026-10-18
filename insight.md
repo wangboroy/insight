@@ -3848,3 +3848,55 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://x.com/kyutai_labs/status/2111125878709088487
 - https://www.youtube.com/watch?v=LKrwhjOI8Nc
 - https://www.youtube.com/watch?v=blkIGLlZePg
+
+# 2026-10-18 AI 热点简报
+
+> 覆盖窗口：2026-10-17 08:08 至 2026-10-18 08:08（Europe/Zurich）。本窗口为周末，高质量新增很少，因此采用短版。已检索公开 X 内容、公司与研究机构官网、arXiv、国际会议官网、The Information 公开页面及 YouTube；未发现 The Information、X 或 YouTube 在该窗口内具有足够公开细节、且能独立核验的信息增量。以下性能数字均来自发布方，尚未经过第三方复现。
+
+## 今日重点
+
+### 1. DeepSeek 开放 V4.1 Flash 1017 权重，集中提升 Agent、编码与视觉任务
+
+**事实摘要：** DeepSeek 在 Hugging Face 发布 DeepSeek-V4.1-Flash-1017，模型卡将其定义为 V4.1 Flash 的小版本更新，权重采用 MIT 许可，模型规模约 763B 参数，并给出 1M token 上下文和至少 256K 最大输出的推荐配置。发布方自报 Terminal-Bench 4.0 从 31.2 提升至 42.3、Automation-Bench v1.0.6 从 54.8 提升至 60.5、Agents’ Last Exam 从 31.8 提升至 35.4，同时称任务耗时和输出长度下降。[模型卡](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)｜[文件与提交记录](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/tree/main)
+
+**影响判断：** 这次更新的重点不是基础架构换代，而是把同一开放权重模型在长程工具使用、自动化和视觉工具任务上的性能—成本曲线向前推。MIT 许可降低了研究和自托管门槛，但约 510 GB 的仓库体积、超长上下文显存需求，以及厂商自测对 harness 和采样配置的敏感性，意味着“开放”并不等于低成本或已被独立验证。
+
+### 2. GOSIM Shenzhen 第二日把 Agent harness、端侧计算与具身开源栈放到同一议程
+
+**事实摘要：** GOSIM Shenzhen 2026 于 10 月 17 日进入第二日，官方议程并列设置 Agentic AI、端侧 Agent、Agent 设备、开放模型基础设施和开源机器人等轨道。当天后半程议题包括可审计 Agent 评测、长程自改进 Agent、机器人生成式操作效率、AMD ROCm 驱动的 Real2Sim2Real VLA 操作、递归自演化 Physical Agent OS，以及 openEuler 具身机器人全栈。[官方议程](https://shenzhen2026.gosim.org/schedule/)
+
+**影响判断：** 议程本身不是经过同行评审的技术结论，但它清楚显示工程关注点已从“单个模型能力”转向 harness、可审计评测、端侧算力、仿真数据闭环与机器人操作系统的协同。后续应等待演讲录像、代码和可复现实验，再判断这些方案是否超出概念展示。
+
+## 分主题动态
+
+### AI / Agent / 多模态
+
+- **DeepSeek 用同一模型覆盖文本、视觉与多类 Agent harness。** **事实：** 模型卡同时列出推理、编码、终端操作、自动化、图表与图像工具基准，并提供 Transformers、vLLM、SGLang 与 Docker 的部署入口。**判断：** 统一模型有利于减少路由和运维复杂度，但榜单提升仍需在统一硬件、提示、工具权限与预算下复测。[DeepSeek](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
+
+### 计算
+
+- **开放旗舰模型继续把瓶颈推向推理系统。** **事实：** Hugging Face 页面显示权重仓库约 510 GB，模型规模约 763B；官方建议最高 1M token 上下文和至少 256K 输出上限。**判断：** 真正可用性将取决于量化、KV cache、并行策略和 harness 的 token 效率，而不只是权重是否可下载。[模型文件](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/tree/main)
+
+### 具身智能 / 世界模型
+
+- **GOSIM 的具身轨道强调从世界模型到系统闭环。** **事实：** 第二日议程覆盖统一生成—导航—控制、VLA、开放评测、多 Agent 协调、Real2Sim2Real 与 Physical Agent OS。**判断：** 世界模型正在被放进数据生成、策略评测和运行时控制的完整系统中；但官网当前主要提供题目与讲者信息，尚不足以评价技术效果。[GOSIM Shenzhen](https://shenzhen2026.gosim.org/schedule/)
+
+## 顶会与论文
+
+- **本窗口未发现可确认的新顶会公告或新提交论文。** arXiv 周末更新有限；检索到的相关机器人与世界模型论文均早于本次 24 小时窗口，因此未重复收录。
+
+## 视频与访谈
+
+- **本窗口未收录视频。** YouTube 检索未发现发布时间和信息增量均可确认、且优于上述一手页面的新内容。
+
+## 值得继续跟踪
+
+- **DeepSeek V4.1 Flash 1017 的独立复现。** 重点观察不同 Agent harness、显存配置与长上下文负载下的成功率、时延和总成本，而不是只比较单项分数。[模型卡](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
+
+- **GOSIM 会后材料。** 需跟踪可审计 Agent 评测、Real2Sim2Real VLA 和 Physical Agent OS 是否公开录像、代码、数据或完整实验指标。[官方议程](https://shenzhen2026.gosim.org/schedule/)
+
+## 来源
+
+- https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017
+- https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/tree/main
+- https://shenzhen2026.gosim.org/schedule/
