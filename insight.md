@@ -4649,3 +4649,116 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://2026.emnlp.org/program/keynotes/
 - https://research.google/conferences-and-events/google-at-emnlp-2026/
 - https://www.theinformation.com/titv/ai-deep-dive
+
+# 2026-10-28 AI 热点简报
+
+> 覆盖窗口：2026-10-27 08:08 至 2026-10-28 08:08（Europe/Zurich，CET）。已检索公开 X 内容、公司与研究机构官网、arXiv、EMNLP/CoRL 等国际会议页面、The Information 公开标题与摘要、YouTube 及可靠科技媒体。X 上的讨论主要放大下列一手发布，未发现可独立核验且超出原始公告的重要新增事实。模型、产品与论文性能数字均为发布方或作者自报，除特别说明外尚未独立复现。
+
+## 今日重点
+
+### 1. Anthropic 内部研究模型串起五条真实软件攻击链，62 个 Chrome CVE 已修补
+
+**事实摘要：** Anthropic 披露，其未发布的内部研究模型在 Chrome、Safari、Android、Windows 和 Linux 中发现并组合多层漏洞，形成从一键浏览器越狱、锁屏绕过到 Linux 零点击 root 代码执行的五条攻击链。Google 为 Chrome 相关发现分配了 62 个 critical/high CVE，其中包括 13 个沙箱逃逸；Apple、Google、Microsoft 和 Linux 上游均已修复文中披露的问题。Chrome 的完整链需要依次突破 V8、内存区域沙箱、进程沙箱和 FedCM，显示模型已能完成跨组件 exploit chaining。[Anthropic](https://www.anthropic.com/research/discovering-vulnerabilities-with-claude)
+
+**影响判断：** 这比单点漏洞扫描更重要：前沿模型正在获得过去由少数专业团队掌握的多阶段漏洞研究能力。防守方的窗口取决于强模型访问、协调披露和在代码合并前持续扫描；与此同时，模型能力扩散会提高未修补系统的攻击风险。
+
+### 2. Gemini Robotics ER 2 进入 Google Cloud 公共预览
+
+**事实摘要：** Google Cloud 将 Gemini Robotics Embodied Reasoning 2 以公共预览形式带到 Gemini 平台。开发者可把 VLA、导航 API 和硬件接口声明为工具，并向模型流式输入视频、音频或文本；Google 称其可进行长程任务规划、连续视频验证、自我纠错和多机器人协作。当前是 public preview，并非全面正式可用，也没有公布独立客户成功率或价格。[Google Cloud](https://cloud.google.com/blog/products/ai-machine-learning/gemini-robotics-embodied-reasoning-2-is-now-available-on-google-cloud)
+
+**影响判断：** 具身模型开始从实验室模型接口转向带权限、编排与生命周期管理的云服务。真正的商业门槛仍是端到端延迟、低层控制责任、断网降级和跨机器人硬件的可复现可靠性。
+
+### 3. Anthropic 用 Claude 推进药物开发，并收购一人公司 Mithril Medicine
+
+**事实摘要：** Anthropic 公布与 BigHat、Bristol Myers Squibb、Divergence、Enveda、Generate Biomedicines 和 The Column Group 的六项合作，并把 Mithril Medicine 并入公司。BigHat 案例中，一名 Anthropic 研究员与 Claude 在约 10 周内设计、由实验室测试约 1,010 个抗体片段变体；公司称最佳变体结合强度提高逾 10 倍。Enveda 案例中，Claude 在 1,061 页文档上找到人工已发现的 11 个问题及另外 7 个问题，并把人工复核时间减少 89%。这些结果来自参与方，且多数仍处于临床前阶段。[Anthropic](https://www.anthropic.com/research/early-progress-drug-development)｜[The Information 公开简报](https://www.theinformation.com/briefings/anthropic-buys-small-drug-startup-pushes-deeper-biotech)
+
+**影响判断：** AI 实验室正从提供通用模型走向直接参与实验设计、数据分析、监管文档和药物项目运营。案例证明的是工作流加速，不是药物疗效；能否跨项目复制并最终进入人体试验仍需多年验证。
+
+### 4. Google TPU 首次进入另一家超大规模云，OCI 计划 2027 年提供
+
+**事实摘要：** Google 与 Oracle 宣布，OCI 将成为 Google 之外首个提供 TPU 的 hyperscaler，并计划从 2027 年开始部署。Google 称第八代 TPU 分为训练用 8t 与推理用 8i，后者面向多 Agent 迭代工作负载；性能与能效数字均为 Google 自报。The Information 另援引单一知情人士称 OpenAI 计划购买 Google TPU，但金额、时间和交易状态均未披露，属于待核实报道。[Oracle](https://www.oracle.com/news/announcement/ai-world-oracle-brings-google-tpus-to-oracle-cloud-infrastructure-2026-10-27/)｜[Google Cloud](https://cloud.google.com/blog/products/infrastructure/bringing-google-tpus-to-oracle-cloud-infrastructure)｜[The Information](https://www.theinformation.com/articles/openai-longtime-nvidia-customer-plans-buy-googles-ai-chips)
+
+**影响判断：** TPU 从 Google 自有云走向 OCI，意味着专用加速器竞争开始跨越云边界，客户可在不迁移核心 Oracle 数据的情况下选择 TPU。OpenAI 若最终采购将是更强的需求信号，但在官方确认前不能据此断言其算力结构已经改变。
+
+### 5. ANYbotics 开始交付可进入爆炸性环境的 ANYmal X
+
+**事实摘要：** ANYbotics 宣布向 Equinor、DSM-Firmenich 等客户交付 ANYmal X，用于油气和化工设施的自主巡检；公司称 BP、Shell、PETRONAS、Petrobras、BASF 和 SLB 等自 2023 年起已在数百次陆上与海上任务中测试该机器人。系统将视觉、热成像、声学和气体数据接入维护软件，但客户数量、单机故障率与单位经济性未披露。[ANYbotics](https://www.anybotics.com/news/anymal-x-launch/)
+
+**影响判断：** 与通用人形演示相比，这是围绕认证、危险环境和维护流程形成的窄场景商业落地。其价值更容易用减少人工高危巡检和提前发现异常来衡量，但公司自报的早期测试仍不能替代客户侧长期运行数据。
+
+## 分主题动态
+
+### AI
+
+- **Claude 药物研发案例把模型接入自动实验室和监管文档。** **事实：** 公开材料同时覆盖分子设计、实验指标重定义、生产文件复核和临床试验规划，而非只做文献问答。**判断：** 下一阶段的关键指标应是候选物推进率、失败实验减少量和合规复核质量，而不是单次设计分数。[Anthropic](https://www.anthropic.com/research/early-progress-drug-development)
+
+### Agent
+
+- **Salesforce 把持续评测、成本上限和自动停用接入同一控制面。** **事实：** Agent Fabric 新增 Agent Evals、API Evals 与成本控制；普通 Kill Switch 已正式可用，评测触发的自动停用计划 2027 年 1 月正式上线，Agent/API Evals 将于 11 月进入测试。Salesforce 称其控制面每天处理逾 12 亿次请求，但节省 token 等效果来自内部测试。**判断：** 企业 Agent 治理正在从清单和审计转向基于线上质量阈值的主动干预，误报、审批延迟和跨平台覆盖将决定实际价值。[Salesforce](https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/)
+
+- **OpenAI 与 Oracle 把企业应用和数据带入 ChatGPT。** **事实：** Oracle 正开发 AI Workspace，让用户在组织权限与审批范围内从 ChatGPT 调用财务、采购和规划流程；Oracle 同时发布由 OpenAI 网络安全模型支持的 AI Security Mesh，并已在美国通过 Oracle Marketplace 销售 OpenAI API、Codex 与 ChatGPT Work。部分应用仍处“正在开发/设计”阶段。**判断：** 企业 Agent 的竞争正在转向谁能安全连接核心记录系统，而不只是模型基准；权限继承、可逆操作和审计证据会是采购重点。[OpenAI](https://openai.com/index/oracle-apps-in-chatgpt/)｜[Oracle](https://www.oracle.com/news/announcement/ai-world-oracle-reinvents-enterprise-computing-for-the-ai-era-with-openai-2026-10-27/)
+
+### 计算
+
+- **AMD Helios 已在 Meta 安装测试，并以 10 亿美元参投 Meta 股权发行。** **事实：** AMD 称首批 Helios 机架系统已安装、正由 Meta 测试；Meta 的 Muse Agent 使用 EPYC 环境，Instinct GPU 已用于训练、排序和推荐，双方还在共同定义定制 GPU 与后续平台。AMD 同时宣布投资 Meta 10 亿美元。**判断：** Meta 正把 NVIDIA 之外的 CPU、GPU、网络与软件栈拉进超大规模部署，但“gigawatt scale”和更广泛 Helios 部署仍是前瞻计划。[AMD](https://newsroom.amd.com/news/amd-meta-advance-strategic-partnership-power-metas-ai-infrastructure/)
+
+### 世界模型
+
+- **DriveUniTok 用统一潜变量对齐驾驶画面、LiDAR 深度与自车轨迹。** **事实：** 论文把外观、投影 LiDAR 深度和 ego motion 编入同一可解码连续表征，再训练 DriveUniWAM 预测未来状态；作者在 NAVSIM 上报告 PDMS 91.54。**判断：** 统一 tokenizer 可能减少多流世界模型的跨模态不一致，但闭环道路安全、分布外天气和长尾交互仍需真实部署验证。[arXiv](https://arxiv.org/abs/2610.35044)
+
+### 多模态
+
+- **Co-Design Bench 显示编码 Agent 常“部分完成”但难以完整满足真实需求。** **事实：** 基准从 26,314 个真实用户会话中构造 273 个多模态与仓库编辑任务，使用 2,331 条隐藏验收标准；最强受测系统平均通过 69.9% 标准，但仅完整完成 26.4% 任务。**判断：** 平均 rubric 分数会掩盖用户真正关心的全量交付失败，评测应提高对跨文件、多类型修改和端到端可运行性的权重。[arXiv](https://arxiv.org/abs/2610.35138)
+
+### 具身智能
+
+- **RobotAgentBench 把机器人评测从预定义操作扩展到任务发现与失败恢复。** **事实：** 基准包含 50 个家庭布局、90 个原子任务、18 个短程任务、8 个长程任务和 4 个开放场景，并统一比较 VLA、世界动作模型和 Agent 架构。作者报告 Agent 架构与递归自改进有优势，但操控能力与开放世界自治仍有明显差距。**判断：** 这类分层评测比单一成功率更能定位“会做动作但不会自主完成需求”的断点，仿真到真实的迁移仍是主要限制。[arXiv](https://arxiv.org/abs/2610.34649)
+
+## 顶会与论文
+
+- **长视频编辑中的细粒度奖励何时有用。** 研究发现，超过 60 轮的 Fine Cut 任务使用衰减过程奖励，相对 outcome-only GRPO 提升 45.4%；固定过程奖励权重则会诱发冗余推理和工具调用，出现奖励上升而任务完成率下降。结论目前限于作者的视频编辑环境。[arXiv](https://arxiv.org/abs/2610.35497)
+
+- **VibeVideoBench：代码驱动视频 Agent 仍受“最后一公里渲染”拖累。** 239 个中英任务要求 Agent 在一小时内交付带声音 MP4；作者称即使领先系统也约有四分之一任务漏掉核心要求，未交付视频中约四分之三源于渲染启动过晚、过慢或未启动。[arXiv](https://arxiv.org/abs/2610.35864)
+
+- **EMNLP 2026 闭幕日聚焦全球语言鸿沟与真实 Agent 治理。** Anna Korhonen 主旨演讲主张从社区需求与基础设施出发，而不是先扩展大模型再寻找用户；Industry Track 同日以“AI Agents in the Real World”讨论能力、信任、价值与部署边界。官网提供议程与摘要，尚未见公开录像。[EMNLP 主旨演讲](https://2026.emnlp.org/program/keynotes/)｜[Industry Track](https://2026.emnlp.org/program/industry/)
+
+- **CoRL 2026 公布实体机器人 Demo 名单。** 新页面列出语音控制 VLA、无机器人视触觉数据采集、开源灵巧手、远程数据采集到真实部署框架等演示；会议要求 Demo 至少包含一套实体机器人，正式展示时间为 11 月 9 至 11 日。[CoRL](https://2026.corl.org/)｜[Demo 列表](https://www.corl.org/tbd_program/tbd_demos)
+
+## 视频与访谈
+
+- **ANYbotics：ANYmal X 发布演示。** 官方发布页嵌入的视频展示机器人在爆炸性环境巡检中的移动、传感和防护设计，适合快速理解为什么认证与设备封装是该场景的核心门槛；视频内容以公司演示为主，不等同于独立客户评测。[YouTube](https://www.youtube.com/watch?v=RYVbMafGMTc)｜[官方说明](https://www.anybotics.com/news/anymal-x-launch/)
+
+## 值得继续跟踪
+
+- **Anthropic 漏洞研究的外部可审计性。** 62 个 Chrome CVE 已由厂商分配并修补，但内部模型、扫描预算和完整负面结果未公开；需跟踪第三方对发现率、误报率与人类介入程度的复现。[Anthropic](https://www.anthropic.com/research/discovering-vulnerabilities-with-claude)
+
+- **OpenAI 是否正式采购 Google TPU。** 当前只有 The Information 的单一信源报道，合同规模、交付时间和用途均未知；应等待 OpenAI、Google、Oracle或监管文件确认。[The Information](https://www.theinformation.com/articles/openai-longtime-nvidia-customer-plans-buy-googles-ai-chips)
+
+- **Gemini Robotics ER 2 的预览期数据。** 重点观察价格、实时视频成本、端到端延迟、机器人故障恢复率和安全边界测试，尤其是多机器人协作时的权限隔离。[Google Cloud](https://cloud.google.com/blog/products/ai-machine-learning/gemini-robotics-embodied-reasoning-2-is-now-available-on-google-cloud)
+
+- **Claude 药物项目能否跨过临床前阶段。** Mithril 的目标是最早 2028 年末进入人体试验，这是目标而非承诺；候选物毒理、制造、监管审批和临床有效性仍未验证。[Anthropic](https://www.anthropic.com/research/early-progress-drug-development)
+
+## 来源
+
+- https://www.anthropic.com/research/discovering-vulnerabilities-with-claude
+- https://cloud.google.com/blog/products/ai-machine-learning/gemini-robotics-embodied-reasoning-2-is-now-available-on-google-cloud
+- https://www.anthropic.com/research/early-progress-drug-development
+- https://www.theinformation.com/briefings/anthropic-buys-small-drug-startup-pushes-deeper-biotech
+- https://www.oracle.com/news/announcement/ai-world-oracle-brings-google-tpus-to-oracle-cloud-infrastructure-2026-10-27/
+- https://cloud.google.com/blog/products/infrastructure/bringing-google-tpus-to-oracle-cloud-infrastructure
+- https://www.theinformation.com/articles/openai-longtime-nvidia-customer-plans-buy-googles-ai-chips
+- https://www.anybotics.com/news/anymal-x-launch/
+- https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/
+- https://openai.com/index/oracle-apps-in-chatgpt/
+- https://www.oracle.com/news/announcement/ai-world-oracle-reinvents-enterprise-computing-for-the-ai-era-with-openai-2026-10-27/
+- https://newsroom.amd.com/news/amd-meta-advance-strategic-partnership-power-metas-ai-infrastructure/
+- https://arxiv.org/abs/2610.35044
+- https://arxiv.org/abs/2610.35138
+- https://arxiv.org/abs/2610.34649
+- https://arxiv.org/abs/2610.35497
+- https://arxiv.org/abs/2610.35864
+- https://2026.emnlp.org/program/keynotes/
+- https://2026.emnlp.org/program/industry/
+- https://2026.corl.org/
+- https://www.corl.org/tbd_program/tbd_demos
+- https://www.youtube.com/watch?v=RYVbMafGMTc
