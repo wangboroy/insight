@@ -4762,3 +4762,107 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://2026.corl.org/
 - https://www.corl.org/tbd_program/tbd_demos
 - https://www.youtube.com/watch?v=RYVbMafGMTc
+
+# 2026-10-29 AI 热点简报
+
+> 覆盖窗口：2026-10-28 08:08 至 2026-10-29 08:08（Europe/Zurich）。本期以公开一手来源、arXiv、EMNLP 官网及 The Information 可公开访问的标题/摘要为主。已检索 X 与 YouTube；未发现能提供独立信息增量且可核验的新内容，故不为凑数单列。模型能力与性能数字除特别说明外均为发布方或论文作者自报，尚未经过独立复现。
+
+## 今日重点
+
+### 1. Google 发布 Gemini 4 Carbon，先向网络防御者限量开放
+
+**事实摘要：** Google 将 Gemini 4 Carbon 定位为其最强长程 Agent 与网络安全模型，先通过 Fairwind Program 向部分网络防御者开放，开发者和消费者尚不能普遍使用。Google 自报 Carbon 在 SEC-bench Pro、ExploitGym 和 CWE-bench 分别达到 88.2%、54.8% 和 71.0%，并称模型可持续运行数日处理大型代码库；公开价在优惠期为每百万输入/输出 token 2/10 美元，之后计划翻倍。[Google 官方公告](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/)｜[评测总表](https://deepmind.google/models/gemini/)
+
+**影响判断：** 模型竞争正在从单轮编码分数转向长时间自主执行、漏洞发现、验证与修复的完整闭环。不过关键网络能力与低提示注入成功率均主要来自 Google 自测，且评测时部分结果未启用产品护栏，真实部署中的权限控制和误报成本仍需观察。
+
+### 2. Rime 推出 Prism，把语音 Agent 的“可审计文本层”放回实时链路
+
+**事实摘要：** Prism 是面向企业语音 Agent 的端到端语音到语音模型，同时保留说话前可检查、改写和执行规则的文本检查点，并允许工具调用与发声并行。Rime 自报首段音频延迟约 0.57 秒、τ-Voice 得分 56.6，高于其所测的不预先推理实时模型；这些数字来自公司在第三方基准框架上的自行测试。[Rime](https://www.rime.ai/resources/prism-first-speech-to-speech-for-enterprise)
+
+**影响判断：** 这条路线试图兼顾自然全双工交互与企业需要的审计、术语控制和动作授权，比完全黑箱的语音到语音链路更容易进入客服与高合规场景。真正价值要看打断处理、噪声鲁棒性、工具误调用和端到端成本的独立测试。
+
+### 3. 视频世界模型正在被“瘦身”为实时机器人策略
+
+**事实摘要：** 同日多篇新论文给出相似方向：TAPESTRY 把动作编码成视频潜空间中的 patch token，测试时无需生成视频，作者报告消费级硬件每个动作块约 84 毫秒；JAM 则只在训练中用未来状态监督，推理时丢弃预测头，并报告较 FastWAM 降低 73% 的在线训练 FLOPs。[TAPESTRY](https://arxiv.org/abs/2610.36823)｜[JAM](https://arxiv.org/abs/2610.37219)
+
+**影响判断：** 世界模型的工程重点正从“生成好看的未来视频”转向保留物理先验、同时去掉控制时不必要的生成开销。两项结果均为作者自报，但共同指向更可部署的世界动作模型设计空间。
+
+### 4. OpenAI 与 ServiceNow 扩大企业 Agent 集成
+
+**事实摘要：** 双方宣布把 ServiceNow 的业务上下文与工作流动作接入 ChatGPT，并让 OpenAI 模型支持 Build Agent、Autonomous Engineer、IT 请求和安全事件处理；ServiceNow 还将扩大内部使用 ChatGPT Work 与 Codex。公告描述了产品方向，但没有披露上线节奏、合同金额或客户侧成效指标。[OpenAI](https://openai.com/index/openai-servicenow-partnership-expansion/)
+
+**影响判断：** 企业 Agent 的竞争正在落到“读取记录、评估风险、再写回生产系统”的闭环，而不只是聊天入口。落地难点会集中在最小权限、动作审批、审计日志以及跨系统身份映射。
+
+## 分主题动态
+
+### AI
+
+- **Meta 向五所美国高校提供 200 万美元与模型支持。** **事实：** Caltech、俄亥俄州立大学医学院、LSU、印第安纳大学和 UTHealth Houston 将研究婴儿气管造口监测、痴呆沟通、心衰风险预测等项目；部分项目将使用 SAM、眼镜与混合现实设备。**判断：** 这是小规模科研合作而非临床部署，医学项目仍需前瞻验证、监管审查和隐私治理。[Meta](https://about.fb.com/news/2026/10/meta-partners-with-five-us-universities-to-accelerate-medical-and-scientific-breakthroughs/)
+
+- **The Information 称 GPT-6 Astra 成为中国实验室蒸馏目标。** **事实（受限来源、匿名信源）：** 公开摘要称 DeepSeek 与 Moonshot AI 在训练近期模型时大量使用 Astra 输出，相关公司未在公开材料中确认用量或方法。**判断：** 该报道若属实，说明闭源前沿模型仍在通过输出数据影响开放权重生态；目前只能作为待核实的产业信号。[The Information](https://www.theinformation.com/articles/openais-astra-model-becomes-top-distillation-target-chinas-ai-labs)
+
+### Agent
+
+- **Shopify 接入卡组织的 Agent 支付 token。** **事实（受限来源公开摘要）：** Shop Pay 已采用 Visa、Mastercard 与 American Express 的 Agent 支付 token，使获授权 Agent 无需看到真实卡号即可付款，并保留奖励与反欺诈机制。**判断：** Agent 商务正在从浏览和选品进入可授权支付，卡组织 token 与 Stripe 一次性虚拟卡之间的标准竞争会直接影响身份、争议处理和商户归因。[The Information](https://www.theinformation.com/briefings/shopify-adopts-agentic-payment-tech-visa-mastercard)
+
+- **Amazon 以 2.5 亿条站外商品列表对冲购物 Agent。** **事实（受限来源公开摘要）：** The Information 称 Amazon 的 Shop Direct 站外商品量较 3 月约增至 2.5 倍，同时仍限制外部购物 Agent 访问其站点。**判断：** 大型平台正在用“让用户在本平台买遍全网”回应跨平台 Agent；商品准确性、授权抓取与交易责任仍是摩擦点。[The Information](https://www.theinformation.com/articles/amazon-lists-250-million-products-rival-sites-effort-battle-agents/)
+
+### 计算
+
+- **微软 AI 相关收入增长伴随更重的数据中心现金压力。** **事实（受限来源公开摘要）：** The Information 根据微软季度披露称，公司营收同比增长 19% 至 923 亿美元，OpenAI 相关收入接近总收入的 11%，但资本开支拖累自由现金流同比下降 27%；微软未更新 Copilot 付费订阅数。**判断：** 算力租赁已成为可观收入来源，但资本密集度与应用层变现透明度之间的落差仍会决定市场如何给 AI 基础设施定价。[The Information](https://www.theinformation.com/briefings/microsoft-revenue-growth-accelerates-slightly-data-centers-dampen-cash-flows/)
+
+### 世界模型
+
+- **ThinkWorld 用“动力学思维链”连接无动作标注的人类视频与机器人数据。** **事实：** 模型把动作推理表示为离散运动 token 序列，再用预测未来与真实结果的匹配度进行强化，使人类视频也能监督同一动作空间；作者报告在仿真和真机未见任务上取得泛化收益。**判断：** 若可复现，这是一条绕过昂贵机器人动作标注的路径，但从视频观察到可执行动作仍可能受接触力、相机视角和硬件差异影响。[arXiv](https://arxiv.org/abs/2610.37666)
+
+- **Best-of-N 研究提醒：世界动作模型的候选选择收益常被高估。** **事实：** 研究以可复现分支、重复续跑和共同随机数评估四个 WAM，发现传统单次续跑会把环境随机性误算为候选质量；结构化动作扰动可创造最高 16 个百分点的可选择空间。**判断：** 这为测试时扩展提供了更严谨的测量方法，也说明多采样并不自动等于可靠提升。[arXiv](https://arxiv.org/abs/2610.37196)
+
+### 多模态
+
+- **Prism 将音频情绪、文本审计与工具调用放入同一实时系统。** **事实：** 模型在继续监听用户的同时生成语音，并保留可读文本、内容标签、发音控制和工具管理接口。**判断：** 多模态实时模型正从单纯追求“像人”转向可组合、可控和可追责，但尚缺跨口音、重叠说话与长通话的公开独立评测。[Rime](https://www.rime.ai/resources/prism-first-speech-to-speech-for-enterprise)
+
+### 具身智能
+
+- **World Dreamer v5-lite 以共享工作区状态协调多机器人。** **事实：** 模型把多摄像头特征投影到固定大小的共享空间，每个机器人保留独立动作流；作者称其用超过 1 万小时、20 种仿真机器人及真机轨迹预训练，并在四项真机任务上达到 78.8% 平均成功率。**判断：** 共享世界状态比简单拼接多视角更适合协作控制，但数据规模、基线选择和真机任务范围仍需第三方审查。[arXiv](https://arxiv.org/abs/2610.37518)
+
+- **可审计自动实验室框架把机器人轨迹、仪器 API 与安全门统一起来。** **事实：** 论文提出 LAM、OpenSDL、Safe-SDL 和 L3-Bench，覆盖连续机器人动作、类型化仪器调用、时间逻辑监控、因果日志与故障恢复评测。**判断：** 相比只展示“Agent 能做实验”，这项工作更重视可追溯执行和运行时安全，但目前主要是框架与初始实现，离跨实验室验证仍有距离。[arXiv](https://arxiv.org/abs/2610.36761)
+
+## 顶会与论文
+
+- **TAPESTRY（CoRL 2026 接收）：** 用同一个视频扩散 Transformer 处理视频与动作 token，推理时只生成动作块，试图保留视频预训练的物理先验并降低控制延迟。[arXiv](https://arxiv.org/abs/2610.36823)
+
+- **JAM：** 将 VLA 与 WAM 拆解为骨干初始化、未来监督目标和推理时生成三项选择，实验表明未来监督可以保留，而视觉生成模块不必留在推理链路。[arXiv](https://arxiv.org/abs/2610.37219)
+
+- **EMNLP 2026 进入工作坊与教程阶段。** 10 月 28 日议程包括 Speech and Audio Language Models、Automated Knowledge Base Construction、Multilingual Representation Learning、ClimateNLP、WiNLP，以及多语言多文化 LLM 与 LLM tokenization 教程；这反映出语音多模态、知识构建和多语言公平仍是会议后半程重点。[EMNLP 日程](https://2026.emnlp.org/program/)｜[Google 参会页](https://research.google/conferences-and-events/google-at-emnlp-2026/)
+
+## 视频与访谈
+
+过去 24 小时内未检索到兼具一手性、明确发布日期和足够信息增量的 YouTube 新视频或访谈，因此本期不收录。相关官方发布页中的演示视频只用于说明产品，不作为独立核验来源。
+
+## 值得继续跟踪
+
+- **Gemini 4 Carbon 的真实可用范围与双重用途风险。** 当前仅限部分防御者，需观察何时开放 API、产品护栏如何改变无护栏基准表现，以及漏洞发现能力是否带来新的滥用门槛。[Google](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/)
+
+- **Astra 蒸馏说法的独立证据。** 训练数据量、授权边界和具体模型版本均未公开，公司也未确认，应等待模型报告、法律文件或更多独立信源。[The Information](https://www.theinformation.com/articles/openais-astra-model-becomes-top-distillation-target-chinas-ai-labs)
+
+- **语音 Agent 的可审计性是否经得住真实通话。** Prism 的延迟与任务分数目前来自发布方测试，值得关注第三方对打断、口音、工具误调用和高风险话术拦截的复测。[Rime](https://www.rime.ai/resources/prism-first-speech-to-speech-for-enterprise)
+
+## 来源
+
+- https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/
+- https://deepmind.google/models/gemini/
+- https://www.rime.ai/resources/prism-first-speech-to-speech-for-enterprise
+- https://openai.com/index/openai-servicenow-partnership-expansion/
+- https://about.fb.com/news/2026/10/meta-partners-with-five-us-universities-to-accelerate-medical-and-scientific-breakthroughs/
+- https://www.theinformation.com/articles/openais-astra-model-becomes-top-distillation-target-chinas-ai-labs
+- https://www.theinformation.com/briefings/shopify-adopts-agentic-payment-tech-visa-mastercard
+- https://www.theinformation.com/articles/amazon-lists-250-million-products-rival-sites-effort-battle-agents/
+- https://www.theinformation.com/briefings/microsoft-revenue-growth-accelerates-slightly-data-centers-dampen-cash-flows/
+- https://arxiv.org/abs/2610.37666
+- https://arxiv.org/abs/2610.36823
+- https://arxiv.org/abs/2610.37219
+- https://arxiv.org/abs/2610.37196
+- https://arxiv.org/abs/2610.37518
+- https://arxiv.org/abs/2610.36761
+- https://2026.emnlp.org/program/
+- https://research.google/conferences-and-events/google-at-emnlp-2026/
