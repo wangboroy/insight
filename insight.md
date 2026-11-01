@@ -5038,3 +5038,66 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://www.theinformation.com/briefings/amazon-discloses-new-80-billion-supplier-financing-loan
 - https://www.agilityrobotics.com/content/agility-robotics-and-churchill-capital-corp-xi-announce-expected-gross-capital-raise-of-approximately-465-million-and-anticipated-closing-of-business-combination
 - https://kodiakrobotics.gcs-web.com/news-releases/news-release-details/kodiak-ai-accelerates-toward-driverless-long-haul-launch
+
+# 2026-11-01 AI 热点简报
+
+> 覆盖窗口：2026-10-31 08:08 至 2026-11-01 08:08（Europe/Zurich）。本窗口为周末，高质量新增较少，因此采用短版。已检索公开 X 内容、公司与研究机构官网、arXiv、国际会议官网、The Information 公开摘要、YouTube 及可靠科技媒体；X 上的公开讨论主要转述下列发布或报道，未发现可独立核验的额外事实，YouTube 也未发现信息增量足够的新视频。厂商与政府披露的效率数字尚未经过独立复现。
+
+## 今日重点
+
+### 1. Meta 据报与 Fourier 制成内部人形机器人原型
+
+**事实摘要：** The Information 援引知情人士称，Meta 与中国机器人公司 Fourier 用约三个月制成一台内部代号 Max、重约 106 磅的人形机器人，并已开始开发第二版。Meta 向该媒体表示，合作面向内部研究与实验，没有销售这些原型的计划；Reuters 转述报道时明确称无法立即独立核实。[The Information](https://www.theinformation.com/articles/meta-built-humanoid-prototype-chinese-startup-ramp-robotics-push)｜[Reuters 转述](https://www.investing.com/news/stock-market-news/meta-builds-humanoid-robot-with-chinese-startup-fourier-the-information-says-4989297)
+
+**影响判断：** 若报道属实，这意味着 Meta 的具身智能路线已从软件和数据研究进入自有硬件迭代，但目前没有公开演示、任务成功率或量产时间表。现阶段更适合把 Max 视为研发平台，而非即将上市的家用机器人。
+
+### 2. Google DeepMind 的 PlanAssist 扩展至 15 个英国地方政府
+
+**事实摘要：** Google DeepMind 宣布，基于 Gemini 的 PlanAssist 将从 Barnet、Camden 和 Dorset 的早期试点扩展至另外 12 个英格兰地方政府，进入为期 12 个月、使用真实申请的 Beta。系统核对材料、规划政策与场地限制，并起草带引用的评估报告，由合格规划官员审阅和作最终决定；发布方称试点使评估耗时下降 58%，超过 70% 的生成报告无需修改即获官员接受。[Google DeepMind](https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/)｜[英国政府](https://www.gov.uk/government/news/faster-planning-decisions-as-new-rules-and-ai-tackle-delays)
+
+**影响判断：** 这是 Agent 从通用聊天走向高责任公共行政流程的一个可量化部署样本，关键设计是保留引用链和人工终审。58% 与 70% 均来自项目方早期测试，接下来应看不同地方政策、异议材料和真实申请规模下的准确率、返工率与申诉结果。
+
+### 3. OpenAI 将 ChatGPT 订阅与 API 试用成本直接打通
+
+**事实摘要：** OpenAI 开发者文档显示，符合条件的 ChatGPT Pro 和 Business 订阅者可把订阅连接至自己拥有的 API 组织，每月领取相应 API 额度；Pro 按套餐为 100 至 500 美元，Business Standard 和 Premium 分别为每付费席位 20 和 100 美元，月度工作区上限为 500 美元。额度覆盖 Responses、Agents、Decisions、Realtime、Images 及托管工具费用，但不覆盖通过 API key 使用 Codex，也不会提高 ChatGPT 或登录态 Codex 的使用上限。[OpenAI 开发者文档](https://developers.openai.com/api/docs/guides/chatgpt-api-credits)｜[官方开发者社区公告](https://community.openai.com/c/announcements/6)
+
+**影响判断：** 这不是模型能力升级，但会降低订阅用户把原型迁移到 API 和 Agent 沙箱的首次成本，并把 ChatGPT 获客渠道更直接地导向开发者平台。额度会在计费周期末失效，真实拉动效果仍取决于续费后使用留存和超额付费转化。
+
+## 分主题动态
+
+### AI
+
+- **PlanAssist 从三地试点进入多地区真实申请测试。** **事实：** 12 个新增地方政府将分三批接入，英国政府计划在测试成功的前提下于 2027 年底前向英格兰所有地方政府提供该工具，且不会强制采用。**判断：** 从封闭试点到跨城乡环境的 Beta，会比单一准确率更快暴露数据标准化、政策冲突和责任归属问题。[Google DeepMind](https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/)｜[英国政府](https://www.gov.uk/government/news/faster-planning-decisions-as-new-rules-and-ai-tackle-delays)
+
+### Agent
+
+- **ChatGPT 订阅额度开始覆盖托管 Agent 基础设施。** **事实：** 可用范围包括 Agents API、OpenAI 托管沙箱、网页搜索、文件搜索与 Code Interpreter 等费用；余额耗尽且无付费额度时，请求将以 `credit_balance_exhausted` 失败。**判断：** 这会鼓励更多个人和小团队测试包含工具调用与沙箱的完整 Agent 工作流，而不是只调用基础模型。[OpenAI 开发者文档](https://developers.openai.com/api/docs/guides/chatgpt-api-credits)
+
+### 具身智能
+
+- **Meta–Fourier 合作仍缺公开技术证据。** **事实：** The Information 报道了 Max 与第二版开发，Reuters 未能独立核实；Meta 与 Fourier 均未发布规格、视频或论文。**判断：** 在看到公开任务演示、控制模型和可靠性指标前，不应把硬件原型等同于可泛化的家务智能。[The Information](https://www.theinformation.com/articles/meta-built-humanoid-prototype-chinese-startup-ramp-robotics-push)｜[Reuters 转述](https://www.investing.com/news/stock-market-news/meta-builds-humanoid-robot-with-chinese-startup-fourier-the-information-says-4989297)
+
+## 顶会与论文
+
+过去 24 小时恰逢周末，arXiv 相关类别和主要国际顶会官网未出现达到本简报收录门槛的新论文、奖项或议程更新，因此本期不以 10 月 30 日及更早的内容补位。
+
+## 视频与访谈
+
+过去 24 小时内未发现兼具新信息、可靠来源和足够技术深度的 YouTube 视频或访谈，因此本期不收录。
+
+## 值得继续跟踪
+
+- **Max 是否获得官方技术披露。** 重点等待 Meta 或 Fourier 公布原型图像、控制栈、训练数据、任务指标与第二版进度；目前核心信息仍来自匿名信源。[The Information](https://www.theinformation.com/articles/meta-built-humanoid-prototype-chinese-startup-ramp-robotics-push)
+
+- **PlanAssist 的跨地区实测。** 需要观察 12 个月 Beta 中的错误类型、人工修改率、处理全流程时长、偏差与申诉机制，而不只看早期任务耗时。[Google DeepMind](https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/)
+
+- **API 额度带来的 Agent 使用转化。** 关注免费额度到期后的留存、沙箱与工具成本结构，以及额度是否扩大真实生产 Agent 的采用，而非只增加短期试用。[OpenAI 开发者文档](https://developers.openai.com/api/docs/guides/chatgpt-api-credits)
+
+## 来源
+
+- https://www.theinformation.com/articles/meta-built-humanoid-prototype-chinese-startup-ramp-robotics-push
+- https://www.investing.com/news/stock-market-news/meta-builds-humanoid-robot-with-chinese-startup-fourier-the-information-says-4989297
+- https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/
+- https://www.gov.uk/government/news/faster-planning-decisions-as-new-rules-and-ai-tackle-delays
+- https://developers.openai.com/api/docs/guides/chatgpt-api-credits
+- https://community.openai.com/c/announcements/6
