@@ -5275,3 +5275,103 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://arxiv.org/list/cs.CV/recent
 - https://arxiv.org/list/cs.CL/recent
 - https://www.theinformation.com/titv/x4kyl
+
+# 2026-11-04 AI 热点简报
+
+> 覆盖窗口：2026-11-03 08:08 至 2026-11-04 08:08（Europe/Zurich）。已检索公开 X 内容、公司与研究机构官网、arXiv/Hugging Face Daily Papers、国际顶会官网、The Information 公开摘要及 YouTube。公开 X 讨论主要转述下列一手发布，未发现足以单列且可独立核验的新增事实；顶会官网在窗口内也未见重要新增公告，因此本期不以旧议程或旧奖项凑数。论文与产品性能数字均为发布方或作者自报，尚待独立复现。
+
+## 今日重点
+
+### 1. AMD 数据中心收入同比增长 97%，AI 计算需求继续向第二供应商扩散
+
+**事实摘要：** AMD 公布 2026 年第三季度收入 133.77 亿美元，同比增长 45%；数据中心业务收入创 85 亿美元纪录，同比增长 97%，公司称主要由 EPYC CPU 与 Instinct GPU 需求推动。AMD 同时表示正在扩大 Helios 机架级系统和“Venice”CPU 的生产，并将 Anthropic、Meta、Microsoft、OpenAI、Oracle 等列为合作或客户关系。[AMD 官方财报](https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results)
+
+**影响判断：** 这说明 AI 基础设施需求仍强，且竞争开始从单颗加速器延伸到 CPU、GPU、网络与机架级整机。财务增长是已披露事实，但未来需求、产能爬坡和客户部署进度仍属于前瞻性陈述。
+
+### 2. CUA-Master 与 CoworkOS 同日出现，Agent 竞争转向“数据飞轮 + 持久运行时”
+
+**事实摘要：** CUA-Master 用开放世界任务、视频工作流重建、快照回滚和双层递归改进训练电脑操作 Agent，作者报告其 27B 模型在 OSWorld Verified 得分 80.2。CoworkOS 则把策略、协调和执行分层，以共享文件、持久记忆和异步子 Agent 支撑长程工作；作者称五轮自动后训练让 Qwen3.6-35B-A3B 的八项基准均分从 33.19 升至 42.95。[CUA-Master](https://arxiv.org/abs/2611.03126)｜[CoworkOS](https://arxiv.org/abs/2611.03178)
+
+**影响判断：** 两项工作共同指向一个变化：领先 Agent 系统的差异越来越来自可恢复执行、真实环境数据、共享状态和持续改进闭环，而不只是底座模型。结果均为作者自报，跨系统比较仍受 harness、任务版本和推理预算影响。
+
+### 3. 开放权重模型开始在统一机器人 harness 中逼近或超过闭源 Agent
+
+**事实摘要：** uni-robot-agent 提供可继续训练的统一 robot-use harness。作者称，在没有特权输入的情况下，开箱即用的 Qwen3.8-Flash-Next 在 RoboDojo 得分 31.39，高于论文引用的 GPT-6 Astra-RoboProbe 28.97，并在 19 个真机任务上表现出竞争力。[论文](https://arxiv.org/abs/2611.01560)｜[项目](https://openrua.ai/)
+
+**影响判断：** 机器人 Agent 的研究门槛可能从闭源模型访问转向 harness、反馈设计和可复现实验。需要注意，基准分数并不等同于稳定真机部署，接触控制、安全约束和失败恢复仍是关键短板。
+
+### 4. 世界模型同时补“长期记忆”与“显式 3D 动力学”
+
+**事实摘要：** History Forcing 用历史上下文造成的教师预测残差修正蒸馏目标，作者报告 60 秒生成的 VBench-Long 得分为 79.82，并改善镜头离开后再返回时的物体一致性。WorldFlow 则联合预测未来视频与查询点 3D 轨迹，在 144 万个对象级样本上训练，并发布含 1,678 个样本的 WorldFlowBench；作者报告在 SpatialCog 上的位移误差比最强外部基线低 54.2%。[History Forcing](https://arxiv.org/abs/2611.02782)｜[WorldFlow](https://arxiv.org/abs/2610.39278)
+
+**影响判断：** 视频世界模型正在从短片视觉逼真度转向可重访状态和可测量几何运动，这两项能力对机器人规划与交互环境都更直接。但指标提升仍需第三方复现，并验证能否转化为下游控制收益。
+
+## 分主题动态
+
+### AI
+
+- **Google 调整 K-12 AI 控制，但 Search 与 AI 仍被绑定。** **事实：** Google 宣布 Gemini、Gemini Notebook、Gemini in Classroom 和 Search 将默认对 K-12 学生账户关闭，需学校管理员主动开启；Guided Learning 已进入 Classroom，并将在部分美国学校试点 Search 版本。AP 与 The Information 指出，由于 Search 已集成 AI，完全拒绝 AI 的学校也会失去 Google Search 访问。**判断：** 管理员获得更细控制，但“搜索即 AI”的产品绑定会把教育技术治理从功能选择变成基础服务选择。[Google](https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/)｜[AP](https://apnews.com/article/7ba4219e505db1c11d672f6eefe7155a)｜[The Information 公开摘要](https://www.theinformation.com/briefings/google-gives-schools-ai-control-requires-ai-search)
+
+### Agent
+
+- **Honeycomb 推出面向生产遥测的 SRE Agent。** **事实：** Personal Agent 与 Team Agents 可基于分布式追踪、MCP 连接器、运行手册和共享记忆调查事故、监控发布、改进可观测性，并在授权范围内建票、呼叫响应人员或起草修复；目前处于早期访问。**判断：** Agent 正从“收到告警后聊天”走向持续后台目标，但其错误率、告警负担和真实生产收益尚无公开评测。[Honeycomb](https://www.honeycomb.io/blog/honeycomb-introduces-ai-sre-agents)
+
+- **LeanGuard 用 Lean4 证明阻断违规工具调用。** **事实：** LeanGuard 在每次工具调用到达环境前，用形式化策略和执行历史检查权限；作者称其在 Tau-Bench 中阻止了所有被策略禁止的调用，并把 DTap 直接提示注入成功率从 57.9% 降至 5.9%。**判断：** 把安全边界放到模型外的可证明运行时，比依赖提示词自律更可审计；代价是策略编写、状态建模和覆盖完整性。[论文](https://arxiv.org/abs/2611.02332)
+
+### 计算
+
+- **FLAMIA 把 Blackwell 低精度吞吐转化为可训练的注意力加速。** **事实：** FLAMIA 结合 MXFP8、FP4/FP8、融合量化、文档局部缩放和因果泄漏防护；作者报告在 B200 上比各工作负载的最快对照加速 1.10–1.40 倍，在 B300 上加速 1.06–1.42 倍。**判断：** 训练效率的增量越来越来自数值格式、kernel 和数据布局协同，而非只靠硬件峰值；结果需在更多模型和序列分布上复现。[论文](https://arxiv.org/abs/2611.03344)
+
+- **Anthropic 据报用 Claude 辅助自研芯片设计。** **事实（受限来源公开摘要）：** The Information 援引匿名知情人士称，Anthropic 的约 15 人芯片团队正使用 Claude 做工程和设计，并向 IPO 投资者表示其可缩短设计时间。公司未公开芯片规格、流片状态或可比实验。**判断：** 这是“模型帮助设计下一代模型硬件”的早期信号，但目前属于投资者沟通与匿名信源，待官方技术披露或流片结果核实。[The Information](https://www.theinformation.com/articles/anthropic-touts-claudes-chip-design-skills-ipo-investors/)
+
+### 世界模型
+
+- **Agentic Video Generation 综述把 harness 置于视频系统核心。** **事实：** 该报告将多镜头生成、交互式世界模型和递归自我改进统一为“模型外运行时”问题，涵盖工具、状态、反馈、预算、来源追踪与评估。**判断：** 它不是新的性能突破，但为“视频模型 + Agent + 可执行世界状态”提供了较清晰的工程地图。[论文](https://arxiv.org/abs/2610.40191)
+
+### 多模态
+
+- **WorldFlow 将视觉演化与 3D 运动放进同一生成骨干。** **事实：** 模型用连续位移 token 表示 3D 运动，并与视频网格对齐，在 Mixture-of-Transformers 中共同去噪。**判断：** 显式几何监督可能让多模态世界模型更适合物理推理，但仍需证明其在行动选择和闭环控制中优于仅视频预测。[论文](https://arxiv.org/abs/2610.39278)
+
+### 具身智能
+
+- **TinyAstral 把大模型演化出的机器人 harness 蒸馏给 4B 模型。** **事实：** 作者先冻结教师模型并递归改进 harness，再用包含推理与失败恢复的轨迹蒸馏学生；在 RoboTwin 上，教师成功率从 33.4% 升至 63.6%，最终 4B 学生达到 62.8%，测得加速器时间约为教师的五分之一。**判断：** 这提示部分“智能”可固化在工具、反馈与恢复逻辑中，再迁移给小模型；真实机器人泛化和长期安全性仍待验证。[论文](https://arxiv.org/abs/2610.41216)
+
+## 顶会与论文
+
+- **CUA-Master：开放世界递归改进电脑操作 Agent。** 重点不只是更高分数，而是从教程视频挖掘真实工作流、合成可验证任务，并用快照回滚降低真实环境采集成本。[arXiv](https://arxiv.org/abs/2611.03126)
+- **CoworkOS：长程协作 Agent 运行时。** 将主策略、协调器和子 Agent 分层，并让人类与 Agent 直接共同编辑文档、演示文稿、CAD 和 Blender 场景。[arXiv](https://arxiv.org/abs/2611.03178)
+- **History Forcing：长视频重访一致性。** 用教师在有/无历史条件下的预测差异，给少步自回归视频模型提供长期状态约束。[arXiv](https://arxiv.org/abs/2611.02782)
+- **LeanGuard：形式验证的 Agent 工具防线。** 用 Lean4 策略、失败关闭和证明引导修复，把工具调用权限从模型判断转为可验证执行规则。[arXiv](https://arxiv.org/abs/2611.02332)
+- **Democratizing Robot-Use Agents。** 统一开放 harness 让开放权重模型可继续训练和公平比较，值得关注其真机任务、接口抽象与训练数据后续开放情况。[arXiv](https://arxiv.org/abs/2611.01560)
+
+## 视频与访谈
+
+- **The Information TITV：How Nvidia Shapes Policy in Washington, Midterms Affecting Data Centers, Apple Sales Cool（约 46 分钟）。** 24:24 起讨论美国中期选举对数据中心审批的影响，34:20 起讨论 NVIDIA 对芯片出口政策和华盛顿智库的影响。推荐给关注“算力不仅受芯片制约，也受政策、许可和资本制约”的读者；其中部分结论源于 The Information 的调查报道，应与官方披露区分。[YouTube](https://www.youtube.com/watch?v=y775ZPxrTkQ)｜[节目页](https://info-reader-production.herokuapp.com/titv/2dvs4)
+
+## 值得继续跟踪
+
+- **Anthropic 的芯片设计项目。** 目前只有受限报道的公开摘要，需等待芯片架构、代工伙伴、流片节点或实测结果。[The Information](https://www.theinformation.com/articles/anthropic-touts-claudes-chip-design-skills-ipo-investors/)
+- **中国“AI 全生命周期”治理信号。** The Information 转述中国国家发改委官员称将关注就业影响，并加强歧视、深度伪造、隐私和滥用追责；尚未见可执行条文和时间表，属于待核实政策进展。[The Information](https://www.theinformation.com/briefings/china-signals-plans-broad-ai-safety-guardrails)
+- **机器人 harness 是否能跨真机迁移。** uni-robot-agent 与 TinyAstral 都把提升归因于运行时和训练闭环，后续应重点看不同机器人、接触任务和安全约束下的独立复现。[uni-robot-agent](https://openrua.ai/)｜[TinyAstral](https://arxiv.org/abs/2610.41216)
+
+## 来源
+
+- https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results
+- https://arxiv.org/abs/2611.03126
+- https://arxiv.org/abs/2611.03178
+- https://arxiv.org/abs/2611.01560
+- https://openrua.ai/
+- https://arxiv.org/abs/2611.02782
+- https://arxiv.org/abs/2610.39278
+- https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/
+- https://apnews.com/article/7ba4219e505db1c11d672f6eefe7155a
+- https://www.theinformation.com/briefings/google-gives-schools-ai-control-requires-ai-search
+- https://www.honeycomb.io/blog/honeycomb-introduces-ai-sre-agents
+- https://arxiv.org/abs/2611.02332
+- https://arxiv.org/abs/2611.03344
+- https://www.theinformation.com/articles/anthropic-touts-claudes-chip-design-skills-ipo-investors/
+- https://arxiv.org/abs/2610.40191
+- https://arxiv.org/abs/2610.41216
+- https://www.youtube.com/watch?v=y775ZPxrTkQ
+- https://info-reader-production.herokuapp.com/titv/2dvs4
+- https://www.theinformation.com/briefings/china-signals-plans-broad-ai-safety-guardrails
