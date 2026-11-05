@@ -5375,3 +5375,108 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://www.youtube.com/watch?v=y775ZPxrTkQ
 - https://info-reader-production.herokuapp.com/titv/2dvs4
 - https://www.theinformation.com/briefings/china-signals-plans-broad-ai-safety-guardrails
+
+# 2026-11-05 AI 热点简报
+
+> 覆盖窗口：2026-11-04 08:08 至 2026-11-05 08:08（Europe/Zurich）。本窗口内高质量新增主要集中在多模态生成、编码 Agent、AI 安全研究和具身学习；已检索公开 X、公司与研究机构官网、arXiv、NeurIPS、The Information 公开摘要及 YouTube。性能与效率数字除特别说明外均为发布方或论文作者自报，尚待独立复现。
+
+## 今日重点
+
+### 1. OpenAI 发布 Images 2.6，多模态创作进入 GIF 与可复用参考图阶段
+
+**事实摘要：** OpenAI 在 ChatGPT、Codex 和 API 上线 Images 2.6，新增 GIF 生成、参考图复用、图像标注和 SVG 导出，并称生成速度平均提高 50%。API 分为偏速度的 Flare 和偏质量、编辑一致性的 Sunburst；官方称 Flare 在低质量设置下最快约 6 秒生成一张图。[OpenAI](https://openai.com/index/introducing-images-2-6/)｜[官方 X](https://x.com/OpenAI/status/2118124944928432327)
+
+**影响判断：** 竞争焦点正在从单次文生图质量转向“生成—编辑—动画—结构化导出”的完整工作流；速度与一致性指标仍需第三方横向测试。
+
+### 2. Cognition 推出 SWE-2 Flash，编码 Agent 转向更小、更快的专用模型
+
+**事实摘要：** SWE-2 Flash 基于 Thinking Machines 的 Inkling-Small，规模为 276B 总参数、12B 激活参数，并加入数万亿 token 的中期训练和强化学习。Cognition 称其生成速度约 200 token/s、价格为 SWE-2 的五分之一、速度约三倍，现已在 Devin Desktop 与 CLI 上线；权重仅计划向可信伙伴和研究者受控分享，并非公开权重发布。[Cognition](https://cognition.com/blog/swe-2-flash)｜[官方 X](https://x.com/cognition/status/2118069614521241739)
+
+**影响判断：** 如果真实工程任务上的性价比成立，编码 Agent 的模型路由会更明显地分层：高频常规任务交给小型专家模型，复杂任务再升级到旗舰模型。
+
+### 3. Moonshot AI 开放 Kimi K3.1 Pro 权重
+
+**事实摘要：** Moonshot AI 在 Hugging Face 发布 Kimi K3.1 Pro 权重与模型卡，支持图文输入，并公布 Agent、编码和视觉任务评测。模型使用专用 `kimi-k3.1-pro` 许可证，而非 Apache、MIT 等标准宽松许可证。[Hugging Face](https://huggingface.co/moonshotai/Kimi-K3.1-Pro)｜[官方 X](https://x.com/Kimi_Moonshot/status/2118010528123773297)
+
+**影响判断：** 新权重扩大了可自托管多模态 Agent 的选择，但部署方需要同时审查超大模型算力成本、`trust_remote_code` 风险和专用许可条款。
+
+### 4. 专用 OpenAI 网络安全模型协助发现 APT 高危漏洞
+
+**事实摘要：** The Information 公开报道与后续 CVE 信息显示，研究者 Max Justicz 使用专用 GPT-5.6 Sol 网络安全模型发现 APT 下载恢复流程中的验证绕过漏洞 CVE-2026-109518；中间人可替换已验证的软件包并以 root 权限执行代码。Debian 与 Ubuntu 已发布修复，研究者称未知有在野利用。[The Information（公开摘要）](https://www.theinformation.com/briefings/exclusive-researcher-finds-vulnerability-software-used-data-centers)｜[CVE 记录聚合](https://cve.radiocsirt.org/search?product=APT&vendor=Debian)
+
+**影响判断：** 这是一条可验证的“AI 降低深层软件缺陷发现成本”案例，同时也说明高能力网络安全模型需要受控访问、协调披露和快速补丁链路共同约束。
+
+### 5. HALO 用全合成家庭数据实现人形机器人零样本迁移
+
+**事实摘要：** HALO 在 1,000 个程序化生成家庭中合成视觉—语言—运动数据，训练坐下、导航、侧身过门、钻桌和推箱等技能，再组合成长程任务。论文称系统未见真实家庭训练数据，却在 6 个未建图真实环境的 360 次试验中达到 91% 零样本成功率。[论文](https://arxiv.org/abs/2611.06908)
+
+**影响判断：** 这为缓解人形机器人遥操作数据瓶颈提供了强信号；但场景分布、失败类型和硬件泛化仍需独立复现。
+
+## 分主题动态
+
+### AI
+
+- **Cassandra 把生成式世界模型用于护理环境。** **事实：** Teton AI 称 Cassandra 以 1.4 亿个真实行为事件训练，用于预测护理环境演化、提前识别跌倒风险并模拟干预。**判断：** 世界模型开始从通用视频生成走向高风险垂直预测，但公开页面尚未给出完整独立临床验证、误报率和部署边界。[Teton AI](https://www.teton.ai/blog/cassandra)
+
+### Agent
+
+- **FrontierPhysics 评估端到端科研 Agent。** **事实：** 56 个任务由 42 名物理学家设计，覆盖 9 个领域，要求 Agent 完成文献调研、计划、实验和论文产出；22 个模型、26 种配置中，没有任何配置在 168 次 rollout 中通过超过 46 次。**判断：** 评测瓶颈已从知识问答转向研究严谨性、专家直觉和完整闭环。[论文](https://arxiv.org/abs/2611.06910)
+
+- **ServerBench 让编码 Agent 设计完整 LLM 推理服务。** **事实：** 作者让 Agent 在约束环境中构建专用 serving 系统，报告 33 次运行中 22 次通过验证、13 次超过最强基线，最佳目标值为 vLLM 参考的 4.87 倍。**判断：** Agent 正从应用编码进入推理基础设施优化，但基准目标与生产环境可迁移性仍需检验。[论文](https://arxiv.org/abs/2611.06841)
+
+### 计算
+
+- **Apollo 据报将控制约 750 亿美元 AI 芯片。** **事实（受限来源公开摘要）：** The Information 估算，Apollo 通过为 SpaceX 采购并出租约 400 亿美元 NVIDIA Vera Rubin，以及为 Anthropic 相关 Google TPU 安排约 350 亿美元融资，可能形成比任何 neocloud 更大的芯片资产池。**判断：** AI 计算竞争正在把私募股权、特殊目的载体和长期租赁变成核心基础设施；金额、所有权和最终交割仍需以交易文件核对。[The Information](https://www.theinformation.com/articles/apollo-vastly-outspending-neoclouds-ai-chips)
+
+### 世界模型
+
+- **运动引导正则化缓解潜空间世界模型的“静态坍缩”。** **事实：** 研究发现 JEPA 式世界模型可能保留背景身份却丢失操作相关变化，并用光流软目标进行对比正则；作者报告 OGBench-Cube 随机背景成功率由 52% 提升至 78%，LIBERO-Object 由 14% 提升至 54%。**判断：** 这直指“可预测表示”不等于“可控制表示”的关键缺陷，结果仍需跨模型和真实机器人验证。[论文](https://arxiv.org/abs/2611.06901)
+
+### 多模态
+
+- **NEO-VLA 让视觉与语言表征在主干各层共同演化。** **事实：** 模型不再只把固定视觉编码器末层输出交给动作专家，而允许动作模块读取不同深度的联合表征；作者称动作关键信号常在视觉末层之前达到峰值，并报告更好的控制与分布迁移。**判断：** 这挑战了现有 VLA 的默认视觉接口，可能推动动作条件的分层视觉路由。[论文](https://arxiv.org/abs/2611.06918)
+
+### 具身智能
+
+- **VABAR 提供可复现的 Agentic Robotics 模拟底座。** **事实：** 基准基于 Newton 物理引擎，覆盖工业、医疗和基础设施等 6 类操作任务，提供难度分层、33 个通用技能与人工参考程序。**判断：** 它有助于把“代码 Agent + 机器人策略”的比较从定制 Demo 推向统一、可执行评测。[论文](https://arxiv.org/abs/2611.06881)
+
+## 顶会与论文
+
+- **NeurIPS 2026 MLRC 接收 16 篇复现论文。** 所有论文先经 TMLR 接收，再接受 MLRC 兼容性审查，覆盖机理可解释性、视觉语言模型、采样、离线强化学习、公平性与 Agent 评测，将于 12 月 10 日在悉尼展示。复现研究由此获得更正式的同行评审记录和会议展示渠道。[NeurIPS](https://blog.neurips.cc/2026/11/04/mlrc-2026-announcing-the-accepted-papers/)
+
+- **BEAKER 评估多模态模型执行科学实验的能力。** 基准含 1,000 个人工专家标注样本和 11 类图像、视频任务，覆盖 28 个模型；作者发现模型能识别粗粒度流程，却仍难判断可操作区域、可行轨迹、器材状态、安全细节和中长流程顺序。论文入选 NeurIPS 2026 Evaluations & Datasets Spotlight。[论文](https://arxiv.org/abs/2611.06911)
+
+## 视频与访谈
+
+本窗口未发现信息增量足够、来源可靠且值得单独推荐的新 YouTube 内容，故不以旧视频补位。
+
+## 值得继续跟踪
+
+- **腾讯 Hy4 正式版是否已完整发布。** 11 月 4 日二手追踪称正式版新增视觉理解和 100 万 token 上下文，但腾讯官方目前仅能核验到此前的发布预告，尚未找到同日模型卡或正式公告，故标记为待核实。[腾讯此前预告](https://www.tencent.com/tencent-cloud-accelerates-international-growth-advances-enterprise-ai-and-expands-global-partnerships/)｜[二手追踪](https://neuralbrew.ai/en/articles/2026/11/tencent-launches-hy4-model-vision-weights-promised/)
+
+- **OpenAI 新模型发布时间传闻。** The Information 的公开 AI Agenda 摘要称新一代 Astra、Sol 与网络安全模型可能最快于周五发布，同时明确表示时间仍可能变化；在官方公告出现前不视为已发布。[The Information](https://www.theinformation.com/features/ai-agenda)
+
+## 来源
+
+- https://openai.com/index/introducing-images-2-6/
+- https://x.com/OpenAI/status/2118124944928432327
+- https://cognition.com/blog/swe-2-flash
+- https://x.com/cognition/status/2118069614521241739
+- https://huggingface.co/moonshotai/Kimi-K3.1-Pro
+- https://x.com/Kimi_Moonshot/status/2118010528123773297
+- https://www.theinformation.com/briefings/exclusive-researcher-finds-vulnerability-software-used-data-centers
+- https://cve.radiocsirt.org/search?product=APT&vendor=Debian
+- https://arxiv.org/abs/2611.06908
+- https://www.teton.ai/blog/cassandra
+- https://arxiv.org/abs/2611.06910
+- https://arxiv.org/abs/2611.06841
+- https://www.theinformation.com/articles/apollo-vastly-outspending-neoclouds-ai-chips
+- https://arxiv.org/abs/2611.06901
+- https://arxiv.org/abs/2611.06918
+- https://arxiv.org/abs/2611.06881
+- https://blog.neurips.cc/2026/11/04/mlrc-2026-announcing-the-accepted-papers/
+- https://arxiv.org/abs/2611.06911
+- https://www.tencent.com/tencent-cloud-accelerates-international-growth-advances-enterprise-ai-and-expands-global-partnerships/
+- https://neuralbrew.ai/en/articles/2026/11/tencent-launches-hy4-model-vision-weights-promised/
+- https://www.theinformation.com/features/ai-agenda
+
