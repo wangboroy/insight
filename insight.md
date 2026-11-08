@@ -5659,3 +5659,68 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://2026.aaclnet.org/program/keynotes/
 - https://www.youtube.com/watch?v=J0J7cAI8zOw
 - https://www.theinformation.com/titv/zqr4c
+
+# 2026-11-08 AI 热点简报
+
+> 覆盖窗口：2026-11-07 08:08 至 2026-11-08 08:08（Europe/Zurich）。本窗口恰逢周末，高质量新增明显少于平日，因此采用短版。已检索公开 X、公司与研究机构官网、国际会议与论文页面、The Information 公开摘要、YouTube 及可靠科技媒体；未发现新的 arXiv 日批次，也未发现信息增量足够、可独立核验的新 YouTube 内容。涉及匿名信源或未获官方确认的信息均已明确标注。
+
+## 今日重点
+
+### 1. SpaceX 在得州推进多处 AI 数据中心，电力与许可成为硬约束
+
+**事实摘要：** The Information 依据公共记录、招聘信息、现场建设迹象及匿名信源报道，SpaceX 正在得州推进多处算力项目：Starbase 可能建设多吉瓦“超级计算机”，并据报为附近最高约 1 GW 的浮动电源支付定金；Bastrop 的公用事业审批显示可接入约 700–800 MW。报道还称，得州现有的电网接入与空气许可暂停、地方数据中心禁令以及新州政府立场，可能推迟这些项目；SpaceX 与相关电力供应商未回应报道中的具体细节。[The Information（公开页面）](https://www.theinformation.com/newsletters/ai-infrastructure/blue-wave-may-stop-musks-texas-data-center-ambitions)
+
+**影响判断：** AI 算力竞争的关键路径已从“买到芯片”延伸到取得电力、空气许可、输电、供水和地方支持。即使芯片租赁合同已经签署，场地不能按时通电仍会形成高额闲置与交付风险；具体容量和用途仍需 SpaceX、监管文件或合作方进一步确认。
+
+### 2. NVIDIA CEO 相关国安审查升级，但核心指控仍属争议事实
+
+**事实摘要：** Axios 11 月 7 日报道，参议员 Chris Coons 表示将调查关于 NVIDIA CEO 黄仁勋与一名被指为中国情报人员的关系；此前三名众议院委员会主席已正式要求黄仁勋就相关接触及 NVIDIA 的敏感信息保护机制进行闭门说明。NVIDIA 坚决否认黄仁勋向对方分享敏感信息，称相关接触属于常规客户交流；中国政府也否认相关间谍指控。[Axios](https://www.axios.com/2026/11/07/jensen-huang-nvidia-congress-china-spy)｜[众议院委员会公告](https://foreignaffairs.house.gov/news/press-releases/chairmen-mast-moolenaar-and-crawford-request-jensen-huang-brief-congress-on-link-to-chinese-intelligence-asset)｜[Coons 的公开 X 帖子](https://x.com/ChrisCoons/status/2119122339170603429)
+
+**影响判断：** 目前可以确认的是国会审查程序正在扩大，而不是间谍指控已经获得司法或独立事实认定。由于 NVIDIA 芯片处在美国出口管制和全球 AI 供应链核心，事件可能影响公司治理、敏感信息分级及对华销售审查，但在更多证据公开前不应把报道中的关系性质写成既定事实。
+
+### 3. AACL-IJCNLP 最后一个主会日强调：NLP 的下一步不能只靠更大模型
+
+**事实摘要：** AACL-IJCNLP 2026 在 11 月 8 日上午举行 Nizar Habash 主旨演讲，官方摘要以阿拉伯语的形态、方言、书写系统和语言变体为案例，强调 LLM 能力提升并未消除语言学知识、定向数据、严格评测和人类专业判断的价值。会议最佳论文环节定于当地时间 16:00；截至本简报截点（当地时间 15:08），官网仍未公布 1 篇最佳论文和 3 篇杰出论文的题目。[主旨演讲](https://2026.aaclnet.org/program/keynotes/)｜[会议日程](https://2026.aaclnet.org/program/)｜[奖项页](https://2026.aaclnet.org/program/best_papers/)
+
+**影响判断：** 多语种评测容易被英语主导的平均分掩盖。Habash 的观点提示，未来多模态与 Agent 系统若要进入教育、公共服务和跨语言场景，需要把语言差异、文化语境和失败分析重新放回评测核心；奖项结果应等待会议正式发布后再记录。
+
+## 分主题动态
+
+### 计算
+
+- **数据中心许可开始决定芯片能否按期产生收入。** **事实：** SpaceX 据报计划在 2027 年前建设并通电 10 GW 地面数据中心，但得州空气许可、电网审计和地方禁令可能拖慢项目；10 GW 是公司目标，不是已经建成的容量。**判断：** 未来评估 AI 基础设施项目不能只看 GPU 数量和融资额，还要检查电力来源、许可状态、并网时间和租约中的延迟责任。[The Information](https://www.theinformation.com/newsletters/ai-infrastructure/blue-wave-may-stop-musks-texas-data-center-ambitions)
+
+- **芯片供应链的安全审查可能从出口对象扩展到管理层接触与内部控制。** **事实：** 众议院三委员会要求 NVIDIA 说明其防范外国情报活动的协议，并要求黄仁勋在 11 月 11 日前确认说明会时间。**判断：** 无论争议指控最终是否成立，算力企业对客户接触、信息分级和政策游说的审计压力都会上升。[众议院委员会](https://foreignaffairs.house.gov/news/press-releases/chairmen-mast-moolenaar-and-crawford-request-jensen-huang-brief-congress-on-link-to-chinese-intelligence-asset)
+
+## 顶会与论文
+
+- **AACL-IJCNLP 2026 主会进入最后一天。** 当日安排包括 Nizar Habash 主旨演讲、五组 oral、两组 poster、最佳论文环节与闭幕式。最佳论文结果在本期截点尚未发布，下一期如官网更新再收录，避免依据现场转述提前下结论。[日程](https://2026.aaclnet.org/program/)
+
+- **本窗口无新的 arXiv 日批次。** 周末未出现新的相关首发批次；11 月 2–5 日发布的 Agent、世界模型、多模态和机器人论文已在此前简报覆盖，本期不重复收录。
+
+## 视频与访谈
+
+过去 24 小时内未发现同时满足“新发布、公开可访问、信息增量明确且可由一手材料核验”的 YouTube 内容，因此本期不以旧视频补位。
+
+## 值得继续跟踪
+
+- **AACL-IJCNLP 最佳论文结果。** 官网确认将评出 1 篇最佳论文和 3 篇杰出论文，但截至截点奖项页仍未更新；以会议官方页面为准。[奖项页](https://2026.aaclnet.org/program/best_papers/)
+
+- **NVIDIA GR00T 2 预告信号。** 公开 X 上有机器人行业账号称 NVIDIA 可能在 CoRL 2026 前后公布 GR00T 2，但 NVIDIA 官方 CoRL 页面目前只确认将展示人形机器人、世界模型、Agentic Robotics 等研究，没有确认“GR00T 2”的名称、规格或发布时间，故标记为待核实，不作为发布事实。[公开 X 帖子](https://x.com/CyberRobooo/status/2119257347822330330)｜[NVIDIA CoRL 页面](https://www.nvidia.com/en-us/events/corl/)
+
+- **CoRL 2026 将于 11 月 9 日开幕。** 官方主旨演讲页面显示，Fei-Fei Li 将介绍 Atlas——统一像素生成与 3D 场景重建的自回归世界模型；在演讲、论文或模型材料正式公开前，只记录为会议预告。[CoRL 主旨演讲](https://2026.corl.org/program/keynotes)
+
+- **SpaceX 得州项目的可验证里程碑。** 后续重点观察空气许可、并网批复、发电设备合同及实际通电时间，而非只看目标容量或现场施工迹象。[The Information](https://www.theinformation.com/newsletters/ai-infrastructure/blue-wave-may-stop-musks-texas-data-center-ambitions)
+
+## 来源
+
+- https://www.theinformation.com/newsletters/ai-infrastructure/blue-wave-may-stop-musks-texas-data-center-ambitions
+- https://www.axios.com/2026/11/07/jensen-huang-nvidia-congress-china-spy
+- https://foreignaffairs.house.gov/news/press-releases/chairmen-mast-moolenaar-and-crawford-request-jensen-huang-brief-congress-on-link-to-chinese-intelligence-asset
+- https://x.com/ChrisCoons/status/2119122339170603429
+- https://2026.aaclnet.org/program/keynotes/
+- https://2026.aaclnet.org/program/
+- https://2026.aaclnet.org/program/best_papers/
+- https://x.com/CyberRobooo/status/2119257347822330330
+- https://www.nvidia.com/en-us/events/corl/
+- https://2026.corl.org/program/keynotes
