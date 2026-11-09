@@ -5724,3 +5724,81 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://x.com/CyberRobooo/status/2119257347822330330
 - https://www.nvidia.com/en-us/events/corl/
 - https://2026.corl.org/program/keynotes
+
+# 2026-11-09 AI 热点简报
+
+> 覆盖窗口：2026-11-08 08:08 至 2026-11-09 08:08（Europe/Zurich）。本窗口仍处周末，高质量新增集中在 NVIDIA 的公司治理、韩国 AI 基础设施与物理 AI 合作，因此采用短版。已检索公开 X、公司与研究机构官网、国际会议与论文页面、The Information 公开摘要、YouTube 及可靠科技媒体；没有新的 arXiv 日批次，也未发现信息增量明确且可由一手材料核验的新 YouTube 内容。涉及调查与未来部署的内容均按当前证据层级表述，厂商性能数字尚未独立复现。
+
+## 今日重点
+
+### 1. NVIDIA 董事会就黄仁勋被指成为外国情报行动目标启动独立调查
+
+**事实摘要：** NVIDIA 董事会 11 月 8 日宣布，由独立董事委员会和外部独立律师调查近期关于 CEO 黄仁勋成为外国情报行动目标的报道。董事会称目前“没有理由相信”美国国家安全或 NVIDIA 机密已受损，黄仁勋将配合调查；AP 报道称他在调查期间继续担任 CEO。[NVIDIA 董事会声明](https://investor.nvidia.com/news/press-release-details/2026/Statement-from-NVIDIA-Board-of-Directors/default.aspx)｜[AP](https://apnews.com/article/nvidia-jensen-huang-investigation-chinese-spy-68839e7ca6ba2b121529f7e475e501d6)
+
+**影响判断：** 这是昨天“国会审查扩大”之后的实质新增，调查已从外部政治压力进入公司治理程序。由于 NVIDIA 同时处于先进芯片出口管制和全球 AI 基础设施核心，调查结果可能影响信息分级、客户尽调及董事会监督；但目前不存在机密泄露的公开认定，不应把媒体指控写成既定事实。
+
+### 2. NVIDIA、Rebellions 与 SK Telecom 规划 GPU+NPU 异构推理机架
+
+**事实摘要：** Rebellions 计划把下一代 R200 NPU 接入 NVIDIA NVLink Fusion 和 MGX 机架，SK Telecom 计划在其 AI 数据中心部署这些系统。三方提出将响应生成拆分：NVIDIA GPU 负责 prefill，Rebellions NPU 负责 decode，以提高吞吐和能效；R200 系统预计 2028 年具备部署条件。[NVIDIA](https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion)
+
+**影响判断：** 这把“主权 AI”从本地模型扩展到本地加速器、互连、机架、数据中心和公共服务的全栈组合，也显示 NVIDIA 正用 NVLink 与 MGX 把第三方 ASIC/NPU 纳入自身平台。当前仍是合作与规划，实际性能、能效、量产和 2028 年部署进度均需后续验证。
+
+### 3. 三星、LG 与 Kakao Mobility 披露物理 AI 的工程化进展
+
+**事实摘要：** 三星称其 sMOL 平台在部分量子化学计算中获得最高 5 倍端到端加速，并报告一项芯片热力学分析工作流由约 18 小时降至 41 秒；LG 与 NVIDIA 在真实制造环境演示由 Isaac GR00T 驱动的 CLOiD 机器人，并串联真实数据、Cosmos 增强、GR00T 训练、Jetson Thor 推理和仿真评估；Kakao Mobility 则计划以 DRIVE AGX Thor、Hyperion 与 Halos 开发 L4 自动驾驶系统。[NVIDIA](https://blogs.nvidia.com/blog/korea-physical-ai-ecosystem/)
+
+**影响判断：** 价值不在单次演示，而在“数据采集—合成增强—训练—边缘推理—仿真验证”的闭环开始进入制造现场。三星的加速数字来自特定粗网格与 AI 预测组合，LG 和 Kakao 的可靠性、规模化与安全指标也尚未公开，不能直接外推为生产成熟度。
+
+### 4. 韩国 Agent 生态把开放模型、推理服务与运行时安全打包推进
+
+**事实摘要：** Hyundai Motor Group 正探索 NVIDIA NemoClaw 蓝图和 OpenShell 运行时，AIM Intelligence 将其 Starfort 控制平台与 OpenShell 的沙箱和策略访问控制结合；LG AI Research 同时开放 K-EXAONE-2.5 API。NVIDIA 还发布 A.X K2、K-EXAONE 2.0、Solar Open 2 和 Motif-3 的 Dynamo 多节点部署配方，称在 B200 上可获得最高 2 倍开箱性能。[安全 Agent 公告](https://blogs.nvidia.com/blog/korea-secure-agentic-ai/)｜[Dynamo 配方](https://blogs.nvidia.com/blog/nvidia-dynamo-korea-open-models/)
+
+**影响判断：** 企业 Agent 的竞争面正从模型能力扩展到沙箱、策略执行、恶意指令检测、数据泄漏防护和可运维推理。OpenShell 集成和性能提升目前主要是厂商披露或探索阶段，后续应看独立安全评测、真实部署故障率和总成本。
+
+## 分主题动态
+
+### Agent
+
+- **运行时权限控制成为 Agent 落地的独立层。** **事实：** OpenShell 提供沙箱执行、策略控制、敏感数据与企业工具访问治理，AIM Intelligence 计划叠加恶意指令和数据泄漏检测。**判断：** 模型侧拒答不能替代执行层授权；更可信的企业方案需要把“模型建议动作”和“系统允许动作”分离。[NVIDIA](https://blogs.nvidia.com/blog/korea-secure-agentic-ai/)
+
+### 计算
+
+- **韩国尝试用统一机架连接本土 NPU 与 NVIDIA 平台。** **事实：** Rebellions R200 计划借助 NVLink Fusion 接入 MGX，并由 SK Telecom 数据中心承载；可部署时间指向 2028 年。**判断：** 若按期落地，异构 prefill/decode 可能扩大推理芯片分工，但软件调度、内存一致性、能效和供应链仍是关键风险。[NVIDIA](https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion)
+
+- **Dynamo 把本地开放模型推向多节点生产服务。** **事实：** NVIDIA 为四个韩国模型发布 B200 优化配方，并称最高 2 倍性能。**判断：** 配方化部署降低运维门槛，但缺少统一基线、延迟分位数和成本数据时，不能把“最高 2 倍”视为普遍收益。[NVIDIA](https://blogs.nvidia.com/blog/nvidia-dynamo-korea-open-models/)
+
+### 多模态与具身智能
+
+- **LG 建立机器人数据飞轮，Kakao 规划 L4 自动驾驶。** **事实：** LG 把真实制造数据、Cosmos 合成增强、GR00T、Jetson Thor 与仿真评估连成工作流；Kakao 计划先围绕 Kia 专用车辆集成 L4 系统。**判断：** 两者都从单模型展示转向持续数据与验证体系，但公开材料尚未给出成功率、干预率或道路安全里程。[NVIDIA](https://blogs.nvidia.com/blog/korea-physical-ai-ecosystem/)
+
+## 顶会与论文
+
+- **CoRL 2026 于奥斯汀开幕并上线直播入口。** 主会为 11 月 9–11 日，11 月 12 日举行工作坊。官方主旨页面显示，Fei-Fei Li 将介绍 Atlas——把像素生成与 3D 场景重建统一起来的自回归帧生成世界模型，并与 AMD CEO Lisa Su 对谈；在演讲、论文或模型材料公开前，本期仅记录为正式会议预告。[CoRL 官网](https://2026.corl.org/)｜[主旨演讲](https://2026.corl.org/program/keynotes)
+
+- **AACL-IJCNLP 奖项页仍未更新。** 主会已于 11 月 8 日闭幕，但截至本期截点，官方页面仍只写明“将在会议上公布”，没有列出最佳论文与杰出论文题目，因此不采用现场转述补全。[奖项页](https://2026.aaclnet.org/program/best_papers/)
+
+- **本窗口无新的 arXiv 日批次。** 11 月 8 日为周日，未出现新的相关首发批次；此前论文已在往期简报覆盖，本期不重复收录。
+
+## 视频与访谈
+
+过去 24 小时内未发现同时满足“新发布、公开可访问、信息增量明确且可由一手材料核验”的 YouTube 视频。CoRL 已发布直播入口，但本期截点时正式议程尚未开始，因此不把预告当作已发生内容。
+
+## 值得继续跟踪
+
+- **NVIDIA 独立调查的范围与结论。** 后续应关注独立委员会是否披露调查范围、信息访问记录、客户与出口管制流程，以及董事会采取的整改措施；在结论公开前，不推断机密已泄露。[NVIDIA](https://investor.nvidia.com/news/press-release-details/2026/Statement-from-NVIDIA-Board-of-Directors/default.aspx)
+
+- **Rebellions R200 的 2028 年部署里程碑。** 需要验证芯片流片、NVLink Fusion 集成、GPU prefill/NPU decode 的端到端性能和 SK Telecom 实际上线时间。[NVIDIA](https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion)
+
+- **Atlas 的技术材料与 CoRL 实演。** 重点观察其 3D 一致性、可控交互、长时稳定性、重建精度、训练数据和开放程度，而不只看生成视频的视觉质量。[CoRL](https://2026.corl.org/program/keynotes)
+
+## 来源
+
+- https://investor.nvidia.com/news/press-release-details/2026/Statement-from-NVIDIA-Board-of-Directors/default.aspx
+- https://apnews.com/article/nvidia-jensen-huang-investigation-chinese-spy-68839e7ca6ba2b121529f7e475e501d6
+- https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion
+- https://blogs.nvidia.com/blog/korea-physical-ai-ecosystem/
+- https://blogs.nvidia.com/blog/korea-secure-agentic-ai/
+- https://blogs.nvidia.com/blog/nvidia-dynamo-korea-open-models/
+- https://2026.corl.org/
+- https://2026.corl.org/program/keynotes
+- https://2026.aaclnet.org/program/best_papers/
