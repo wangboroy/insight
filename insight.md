@@ -5802,3 +5802,97 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://2026.corl.org/
 - https://2026.corl.org/program/keynotes
 - https://2026.aaclnet.org/program/best_papers/
+
+# 2026-11-10 AI 热点简报
+
+> 覆盖窗口：2026-11-09 08:08 至 2026-11-10 08:08（Europe/Zurich）。本期检索了公开 X、公司与研究机构官网、国际会议与论文页面、The Information 公开摘要、YouTube 及可靠媒体。部分一手页面只标注 11 月 9 日而无具体时刻，因此按日期纳入并保留边界说明；公开 X 未发现可独立核验且超出一手公告的高价值新增，当日也未出现可严格确认落入窗口的新 arXiv 日批次。所有模型与系统性能数字均为发布方自测，尚待独立复现。
+
+## 今日重点
+
+### 1. Anthropic 发布 Fable 5.2 / Mythos 5.2，把超长程多 Agent 协作推向前沿模型主线
+
+**事实摘要：** Anthropic 发布同一底模的 Claude Fable 5.2 与 Mythos 5.2：Fable 加入网络安全和生物安全护栏并向所有用户开放，Mythos 仅向验证机构提供。两者支持 100 万 token 上下文；Anthropic 称输出最高快 30%，定价降至每百万输入/输出 token 8/40 美元，并展示了千 Agent 连续协作、硬件设计、机器人和科学研究案例。公司自测 Fable 5.2 在 FrontierCode 2.0 达 49.1%、FrontierSWE v2 达 69.9%。[Anthropic](https://www.anthropic.com/claude-fable-and-mythos-5-2)｜[模型文档](https://platform.claude.com/docs/en/models/fable-5-2/overview)
+
+**影响判断：** 前沿能力正从单次回答转向持续数小时乃至数天的编排、验证和恢复，但发布材料中的复杂成果大多来自厂商及合作方，不能等同于可普遍复现的自主研究能力。Fable/Mythos 的能力分层也显示，访问治理正在成为模型产品本身的一部分。
+
+### 2. Google 用 TPU 8tx、8i Max 与 TPU Sync 直指 Agent 的机密计算和状态瓶颈
+
+**事实摘要：** Google Cloud 扩充第八代 TPU 系统：TPU 8tx 基于 TPU 8t 硅片和 AMD 主机 CPU，为敏感模型、数据和 Agent 提供硬件级隔离；TPU 8i Max 把两颗 8i 组合在同一封装中，使计算、SRAM 和 HBM 带宽相对 8i 翻倍。同步开源的 TPU Sync 把 HBM、主机内存、共享存储和网络组织成模型状态层，Google 自测称可把 KV 传输延迟和首 token 时间降低 90% 以上。[TPU 8tx / 8i Max](https://cloud.google.com/blog/topics/ai-infrastructure/tpu-8tx-and-tpu-8i-max)｜[TPU Sync](https://cloud.google.com/blog/topics/ai-infrastructure/introducing-tpu-sync-fast-kv-cache-and-weight-transfer-on-tpu)
+
+**影响判断：** Agent 基础设施的竞争焦点已经从峰值算力转向长上下文状态搬运、闲置会话调度和敏感数据执行。新系统与软件栈的数字来自 Google 内部测试，仍需第三方在真实多租户负载下验证成本、延迟和安全边界。
+
+### 3. NVIDIA 在 CoRL 发布 GR00T 2，整合世界模型、少样本迁移与 Agent 编排
+
+**事实摘要：** NVIDIA 发布开放的世界动作模型 GR00T 2、Isaac Lab 3.0 和一组机器人评测工具。GR00T 2 基于 Cosmos，联合预测未来视频与机器人动作；NVIDIA 称它在 50 个新任务中无需任务示范即可至少成功完成 40 项，单任务 1 个示范时平均成功率 71%，5 个示范时达 95%，并允许 Agent 通过 API 串联技能和从错误中恢复。Isaac Lab 3.0 与 Newton 在一项视觉灵巧操作基准上获得最高 2.5 倍训练吞吐。[NVIDIA](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)｜[GR00T 2 项目页](https://research.nvidia.com/labs/gear/gr00t-2/)
+
+**影响判断：** 世界模型、仿真后训练、跨本体迁移和 Agent 运行时开始合并为同一工程栈，这是具身智能从单项 Demo 走向可迭代系统的重要信号。不过成功率、吞吐和排行榜均由 NVIDIA 披露，跨硬件与真实生产环境的可靠性仍需验证。
+
+### 4. 百度 ERNIE Evolve 把“自动研究”接入真实模型推理优化
+
+**事实摘要：** ERNIE Evolve 以外层研究方向选择和内层代码实验组成双循环，在隔离环境修改代码、运行实验，并由独立评测决定保留哪些改动。百度称该系统在 NanoChat AutoResearch、NanoGPT Speedrun 和 SOL-ExecBench 上改善公开基线；在研发中的 ERNIE-5.5-Flash 推理优化中，四轮实验把昆仑芯 P800 上的生成速度提升至基线的 623.6%，且通过既有正确性检查。[百度 ERNIE](https://ernie.baidu.com/research/posts/ernie-evolve/)
+
+**影响判断：** 相比只在沙盒生成论文，ERNIE Evolve 的新增价值是进入生产级代码、负载测试和正确性约束。623.6% 是特定低延迟工作负载上的厂商结果，不能外推为通用递归自我改进；真正值得跟踪的是实验历史、独立评测和可中断权限边界能否稳定运行。
+
+### 5. OpenAI 部署 Control Room，为研究 Agent 增加基础设施级熔断
+
+**事实摘要：** OpenAI 公开 Control Room：所有研究推理工作负载必须绑定获批安全案例和 `job_id`，推理引擎在生成前向中心服务检查授权。收到停止指令后，系统最多 35 秒阻止进一步模型输出；即使工作负载代码出错或 Control Room 自身故障，也采用拒绝继续生成的 fail-closed 设计。该系统已覆盖 OpenAI 研究基础设施中的前沿模型工作负载。[OpenAI](https://openai.com/index/control-room/)
+
+**影响判断：** 这把前沿模型安全从提示、评测和监控延伸到推理基础设施的强制执行层。其局限同样清楚：当前最长仍有 35 秒授权缓存窗口，而且停止模型输出不等于终止已发生的外部动作，工具权限和环境隔离仍需独立控制。
+
+## 分主题动态
+
+### AI / 多模态
+
+- **Meta 发布低成本多模态 Muse Ember。** **事实：** Muse Ember 支持文本、图像、音频和视频输入，提供 100 万 token 上下文、最高 51.2 万 token 输出，定价为每百万输入/输出 token 0.10/0.50 美元；Meta 将其定位为高频工具调用、路由、编码子任务和长文档处理模型，并称其由 Muse Wonder Full 训练而来。**判断：** 低价长上下文模型可能明显降低多 Agent 系统的子任务成本，但性能和安全结论包含 Meta 内部评测，需关注独立基准与真实工具调用失误率。[Meta Research](https://research.meta.ai/blog/muse-ember)｜[模型页](https://dev.meta.ai/models/muse-ember)
+
+### Agent
+
+- **AWS 发布七层可插拔 Agent 参考架构。** **事实：** 架构把接入、编排、模型、工具、数据、安全和可观测性等职责用稳定契约解耦，并要求外部内容默认不可信、每次请求鉴权、工具调用采用细粒度授权和临时凭据，同时保留人工审批、熔断和审计。**判断：** 这反映企业 Agent 的瓶颈正从“模型会不会做”转向生产治理与组件可替换性；它是参考架构，不是经统一基准验证的成品。[AWS](https://aws.amazon.com/blogs/machine-learning/pluggable-agentic-ai-framework-a-seven-layer-composable-enterprise-agentic-ai-reference-architecture-on-amazon-bedrock-agentcore/)
+
+- **Northern Trust 与 Microsoft 上线机构客户接入 Agent。** **事实：** 两家公司称，该 Agent 把历史交易数据准备从 2.5 周缩至 3 天，受控测试首轮 F1 为 96.5%，并在 Excel/SharePoint 工作流中保留人工审查和批准。脚注显示质量测试只覆盖 7 个匿名历史工作簿。**判断：** 这是受监管行业少见的量化生产案例，但小样本和公司自报限制了外推范围，后续应看持续错误率和实际客户上线表现。[Microsoft](https://news.microsoft.com/source/2026/11/09/northern-trust-and-microsoft-frontier-company-collaborate-to-transform-client-onboarding-through-ai/)
+
+### 计算
+
+- **Google 把 TPU 系统从统一芯片代际拆成面向具体 Agent 瓶颈的配置。** **事实：** 同一第八代产品线目前覆盖大规模训练、低延迟推理、机密执行和超长上下文，并通过 TPU Sync、Cloud Pathways 与 GKE 动态切片改善状态迁移和集群利用率。**判断：** 专用系统组合可能比单纯提升 FLOPS 更直接影响 Agent 服务成本，但供应可得性、软件成熟度和跨云可移植性仍是采用门槛。[Google Cloud](https://cloud.google.com/blog/topics/ai-infrastructure/tpu-8tx-and-tpu-8i-max)｜[Cloud Pathways](https://cloud.google.com/blog/topics/ai-infrastructure/cloud-pathways-a-distributed-ml-runtime-is-ga)
+
+### 世界模型 / 具身智能
+
+- **MIT 展示 FLEX，让机器人把一次人工纠正泛化为约束。** **事实：** FLEX 用 Add、Generalize、Mask 三步，把具体纠正提升为更高层规则并移除过时特征；MIT 称在咖啡、蜡烛和保龄球三个仿真机械臂任务中，整套更新约需 5 秒。论文早于本窗口发布，本期新增是 MIT 的正式解读与 CoRL 展示。**判断：** 这种可解释规则更新比端到端再训练更适合现场纠错，但当前任务规模小、主要为仿真，仍需真实机器人和长程任务验证。[MIT News](https://news.mit.edu/2026/ai-assisted-learning-platform-helps-robots-reason-beyond-literal-commands-1109)
+
+## 顶会与论文
+
+- **CoRL 2026 开幕，NVIDIA 两项工作进入最佳论文六强。** GRAIL 用世界模型生成适合仿真的 3D 资产与场景，RoboTTT 把视觉运动策略的上下文扩展三个数量级而不增加推理延迟；奖项尚未公布，因此本期仅记录入围，不把候选写成获奖结果。[CoRL](https://2026.corl.org/)｜[NVIDIA](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
+
+- **本窗口没有可严格确认的新 arXiv 日批次。** 11 月 9 日为周一，相关新稿通常在美东晚间后进入下一批次；已检索到的论文或早于窗口、或只是当天会议展示，因此不重复包装为“新论文”。
+
+## 视频与访谈
+
+- **Boston Dynamics：《Atlas on a Roll | Classical Motor Controls and Whole-Body RL》（2 分 51 秒）。** 团队用单一转接件把 Atlas 的脚换成商用滑板车轮，以压力测试执行器和 whole-body RL 的仿真到现实迁移；公司称 360 度跳转首次实机尝试即成功，同时明确这不是新产品。推荐理由：短视频清楚展示了经典控制与强化学习如何在同一全身控制系统中协作。[YouTube](https://www.youtube.com/watch?v=NL65Awuv8gU)
+
+## 值得继续跟踪
+
+- **Fireworks AI 安全事件待独立核实。** The Information 的公开摘要称，近期入侵可能暴露部分客户账单、模型权重和数据集，并导致部分大客户考虑迁移；截至本期截点，尚未找到 Fireworks 的公开确认或独立技术报告，因此不把影响范围写成事实。[The Information（受限来源公开摘要）](https://www.theinformation.com/articles/new-fireworks-hack-threatens-1-billion-business)
+
+- **前沿模型的千 Agent 成果能否复现。** Anthropic 展示了操作系统、形式化数学和硬件设计等长程协作案例，但运行成本、失败分布、人工介入和完整轨迹尚不充分；后续应关注第三方复现而不只看单次成功展示。[Anthropic](https://www.anthropic.com/claude-fable-and-mythos-5-2)
+
+- **GR00T 2 的真实跨本体可靠性。** 需要验证少样本迁移在不同相机、夹具、物体分布和长程任务中的成功率，以及 Agent 错误恢复是否会引入新的安全动作。[GR00T 2](https://research.nvidia.com/labs/gear/gr00t-2/)
+
+## 来源
+
+- https://www.anthropic.com/claude-fable-and-mythos-5-2
+- https://platform.claude.com/docs/en/models/fable-5-2/overview
+- https://cloud.google.com/blog/topics/ai-infrastructure/tpu-8tx-and-tpu-8i-max
+- https://cloud.google.com/blog/topics/ai-infrastructure/introducing-tpu-sync-fast-kv-cache-and-weight-transfer-on-tpu
+- https://cloud.google.com/blog/topics/ai-infrastructure/cloud-pathways-a-distributed-ml-runtime-is-ga
+- https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/
+- https://research.nvidia.com/labs/gear/gr00t-2/
+- https://ernie.baidu.com/research/posts/ernie-evolve/
+- https://openai.com/index/control-room/
+- https://research.meta.ai/blog/muse-ember
+- https://dev.meta.ai/models/muse-ember
+- https://aws.amazon.com/blogs/machine-learning/pluggable-agentic-ai-framework-a-seven-layer-composable-enterprise-agentic-ai-reference-architecture-on-amazon-bedrock-agentcore/
+- https://news.microsoft.com/source/2026/11/09/northern-trust-and-microsoft-frontier-company-collaborate-to-transform-client-onboarding-through-ai/
+- https://news.mit.edu/2026/ai-assisted-learning-platform-helps-robots-reason-beyond-literal-commands-1109
+- https://2026.corl.org/
+- https://www.youtube.com/watch?v=NL65Awuv8gU
+- https://www.theinformation.com/articles/new-fireworks-hack-threatens-1-billion-business
