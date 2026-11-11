@@ -5896,3 +5896,108 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://2026.corl.org/
 - https://www.youtube.com/watch?v=NL65Awuv8gU
 - https://www.theinformation.com/articles/new-fireworks-hack-threatens-1-billion-business
+
+# 2026-11-11 AI 热点简报
+
+> 覆盖窗口：2026-11-10 08:08 至 2026-11-11 08:08（Europe/Zurich）。本期检索了公开 X、公司与研究机构官网、arXiv、CoRL 等会议页面、The Information 公开摘要、YouTube 及可靠媒体。公开 X 的高热讨论主要围绕下列一手发布，未发现可独立核验且超出原始材料的新事实；YouTube 未发现严格落入窗口、信息增量明确的独立内容。模型、机器人与基准数字除特别说明外均为发布方或论文作者自测，尚待独立复现。
+
+## 今日重点
+
+### 1. Gemini 4 Carbon 正式开放，并预览多 Agent /swarm
+
+**事实摘要：** Google 将此前只向部分网络安全防御者开放的 Gemini 4 Carbon 扩展到付费 API、企业和 Google AI Ultra 用户。模型支持文本、图像、音频和视频输入，输入输出合计最长 100 万 token；Google Antigravity 同时预览 /swarm，可把一个任务拆给隔离工作区中的协调、执行和对抗验证 Agent。公开介绍称 Carbon 在 CursorBench 4.0、WANDR 和 AutomationBench 排名第一，首发价为每百万输入/输出 token 2/10 美元，12 月起计划调至 4/20 美元。[Google](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/)｜[模型卡](https://deepmind.google/models/model-cards/gemini-4-carbon/)
+
+**影响判断：** 本期的实质增量是模型从受控网络安全试用转向广泛可用，并把多 Agent 编排做成产品入口。排行榜、成本和长程案例包含合作方或厂商评测，仍需关注真实失败分布、运行成本、人工介入和提示注入防护。
+
+### 2. Gemini Robotics 2.5 在汽车生产线试验中报告 96% 成功率
+
+**事实摘要：** Google DeepMind 发布 Gemini Robotics 2.5 VLA 模型，称其在 200 多项任务上扩展了工具使用、柔性物体操作和精细抓取。Apptronik Apollo 2 在梅赛德斯-奔驰匈牙利与德国生产线进行汽车零件拣选与配套试验，发布方报告成功率 96%；相较前代，不同任务的成功率提高 30% 至 100%，完成速度提升 20% 至 30%。Google 还开放 ASIMOV-Jailbreak 机器人安全基准，并称推理时安全引导提高了障碍物和人类邻近场景的安全完成率。[Google DeepMind](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/)
+
+**影响判断：** 这是少见的前沿 VLA 在真实汽车工厂披露量化结果，但仍是概念验证，不等同于连续生产部署。关键缺口包括试验次数、任务分布、人工复位、节拍、长期故障率和安全事件统计。
+
+### 3. AlphaProof Code 用 AI Agent 对 Signal 实际代码做机器可检验证明
+
+**事实摘要：** Google DeepMind 介绍 AlphaProof Code：人类专家先审定安全目标与形式规格，Gemini 4 Carbon 驱动的多 Agent 再生成超过 600 万行 Lean 证明，并把约 1% 的代码区域标为需人工复核。团队称四周内证明了 Signal 核心加密实现的关键安全性质，并在隔离版本中重新引入两个历史漏洞，系统均证明其不安全；形式化产物已开放。[Google DeepMind](https://deepmind.google/blog/introducing-alphaproof-code/)｜[Axios 交叉报道](https://www.axios.com/2026/11/10/google-code-verification-signal)
+
+**影响判断：** 相比“Agent 找漏洞”，这项工作把模型输出放进 Lean 的可检查证明链，更接近可审计的软件保证。证明只覆盖经人类选择和形式化的性质，不能外推为整个应用、依赖和运行环境“绝对安全”。
+
+### 4. Anthropic 把 Claude 推向会议、表格、白板与企业数据工作流
+
+**事实摘要：** Anthropic 在 Work at the Frontier 活动发布 Claude Meetings、Claude Sheets、Claude Whiteboards 和 Claude Data。Meetings 可作为 Google Meet 参与者回答问题、调用连接应用并生成计划与行动项；Sheets 和 Whiteboards 面向协作式内容编辑；Claude Data 由 Dashboards 更名并扩大可用范围，交互连接器允许用户在 Claude 中直接使用 Adobe、Atlassian 和 HubSpot 等应用。多项能力仍处 beta 或分阶段开放。[Anthropic 活动页](https://www.anthropic.com/events/the-briefing-work-at-the-frontier-ls)｜[Axios](https://www.axios.com/2026/11/10/anthropic-claude-meetings-knowledge-work)｜[The Information 公开页面](https://www.theinformation.com/briefings/anthropic-launches-new-workplace-software-sending-microsoft-shares-tanking)
+
+**影响判断：** Claude 正从对话入口扩展为持续占用工作上下文的协作层，竞争对象也从模型供应商转向 Microsoft 365 和 Google Workspace。会议录音、企业数据连接、自动执行和第三方应用内嵌会同时放大权限、保留策略和错误传播风险。
+
+### 5. Anthropic 更新招股书，披露更细的长期算力承诺
+
+**事实摘要：** Anthropic 11 月 10 日更新的招股书披露：对 Microsoft 的最低承诺约 472 亿美元、Google 约 1,213 亿美元、Amazon 约 1,100 亿美元；另预计追加 Google TPU 付款约 1,250 亿至 1,500 亿美元。文件还列出 SpaceXAI、Nscale 和 AMD 相关安排，并说明部分合同按容量交付、融资或特定条件执行。The Information 的公开摘要同时称 Lambda 协议可能取消。[Anthropic 招股书](https://ipo.anthropic.com/documents/us/prospectus.pdf)｜[The Information 公开摘要](https://www.theinformation.com/briefings/anthropic-discloses-over-10-billion-in-new-deals-with-microsoft-google-says-lambda-deal-may-be-cancelled)
+
+**影响判断：** 披露把前沿模型扩张的约束具体化为多年、跨芯片和跨云的固定义务，而非单纯 GPU 数量。数字多为合同上限、最低消费或未来估算，不能视为已付款或已上线算力；取消条款与融资条件也会显著改变实际规模。
+
+## 分主题动态
+
+### AI / Agent
+
+- **IBM 与 Microsoft 推出行业 Agent 平台 Imagine Enterprise。** **事实：** IBM Consulting 称平台汇集 6,000 多个预构建 Agent 和资产，并结合 Microsoft 的云、安全、身份与治理技术以及双方前置工程支持。**判断：** 企业 Agent 的差异化正在从模型转向行业流程资产与落地服务，但当前材料没有统一成功率、成本或客户规模数据。[IBM](https://newsroom.ibm.com/2026-11-10-ibm-and-microsoft-announce-a-new-ai-agent-platform-designed-for-industry-specific-transformation)
+
+- **OpenAI 与 Upwork 观察到 AI 相关自由职业任务正在“重新打包”。** **事实：** 研究称，在 63 个工作类别中有 43 个呈现“ChatGPT 使用相对高、Upwork 需求份额下降”的方向；同时 AI 相关职位中的任务组合从 2023 年初到 2025 年末扩大约 45%，固定预算与工时也更高。**判断：** 结果不支持简单的“AI 全面替代自由职业者”，更像是常规任务减少、跨技能项目变大；平台样本和相关性分析不能直接证明因果。[OpenAI](https://openai.com/index/ai-effect-on-freelance-work/)
+
+- **ReTrace 把重复 Agent 轨迹编译为无规划器工作流。** **事实：** 方法从 SOP 与少量执行日志提取条件规则，再生成由代码选择下一步的可执行流程；作者称在 79 个生产流程上完成率 93.8%，较原 Agent 低 3 个百分点，但单任务成本下降 24%，在 tau2-Bench 上运行时间由 170 秒降至 1.3 秒。**判断：** 高频稳定流程可能不需要每一步都调用 LLM，但规则漂移、异常输入与修复数据覆盖仍是上线风险。[arXiv](https://arxiv.org/abs/2611.14492)
+
+- **FGSE 在写入长期记忆前先做可证伪测试。** **事实：** 系统把候选经验写成带前提、行为变化、预期效果与验证器的假设，仅在临时状态中测试迁移、反例和历史回归，通过后才持久化。作者报告有害记忆提交率降至 3.6%。**判断：** 这比“成功一次就记住”更符合生产 Agent 的变更管理逻辑，但验证器覆盖不足仍会把错误固化为长期状态。[arXiv](https://arxiv.org/abs/2611.14326)
+
+### 世界模型 / 多模态
+
+- **OnlyAct 从 V-JEPA 2 中提取跨场景动作表征。** **事实：** 方法用无标签对比适配，让相同运动、不同场景的帧对靠近，并把同场景、不同运动的帧对拉开，以减少动作潜变量泄漏场景信息。作者在机器人、导航、游戏和驾驶任务上报告更强动作表达与跨场景迁移。**判断：** 若广泛复现，它可缓解世界模型对稀缺、互不兼容动作标签的依赖；目前结果仍主要是离线基准。[arXiv](https://arxiv.org/abs/2611.14420)
+
+- **Elastic-WAM 按状态动态分配世界模型“想象”计算。** **事实：** 系统根据任务状态决定去噪何时停止、步长多大以及刷新哪些空间区域，以减少视频世界模型推理开销；作者称在仿真和真实长程操控中同时提高控制表现并降低延迟。**判断：** 这条路线把世界模型从固定成本的视频生成器变成按动作价值分配计算的控制组件，实际收益仍需等待公开的端到端延迟与硬件对照。[arXiv](https://arxiv.org/abs/2611.14257)
+
+### 具身智能
+
+- **机器人记忆可能只是在“看钟”。** **事实：** 对 RoboMME 的研究发现，暂停或无意义腕部抖动不会改变任务进度，却会使按时间采样的记忆 VLA 提前停止；两个任务的成功次数分别由 47/50 降至 16/50、44/50 降至 10/50。按事件而非时间索引记忆可在无需再训练时恢复至少一半损失。**判断：** 这揭示了长程机器人基准中的时间捷径，未来评测应加入暂停、空动作和速度缩放等因果干预。[arXiv](https://arxiv.org/abs/2611.14488)
+
+- **LEASH 为 Agent 机器人增加任务、动作和不可逆操作三层门控。** **事实：** 新基准 RoboRisk 含 92 个仿真和 13 个实体任务，覆盖拒绝、计划修复、执行期危险、注入和顺序记忆；论文称六个前沿模型普遍存在较高伤害率，而共享安全策略的三层门控能降低伤害并保持大部分任务完成率。**判断：** 把安全检查放在动作执行链上比仅靠模型拒答更可信，但门控模型本身仍可能误判，论文尚未给出足以推断长期现场风险的规模。[arXiv](https://arxiv.org/abs/2611.14115)
+
+## 顶会与论文
+
+- **Contrastive Discovery（NeurIPS 2026）：让科学 Agent 比较互斥解释。** 论文把单一假设改为互斥且尽可能完备的解释集合；在相同证据下，73% 原本只会“拒绝假设”的候选被解析到具体替代解释，搜索时同等实验预算下解决的问题多 67%。38 名专家的盲评与 Agent 在已解决问题上的解释一致率为 78%。[arXiv](https://arxiv.org/abs/2611.14514)
+
+- **ARE-bench：把研究 Agent 放回有历史包袱的真实工作区。** 75 个任务来自研究者实际会话和未清理工作区，包含旧版本、失败尝试与仍有效的早期约束。最强模型仅在 66.2% 的任务上满足全部清单；若加入历史和工作区要求，部分模型通过率由约 69% 降至 28.4%–40.0%。[arXiv](https://arxiv.org/abs/2611.14364)
+
+- **CoRL 2026 进入第二日，但奖项仍待公布。** 11 月 10 日议程包含 Russ Tedrake 关于工厂机器人学习的主旨演讲；截至本期截点，Fei-Fei Li 的 Atlas 主旨与最终奖项尚未发生，因此不把会议预告写成成果。[CoRL 议程](https://2026.corl.org/program)｜[主旨演讲](https://2026.corl.org/program/keynotes)
+
+## 视频与访谈
+
+过去 24 小时内未发现同时满足“公开可访问、严格落入窗口、信息增量明确且可由一手材料核验”的新 YouTube 视频。Anthropic 的 Work at the Frontier 活动提供公开直播回看入口，但本期已按产品发布来源引用，不再把同一内容重复计为视频条目。[活动页](https://www.anthropic.com/events/the-briefing-work-at-the-frontier-ls)
+
+## 值得继续跟踪
+
+- **Gemini 4 Carbon 的第三方长程评测。** 重点看 /swarm 的总成本、失败恢复、跨 Agent 权限隔离和完整轨迹，而不只看单次过夜成功案例。[Google](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/)
+
+- **Gemini Robotics 2.5 的生产统计。** 需要梅赛德斯-奔驰或 Apptronik 后续披露试验次数、节拍、人工干预、跨班次稳定性和真实安全事件。[Google DeepMind](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/)
+
+- **Anthropic 算力合同的实际履约与 Lambda 变动。** 招股书数字受交付、融资、验收和取消条款影响；The Information 关于 Lambda 可能取消的说法仍需后续正式文件确认。[Anthropic 招股书](https://ipo.anthropic.com/documents/us/prospectus.pdf)
+
+## 来源
+
+- https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/
+- https://deepmind.google/models/model-cards/gemini-4-carbon/
+- https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/
+- https://deepmind.google/blog/introducing-alphaproof-code/
+- https://www.axios.com/2026/11/10/google-code-verification-signal
+- https://www.anthropic.com/events/the-briefing-work-at-the-frontier-ls
+- https://www.axios.com/2026/11/10/anthropic-claude-meetings-knowledge-work
+- https://www.theinformation.com/briefings/anthropic-launches-new-workplace-software-sending-microsoft-shares-tanking
+- https://ipo.anthropic.com/documents/us/prospectus.pdf
+- https://www.theinformation.com/briefings/anthropic-discloses-over-10-billion-in-new-deals-with-microsoft-google-says-lambda-deal-may-be-cancelled
+- https://newsroom.ibm.com/2026-11-10-ibm-and-microsoft-announce-a-new-ai-agent-platform-designed-for-industry-specific-transformation
+- https://openai.com/index/ai-effect-on-freelance-work/
+- https://arxiv.org/abs/2611.14492
+- https://arxiv.org/abs/2611.14326
+- https://arxiv.org/abs/2611.14420
+- https://arxiv.org/abs/2611.14257
+- https://arxiv.org/abs/2611.14488
+- https://arxiv.org/abs/2611.14115
+- https://arxiv.org/abs/2611.14514
+- https://arxiv.org/abs/2611.14364
+- https://2026.corl.org/program
+- https://2026.corl.org/program/keynotes
