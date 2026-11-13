@@ -6001,3 +6001,87 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://arxiv.org/abs/2611.14364
 - https://2026.corl.org/program
 - https://2026.corl.org/program/keynotes
+
+# 2026-11-13 AI 热点简报
+
+> 覆盖窗口：2026-11-12 08:08 至 2026-11-13 08:08（Europe/Zurich）。本期检索了公开 X、公司与研究机构官网、CoRL 与 arXiv、The Information 公开摘要、YouTube 及可靠媒体。公开 X 的高热讨论主要围绕下列一手公告，未发现可独立核验且超出原始材料的新事实；截至截点，arXiv 相关分类仍显示 11 月 11 日批次，未出现可严格确认的新日批次。模型、系统与安全评测数字除特别说明外均为发布方自测，尚待独立复现。
+
+## 今日重点
+
+### 1. Google 发布 Gemini 4 Hydrogen，并用 Orchestrator 自动分配多模型任务
+
+**事实摘要：** Google 将 Gemini 4 Hydrogen 定位为面向日常编码和 Agent 工作流的高速模型，向 AI Studio、Gemini API、企业产品、Gemini 应用和 Search 推出。模型支持文本、图像、音频和视频，采用输入输出合计 100 万 token 的统一窗口；API 定价为每百万输入/输出 token 1.50/7.50 美元。Google Antigravity 同步引入 Orchestrator，可在 Carbon 与 Hydrogen 间动态切换；Google 自测称其在 Terminal-Bench 4.0 上接近 Carbon 的任务成功率，同时平均少用 24% 配额、快 19%。[Google 公告](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/)｜[模型卡](https://deepmind.google/models/model-cards/gemini-4-hydrogen/)｜[Cloud 文档](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
+
+**影响判断：** 新增不只是一个“更快的 Flash 替代品”，而是把强模型负责规划、轻量模型负责执行与验证的分层编排做成产品。速度、配额和安全收益主要来自 Google 自测；模型卡也披露相较 3.8 Flash，良性请求的无依据拒绝增加 5.57 个百分点，完整安全报告仍“将在未来数日发布”。
+
+### 2. NVIDIA 创始人黄仁勋辞任 CEO，AI 算力核心供应商进入领导层过渡
+
+**事实摘要：** NVIDIA 董事会宣布黄仁勋立即辞去总裁、CEO 和董事职务，现任 CFO Colette Kress 兼任临时 CEO，公司将同时考察内部与外部永久继任者；Harvey C. Jones 出任首位董事长。NVIDIA 公告没有说明辞任原因，SEC 文件确认董事会于 11 月 11 日接受辞呈。[NVIDIA](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/)｜[SEC 文件](https://www.sec.gov/Archives/edgar/data/1045810/000104581026000082/nvda-20261111.htm)｜[AP 交叉报道](https://apnews.com/article/314714d463cf578cbb0dbd49de903107)
+
+**影响判断：** 这对 AI 产业的影响不止是治理事件：NVIDIA 的客户融资、云与模型公司投资、出口政策游说和整套 CUDA/系统路线长期高度依赖黄仁勋。公司尚未公布永久继任时间表或战略调整，不能据此推断产品路线会立即变化，但合作方与推理基础设施公司的融资和供应预期会面临更高不确定性。
+
+### 3. OpenAI 公开 500 多个持久 Agent 的内部安全架构
+
+**事实摘要：** OpenAI 称公司内部已运行 500 多个会主动在后台工作的 OpenClaw Agent。其部署把可信控制平面与不可信 LLM 执行分离，以 Codex 沙箱限制网络、文件和进程，通过凭据代理避免把密钥暴露给 Agent；所有动作强制经过模型自动复核，每个 Agent 使用独立身份与推理凭据，并记录配置变更和完整执行轨迹。OpenClaw Enterprise 控制平面仍处试点，目标是在年底前发布 1.0。[OpenAI Developers](https://developers.openai.com/blog/securing-persistent-agents-like-openclaw-at-openai)
+
+**影响判断：** 这是少见的前沿实验室披露持久 Agent 的实际内部规模和控制面设计。最关键的工程原则是把模型生成的代码与环境视为不可信，并把权限放在确定性基础设施中；但文章没有给出误拦截率、漏检率、事件统计或独立审计结果，500 多个 Agent 也不等于 500 个完全自治员工。
+
+### 4. OpenAI 用自动攻击者生成训练数据，提高高风险领域的“模糊鲁棒性”
+
+**事实摘要：** OpenAI 让攻击模型反复改写越狱提示，并用“worst@n”要求攻击在重复测试中稳定成功，再将这些样本用于强化学习。受控实验显示，该训练对未见过的固定攻击和可自适应的多轮攻击均提高鲁棒性；OpenAI 还报告，在针对旧模型生成的固定网络安全越狱集上，GPT-6 Astra 的安全回答率为 91.5%，GPT-5.6 Sol 为 59%。这些数字只测模型层，不包含生产系统的其他防护。[OpenAI Alignment](https://alignment.openai.com/fuzzy-robustness/)
+
+**影响判断：** 方法把红队从“找出一次失败”转向寻找可重复、可用于训练的最坏分布，并显示攻击侧测试时计算可以直接转化为防御数据。结论仍来自内部攻击器、判分器和测试集；能否抵御不同实验室、不同目标与真实生产流量中的新攻击，需要外部复现。
+
+## 分主题动态
+
+### AI / Agent
+
+- **Hydrogen 把多模态长上下文下放到高频执行层。** **事实：** 模型卡显示其由 Gemini 4 Carbon 适配而来，支持最高 64K 同步输出或通过后台长解码扩展到接近 100 万 token，并面向编码、开放式 Agent 执行、多模态知识工作与电脑操作。**判断：** 更长输出有利于持续任务，但统一窗口也意味着思考、函数调用和最终回答会共同消耗预算，实际可用长度取决于编排策略。[模型卡](https://deepmind.google/models/model-cards/gemini-4-hydrogen/)
+
+- **持久 Agent 的安全边界从提示词转向身份、凭据和出网控制。** **事实：** OpenAI 的内部方案默认禁用开放式应用操作和破坏性操作，强制受管域名白名单，并把 Agent 身份与用户身份拆分。**判断：** 这比依赖模型自律更接近生产安全，但自动复核同样是模型系统，仍需要可度量的绕过测试与人工升级机制。[OpenAI Developers](https://developers.openai.com/blog/securing-persistent-agents-like-openclaw-at-openai)
+
+### 计算
+
+- **NVIDIA 的治理与资本配置进入观察期。** **事实：** Kress 同时保留 CFO 职务并兼任临时 CEO，永久继任者尚未确定。The Information 的公开摘要把 NVIDIA 对模型公司、云服务商和 AI 初创企业的投资节奏列为主要不确定性。**判断：** 产品交付短期由既有路线支撑，变化更可能先出现在投资、客户融资和政策关系，而非芯片设计立即转向。[NVIDIA](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/)｜[The Information 公开摘要](https://www.theinformation.com/articles/nvidias-dealmaking-binge-faces-reckoning-jensen-huangs-exit)
+
+### 世界模型 / 多模态 / 具身智能
+
+- **Fei-Fei Li 在 CoRL 主旨演讲中把 Atlas 定义为生成与重建的统一世界模型。** **事实：** CoRL 官方摘要称 Atlas 是自回归帧生成模型，把像素生成与 3D 场景重建放进同一框架；演讲后由 Li 与 AMD CEO Lisa Su 对谈。Atlas 本身已于 9 月发布，本期新增是正式顶会主旨与其面向机器人学习社区的技术定位。**判断：** 统一“生成新视角”和“恢复空间结构”可能为 Real-to-Sim 与机器人规划提供共同底座，但会议摘要没有新增开放权重、第三方机器人成功率或实时部署指标。[CoRL 主旨页](https://www.corl.org/program/keynotes)｜[Atlas 原始技术页](https://worldlabs.ai/blog/atlas)
+
+## 顶会与论文
+
+- **CoRL 2026 主会结束，11 月 12 日进入工作坊日。** 官方议程显示工作坊覆盖世界模型、实时具身基础模型、双手工具使用、从生成模型到机器人动作等方向；截至截点，主站没有发布完整主会奖项清单，因此不采用现场社交媒体转述作为最终获奖结果。[CoRL](https://2026.corl.org/)｜[世界模型工作坊](https://do-robots-need-world-models.github.io/)｜[实时具身 AI 工作坊](https://efficient-embodied-ai.github.io/)
+
+- **截至本期截点，没有新的 arXiv 日批次可严格纳入。** cs.AI、cs.RO、cs.CV 与 cs.CL 的公开“new”页面仍显示 11 月 11 日；该批次的 ReTrace、Elastic-WAM、LEASH 等已在上一期覆盖，本期不重复。[arXiv cs.AI](https://arxiv.org/list/cs.AI/new)｜[arXiv cs.RO](https://arxiv.org/list/cs.RO/new)
+
+## 视频与访谈
+
+过去 24 小时内检索到 CoRL 的 Fei-Fei Li 主旨演讲在社区传播，但未能从官方页面确认一个稳定、可直接引用的 YouTube 原始链接；其技术内容已按 CoRL 官方摘要收录。除此之外，没有发现同时满足“公开可访问、严格落入窗口、信息增量明确且可由一手材料核验”的新 YouTube 视频，因此本期不为凑数列入。
+
+## 值得继续跟踪
+
+- **Gemini 4 Hydrogen 完整安全报告。** 当前模型卡明确写明报告将在未来数日发布；尤其值得核对间接提示注入、无依据拒绝和 CBRN/网络能力警戒阈值的评测细节。[模型卡](https://deepmind.google/models/model-cards/gemini-4-hydrogen/)
+
+- **NVIDIA 永久 CEO 与独立调查结果。** 公司只确认领导层变动，没有在 CEO 过渡公告中说明原因或披露调查结论；需要等待董事会、监管文件和后续业绩电话会的正式信息。[NVIDIA](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/)
+
+- **开放模型的网络攻击能力是否已逼近前沿闭源模型。** The Information 公开摘要引述连续渗透测试公司 Tenzai 称，免费中国模型已能攻入企业网络；Artificial Analysis 同时称同等质量任务成本每年下降 5–10 倍，但部分长程 Agent 测试单任务已达数百美元。缺少公开测试集、模型版本和完整方法，现阶段仅作为待核实信号。[The Information（受限来源公开摘要）](https://www.theinformation.com/newsletters/applied-ai/free-chinese-ai-can-hack-companies-frontier-developers-face-diminishing-returns/)
+
+## 来源
+
+- https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/
+- https://deepmind.google/models/model-cards/gemini-4-hydrogen/
+- https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen
+- https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/
+- https://www.sec.gov/Archives/edgar/data/1045810/000104581026000082/nvda-20261111.htm
+- https://apnews.com/article/314714d463cf578cbb0dbd49de903107
+- https://developers.openai.com/blog/securing-persistent-agents-like-openclaw-at-openai
+- https://alignment.openai.com/fuzzy-robustness/
+- https://www.theinformation.com/articles/nvidias-dealmaking-binge-faces-reckoning-jensen-huangs-exit
+- https://www.theinformation.com/newsletters/applied-ai/free-chinese-ai-can-hack-companies-frontier-developers-face-diminishing-returns/
+- https://www.corl.org/program/keynotes
+- https://worldlabs.ai/blog/atlas
+- https://2026.corl.org/
+- https://do-robots-need-world-models.github.io/
+- https://efficient-embodied-ai.github.io/
+- https://arxiv.org/list/cs.AI/new
+- https://arxiv.org/list/cs.RO/new
