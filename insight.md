@@ -6085,3 +6085,97 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://efficient-embodied-ai.github.io/
 - https://arxiv.org/list/cs.AI/new
 - https://arxiv.org/list/cs.RO/new
+
+# 2026-11-14 AI 热点简报
+
+> 覆盖窗口：2026-11-13 08:08 至 2026-11-14 08:08（Europe/Zurich）。本期检索了公开 X、公司与研究机构官网、arXiv、国际会议页面、The Information 公开摘要、YouTube 及可靠媒体。公开 X 的讨论主要围绕下列一手发布，未发现可独立核验且超出原始材料的新事实；YouTube 未发现严格落入窗口且有足够信息增量的新内容。论文与产品性能数字除特别说明外均为发布方或作者自测，尚待独立复现。
+
+## 今日重点
+
+### 1. OpenAI 推出 ChatGPT Wallet，把 Agent 支付接入现有银行卡网络
+
+**事实摘要：** OpenAI 与 American Express、Mastercard、Visa 合作推出 ChatGPT Wallet，首批向美国 ChatGPT Pro 用户的 dot Agent 逐步开放。用户在每笔交易前查看商家、商品、总价和卡片，并通过 Face ID 或指纹确认；卡组织随后生成替代真实卡号的支付 token，Agent 与商家都看不到实际卡信息。OpenAI 称未来可能允许用户按金额、品类或时段预授权，但当前条款仍要求逐笔批准或明确的预先授权。[OpenAI](https://openai.com/index/introducing-chatgpt-wallet/)｜[使用说明](https://help.openai.com/en/articles/20001654-making-purchases-with-chatgpt-wallet)｜[Reuters](https://www.investing.com/news/stock-market-news/openai-launches-chatgpt-wallet-letting-ai-agents-pay-for-purchases-5026114)
+
+**影响判断：** 这把 Agent 从“推荐和填表”推进到真正发起资金流，同时把权限边界落在支付 token、生物识别和可追溯授权上。首批仅限美国 Pro 用户与 dots，商家兼容性、错误购买、争议处理和未来自动授权的风险仍需真实交易数据验证。
+
+### 2. Together Compiler 用持续 Agent 循环优化生产推理
+
+**事实摘要：** Together AI 论文提出 Together Compiler（TKCC），通过持久化执行引擎和并行配置成本模型，让 Agent 持续测量、改写并优化模型推理。作者称 TKCC 已服务数万亿 token，在 Llama 1B 上相对手写 Megakernel 最高提升 1.7 倍，在多种新模型和硬件上相对最佳开源引擎最高提升 2.6 倍吞吐；这些结果来自作者评测。[论文](https://arxiv.org/abs/2611.14681)
+
+**影响判断：** 编译器正在从发布前一次性调优转为跟随模型结构、流量和硬件持续变化的生产 Agent。若第三方能复现其收益，推理基础设施的竞争会进一步转向自动搜索、真实流量测量与持续回归控制，而不只是手工 kernel 优化。
+
+### 3. Google 在 SC26 前公开 Agentic HPC 技能与 Vera Rubin 裸机实例
+
+**事实摘要：** Google Cloud 在 11 月 14 日页面中发布面向 HPC 的 Cluster Toolkit Agent 技能，使用自描述、确定性工具与端到端测试指导 Agent 配置和优化科学计算工作流；模板已指向 Google Skills 与 DeepMind Science Skills 仓库。Google 同时称基于 NVIDIA Vera Rubin NVL72 的 A5X 裸机实例“新近可用”，并列出最高 10 TB/s 读吞吐的 Managed Lustre 等基础设施；页面没有给出 Agent 技能的统一成功率或 A5X 价格。[Google Cloud](https://cloud.google.com/blog/topics/hpc/whats-new-in-hpc-and-ai-at-sc26/)｜[Google Skills](https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/skills)
+
+**影响判断：** 高性能计算 Agent 的关键正在从通用模型能力转向可验证的领域技能、基础设施约束和生产规模评测。硬件与技能同日出现，也说明“自动优化科学代码”与“自动配置昂贵集群”正在成为同一产品栈。
+
+### 4. The Information 称 SpaceX AI 大幅缩减 Grok Imagine 团队
+
+**事实摘要（受限来源公开摘要）：** The Information 援引知情人士称，SpaceX Super Intelligence 过去一周裁撤约 60 名 Grok Imagine 图像与视频生成团队成员，只留下少数人员维护产品，并把优先级转向 AI 编码工具和 Grok Bot Agent。产品仍可用，但 SpaceX/xAI 尚未公开确认裁员规模、组织边界或后续路线。[The Information](https://www.theinformation.com/articles/elon-musks-ai-group-guts-grok-video-generation-team)
+
+**影响判断：** 若报道属实，这是生成视频竞争中明显的资源再分配信号，也可能扩大中国视频模型厂商的相对窗口。但在缺少公司公告和独立员工数据前，应视为单一受限来源报道，而不是已确认的产品终止。
+
+## 分主题动态
+
+### AI / Agent
+
+- **“修干净”Agent 历史可能让错误更难恢复。** **事实：** 一项新研究把 Agent 的历史与外部世界状态分开操纵：保留错误并加入真实更正注释时，后续恢复率从 51% 升至 66%；若把更正伪装成已经完成的动作，恢复率反而从 50% 降至 44%。在 AppWorld 中，世界未真正更新时显示“成功”回执，也让整任务成功率从 45% 降至 28%。**判断：** Agent 压缩、交接和记忆修复必须同时核对外部状态，不能只让轨迹文本看起来一致。[arXiv](https://arxiv.org/abs/2611.14654)
+
+- **高拒答率不等于遵守置信阈值。** **事实：** 对 12 个开放模型检查点的研究发现，要求只回答或弃答可把平均弃答率从 20% 推到 91%，但把指定阈值从 0.5 提高到 0.9，弃答率仅变化 -0.8 个百分点。**判断：** “模型会说不知道”不代表它在按用户给定风险阈值决策；高风险 Agent 需要外部校准与确定性门控，而不能仅靠提示词阈值。[arXiv](https://arxiv.org/abs/2611.14661)
+
+### 计算
+
+- **美国 AI 芯片出口限制再次升温。** **事实：** AP 报道称，美国国会两党议员正推动更严格的先进芯片出口审查、流向追踪和盟友协同限制；相关动向与 NVIDIA 领导层事件及美中领导人会晤前的政治压力交织。报道列出的是立法与政策推动，并非已经生效的新规则。**判断：** 算力供应链的不确定性正在从芯片性能扩展到许可、追踪和跨国云访问；应等待正式法案文本或商务部规则，而不是把政治表态当成已落地限制。[AP](https://apnews.com/article/nvidia-trump-xi-huang-ai-rivalry-aba7f92a1ec2f0f9e4b4da206d640d61)
+
+### 世界模型 / 多模态
+
+- **Duo 把实时视听对话定义为“互惠世界模型”。** **事实：** Duo v1 同时持续接收音频、视频和文本，并在统一时间线上生成交互意图与视听响应，支持自然插话、共享实物、修改虚拟场景和无键鼠游戏。论文提出双 rollout 蒸馏来缓解意图模块与生成模块的自回归分布偏移。**判断：** 这是把世界模型从物理视频预测扩展到“人和模型共同改变交互世界”的尝试；论文尚未提供足够的第三方实时延迟、稳定性或开放权重信息。[arXiv](https://arxiv.org/abs/2611.15131)
+
+- **BirdDreams 联合生成前视视频与鸟瞰几何。** **事实：** 模型从单张相机图像同时生成透视视频和固定尺度 BEV 视频，让道路与车辆运动在低遮挡的几何视图中演化，再以输入自车轨迹软控制未来画面。作者称其在 PhysicalAI-AV、nuScenes 和人工评价中优于透视视频基线。**判断：** 同时预测“看起来怎样”和“几何上在哪里”比纯视频生成更适合闭环驾驶，但当前结论仍来自离线数据与作者评测。[arXiv](https://arxiv.org/abs/2611.14815)
+
+### 具身智能
+
+- **HDH 用小型验证器给冻结 VLA 选择动作。** **事实：** HDH 从 VLA 自主运行轨迹训练轻量动作验证器，在执行时对候选动作块打分而不改动原策略。作者报告四个 LIBERO-10 任务平均成功率 82.3%，三个真实操控任务相对基线平均提升 22.6%。**判断：** 这是一条比调用大型外部 VLM 更低延迟的运行时纠错路线，但小规模任务和同策略历史数据可能限制跨环境泛化。[arXiv](https://arxiv.org/abs/2611.14834)
+
+## 顶会与论文
+
+- **AFTER-WM：让世界模型同时快速适应并长期保留动力学变化。** 该方法用会衰减的快速修正和会保留的慢速修正，根据预测误差动态混合预训练专家而不改动专家参数。作者称在五个仿真机器人数据集和真实无人机数据上，多步误差较最强对照低 16%–34%；代码与数据仍标注为将公开。[arXiv](https://arxiv.org/abs/2611.15215)
+
+- **世界模型的想象轨迹可能悄悄丢失障碍信息。** CARLA 单随机种子案例中，同一障碍探针在观测后验状态上的 AUC 为 0.85，在 15 步想象先验中降至 0.71；模型自身的不确定性指标接近随机，未能报警。该结果揭示值得重视的“未知未知”，但单种子设计不足以支持广泛结论。[arXiv](https://arxiv.org/abs/2611.14955)
+
+- **11 月 13 日 arXiv 新批次规模较大。** cs.AI、cs.RO、cs.CV 与 cs.CL 分别显示 113、91、170 与 86 篇新投稿；本期仅选取与 Agent、计算、世界模型和具身智能直接相关且有明确实验信息的工作，未把同批次的大量小幅应用论文纳入。[cs.AI](https://arxiv.org/list/cs.AI/new)｜[cs.RO](https://arxiv.org/list/cs.RO/new)｜[cs.CV](https://arxiv.org/list/cs.CV/new)｜[cs.CL](https://arxiv.org/list/cs.CL/new)
+
+## 视频与访谈
+
+过去 24 小时内未发现同时满足“公开可访问、严格落入窗口、信息增量明确且可由一手材料核验”的新 YouTube 视频。ChatGPT Wallet 与 SC26 相关讨论已有文字一手材料覆盖，因此不为凑数重复列入视频条目。
+
+## 值得继续跟踪
+
+- **ChatGPT Wallet 的真实故障与争议率。** 重点关注错误商品、重复支付、商家风控误拒、退款责任，以及从逐笔生物识别向额度预授权演进时的权限撤销机制。[OpenAI](https://openai.com/index/introducing-chatgpt-wallet/)
+
+- **Grok Imagine 团队变动是否获公司确认。** 需要等待 SpaceX/xAI 的组织公告、招聘变化或产品路线更新，尤其是 Imagine 是否仅进入维护状态。[The Information](https://www.theinformation.com/articles/elon-musks-ai-group-guts-grok-video-generation-team)
+
+- **Google Agentic HPC 技能的可复现评测。** 当前发布强调确定性工具和端到端测试，但未公开跨集群、跨应用的成功率、回滚率和成本对照；SC26 现场演示可能提供更多证据。[Google Cloud](https://cloud.google.com/blog/topics/hpc/whats-new-in-hpc-and-ai-at-sc26/)
+
+## 来源
+
+- https://openai.com/index/introducing-chatgpt-wallet/
+- https://help.openai.com/en/articles/20001654-making-purchases-with-chatgpt-wallet
+- https://www.investing.com/news/stock-market-news/openai-launches-chatgpt-wallet-letting-ai-agents-pay-for-purchases-5026114
+- https://cloud.google.com/blog/topics/hpc/whats-new-in-hpc-and-ai-at-sc26/
+- https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/skills
+- https://www.theinformation.com/articles/elon-musks-ai-group-guts-grok-video-generation-team
+- https://apnews.com/article/nvidia-trump-xi-huang-ai-rivalry-aba7f92a1ec2f0f9e4b4da206d640d61
+- https://arxiv.org/abs/2611.14681
+- https://arxiv.org/abs/2611.14654
+- https://arxiv.org/abs/2611.14661
+- https://arxiv.org/abs/2611.15131
+- https://arxiv.org/abs/2611.14815
+- https://arxiv.org/abs/2611.14834
+- https://arxiv.org/abs/2611.15215
+- https://arxiv.org/abs/2611.14955
+- https://arxiv.org/list/cs.AI/new
+- https://arxiv.org/list/cs.RO/new
+- https://arxiv.org/list/cs.CV/new
+- https://arxiv.org/list/cs.CL/new
