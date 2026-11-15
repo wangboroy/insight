@@ -6179,3 +6179,67 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://arxiv.org/list/cs.RO/new
 - https://arxiv.org/list/cs.CV/new
 - https://arxiv.org/list/cs.CL/new
+
+# 2026-11-15 AI 热点简报
+
+> 覆盖窗口：2026-11-14 08:08 至 2026-11-15 08:08（Europe/Zurich）。本窗口为周末，高质量新增明显少于平日，因此采用短版。已检索公开 X 内容、公司与研究机构官网、arXiv、国际会议官网、The Information 公开摘要、YouTube 及可靠科技媒体；X 上未发现超出下列一手公告、且可独立核验的重要新增事实。arXiv 周末没有正常的新论文公告批次，Hugging Face 当日榜单新增主要是数日前论文的再曝光，故不以旧闻填充。
+
+## 今日重点
+
+### 1. Gemini 接入 Google Wallet，把个人财务数据带入只读 AI 助手
+
+**事实摘要：** Google 开始向美国所有 Gemini app 用户推出 Google Wallet 连接，可选择再通过 Plaid 关联银行卡和信用卡账户。用户可让 Gemini 汇总支出、生成现金流与预算图表、识别持续扣费及涨价订阅；Google 明确称连接为选择加入且只读，Gemini 不能转账、管理账户或投资，同时新增可查看和编辑已保存偏好的 Memory Summary。[Google 官方博客](https://blog.google/innovation-and-ai/products/gemini-app/google-wallet-gemini-app/)｜[Google 帮助中心](https://support.google.com/gemini/answer/18112192)
+
+**影响判断：** 这与前一日 ChatGPT Wallet 的“支付授权”路线形成清晰分化：Gemini 先把高敏感交易数据用于分析而不执行资金动作。只读边界降低了直接财务损失风险，但错误归类、过度个性化、记忆污染和 Plaid 数据链路仍需要可审计控制。
+
+### 2. 微软 365 全球故障波及 OpenAI 与 Anthropic 的企业连接器
+
+**事实摘要：** AP 报道，微软 365 在 11 月 14 日经历持续数小时的全球性服务中断，Outlook、Teams 和 Copilot 等受影响；OpenAI 与 Anthropic 也报告连接微软 365 工具时出现问题。微软随后表示服务已全面恢复。[AP](https://apnews.com/article/ca395c0f1e51af784b6d70afb6554f6a)
+
+**影响判断：** 这不是模型能力问题，却暴露了企业 Agent 的真实可用性由身份、SaaS API、连接器和云平台共同决定。部署方需要把依赖故障、重试幂等、任务恢复与人工接管纳入 Agent 的端到端 SLO，而不能只监控模型接口。
+
+### 3. NVIDIA CEO 变动出现员工请愿这一新增治理信号
+
+**事实摘要（受限来源公开摘要）：** The Information 称，要求董事会恢复黄仁勋职务的请愿已超过 10 万个签名，其中 5,248 人自报为 NVIDIA 现员工；两家持有合计约 1,060 万股 NVIDIA 股票的投资机构也要求董事会不要仓促选择永久继任者。签名身份的完整真实性、董事会态度和最终继任安排尚未公开确认。[The Information 公开简报](https://www.theinformation.com/briefings/thousands-nvidia-staff-sign-petition-bring-back-huang)｜[NVIDIA 董事会此前的 CEO 变动公告](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/)
+
+**影响判断：** 相比 11 月 13 日简报已记录的 CEO 辞任，员工与投资者公开施压是实质新增变化，但不等于董事会会逆转决定。短期应关注高管和核心工程团队稳定性，以及 Rubin 交付、客户承诺与供应链决策是否出现延迟。
+
+## 分主题动态
+
+### AI
+
+- **个人 AI 开始读取交易级数据，但执行权限仍被刻意隔离。** **事实：** Gemini 可基于 Wallet 与 Plaid 数据回答预算和订阅问题，连接由用户选择开启且为只读。**判断：** 个人智能竞争正从通用对话转向高价值私域数据；能否让用户看见、纠正和删除记忆，将与回答质量同等重要。[Google](https://blog.google/innovation-and-ai/products/gemini-app/google-wallet-gemini-app/)
+
+### Agent
+
+- **连接器故障成为 Agent 可靠性的独立失效层。** **事实：** 微软 365 中断同时影响 Copilot 以及 OpenAI、Anthropic 对微软工具的连接。**判断：** 企业 Agent 评测需要从单次任务成功率扩展到依赖降级、恢复点、重复操作防护和跨服务事故演练。[AP](https://apnews.com/article/ca395c0f1e51af784b6d70afb6554f6a)
+
+### 计算
+
+- **NVIDIA 的领导层不确定性继续发酵。** **事实：** 公开摘要显示员工和部分投资者要求董事会为黄仁勋回归保留空间，但董事会仍在选择高管猎聘机构。**判断：** 目前没有证据表明芯片路线图或交付计划已经改变，任何“算力供应将受冲击”的结论都为时过早。[The Information](https://www.theinformation.com/briefings/thousands-nvidia-staff-sign-petition-bring-back-huang)
+
+## 顶会与论文
+
+- **严格窗口内没有值得单列的新论文或顶会公告。** arXiv 周末没有正常的新论文公告批次；11 月 14 日 Hugging Face Daily Papers 的新增条目主要是 11 月 5 至 9 日提交论文的社区再曝光。为避免把榜单变化误写成新研究，本期不重复收录。[Hugging Face 11 月 13 日论文榜单](https://huggingface.co/papers/date/2026-11-13)｜[AAAI 会议日历](https://aaai.org/)
+
+## 视频与访谈
+
+- **本窗口未发现信息增量足够的官方 YouTube 新视频。** 检索到的相关访谈和演讲多发布于 11 月 11 日或更早，且未提供超出近期简报已覆盖公告的可核验新事实，因此不收录。
+
+## 值得继续跟踪
+
+- **Google Wallet 数据边界。** 需继续观察 Gemini 的交易数据保留期限、记忆与原始财务数据的隔离方式、错误分析纠正机制及美国以外的合规扩展。[Google](https://blog.google/innovation-and-ai/products/gemini-app/google-wallet-gemini-app/)
+
+- **企业 Agent 的依赖恢复。** 微软称服务已恢复，但值得观察 OpenAI、Anthropic 和微软是否披露连接器任务积压、重复执行或数据一致性影响。[AP](https://apnews.com/article/ca395c0f1e51af784b6d70afb6554f6a)
+
+- **NVIDIA 永久 CEO 与核心团队稳定性。** 请愿人数和身份主要来自签署者自报，需等待董事会、监管文件或公司正式沟通确认后续安排。[The Information](https://www.theinformation.com/briefings/thousands-nvidia-staff-sign-petition-bring-back-huang)
+
+## 来源
+
+- https://blog.google/innovation-and-ai/products/gemini-app/google-wallet-gemini-app/
+- https://support.google.com/gemini/answer/18112192
+- https://apnews.com/article/ca395c0f1e51af784b6d70afb6554f6a
+- https://www.theinformation.com/briefings/thousands-nvidia-staff-sign-petition-bring-back-huang
+- https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/
+- https://huggingface.co/papers/date/2026-11-13
+- https://aaai.org/
