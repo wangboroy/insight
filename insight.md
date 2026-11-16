@@ -6243,3 +6243,85 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/
 - https://huggingface.co/papers/date/2026-11-13
 - https://aaai.org/
+
+# 2026-11-16 AI 热点简报
+
+> 覆盖窗口：2026-11-15 08:08 至 2026-11-16 08:08（Europe/Zurich）。这是周末短版：已检索公开 X 内容、公司与研究机构官网、arXiv、国际会议官网、The Information 公开摘要、YouTube 及可靠媒体。窗口内未发现值得单列的新 arXiv 首发或高信息量 YouTube 内容；X 讨论主要是下列已知事件的二次传播。厂商性能与“全球首个”等表述均按发布方自报处理，未独立复现。
+
+## 今日重点
+
+### 1. 美国财长公开介入 NVIDIA 继任讨论，领导层危机继续外溢
+
+**事实摘要：** 美国财政部长 Scott Bessent 在电视采访中表示，NVIDIA 董事会应从公司外部寻找下一任 CEO，并要求公司解释是否忽视了新加坡壳公司采购受限芯片的警示信号。The Information 同时称，黄仁勋的部分盟友正非正式推动其复职，但尚无正式行动，黄本人态度也不清楚；NVIDIA CFO Colette Kress 仍任临时 CEO。[The Information 公开简报](https://www.theinformation.com/briefings/huang-weighs-nvidia-comeback-bessent-pushes-board-look-outside)｜[Axios](https://www.axios.com/2026/11/15/bessent-nvidia-earnings-china-chip-sales-ceo)
+
+**影响判断：** 这已从公司治理问题升级为美国政府对 AI 芯片销售合规和继任安排的公开施压。短期风险不只是股价波动，还包括客户采购、出口审查和 NVIDIA 对 AI 基础设施项目的融资承诺是否改变；复职动向仍属匿名信源，待董事会或监管文件确认。
+
+### 2. 美团开放 LongCat-Video-Avatar 1.6 权重，长视频一致性成为主战场
+
+**事实摘要：** 美团 LongCat 团队以 MIT 许可发布 LongCat-Video-Avatar 1.6 权重，用音频或音频加图像生成单人、多人的说话视频。模型卡称，新版改善口型同步、面部与身体协调，并可在自回归续写中生成超过 10 分钟、身份和画面更稳定的视频；其 33,051 票成对偏好实验在 6 个系统中列第二。[Hugging Face 模型卡与权重](https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.6)
+
+**影响判断：** 开放权重和宽松许可降低了长视频数字人二次开发门槛，也把竞争从短片质感推向长程身份保持和部署效率。排名、稳定性和速度均来自发布方自评，模型卡没有给出足够清晰的消费级 GPU 显存、秒/帧和独立安全评测，暂不能据此判断真实部署成本。
+
+### 3. 800V 直流供电进入运行中的 AI 数据中心，但可靠性证据仍不足
+
+**事实摘要：** The Information 新报道披露，Envision Energy 在乌兰察布 Galaxy AI 数据中心用固态变压器把 10kV 交流电直接转换为机架侧 800V 直流电，并已承载实际计算负载。Envision 早前称这是全球首个大规模商业化集成部署，系统还结合电池储能和控制软件；公开材料未给出经第三方验证的效率、故障率或可用性数据。[The Information 公开摘要](https://www.theinformation.com/newsletters/ai-infrastructure/chinese-energy-company-outpacing-u-s-ai-power-technology)｜[Envision 公告](https://www.prnewswire.com/news-releases/envision-achieves-worlds-first-commercial-deployment-of-integrated-800v-dc-sst-based-power-system-in-large-scale-ai-data-center-302926109.html)
+
+**影响判断：** 随着 AI 机架功率密度上升，供电架构正成为与 GPU、网络同等重要的计算瓶颈。减少转换级数理论上可降低损耗和设备占地，但高价值加速器集群更看重不停机可靠性；在长期运行数据公开前，“率先部署”不等于已形成可复制标准。
+
+### 4. Zeromatter 据报获 10 亿美元估值，仿真继续吸引具身智能资本
+
+**事实摘要：** The Information 公开摘要称，三名 Tesla Autopilot 前成员创办的 Zeromatter 获得约 10 亿美元估值。CEO Ian Glow 表示，公司模型可复现危险驾驶条件和工厂工具使用等现实场景，目标是为自动驾驶与人形机器人提供安全训练和验证环境；融资条款、客户、基准与真实世界相关性数据未在公开摘要中披露。[The Information](https://www.theinformation.com/newsletters/the-electric/exclusive-three-veterans-teslas-autopilot-team-got-1-billion-valuation-ai-simulation-startup)
+
+**影响判断：** 资本正在押注“训练机器人之前先训练世界”的基础设施层。不过该消息目前主要依赖受限来源与公司说法，估值不是技术有效性的证明，尤其需要验证稀有危险场景、接触物理和仿真到现实偏差。
+
+## 分主题动态
+
+### AI / Agent
+
+- **本窗口没有新的主流基础模型首发。** 公开 X 的主要热度集中于 NVIDIA 继任争议和既有 Agent 安全话题，没有发现可独立核验、且相对一手来源有新增事实的重要帖子。**判断：** 周末信息密度明显偏低，保留空缺比重复收录 11 月 13–15 日简报中的旧发布更可靠。
+
+### 计算
+
+- **NVIDIA 风波开始影响更广泛的 AI 资产定价。** AP 报道亚洲科技股在 NVIDIA 周二财报和 Anthropic 本周公开上市前承压，市场正重新评估关键芯片供应商的治理风险。**判断：** 这不是新的技术能力变化，但说明单一供应商的治理事件已成为全行业算力成本与融资预期的风险因子。[AP](https://apnews.com/article/35786b8f539ec95f16ae0500f71cfcc7)
+
+### 世界模型 / 具身智能
+
+- **仿真平台商业化信号增强，但技术证据缺口仍大。** Zeromatter 的估值报道与 SC26 对科学 AI、仿真和 Agentic HPC 的集中议程共同说明，市场正把“可验证的虚拟环境”视为机器人和科学 Agent 的关键基础设施。**判断：** 接下来应优先比较仿真预测与真实执行的相关性，而不是只看视觉逼真度或融资规模。[Zeromatter 报道](https://www.theinformation.com/newsletters/the-electric/exclusive-three-veterans-teslas-autopilot-team-got-1-billion-valuation-ai-simulation-startup)｜[NVIDIA SC26 议程](https://www.nvidia.com/en-us/events/supercomputing/)
+
+### 多模态
+
+- **LongCat-Video-Avatar 1.6 把音频、图像与长视频续写合并为开放流水线。** **事实：** 模型支持语音文本到视频、语音图像到视频和多角色生成，并提供 FP8、INT8、FlashAttention 与多 GPU 推理选项。**判断：** 功能覆盖完整，但缺少统一硬件下的端到端成本对照，开放社区复测将决定它是否具备实际替代商业数字人服务的能力。[Hugging Face](https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.6)
+
+## 顶会与论文
+
+- **SC26 在芝加哥开幕。** 11 月 15 日首日以教程和工作坊为主，Lawrence Berkeley Lab 举办高分辨率科学 AI 大规模训练教程；大会的正式媒体发布会在 11 月 16 日，后续议程覆盖 Agentic HPC、科学模型、Vera Rubin 调度和物理世界建模。**判断：** 本窗口尚无足以单列的获奖或重大技术结果，未来数日应重点跟踪厂商发布与可复现的系统论文。[SC26 媒体页](https://sc26.supercomputing.org/media/)｜[LBNL 参会日程](https://cs.lbl.gov/news-and-events/sc26-participation/)｜[NVIDIA SC26](https://www.nvidia.com/en-us/events/supercomputing/)
+
+- **周末无高价值新论文首发。** arXiv 在该窗口没有发现与 AI、Agent、世界模型、多模态或机器人相关、且属于首次公开的高信噪比论文；Hugging Face 当日热榜中多项内容是旧论文再上榜，未重复收录。
+
+## 视频与访谈
+
+- 本窗口未发现发布时间和信息增量都满足条件的 YouTube 新视频或访谈，因此本节留空，不用旧内容凑数。
+
+## 值得继续跟踪
+
+- **NVIDIA 的永久 CEO 人选与芯片销售调查。** 需等待董事会正式搜索安排、黄仁勋是否公开回应，以及美国监管机构是否提出具体执法或披露要求。[NVIDIA 投资者关系](https://investor.nvidia.com/)
+
+- **LongCat-Video-Avatar 1.6 的独立部署数据。** 重点关注 24GB/48GB GPU 上的显存、生成速度、超过 10 分钟时的身份漂移，以及多语言口型与安全水印评测。[Hugging Face](https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.6)
+
+- **800V DC 的长期可靠性。** Envision 尚未公开可用性、故障切换、维护窗口和相对传统 UPS 架构的实测节能数据；这些指标将决定方案能否跨数据中心复制。[Envision 公告](https://www.prnewswire.com/news-releases/envision-achieves-worlds-first-commercial-deployment-of-integrated-800v-dc-sst-based-power-system-in-large-scale-ai-data-center-302926109.html)
+
+- **Zeromatter 的客户与真实世界验证。** 当前估值和模型能力均缺少可审计细节，需等待公司公告、融资文件或第三方测试。[The Information](https://www.theinformation.com/newsletters/the-electric/exclusive-three-veterans-teslas-autopilot-team-got-1-billion-valuation-ai-simulation-startup)
+
+## 来源
+
+- https://www.theinformation.com/briefings/huang-weighs-nvidia-comeback-bessent-pushes-board-look-outside
+- https://www.axios.com/2026/11/15/bessent-nvidia-earnings-china-chip-sales-ceo
+- https://apnews.com/article/35786b8f539ec95f16ae0500f71cfcc7
+- https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.6
+- https://www.theinformation.com/newsletters/ai-infrastructure/chinese-energy-company-outpacing-u-s-ai-power-technology
+- https://www.prnewswire.com/news-releases/envision-achieves-worlds-first-commercial-deployment-of-integrated-800v-dc-sst-based-power-system-in-large-scale-ai-data-center-302926109.html
+- https://www.theinformation.com/newsletters/the-electric/exclusive-three-veterans-teslas-autopilot-team-got-1-billion-valuation-ai-simulation-startup
+- https://sc26.supercomputing.org/media/
+- https://cs.lbl.gov/news-and-events/sc26-participation/
+- https://www.nvidia.com/en-us/events/supercomputing/
+- https://investor.nvidia.com/
