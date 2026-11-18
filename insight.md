@@ -6394,3 +6394,68 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://www.theinformation.com/articles/openai-explored-5-billion-plus-acquisition-startup-decodes-ai-thinks
 - https://sc26.supercomputing.org/media/
 - https://arxiv.org/abs/2611.18562
+
+# 2026-11-18 AI 热点简报
+
+> 覆盖窗口：2026-11-17 08:08 至 2026-11-18 08:08（Europe/Zurich）。已检索公开 X、国际会议与论文、The Information 公开摘要、YouTube、实验室及公司公告。部分页面只给出日期而无具体时间，窗口归属按公开日期判断；厂商的能力与性能数字为自报，尚需独立验证。本期采取短版，不用旧闻填补世界模型和机器人条目。
+
+## 今日重点
+
+### 1. OpenAI 发布 GPT-6.2 Astra 与 Sol，强调任务成本和专业工作
+
+**事实摘要：** OpenAI 宣布 GPT-6.2 Astra 与 Sol 在 ChatGPT Work、Codex 和 API 中推出，Astra 面向复杂推理和编码，Sol 面向日常编码与多步 Agent 工作流。OpenAI 称 Astra 在 Agents’ Last Exam 上比上一代 Astra 高 5.2 个百分点，单任务成本不到其一半；Sol 在其 FrontierCode 2.0 测试中以约五分之一成本接近 Astra。上述比较均为发布方自测，实际可用性随账户及产品而异。[OpenAI 开发者公告](https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531)｜[API 更新记录](https://developers.openai.com/api/docs/changelog)
+
+**影响判断：** 竞争重点进一步转向完成复杂任务的总成本，而不只是每 token 价格；不同工具配置、任务和重试次数可能改变结果，独立复测仍不可少。
+
+### 2. 新模型安全卡：网络安全能力与自主性提升伴随更严格防护
+
+**事实摘要：** OpenAI 的系统卡称，两款 GPT-6.2 模型均达到其内部 Preparedness Framework 的网络安全能力 Critical 阈值和生物化学能力 High 阈值；Astra 还是该公司首个达到 AI 自我改进 High 阈值的外部发布模型。公司表示已收紧高风险网络安全协助的默认限制，对更宽松访问实施额外审核，并监控外部使用。[OpenAI 系统卡](https://deploymentsafety.openai.com/gpt-6-2-astra-sol/internal-deployment-of-gpt-6.2-astra-and-gpt-6.2-sol)
+
+**影响判断：** 这些是厂商框架下的能力阈值，不等同于实际事故发生概率。关键在于外部评估能否验证防护效果，以及限制是否兼顾合法防御工作。
+
+### 3. 微软 Ignite 发布 MAI Code 2，并向受信客户许可模型权重
+
+**事实摘要：** 微软宣布 MAI Code 2 与 Code 2 Flash 在 GitHub Copilot 和 Foundry 正式可用，分别针对复杂编码和高频轻量任务；同时宣布向受信客户提供 MAI 模型权重许可。The Information 的公开标题与摘要也报道了权重许可计划，但具体条款和可获得范围仍需以微软合同为准。[微软官方公告](https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/)｜[The Information 公开摘要](https://www.theinformation.com/briefings/microsoft-let-customers-customize-ai-models-weights)
+
+**影响判断：** 专用模型和受控权重许可为企业提供了不同于纯 API 的部署选择，但“许可权重”不等同于公开权重或宽松开源许可；价格、能力和可迁移性还需独立比较。
+
+## 分主题动态
+
+### Agent
+
+- **Agent 365 扩展本地 Agent 发现与身份管理。** **事实：** 微软称 Defender 已正式支持在受管 Windows 和 macOS 设备发现本地 Agent；网络级发现、影子 Agent 注册及为受支持的本地 Agent 分配 Entra 身份仍处预览阶段。**判断：** 把 Agent 纳入资产清单和权限治理是企业部署的重要基础，但能见度并不自动保证授权正确或阻止提示注入。[微软 Agent 365](https://techcommunity.microsoft.com/blog/agent-365-blog/whats-new-in-microsoft-agent-365-ignite-2026/4571753)
+
+### 多模态
+
+- **微软公布 MAI Image 2.7 模型卡。** **事实：** 模型卡将其描述为支持文生图和受控图像编辑的扩散模型，标注发布日期为 11 月 17 日。**判断：** 值得关注可编辑性、身份一致性和安全限制的独立比较，目前不将模型卡中的能力描述视为第三方验证。[微软模型卡](https://microsoft.ai/pdf/MAI-Image-2.7-Model-Card.pdf)
+
+### 计算
+
+- **长时后台推理增加成本与等待时间的选择。** **事实：** OpenAI API 更新记录称，Responses API 的公开测试支持两小时或八小时后台完成窗口，对应模型 token 费率较标准费率分别低 30% 和 40%。**判断：** 面向不紧急的长任务，这类调度可降低成本；端到端时延、任务失败重试与结果质量仍应实测。[OpenAI API 更新记录](https://developers.openai.com/api/docs/changelog)
+
+## 顶会与论文
+
+- **Microsoft Ignite 2026 开幕，企业 Agent 治理成为重点。** 11 月 17 日的官方公告集中介绍模型选择、权重许可、Agent 发现及身份控制；上述产品可用状态分别为正式版或预览，不能笼统视为均已全面开放。[Ignite 官方页面](https://news.microsoft.com/events/ignite/2026/)｜[Agent 365 更新](https://techcommunity.microsoft.com/blog/agent-365-blog/whats-new-in-microsoft-agent-365-ignite-2026/4571753)
+- **论文时间边界。** 本次检索未找到首次公开时间明确落在窗口内、且具有足够技术增量的世界模型或具身智能论文。MLPerf Training v6.1 及其新增 Agent 后训练基准的官方发布日期为 11 月 16 日，无法确认落入本窗口，因此不当作今日首发。[MLCommons](https://mlcommons.org/2026/11/mlperf-training-v6-1-results/)
+
+## 视频与访谈
+
+本次公开检索未找到发布时间、可访问性和新增信息均可核实的窗口内 YouTube 视频，因此不以旧视频凑数。
+
+## 值得继续跟踪
+
+- **GPT-6.2 的独立评测与安全控制。** 需观察真实代码库、长程工具调用、网络安全防护与误拒率的外部测试；模型卡阈值本身不证明防护已充分。[OpenAI 系统卡](https://deploymentsafety.openai.com/gpt-6-2-astra-sol/internal-deployment-of-gpt-6.2-astra-and-gpt-6.2-sol)
+- **MAI 权重许可的实际边界。** 客户资格、部署范围、再训练及分发权利有待具体条款披露，不应与开放权重混同。[微软公告](https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/)
+- **公开 X 讨论。** 本次搜索未能核验到相对以上一手公告具有独立信息增量的重要帖子；流传的模型代号或性能截图不作为事实收录。[OpenAI 开发者公告](https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531)
+
+## 来源
+
+- https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531
+- https://developers.openai.com/api/docs/changelog
+- https://deploymentsafety.openai.com/gpt-6-2-astra-sol/internal-deployment-of-gpt-6.2-astra-and-gpt-6.2-sol
+- https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/
+- https://www.theinformation.com/briefings/microsoft-let-customers-customize-ai-models-weights
+- https://techcommunity.microsoft.com/blog/agent-365-blog/whats-new-in-microsoft-agent-365-ignite-2026/4571753
+- https://microsoft.ai/pdf/MAI-Image-2.7-Model-Card.pdf
+- https://news.microsoft.com/events/ignite/2026/
+- https://mlcommons.org/2026/11/mlperf-training-v6-1-results/
