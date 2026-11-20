@@ -6533,3 +6533,65 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://sc26.supercomputing.org/2026/11/navigating-sc26-know-before-you-go/
 - https://arxiv.org/abs/2611.22367
 - https://arxiv.org/abs/2611.22138
+
+# 2026-11-20 AI 热点简报
+
+> 覆盖窗口：2026-11-19 08:08 至 2026-11-20 08:08（Europe/Zurich，UTC+1）。已检索公开 X 索引、国际会议与论文、The Information 公开摘要、YouTube 和机构一手来源。本期采取短版；部分公告仅标注日期，准确时分待核实。性能数字为发布方或作者自报，未视为独立验证。
+
+## 今日重点
+
+### 1. Gemini API 预览按需检索工具，减少大型工具库的上下文开销
+
+**事实摘要：** Google 宣布 Interactions API 预览 Tool Retrieval：模型仍可看到延迟加载工具的名称和描述，需要时再加载完整参数定义并调用。功能支持 Gemini 3.6 及后续模型，不另收功能费，但正常 token 计费仍适用；Google 未在公告中给出统一的实测节省比例。[Google 官方公告](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/)
+
+**影响判断：** 对工具数量众多的 Agent，这可能降低无用定义占用的上下文和成本，但检索错误、额外调用及实际节省量都需按具体工作负载测量。公告标注 11 月 19 日，具体发布时间待核实。
+
+### 2. Anthropic 完成首日交易，上市后的安全与商业压力受到关注
+
+**事实摘要：** 继昨日已报道的每股 83 美元 IPO 定价之后，Anthropic 于 11 月 19 日开始交易；The Information 公开页面称首日收于 97 美元，较发行价上涨约 17%。美联社报道其首日收盘市值约 1.75 万亿美元，并指出公司作为公益公司的安全承诺与股东盈利预期之间的张力。[The Information 公开页面](https://www.theinformation.com/)｜[美联社](https://apnews.com/article/anthropic-history-openai-dario-amodei-ipo-53fb21bd250b936d93c5c8885af8d393)
+
+**影响判断：** 这里的新进展是实际交易结果，而非重复 IPO 定价。首日价格不能证明长期盈利能力，也无法单独衡量安全治理质量。
+
+### 3. 气候建模 Gordon Bell 奖表彰生成式数据同化
+
+**事实摘要：** ACM 在 SC26 将气候建模 Gordon Bell 奖授予 STORM 国际团队，表彰其利用线性复杂度全局注意力进行百亿亿次级生成式数据同化和地球系统预测的研究。获奖新闻稿介绍了将观测数据融入预测模型时的计算挑战。[ACM 新闻稿公开转载](https://www.hpcwire.com/off-the-wire/storm-team-wins-gordon-bell-climate-prize-for-ai-based-data-assimilation-on-frontier/)｜[SC26 奖项页面](https://sc26.supercomputing.org/program/awards/)
+
+**影响判断：** 该奖凸显 AI 方法与大规模科学计算的结合，但获奖本身不代表系统已在所有天气或气候业务场景中得到部署。
+
+## 分主题动态
+
+### Agent
+
+- **公开 X 讨论：多 Agent 的共享任务状态与权限。** **事实：** Vercel 的 Malte Ubl 于 11 月 19 日介绍其团队如何用实验性 Board 汇集任务、Agent 决策和运行轨迹，并将其用于漏洞修复工作流；这些是团队自述的内部实践，Board 此前已发布，本次收录的是新增使用细节。[X 原帖](https://x.com/cramforce/status/2123442758606352420)｜[公开索引](https://www.nitter.gq/cramforce/status/2123442758606352420) **判断：** 持久状态和审计记录有助于协调，但权限隔离、过期任务认领和提示注入仍需要实际验证。
+
+### 计算与模型
+
+- **NVIDIA 据报洽购扩散语言模型公司 Inception。** **事实（受限来源公开摘要）：** The Information 引述知情人士称双方正进行后期谈判，拟议交易至少 5 亿美元，另有附条件的员工奖励；双方未立即回应，交易尚未确认。[The Information 公开摘要](https://www.theinformation.com/articles/nvidia-nears-acquisition-diffusion-ai-developer-500-million) **判断：** 扩散式文本生成值得关注，但具体速度、质量与推理成本依赖模型和基准，不能把潜在收购当成已经完成。
+
+## 顶会与论文
+
+- **SC26 气候建模获奖工作：** STORM 将全局注意力和生成式数据同化用于地球系统预测，属于本窗口可核实的会议结果；对比传统方案的实际精度、成本和业务部署仍需查阅论文与后续独立评估。[ACM 新闻稿公开转载](https://www.hpcwire.com/off-the-wire/storm-team-wins-gordon-bell-climate-prize-for-ai-based-data-assimilation-on-frontier/)
+- **论文时间边界：** 机器人安全研究 [TARS](https://arxiv.org/abs/2611.24100) 与灵巧操作研究 [SHAPE](https://arxiv.org/abs/2611.24585) 虽在 11 月 19 日索引出现，arXiv 均标注 11 月 18 日提交，无法确认首次公开在本窗口，因此不计为今日新论文。世界模型、多模态及具身方向未发现时间和实质增量均足够明确的新条目。
+
+## 视频与访谈
+
+公开检索未找到能同时核实首次发布时间、可访问性及窗口内新增信息的 YouTube 内容；因此不以旧演讲或重复上传凑数。
+
+## 值得继续跟踪
+
+- **Tool Retrieval 的实际收益：** 测试不同工具库规模下的选工具准确率、额外延迟及每任务成本，并检查工具权限是否仍得到强制执行。[Google](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/)
+- **NVIDIA 与 Inception 的谈判：** 价格和交易状态来自匿名信源，等待当事方或监管文件确认；在此之前不视为已完成收购。[The Information](https://www.theinformation.com/articles/nvidia-nears-acquisition-diffusion-ai-developer-500-million)
+- **多 Agent 共享状态安全：** 观察实验性 Board 的身份、授权、任务认领与恶意内容隔离，厂商内部示例不能代替独立安全审计。[X 原帖](https://x.com/cramforce/status/2123442758606352420)
+
+## 来源
+
+- https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/
+- https://www.theinformation.com/
+- https://apnews.com/article/anthropic-history-openai-dario-amodei-ipo-53fb21bd250b936d93c5c8885af8d393
+- https://www.hpcwire.com/off-the-wire/storm-team-wins-gordon-bell-climate-prize-for-ai-based-data-assimilation-on-frontier/
+- https://sc26.supercomputing.org/program/awards/
+- https://x.com/cramforce/status/2123442758606352420
+- https://www.nitter.gq/cramforce/status/2123442758606352420
+- https://www.theinformation.com/articles/nvidia-nears-acquisition-diffusion-ai-developer-500-million
+- https://arxiv.org/abs/2611.24100
+- https://arxiv.org/abs/2611.24585
