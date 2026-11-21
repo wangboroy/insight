@@ -6595,3 +6595,71 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://www.theinformation.com/articles/nvidia-nears-acquisition-diffusion-ai-developer-500-million
 - https://arxiv.org/abs/2611.24100
 - https://arxiv.org/abs/2611.24585
+
+# 2026-11-21 AI 热点简报
+
+> 覆盖窗口：2026-11-20 08:08 至 2026-11-21 08:08（Europe/Zurich，UTC+1）。本期为精简版。已检索公开 X 索引、国际会议与论文、The Information 公开摘要、YouTube 和机构一手来源；部分机构页面只注明日期，准确发布时间相对窗口起点仍待核实。评测数字为研究者或发布方报告。
+
+## 今日重点
+
+### 1. Claude 辅助黎曼猜想证明获提出，正确性仍待独立审查
+
+**事实摘要：** Anthropic 数学家 Levent Alpöge 11 月 20 日公开表示，他与 Claude 合作获得黎曼猜想及其推广的证明，并公布 Lean 形式化材料。美联社称材料约有 1700 万行；截至报道时，Clay 数学研究所仍将问题列为未解决。作者的主张不等于数学界已确认结果。[作者说明](https://alpo.ge/remark.pdf)｜[美联社](https://apnews.com/article/4fe8b69a891f160f9e7f0c85af8c55c8)｜[The Information 公开摘要](https://www.theinformation.com/briefings/anthropic-mathematician-says-proved-riemann-hypothesis)
+
+**影响判断：** 若通过严格验证，这将是 AI 辅助数学研究的重要里程碑；当下的关键是核验形式化命题是否准确对应标准猜想、依赖项及完整证明，而不是先宣布难题已解决。
+
+### 2. METR 更新 Agent 长任务评估：可验证任务进展快，判断任务仍困难
+
+**事实摘要：** METR 11 月 20 日发布能力更新，估计其 TH2 可验证任务子集上，公开前沿模型的 50% 任务时长指标最高约 27 小时；合并任务集的历史趋势约每 3.6 个月翻倍，95% 置信区间约 2.08 至 4.94 个月。指标中的时长指人类完成任务所需时间，且测量依赖任务分布和人类基准；METR 同时指出模型在缺少清晰反馈、需要判断的任务上仍有明显不足。[METR 原始报告](https://metr.org/blog/2026-11-20-q4-2026-capability-update/)｜[The Information 公开摘要](https://www.theinformation.com/briefings/ais-can-now-outperform-humans-week-length-tasks-ai-nonprofit-finds)
+
+**影响判断：** 有明确评分和反馈的工程任务正在发生显著变化，但这不是“AI 已可靠替代一周人类工作”的证据，也不保证历史增长速度持续。报告页面只标注日期，精确发布时分待核实。
+
+### 3. OpenAI 发布药物化学多模态评测 MedChemBench
+
+**事实摘要：** OpenAI 11 月 20 日介绍 MedChemBench，包含来自 117 篇论文和专利的 99 道题，评估模型重建分子结构、解释实验、筛选化合物及预测性质。OpenAI 自报 GPT-6.2 Astra 在 xhigh 设置下获得可得分的 84.5%，并指出化合物选择和数值预测比结构重建更难。[OpenAI](https://openai.com/index/introducing-medchembench/)｜[研究论文](https://cdn.openai.com/pdf/09c4ec60-a32e-4652-837b-1811368a3bb0/medchembench-paper.pdf)
+
+**影响判断：** 该基准有助于把多模态识图与真实科研决策结合起来评估；分数是发布方报告，不能推断模型能够独立发现药物，更不能代替实验和临床验证。公告只标注日期，精确发布时间待核实。
+
+### 4. 美国总统提出对海外 AI 数据中心征税的威胁
+
+**事实摘要：** 美联社 11 月 20 日报道，特朗普表示可能对在海外建设 AI 数据中心的美国公司征收高额税费；他表示尚未向工作人员提出该方案，执行方式也不明确。[美联社](https://apnews.com/article/trump-artificial-intelligence-data-centers-f1ac03b73d13445400eeed8631d9d879)
+
+**影响判断：** 这增加了跨境算力布局的不确定性，但目前是政治表态而非已颁布税法；具体适用对象、法律依据和落地时间均不可预设。
+
+## 分主题动态
+
+### Agent 与计算
+
+- **长任务能力的评估边界。** **事实：** METR 在可验证编码和优化任务中观察到模型常可匹敌或超过其招募的人类基准，但在参与者更多的竞赛中，模型并非总能击败顶尖选手。**判断：** 评测应同时关注任务可验证性、计算预算、人的基准和开放式判断能力。[METR](https://metr.org/blog/2026-11-20-q4-2026-capability-update/)
+
+### 多模态与科学
+
+- **分子图像到科研判断仍有落差。** **事实：** MedChemBench 分别考查分子结构、科学解释、候选排序和数值预测，而非只给出一个综合分数。**判断：** 细分指标更适合寻找失败模式；公开文献构建的测试也应注意训练数据污染和前瞻性验证。[OpenAI](https://openai.com/index/introducing-medchembench/)
+
+## 顶会与论文
+
+- **世界模型论文时间边界。** [AFFECT](https://arxiv.org/abs/2611.25980) 研究通过动作扰动改善世界模型对动作后果的预测；arXiv 显示 11 月 19 日提交，无法确认首次公开在本窗口内，故不计为今日首发。其结果为作者自报，需独立复现。
+- 本次检索未发现首次公开时间和实质增量均可确认落在窗口内的顶会公告或具身智能新论文，因此不以旧闻凑数。
+
+## 视频与访谈
+
+本次公开检索未能同时核实窗口内首次发布时间、可访问性及技术增量的 YouTube 视频；因此本期不收录。
+
+## 值得继续跟踪
+
+- **黎曼猜想的独立核验。** 重点观察 Lean 声明与标准命题的对应关系、依赖项和独立重跑，以及数学界对证明的审查；现阶段仍是待验证主张。[作者说明](https://alpo.ge/remark.pdf)｜[独立核验跟踪](https://stateofproof.org/paper-watch/paper-2026-11-20-a-claimed-proof-of-the-riemann-hypothesis)
+- **METR 的测量与外推。** 关注人类基准不确定性、成本更高和难以自动评分任务，以及不同实验设置下的复现；趋势外推并非预测保证。[METR](https://metr.org/blog/2026-11-20-q4-2026-capability-update/)
+- **公开 X 信息。** 搜索未找到能够独立核验、且相对上述一手材料有实质增量的窗口内帖子；不将匿名截图或传闻作为事实。
+
+## 来源
+
+- https://alpo.ge/remark.pdf
+- https://apnews.com/article/4fe8b69a891f160f9e7f0c85af8c55c8
+- https://www.theinformation.com/briefings/anthropic-mathematician-says-proved-riemann-hypothesis
+- https://metr.org/blog/2026-11-20-q4-2026-capability-update/
+- https://www.theinformation.com/briefings/ais-can-now-outperform-humans-week-length-tasks-ai-nonprofit-finds
+- https://openai.com/index/introducing-medchembench/
+- https://cdn.openai.com/pdf/09c4ec60-a32e-4652-837b-1811368a3bb0/medchembench-paper.pdf
+- https://apnews.com/article/trump-artificial-intelligence-data-centers-f1ac03b73d13445400eeed8631d9d879
+- https://arxiv.org/abs/2611.25980
+- https://stateofproof.org/paper-watch/paper-2026-11-20-a-claimed-proof-of-the-riemann-hypothesis
