@@ -6663,3 +6663,52 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://apnews.com/article/trump-artificial-intelligence-data-centers-f1ac03b73d13445400eeed8631d9d879
 - https://arxiv.org/abs/2611.25980
 - https://stateofproof.org/paper-watch/paper-2026-11-20-a-claimed-proof-of-the-riemann-hypothesis
+
+# 2026-11-22 AI 热点简报
+
+> 覆盖窗口：2026-11-21 08:08 至 2026-11-22 08:08（Europe/Zurich，UTC+1）。本期为周末短版：已检索公开 X 索引、会议与论文、The Information 公开摘要、YouTube 和机构来源。严格核对后，窗口内可确认的实质新增较少；不以旧发布填充，日期或首次公开时分不明的线索明确标注。
+
+## 今日重点
+
+### 1. Oracle 称 OpenAI 基础设施合同资金已落实，公开报道补充融资背景
+
+**事实摘要：** The Information 于 11 月 21 日 08:09 PST 报道，Oracle 表示已获得履行 OpenAI 合同所需的资金。Oracle 的 11 月 20 日声明称，本月早些时候完成的最后一轮融资及此前规划的供应商融资均已落实，进一步与供应商的私下讨论只是额外选项；其声明没有披露此轮融资完整金额与结构。[The Information 公开摘要](https://www.theinformation.com/briefings/oracle-says-completed-funding-fulfil-openai-deal)｜[Oracle 声明](https://www.oracle.com/news/announcement/oracle-statement-2026-11-20/)
+
+**影响判断：** 算力建设能否融资已成为前沿模型供给的重要约束。Oracle 的表态是公司对资金状况的说明，不等于独立核验了资金成本、未来现金流或全部项目按时交付；The Information 在本窗口内报道，Oracle 原声明的具体发布时间早于本窗口。
+
+### 2. AI 基础设施投资情绪承压
+
+**事实摘要：** Axios 11 月 21 日报道，截至此前一个交易日收盘，纳斯达克指数与标普 500 指数均较近期高点回落超过 10%，半导体指数自 11 月初下跌 21.2%。报道把数据中心政策、NVIDIA 管理层变化与 Anthropic 上市后的走势列为市场背景。[Axios](https://www.axios.com/newsletters/axios-am-aebd8048-f11d-44eb-9abb-c81c36ceb5fe)
+
+**影响判断：** 市场重新评估 AI 基建的融资和回报风险，可能影响后续资本成本，但股价变动不能单独证明模型需求或技术进展出现同等幅度变化。上述解释是报道对多因素的归纳，而非已经证实的单一因果关系。
+
+## 分主题动态
+
+### 计算
+
+- **融资落实与设施交付是不同里程碑。** **事实：** Oracle 称 Abilene 园区接近完工、Shackelford 园区已获许可，预计未来数周交付相关机架；这些是公司自己的项目进度表述。[Oracle](https://www.oracle.com/news/announcement/oracle-statement-2026-11-20/) **判断：** 值得后续核对实际交付、供电与资本支出，不应把“资金已落实”写成所有设施均已上线。
+
+## 顶会与论文
+
+- **RoboWild 是值得留意的具身评测线索，但首发时间待核实。** 项目官方仓库描述 341 项仿真任务，包含 38 个场景及四类机器人形态，默认使用 RGB 观察和动作间暂停的 ReAct 评测；公开汇总将其列为 11 月 21 日发布，但项目页面未提供可核实的首次公开时分，因此不将其断定为窗口内首发。[官方仓库](https://github.com/xlang-ai/RoboWild)｜[项目页面](https://robowild.xlang.ai/)｜[日期线索（二手）](https://www.explainx.ai/blog/topics/robotics) **判断：** 多场景和跨形态设置有助于分析机器人泛化，但仿真成绩不能直接推断真实机器人可靠性。
+
+本次未发现首次公开时间和实质增量均能确认落入窗口的顶会公告或新论文；世界模型、多模态和 Agent 方向不以旧闻凑数。
+
+## 视频与访谈
+
+本次公开检索未找到同时能核实窗口内首次发布时间、可访问性和实质新增信息的 YouTube 视频或访谈，故本期不收录。
+
+## 值得继续跟踪
+
+- **RoboWild 的首次发布时间与独立复现。** 待核对公开时间、任务评估配置及不同模型和实体机器人的可比性。[官方仓库](https://github.com/xlang-ai/RoboWild)
+- **算力融资透明度。** 观察 Oracle 后续财报或监管文件对融资结构、支出、交付时间和现金流的披露；当前公司表态不提供全部细节。[Oracle](https://www.oracle.com/news/announcement/oracle-statement-2026-11-20/)
+- **公开 X 讨论。** 检索未找到能独立核验且相对上述信息有实质新增的窗口内帖子，不把匿名截图或传闻作为事实。
+
+## 来源
+
+- https://www.theinformation.com/briefings/oracle-says-completed-funding-fulfil-openai-deal
+- https://www.oracle.com/news/announcement/oracle-statement-2026-11-20/
+- https://www.axios.com/newsletters/axios-am-aebd8048-f11d-44eb-9abb-c81c36ceb5fe
+- https://github.com/xlang-ai/RoboWild
+- https://robowild.xlang.ai/
+- https://www.explainx.ai/blog/topics/robotics
