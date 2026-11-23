@@ -6712,3 +6712,58 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://github.com/xlang-ai/RoboWild
 - https://robowild.xlang.ai/
 - https://www.explainx.ai/blog/topics/robotics
+
+# 2026-11-23 AI 热点简报
+
+> 覆盖窗口：2026-11-22 08:08 至 2026-11-23 08:08（Europe/Zurich，UTC+1）。周末新增信息有限，本期为短版。检索了公开 X 索引、顶会与论文、The Information 公开摘要、YouTube、官方来源及可靠媒体；不能确认窗口内首发的材料不作为新发布。原始报告中的预测与性能数据均非独立验证结果。
+
+## 今日重点
+
+### 1. OpenAI 首席科学家建议用困惑度与其他指标约束 AI 开发
+
+**事实摘要：** OpenAI 首席科学家 Jakub Pachocki 于 11 月 22 日提出，以困惑度或交叉熵损失衡量模型对未见数据的预测能力，并推动跨实验室可比较的测量。他建议开发者在对模型行为的理解与监控达到明确里程碑前，共同承诺不跨越由困惑度及其他指标定义的能力界限；The Information 于当日 13:08 PST 报道了这一提议。[OpenAI 原文](https://openai.com/index/perplexity-and-intelligence/)｜[The Information 公开摘要](https://www.theinformation.com/briefings/openai-calls-leading-ai-firms-agree-ai-development-limits)
+
+**影响判断：** 该提议把能力测量与安全门槛联系起来，但目前是倡议而非行业协议。不同实验室的数据集与测量方法尚不一致，单一预测指标也不能充分刻画工具使用、部署风险或模型可控性；作者有关 2027 年研发加速的判断是可能性推测，而非既定事实。
+
+### 2. 业内人士警告 AI 可能加剧网络攻击，防御能力仍是关键
+
+**事实摘要：** Axios 11 月 22 日报道，其采访的 50 多名政府、AI、企业及网络安全领域人士预期未来 18 个月网络攻击会更频繁复杂，并主张加强关键系统防御。报道反映受访者的判断与预测，并未证明具体事故由 AI 攻击造成。[Axios](https://www.axios.com/2026/11/22/behind-the-curtain-ai-2027-the-reckoning)
+
+**影响判断：** 预警的价值在于推动组织检查身份权限、隔离、备份与事故响应；受访者意见不是可验证的事故预测，也不应将普通故障自动归因于攻击。
+
+### 3. AI 基础设施抛售传导至亚洲芯片股
+
+**事实摘要：** 美联社 11 月 23 日 04:23 UTC 报道，韩国综合指数当时下跌 5.8%，三星电子与 SK 海力士分别下跌 5.5% 和 4.9%；这是前一交易日美国 AI 与芯片股下跌之后的新市场进展。[美联社](https://apnews.com/article/stocks-markets-rates-technology-ai-anthropic-49ba1beba78fa4ed2bd5898029f79c91)
+
+**影响判断：** 新增变化是亚洲交易时段的价格反应，而非重复昨日美国收盘数据。盘中报价会变化，股价波动也不能单独证明算力需求或模型研发速度的变化。
+
+## 分主题动态
+
+### Agent 与安全
+
+- **MONAI Label 安全更新的后续报道。** **事实：** 11 月 22 日的安全报道梳理了 MONAI Label 0.8.6 对文件路径穿越问题的修复。AWS 此前表示，攻击者的 Cairn Agent 在 9 月的一次行动中发现并利用该漏洞，另一次会话取得 root 权限；AWS 的调查报告发表于 11 月 20 日，0.8.6 发布于 11 月 22 日 01:29 UTC，均早于本期窗口。此次收录的是窗口内的新报道，不是将攻击或修复误称为今日发生。[后续报道](https://cybersecuritybeat.com/2026/11/22/a-chinese-operator-let-ai-agents-hunt-for-bugs-on-their-own/)｜[AWS 调查](https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/)｜[维护者发布记录](https://github.com/Project-MONAI/MONAILabel/releases/tag/0.8.6) **判断：** 该案例提示对外暴露的科研服务需要网络隔离、身份验证和最小权限；升级与检查历史入侵应分开完成。AWS 对攻击者关联的归因仅为中等置信度。
+
+## 顶会与论文
+
+本次检索未发现首次公开时间和实质增量均可确认落入窗口的顶会公告或新论文。世界模型、多模态和具身智能方向不以旧发布凑数。
+
+## 视频与访谈
+
+公开检索发现新近的视频汇总，但未能同时核实原视频首次发布时间、具体内容和窗口内实质增量，本期不推荐未经核验的视频。
+
+## 值得继续跟踪
+
+- **困惑度标准能否跨实验室比较。** 关注评测语料、去重及污染控制、保密与独立审计，以及阈值与安全里程碑如何确定。[OpenAI](https://openai.com/index/perplexity-and-intelligence/)
+- **Agent 攻击与修复的后续证据。** AWS 的结论来自其对暴露的攻击基础设施的调查；需继续观察更多独立案例及实际部署方的安全响应。[AWS](https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/)
+- **公开 X 讨论。** Reuters 报道称 Sam Altman 在 X 支持 Pachocki 的提议，但本次未能独立核实原帖及发布时间，因此仅将其作为二手报道线索，不额外当作一手事实。[Reuters 公开转载](https://new.streetinsider.com/Reuters/OpenAI%2Bscientist%2Bproposes%2Bindustry%2BAI%2Blimits%2Btied%2Bto%2Bmodel%2Bintelligence%2Bmetric/27383088.html)
+
+## 来源
+
+- https://openai.com/index/perplexity-and-intelligence/
+- https://www.theinformation.com/briefings/openai-calls-leading-ai-firms-agree-ai-development-limits
+- https://www.axios.com/2026/11/22/behind-the-curtain-ai-2027-the-reckoning
+- https://apnews.com/article/stocks-markets-rates-technology-ai-anthropic-49ba1beba78fa4ed2bd5898029f79c91
+- https://cybersecuritybeat.com/2026/11/22/a-chinese-operator-let-ai-agents-hunt-for-bugs-on-their-own/
+- https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/
+- https://github.com/Project-MONAI/MONAILabel/releases/tag/0.8.6
+- https://new.streetinsider.com/Reuters/OpenAI%2Bscientist%2Bproposes%2Bindustry%2BAI%2Blimits%2Btied%2Bto%2Bmodel%2Bintelligence%2Bmetric/27383088.html
