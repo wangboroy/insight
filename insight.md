@@ -6767,3 +6767,69 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/
 - https://github.com/Project-MONAI/MONAILabel/releases/tag/0.8.6
 - https://new.streetinsider.com/Reuters/OpenAI%2Bscientist%2Bproposes%2Bindustry%2BAI%2Blimits%2Btied%2Bto%2Bmodel%2Bintelligence%2Bmetric/27383088.html
+
+# 2026-11-24 AI 热点简报
+
+> 覆盖窗口：2026-11-23 08:08 至 2026-11-24 08:08（Europe/Zurich）。部分官方公告仅显示 11 月 23 日而未标时分，无法完全排除早于窗口起点，以下明确标注。已检索公开 X、会议与论文、The Information 公开摘要和 YouTube；检索结果不足以核实窗口内有新增事实的 X 原帖或值得推荐的新视频，本期从简。厂商性能数字为自报，尚待独立验证。
+
+## 今日重点
+
+### 1. Anthropic 推出 Claude Ship，让 Agent 参与代码审查与审批
+
+**事实：** Anthropic 11 月 23 日宣布 Claude Ship 测试版：Code Review 检查变更，PR Steward 协助处理检查失败、冲突和审查意见，Claude Approvals 可根据团队规则审批常规变更，风险较高的变更交由人处理。产品面向 GitHub 项目的 Team 和 Enterprise 用户；官方提醒仍可能遗漏缺陷与安全问题。路透报道刊于窗口内，官方公告未给具体时分。[Anthropic](https://claude.com/resources/articles/introducing-claude-ship)｜[路透报道](https://www.investing.com/news/stock-market-news/anthropic-launches-claude-ship-to-help-developers-ship-code-faster-5046300)
+
+**判断：** 编码 Agent 正从生成代码延伸到合并前的治理环节；授权策略、审计和独立测试仍是部署前提，自动审批不等于代码安全。
+
+### 2. OpenAI 与 Cisco 开源 Shirudo，为运行中的 Linux 系统提供临时防护
+
+**事实：** 双方 11 月 23 日发布基于 eBPF 的开源项目，目标是在永久补丁准备和部署期间，为运行中的服务部署经过操作员批准的临时防护。OpenAI 报告在受控测试中，Codex 生成的防护阻止了针对运行中 Elasticsearch 的 Java4Shell 攻击尝试，无须重启；这不是对所有漏洞或生产环境有效性的证明。官方公告未标具体时分。[OpenAI](https://openai.com/index/introducing-shirudo/)｜[Cisco](https://investor.cisco.com/news/news-details/2026/Cisco-and-OpenAI-Launch-Shirudo-A-New-Project-to-Safeguard-Agentic-AI/default.aspx)
+
+**判断：** 它针对的是发现漏洞与完成补丁之间的暴露窗口，值得关注防护规则的误拦截、验证成本与生产环境可维护性。
+
+### 3. Z.ai 发布 GLM-5.4：用循环层增加计算深度
+
+**事实：** Z.ai 11 月 23 日介绍其首个 Loop Transformer 旗舰模型，将 GLM-5 基座的 28 层执行两次，并采用跨循环 KV 复用等方法控制开销。公司称模型可用于 Coding Plan、ZCode 和聊天产品，API 尚在准备，开放权重计划在安全加固之后；公告也承认模型有时会陷入过长思考。公告只给日期，具体时分待核实。[Z.ai 技术公告](https://z.ai/blog/glm-5.4)
+
+**判断：** 这是在参数量之外增加推理计算深度的商业化尝试；与更大模型相当的说法及吞吐量均为厂商自报，延迟、成本和实际任务表现有待第三方比较。
+
+### 4. NVIDIA 恢复黄仁勋职务，结束此前管理层变动
+
+**事实：** NVIDIA 于 11 月 23 日宣布董事会一致同意恢复黄仁勋总裁、CEO 和董事职务；公司向 SEC 提交的文件称董事会于 11 月 22 日作出决定，Colette Kress 继续担任 CFO。AP 于窗口内报道了此次复职，这是此前离职与继任报道的实质进展。[NVIDIA 公告](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Board-Reinstates-Jensen-Huang-as-President-CEO-and-Board-Director/default.aspx)｜[SEC 文件](https://www.sec.gov/Archives/edgar/data/1045810/000104581026000090/nvda-20261122.htm)｜[AP](https://apnews.com/article/39d4b34ffaa867b4e669893b5fd5028f)
+
+**判断：** 领导层不确定性短期下降，但董事会独立调查及后续治理安排仍值得跟踪；复职本身不代表相关调查已有最终结论。
+
+## 分主题动态
+
+### 计算与世界模型
+
+- **Amazon 收购 Decart 的芯片软件技术和人才。** The Information 11 月 23 日公开摘要称 Amazon 表示将收购 Decart 的关键技术并吸纳核心人员，目标包括提高自研 Trainium 等芯片运行 AI 的效率；报道认为 Decart 的世界模型和视频业务似乎不在此次收购范围，具体交易范围及金额仍待更多一手信息确认。**判断：** 算力效率软件的战略价值上升，但不能据此推断 Amazon 收购了其世界模型业务。[The Information 公开摘要](https://www.theinformation.com/briefings/amazon-acquires-chip-software-business-ai-startup-decart)
+- **AI 数据中心电力瓶颈。** The Information 公开文章讨论科技公司对地热等新电源的投入，并指出并网耗时是限制因素；文章引用此前 Google 与 Quaise 的交易作为例子，并非本窗口内新交易。**判断：** 这是基础设施趋势分析，具体项目的供电日期和经济性仍需逐项核实。[The Information](https://www.theinformation.com/articles/ais-power-crunch-reviving-long-stalled-energy-source)
+
+## 顶会与论文
+
+本次未找到首次公开时刻和实质增量均可确认落入窗口的重要会议公告或论文。检索到的 [γ-Scape 论文记录](https://arxiv.org/abs/2611.27306) 显示初稿提交于 11 月 20 日，不作为本期新论文；其移动操作仿真与基准可在后续有实质更新时再跟踪。
+
+## 视频与访谈
+
+已检索 YouTube，但未找到能同时核实首次发布时间、内容和窗口内实质增量的相关视频，故本期不推荐未经核实的内容。
+
+## 值得继续跟踪
+
+- **GLM-5.4 的开放权重及独立评测。** 官方尚未给出开放日期；关注真实任务质量、长思考延迟及部署成本。[Z.ai](https://z.ai/blog/glm-5.4)
+- **Agent 代码审批的可靠性。** 关注 Claude Ship 在不同风险级别下的误批、审计记录和人工接管表现；目前不能将其视为独立安全保证。[Anthropic](https://claude.com/resources/articles/introducing-claude-ship)
+- **受限来源的芯片出口消息。** The Information 公开摘要援引知情人士称美国商务部将把 Megaspeed 列入实体清单；这是报道而非已核实生效的监管决定，需等待官方文件。[The Information 公开摘要](https://www.theinformation.com/briefings/trump-administration-will-add-nvidia-linked-megaspeed-trade-blacklist)
+
+## 来源
+
+- https://claude.com/resources/articles/introducing-claude-ship
+- https://www.investing.com/news/stock-market-news/anthropic-launches-claude-ship-to-help-developers-ship-code-faster-5046300
+- https://openai.com/index/introducing-shirudo/
+- https://investor.cisco.com/news/news-details/2026/Cisco-and-OpenAI-Launch-Shirudo-A-New-Project-to-Safeguard-Agentic-AI/default.aspx
+- https://z.ai/blog/glm-5.4
+- https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Board-Reinstates-Jensen-Huang-as-President-CEO-and-Board-Director/default.aspx
+- https://www.sec.gov/Archives/edgar/data/1045810/000104581026000090/nvda-20261122.htm
+- https://apnews.com/article/39d4b34ffaa867b4e669893b5fd5028f
+- https://www.theinformation.com/briefings/amazon-acquires-chip-software-business-ai-startup-decart
+- https://www.theinformation.com/articles/ais-power-crunch-reviving-long-stalled-energy-source
+- https://arxiv.org/abs/2611.27306
+- https://www.theinformation.com/briefings/trump-administration-will-add-nvidia-linked-megaspeed-trade-blacklist
