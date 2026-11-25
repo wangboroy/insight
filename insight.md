@@ -6833,3 +6833,74 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://www.theinformation.com/articles/ais-power-crunch-reviving-long-stalled-energy-source
 - https://arxiv.org/abs/2611.27306
 - https://www.theinformation.com/briefings/trump-administration-will-add-nvidia-linked-megaspeed-trade-blacklist
+
+# 2026-11-25 AI 热点简报
+
+> 覆盖窗口：2026-11-24 08:08 至 2026-11-25 08:08（Europe/Zurich，UTC+1）。检索公开 X 索引、会议与论文、The Information 公开摘要、YouTube 和一手来源。部分官方页面仅标注 11 月 24 日而无具体时分，无法严格排除早于窗口起点，相关条目明确说明；厂商实验结果为发布方自报，尚待独立复现。
+
+## 今日重点
+
+### 1. OpenAI 展示通用模型参与蛋白设计的实验结果
+
+**事实摘要：** OpenAI 于 11 月 24 日公布研究，称 GPT-6.2 通过推理与代码生成蛋白三维骨架。合作方 Onava 测试了 322 个基于这些结构的迷你结合蛋白，其中 35 个显示出与预定目标结合的证据，五个目标均至少出现一个阳性；实验仍用专门模型生成序列并筛选候选。完整蛋白结构预测仍明显落后专用模型，结合也不等于药效。公告未标具体时分。[OpenAI 研究及论文入口](https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/)
+
+**影响判断：** 自然语言与代码可能让科学家更灵活地施加设计约束，但不能把结果表述为无需专用模型的端到端药物发现；实验复现、特异性与生物安全评估仍是关键。
+
+### 2. Google 为 Workspace Agent 推出正式接口与管理规则
+
+**事实摘要：** Google 宣布 Workspace MCP 服务器和 CLI 正式推出，覆盖 Gmail、Drive、文档、表格、日历等，并提供管理员控制、人工确认与审计。Google 表示 Agent 使用 Workspace 数据应通过 MCP 而非直接调用 REST API，技术执行从 2027 年 2 月 1 日开始；相关功能计划在两周内逐步部署。官方公告只标日期。[Google Workspace 更新](https://workspaceupdates.googleblog.com/2026/11/)｜[官方条款](https://workspace.google.com/terms/ai-tools/)
+
+**影响判断：** 这将影响现有企业 Agent 的集成和迁移计划，也把权限与操作审计放到平台层；实际适用范围和成本应以官方条款及配额为准。
+
+### 3. Anthropic 扩展 Claude 的 MCP 工作流
+
+**事实摘要：** Anthropic 宣布 Skills over MCP 在 Claude 和 Claude Code 公测，服务器可随工具提供按需加载的工作流程；Tasks 与 Elicitation 在相关产品中正式可用，分别支持后台长任务和中途请求用户输入，文件上传仍将推出。企业版和不同套餐的可用性并不相同。11 月 24 日官方公告仅标日期；公开 X 索引记录 Claude Devs 当日 13:05 ET 的相关帖子，但帖子未提供超出公告的独立新事实。[Anthropic 公告](https://claude.com/resources/articles/skills-over-mcp-tasks-and-more)｜[公开 X 帖索引](https://news.nabulines.com/2026/11/24/mcp-turns-two-and-claude-gets-skills-over-mcp-and-tasks)
+
+**影响判断：** Agent 连接器正从单次工具调用走向可更新的流程指导和异步委派；服务器携带的指令也扩大了信任边界，需要审计来源、权限和变更。
+
+### 4. 未发布模型安全争论升温
+
+**事实摘要：** Axios 于 11 月 24 日报道，援引二十多名了解内部讨论的人士称，Anthropic 和 OpenAI 部分员工担心某些内部模型过于强大，难以安全公开发布。报道反映信源对内部讨论的描述，并非对具体模型能力或事故的独立测量。[Axios](https://www.axios.com/2026/11/24/anthropic-openai-unreleased-ai-safety-risks)
+
+**影响判断：** 重点在于评测、部署决策和问责是否可被外部审查；匿名消息不足以证明特定模型已失控，也不能推断两家公司已作出统一发布决定。
+
+## 分主题动态
+
+### Agent
+
+- **Cognition 发布 SWE-2.1。** **事实：** Cognition 的模型公告介绍编码模型及面向安全和低延迟的变体；公开的 Cognition 社区发布说明称其进入 Devin Cloud、Desktop 和 CLI，并给出 FrontierCode 2.0 等厂商自测结果。公告本身未显示具体发布日期和时分，社区帖子显示 11 月 24 日。[Cognition](https://cognition.com/blog/swe-2-1)｜[公开发布说明](https://www.reddit.com/r/DevinAI/comments/1y4orzg/introducing_swe21/) **判断：** 编码和网络安全能力同步增强使部署、审计与安全边界更重要；分数不等于独立复现或真实生产任务成功率。
+
+- **OpenAI 据报筹备企业数据工具 Athena。** **事实（受限来源公开摘要）：** The Information 11 月 24 日 13:26 PST 报道，至少一名企业客户认为现有数据分析 Agent 尚不足以广泛使用；文章援引客户和另外三名人士称 OpenAI 正开发数据管理平台以改善表现。[The Information 公开摘要](https://www.theinformation.com/newsletters/applied-ai/openai-preps-athena-data-tool-make-agents-accurate) **判断：** 这是有来源但尚未由官方确认的产品线索，发布时间、能力和效果均不能视为已确定。
+
+### 具身智能
+
+- **Microduck 避障教程展示仿真到实机的控制流程。** **事实：** NVIDIA 在 Hugging Face 的 11 月 24 日教程描述固定原有步行策略，另用 Isaac Lab 和 Newton 训练基于飞行时间传感器的避障控制器；文章给出并行仿真、评估、导出及硬件测试步骤，未提供足以证明广泛实地可靠性的统计。页面未标具体时分。[NVIDIA / Hugging Face](https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance) **判断：** 分离运动控制和导航有助于复用策略，但真实传感噪声、障碍多样性与失败率仍决定能否迁移。
+
+## 顶会与论文
+
+- **蛋白设计预印本值得关注。** OpenAI 研究页面提供论文入口，报告骨架设计、序列重设计与实验室结合测试；作者亦明确指出候选筛选依赖专用模型、蛋白折叠预测仍是弱项。上述结果是研究团队报告，并非独立验证。[研究及论文入口](https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/)
+
+本次未发现首次公开时分与实质新增均能确认落入窗口的重要国际顶会公告。世界模型和多模态方向不以旧闻凑数。
+
+## 视频与访谈
+
+已检索 YouTube 公开索引，未找到同时能核实窗口内首次发布时间、内容和实质新增信息的视频或访谈，本期不作推荐。
+
+## 值得继续跟踪
+
+- **蛋白设计的外部复现与安全。** 关注实际结合的特异性、稳定性、功能与生物安全评估，而非只比较计算指标。[OpenAI](https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/)
+- **Workspace Agent 迁移。** 关注 2027 年 2 月的执行细则、OAuth 配置及不同配额，避免将公告等同于所有组织已完成部署。[Google Workspace](https://workspaceupdates.googleblog.com/2026/11/)
+- **Athena 与模型安全讨论。** 等待当事公司公开说明、独立证据和可检验的部署细节；当前报道不能替代正式发布或安全评测。[The Information 公开摘要](https://www.theinformation.com/newsletters/applied-ai/openai-preps-athena-data-tool-make-agents-accurate)｜[Axios](https://www.axios.com/2026/11/24/anthropic-openai-unreleased-ai-safety-risks)
+
+## 来源
+
+- https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/
+- https://workspaceupdates.googleblog.com/2026/11/
+- https://workspace.google.com/terms/ai-tools/
+- https://claude.com/resources/articles/skills-over-mcp-tasks-and-more
+- https://news.nabulines.com/2026/11/24/mcp-turns-two-and-claude-gets-skills-over-mcp-and-tasks
+- https://www.axios.com/2026/11/24/anthropic-openai-unreleased-ai-safety-risks
+- https://cognition.com/blog/swe-2-1
+- https://www.reddit.com/r/DevinAI/comments/1y4orzg/introducing_swe21/
+- https://www.theinformation.com/newsletters/applied-ai/openai-preps-athena-data-tool-make-agents-accurate
+- https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance
