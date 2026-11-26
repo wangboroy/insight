@@ -6904,3 +6904,59 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://www.reddit.com/r/DevinAI/comments/1y4orzg/introducing_swe21/
 - https://www.theinformation.com/newsletters/applied-ai/openai-preps-athena-data-tool-make-agents-accurate
 - https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance
+
+# 2026-11-26 AI 热点简报
+
+> 覆盖窗口：2026-11-25 08:08 至 2026-11-26 08:08（Europe/Zurich，UTC+1）。本期检索公开 X 索引、国际会议和论文、The Information 的公开标题与摘要、YouTube 及一手资料。可核实的新信息有限，采用短版；Anthropic 工程文章只标 11 月 25 日，具体发布时间无法严格核实，可能早于窗口起点。论文结论及厂商性能数据尚待独立验证。
+
+## 今日重点
+
+### 1. Google Research 仓库新增六篇 Cogentic 数学论文，核心证明仍待审查
+
+**事实摘要：** Google Research 的公开仓库在 11 月 25 日增加六篇 Cogentic 研究论文，涉及整数分解、离散对数、近似纳什均衡等。整数分解论文声称获得无条件的次指数复杂度上界；项目资料称 Cogentic 是以 Gemini 4 为基础的数学研究系统，并计划另行发布 Lean 形式化内容。这些是作者的研究主张，尚不能当成已被数学界验证的定理。[仓库提交及论文清单](https://github.com/google-research/google-research/commit/4a7bc8ab0bc770e71a259b7966c500496b99010a)
+
+**影响判断：** 这提供了观察研究型 Agent 能否提出并验证长链数学论证的重要样本。复杂度主张不等于实用破解，尤其不能据此宣称 RSA 已被攻破；应等待数学家审查和形式化证明。
+
+### 2. Anthropic 披露 Claude 参与生产 API 迁移，真实流量验证成为关键
+
+**事实摘要：** Anthropic 11 月 25 日介绍 Messages API 从 Python 迁移到 Rust 的过程：Claude 协助编写代码和迁移测试，公司用真实请求比较新旧系统行为。公司称早期测试通过率约 98% 时，生产输入匹配率却仅约四分之一；迁移后每次请求 CPU 用量约降低 70%，Claude Code 请求的中位首 token 时间约降低 20%。公开流量已在 9 月迁移，新增的是工程细节而非当日切换；文章未标具体发布时间。[Anthropic 工程文章](https://www.anthropic.com/research/migrating-api-to-rust)
+
+**影响判断：** 案例显示编码 Agent 生成代码的速度与验证生产行为是两个不同问题。实际效果是公司自报，且生产流量比对仍需考虑隐私、计费和非确定性。
+
+### 3. 前沿 AI 治理争论出现新回应
+
+**事实摘要：** 继昨日关于未发布模型安全担忧的报道后，Axios 11 月 25 日报道 Anthropic CEO Dario Amodei 反驳人类应向 AI 放弃自主决定权的说法；他区分了把治理权交给 AI 与在具体任务中提高自动化程度。Axios 另报道部分民主党人士据此前安全报道呼吁限制 AI 开发；这反映公开政治主张，并非已生效的新法律。[Axios：Amodei 回应](https://www.axios.com/2026/11/25/anthropic-dario-amodei-ai-free-will-contro-axios)｜[Axios：政策回应](https://www.axios.com/2026/11/25/democrats-ai-safety-restrictions-openai-anthropic-axios)
+
+**影响判断：** 新增变化是当事人回应与政策讨论，而不是对内部模型能力的独立测量。值得观察企业是否公布可审计的部署门槛和人工问责机制。
+
+## 分主题动态
+
+### 计算
+
+- **NVIDIA 治理风险进入信用观察。** **事实（受限来源公开标题与摘要）：** The Information 11 月 25 日报道，S&P Global 因治理风险将 NVIDIA 列入负面信用观察，意味着评级可能下调，而非已经下调。这是此前管理层变动及复职后的新增进展；本次未取得评级机构完整一手报告。[The Information 公开标题](https://www.theinformation.com/briefings/s-p-global-puts-nvidia-creditwatch-negative-due-governance-risks)｜[公开摘要](https://www.theinformation.com/briefings) **判断：** 治理风险可能影响融资预期，但不应由此推断芯片产品或交付能力已发生变化。
+
+## 顶会与论文
+
+- **Cogentic 六篇论文的验证状态。** 仓库列出的研究也包括确定性整数分解及图重构；项目 README 提及将另行发布形式化材料。当前不能仅凭标题判断证明正确或实际应用价值。[Google Research 提交记录](https://github.com/google-research/google-research/commit/4a7bc8ab0bc770e71a259b7966c500496b99010a)
+
+本次未发现首次公开时间与实质增量均可确认落入窗口的重要国际顶会公告。检索到的 [SimPWM 机器人世界模型论文](https://arxiv.org/abs/2611.32786) 首次提交于 11 月 24 日 15:14 UTC，早于本期窗口，不作为新论文收录。多模态及具身智能方向不以旧闻凑数。
+
+## 视频与访谈
+
+已检索 YouTube 公开结果，未找到能同时核实首次发布时间、内容及窗口内实质增量的相关新视频，本期不推荐。
+
+## 值得继续跟踪
+
+- **数学论文的独立复核。** 关注数学家审查、Lean 文件及形式化验证结果；在此之前，论文中的关键定理和效率结论均属待核实。[Google Research](https://github.com/google-research/google-research/commit/4a7bc8ab0bc770e71a259b7966c500496b99010a)
+- **算力与芯片信用风险。** 关注评级机构原始公告、后续评级行动与公司披露，避免把负面观察当成确定降级。[The Information](https://www.theinformation.com/briefings/s-p-global-puts-nvidia-creditwatch-negative-due-governance-risks)
+- **公开 X 讨论。** 检索到与上述事件相关的公开索引，但未能独立核实具有新增事实的原帖及发布时间，因此不把社交媒体讨论作为独立事实来源。
+
+## 来源
+
+- https://github.com/google-research/google-research/commit/4a7bc8ab0bc770e71a259b7966c500496b99010a
+- https://www.anthropic.com/research/migrating-api-to-rust
+- https://www.axios.com/2026/11/25/anthropic-dario-amodei-ai-free-will-contro-axios
+- https://www.axios.com/2026/11/25/democrats-ai-safety-restrictions-openai-anthropic-axios
+- https://www.theinformation.com/briefings/s-p-global-puts-nvidia-creditwatch-negative-due-governance-risks
+- https://www.theinformation.com/briefings
+- https://arxiv.org/abs/2611.32786
