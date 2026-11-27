@@ -6960,3 +6960,56 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://www.theinformation.com/briefings/s-p-global-puts-nvidia-creditwatch-negative-due-governance-risks
 - https://www.theinformation.com/briefings
 - https://arxiv.org/abs/2611.32786
+
+# 2026-11-27 AI 热点简报
+
+> 覆盖窗口：2026-11-26 08:08 至 2026-11-27 08:08（Europe/Zurich，UTC+1）。已检索公开 X 索引、国际会议与论文、The Information 公开标题和摘要、YouTube、公司公告及可靠媒体。可严格核实的新信息较少，本期采用短版；不以旧闻或不可验证的传闻凑数。厂商技术参数为其自报。
+
+## 今日重点
+
+### 1. 小鹏公布面向汽车与机器人的 Physical AI 架构
+
+**事实摘要：** 小鹏瑞士新闻室于 11 月 26 日 09:30 CET 发布 AI Day 公告，介绍 Turing Physical AI（VLA 3.0）架构，称其将感知、实时决策和物理执行用于智能汽车与人形机器人。公告称 IRON 配备 76 个自由度、超过 1,500 个触觉传感点和三颗自研图灵芯片；这些是公司披露的配置，不等于实际任务可靠性已获独立验证。活动本身有报道称在 11 月 25 日举行，窗口内新增的是这份官方说明。[小鹏官方公告](https://xpengswitzerland.pr.co/276234-the-connected-future-in-focus-xpeng-presents-the-turing-physical-ai-architecture/)｜[活动日期报道](https://roboticsdaily.robotshop.com/capsules/xpeng-ai-day-turing-iron-debut-2026-11/)
+
+**影响判断：** 车与机器人共用技术栈的方向值得关注，但传感器数量与演示并不能证明跨任务泛化、长期安全运行或量产经济性。
+
+### 2. 路透：海外算力限制可能拖慢中国前沿模型迭代
+
+**事实摘要：** 路透 11 月 26 日援引知情人士称，Z.AI 下一代 GLM-5.5 进度落后；另有知情人士称，若 Moonshot AI 无法获得海外算力，其主要模型的发布间隔可能从约六个月扩大至一年或更长。这些关于内部计划和后果的内容来自匿名信源，不能视为公司已确认的发布安排。[路透报道转载](https://www.livemint.com/technology/us-chip-curbs-distillation-crackdown-threaten-chinese-ai-model-development-sources-say-11795677620277.html?openSearch=true)
+
+**影响判断：** 算力访问、训练成本和模型迭代节奏的关联正在变得更直接；具体延迟幅度及归因仍需公司披露和实际发布验证。
+
+### 3. 微软披露 Agent Framework 恶意包事件的处置建议
+
+**事实摘要：** 微软 11 月 25 日公告称，11 月 17 日出现的 Python 元包 `agent-framework` 1.26.1 和 1.26.2 未经授权上传，包含窃取凭证的代码，现已从 PyPI 移除；恶意代码位于发布包而非源码仓库，其他框架 Python 包、.NET 包和 Semantic Kernel 不受此次问题影响。微软建议曾安装受影响版本的用户轮换可访问凭证、从干净镜像重建环境并审查日志。公告未给具体时分，可能早于本期窗口；此处收录的是官方说明，不是将 11 月 17 日事件称为新发生。[微软公告](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-repository-update/)
+
+**影响判断：** Agent 安全不仅是模型行为问题，安装包、构建系统和运行凭证同样构成关键攻击面。
+
+## 分主题动态
+
+### 世界模型、多模态与具身智能
+
+小鹏公告把多模态理解、任务规划、导航与身体控制放在同一架构叙述中，但未给出可独立比较的跨任务成功率或安全统计。**判断：** 更有价值的后续证据将是真实场景任务、失败率和持续运行数据，而非配置表。[小鹏官方公告](https://xpengswitzerland.pr.co/276234-the-connected-future-in-focus-xpeng-presents-the-turing-physical-ai-architecture/)
+
+## 顶会与论文
+
+本次未找到首次公开时间和实质新增均可确认落入窗口的重要国际顶会公告。检索到的 [M²AdaptVLA](https://arxiv.org/abs/2611.34560) 和 [Cairn](https://arxiv.org/abs/2611.34914) 提交日期均为 11 月 25 日，提交时间不等于首次公开时间；无法确认其在本窗口首次公开，故不作为本期新论文计入。
+
+## 视频与访谈
+
+已检索 YouTube 公开索引，未发现同时能核实首次发布时间和实质新增内容的合适视频，本期不推荐。
+
+## 值得继续跟踪
+
+- **IRON 实际部署：** 等待独立任务评测、故障率、接管流程及量产进度，不把公司发布目标当成已实现结果。[小鹏官方公告](https://xpengswitzerland.pr.co/276234-the-connected-future-in-focus-xpeng-presents-the-turing-physical-ai-architecture/)
+- **GLM-5.5 和海外算力：** 路透的时间表与影响判断来自匿名信源，等待当事公司进一步说明。[路透报道转载](https://www.livemint.com/technology/us-chip-curbs-distillation-crackdown-threaten-chinese-ai-model-development-sources-say-11795677620277.html?openSearch=true)
+- **X 与 The Information：** 已检索公开内容，未找到能够独立核实且在窗口内有足够新增信息的条目；因此不把社交讨论或受限内容当作事实补充。
+
+## 来源
+
+- https://xpengswitzerland.pr.co/276234-the-connected-future-in-focus-xpeng-presents-the-turing-physical-ai-architecture/
+- https://roboticsdaily.robotshop.com/capsules/xpeng-ai-day-turing-iron-debut-2026-11/
+- https://www.livemint.com/technology/us-chip-curbs-distillation-crackdown-threaten-chinese-ai-model-development-sources-say-11795677620277.html?openSearch=true
+- https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-repository-update/
+- https://arxiv.org/abs/2611.34560
+- https://arxiv.org/abs/2611.34914
