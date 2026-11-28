@@ -7013,3 +7013,42 @@ arXiv 在本窗口内没有新的周末发布批次，ICLR、NeurIPS、CVPR、IC
 - https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-repository-update/
 - https://arxiv.org/abs/2611.34560
 - https://arxiv.org/abs/2611.34914
+
+# 2026-11-28 AI 热点简报
+
+> 覆盖窗口：2026-11-27 08:08 至 2026-11-28 08:08（Europe/Zurich，UTC+1）。已检索公开 X 索引、国际会议与论文、The Information 公开内容、YouTube 及一手资料。可核实且有实质新增的信息很少，本期采用短版；以下重点是一篇窗口内发表的报道，其所述讲话本身发生在窗口之前，并非新的政策或协议。
+
+## 今日重点
+
+### 新加坡寻求维持先进 AI 芯片访问，停供消息尚未证实
+
+**事实摘要：** The Information 于 11 月 27 日 02:23 PST（11:23 苏黎世时间）报道，新加坡副总理颜金勇表示，新加坡正与美国沟通，以维持本地企业对先进芯片的安全访问，并审查防止芯片非法转运的流程。新加坡政府公布的对话实录证实，他对 Nvidia 停止向东南亚出货的报道表示尚未确认，政府正在联系企业了解影响。讲话已于当天早些时候公开，本窗口新增的是 The Information 的报道，而非新的出口规则、谈判结果或停供确认。[新加坡政府对话实录](https://www.meti.gov.sg/newsroom/transcript-of-dialogue-by-dpm-gan-at-the-sph-asia-future-summit-2026/)｜[The Information 公开报道](https://www.theinformation.com/briefings/singapore-talks-u-s-keep-ai-chip-access)｜[CNA 早间报道](https://www.channelnewsasia.com/singapore/economic-nationalism-asean-partnership-nvidia-chips-dpm-gan-6585321)
+
+**影响判断：** 区域数据中心的算力供给不仅取决于芯片生产，还取决于出口许可与最终用途审查。谈判能否形成具体安排、是否影响现有订单仍待官方或企业披露；不能把未经确认的停供报道写成既成事实。
+
+## 分主题动态
+
+### 计算
+
+此次公开表态延续此前关于先进芯片出口和海外算力访问的讨论，具体新增为 The Information 对新加坡立场的窗口内报道。规则本身和新加坡此前寻求相关安排并非当天新发生。[The Information](https://www.theinformation.com/briefings/singapore-talks-u-s-keep-ai-chip-access)｜[CNA 11 月 18 日报道](https://www.youtube.com/watch?v=bWdlL8DQsr0)
+
+## 顶会与论文
+
+未找到首次公开时间与实质新增均可确认落入窗口的重要国际顶会公告或论文。检索到的 [ZeroHero](https://arxiv.org/abs/2611.34635) 首次提交于 11 月 25 日，不作为本期新论文；论文聚合页的 11 月 27 日日期不能证明当日首次公开。世界模型、多模态和具身智能不以旧闻凑数。
+
+## 视频与访谈
+
+已检索 YouTube 公开索引，未发现同时能核实窗口内首发时间及实质新增的相关视频，本期不作推荐。
+
+## 值得继续跟踪
+
+- **芯片供应与许可：** 关注新加坡政府、美国主管机关及相关企业对许可、出货和订单影响的具体说明；现有材料不足以确认全面停供。[新加坡政府实录](https://www.meti.gov.sg/newsroom/transcript-of-dialogue-by-dpm-gan-at-the-sph-asia-future-summit-2026/)
+- **公开 X 讨论：** 本次未找到可独立核验、落在窗口内且具有实质新增的原帖，不将未经证实的社交讨论当作事实。
+
+## 来源
+
+- https://www.meti.gov.sg/newsroom/transcript-of-dialogue-by-dpm-gan-at-the-sph-asia-future-summit-2026/
+- https://www.theinformation.com/briefings/singapore-talks-u-s-keep-ai-chip-access
+- https://www.channelnewsasia.com/singapore/economic-nationalism-asean-partnership-nvidia-chips-dpm-gan-6585321
+- https://www.youtube.com/watch?v=bWdlL8DQsr0
+- https://arxiv.org/abs/2611.34635
